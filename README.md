@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Deploy and maintain models with vetiver
 ================
 
 ### posit::conf 2023
