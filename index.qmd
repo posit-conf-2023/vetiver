@@ -1,20 +1,9 @@
-Deploy and maintain models with vetiver
-================
+---
+format:
+  html
+---
 
-### posit::conf 2023
-
-by Julia Silge and Isabel Zimmerman
-
------
-
-:spiral_calendar: September 18, 2023  
-:alarm_clock:     09:00 - 17:00  
-:hotel:           ROOM TBD  
-:writing_hand:    [pos.it/conf](http://pos.it/conf)
-
------
-
-## Overview
+## Welcome
 
 These are the materials for a one-day workshop on [MLOps with vetiver](https://vetiver.rstudio.com/) on Monday, 18 Sept at [posit::conf 2023](http://pos.it/conf)!
 
@@ -29,32 +18,39 @@ We expect participants to have exposure to basic modeling and machine learning p
 - can fit a model to data with your modeling framework of choice
 wide variety of graphs
 
-## Prework
 
-ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO
-COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON
-RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN
-RSTUDIO.CLOUD ACCOUNT, ETC.
+## Preparation
+
+Please join the workshop with a computer that has the following installed:
+
+tktk
 
 ## Schedule
 
+Quarto files for working along [are available on GitHub](https://github.com/posit-conf-2023/vetiver/tree/main/class-work).
+
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
+| 09:00 - 10:30 | [Introduction](slides/01-introduction.html)       |
 | 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
+| 11:00 - 12:30 | [Deploy your model](slides/02-deploy.html)        |
 | 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
+| 13:30 - 15:00 | [Deeper into deployment](slides/03-deploy.html)   |
 | 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+| 15:30 - 17:00 | [Monitor your model](slides/04-monitor.html)      |
 
-## Instructor
+
+## Instructors
 
 Julia Silge is a software engineer at Posit PBC focusing on open source MLOps tools, as well as an author and international keynote speaker. Julia loves making beautiful charts, Jane Austen, and her two cats.
 
 Isabel Zimmerman is also a software engineer on the open source team at Posit PBC, where she works on building MLOps frameworks. When she's not geeking out over new data science techniques, she can be found hanging out with her dog or watching Marvel movies.
 
------
+## Acknowledgments {.appendix}
+
+This website, including the slides, is made with [Quarto](https://quarto.org/). Please [submit an issue](https://github.com/posit-conf-2023/vetiver/issues) on the GitHub repo for this workshop if you find something that could be fixed or improved.
+
+## Reuse and licensing {.appendix}
 
 ![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is
 licensed under a [Creative Commons Attribution 4.0 International

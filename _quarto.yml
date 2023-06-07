@@ -1,0 +1,43 @@
+project:
+  type: website
+  render:
+    - "index.qmd"
+    - "slides/*qmd"
+    - "!README.md"
+    - "!class-work/"
+    - "!CODE_OF_CONDUCT.md"
+  output-dir: docs
+
+website:
+  title: "Deploy and maintain models with vetiver"
+  description: "This one-day workshop provides an introduction to MLOps for R or Python using the vetiver framework."
+  open-graph: true
+  twitter-card: true
+  site-url: https://posit-conf-2023.github.io/vetiver
+  repo-url: https://github.com/posit-conf-2023/vetiver
+  repo-actions: [edit, issue]
+  favicon: "images/favicon.ico"
+
+  navbar:
+    background: light
+    pinned: true
+    logo: images/logo_small.png
+    right:
+      - text: Learn more
+        menu:
+          - href: https://vetiver.rstudio.com/
+            text: "Get started at vetiver.rstudio.com"
+          - href: https://rstudio.github.io/vetiver-python/
+            text: "Python package docs"
+          - href: https://rstudio.github.io/vetiver-r/
+            text: "R package docs"
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    
+fig-format: svg    
+
+
+
