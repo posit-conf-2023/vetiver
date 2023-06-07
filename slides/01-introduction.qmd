@@ -5,6 +5,8 @@ format:
   revealjs: 
     slide-number: true
     footer: <https://posit-conf-2023.github.io/vetiver>
+    preview-links: auto
+    incremental: true
     theme: [default]
     width: 1280
     height: 720
@@ -97,6 +99,8 @@ wide variety of graphs
 
 [{{< fa brands mastodon >}} \@juliasilge@fosstodon.org](https://fosstodon.org/@juliasilge)
 
+[{{< fa brands youtube >}} youtube.com/juliasilge](https://www.youtube.com/juliasilge)
+
 [{{< fa link >}} juliasilge.com](https://juliasilge.com/)
 
 </center>
@@ -114,11 +118,56 @@ wide variety of graphs
 
 ## Plan for this workshop
 
-- Version your model
-- Deploy your model
-- Monitor your model
+- *Versioning*
+    * Managing change in models ✅ 
+- *Deploying*
+    * Putting models in REST APIs 🎯
+- *Monitoring*
+    * Tracking model performance 👀
 
 # Introduce yourself to your neighbors 👋
+
+## What is machine learning?
+
+![](images/ml_illustration.jpg){fig-align="center"}
+
+::: footer
+Illustration credit: <https://vas3k.com/blog/machine_learning/>
+:::
+
+## What is machine learning?
+
+![](images/modeling-process.svg){fig-align="center"}
+
+::: footer
+Illustration credit: Chapter 1 of [*Tidy Modeling with R*](https://www.tmwr.org/software-modeling.html)
+:::
+
+## MLOps is...
+
+. . .
+
+![](images/ai-landscape.jpg){fig-align="center"}
+
+::: footer
+:::
+
+## MLOps is... 
+
+. . .
+
+a set of <u>practices</u> to *deploy* and *maintain* machine learning models in production **reliably** and **efficiently**
+
+
+## {background-color="white" background-image="https://vetiver.rstudio.com/images/ml_ops_cycle.png" background-size="contain"}
+
+::: footer
+:::
+
+## MLOps with vetiver 
+
+> Vetiver, the oil of tranquility, is used as a stabilizing ingredient in perfumery to preserve more volatile fragrances.
+
 
 # If you develop a model...
 
