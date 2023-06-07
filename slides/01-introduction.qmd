@@ -1,0 +1,149 @@
+---
+title: "1 - Introduction"
+subtitle: "Deploy and maintain models with vetiver"
+format:
+  revealjs: 
+    slide-number: true
+    footer: <https://posit-conf-2023.github.io/vetiver>
+    theme: [default]
+    width: 1280
+    height: 720
+knitr:
+  opts_chunk: 
+    echo: true
+    collapse: true
+    comment: "#>"
+---
+
+```{r}
+#| include: false
+#| file: setup.R
+```
+
+::: r-fit-text
+Welcome!
+:::
+
+::: columns
+::: {.column width="50%"}
+
+<center>
+
+### {{< fa wifi >}} 
+
+Wi-Fi network name
+
+`tktk`
+
+</center>
+
+:::
+
+::: {.column width="50%"}
+
+<center>
+
+### {{< fa key >}} 
+
+Wi-Fi password
+
+`tktk`
+
+</center>
+
+:::
+:::
+
+
+## Who are you?
+
+-   You have intermediate R or Python knowledge
+
+-   You can read data from CSV and other flat files, transform and reshape data, and make a wide variety of graphs
+
+-   You can fit a model to data with your modeling framework of choice
+wide variety of graphs
+
+-   You have exposure to basic modeling and machine learning practice
+
+-   You do **not** need expert familiarity with advanced ML or MLOps topics
+
+
+## Who are we?
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+<center>
+
+<img src="https://github.com/isabelizimm.png" style="border-radius: 50%;" width="300px"/>
+
+[{{< fa brands github >}} \@isabelizimm](https://github.com/isabelizimm)
+
+[{{< fa brands mastodon >}} \@isabelizimm@fosstodon.org](https://fosstodon.org/@isabelizimm)
+
+[{{< fa link >}} isabelizimm.github.io](https://isabelizimm.github.io/)
+
+</center>
+:::
+
+::: {.column width="50%"}
+<center>
+
+<img src="https://github.com/juliasilge.png" style="border-radius: 50%;" width="300px"/>
+
+[{{< fa brands github >}} \@juliasilge](https://github.com/juliasilge)
+
+[{{< fa brands mastodon >}} \@juliasilge@fosstodon.org](https://fosstodon.org/@juliasilge)
+
+[{{< fa link >}} juliasilge.com](https://juliasilge.com/)
+
+</center>
+:::
+:::
+
+# Asking for help
+
+. . .
+
+🟪 "I'm stuck and need help!"
+
+🟩 "I finished the exercise"
+
+
+## Plan for this workshop
+
+- Version your model
+- Deploy your model
+- Monitor your model
+
+# Introduce yourself to your neighbors 👋
+
+# If you develop a model...
+
+. . .
+
+you can operationalize that model!
+
+# If you develop a model...
+
+. . .
+
+you likely *should* operationalize that model!
+
+
+## Your turn 🏺 {transition="slide-in"}
+
+. . .
+
+*What language does your team use for machine learning?*
+
+*What kinds of models do you commonly use?*
+
+*Have you ever deployed a model?*
+
+```{r}
+#| echo: false
+countdown(minutes = 3, id = "statistics-vs-ml")
+```
