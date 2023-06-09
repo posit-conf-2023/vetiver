@@ -194,5 +194,5 @@ you likely *should* operationalize that model!
 
 ```{r}
 #| echo: false
-countdown(minutes = 3, id = "statistics-vs-ml")
+countdown(minutes = 3)
 ```

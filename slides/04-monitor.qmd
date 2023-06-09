@@ -1,0 +1,60 @@
+---
+title: "4 - Monitor your model"
+subtitle: "Deploy and maintain models with vetiver"
+format:
+  revealjs: 
+    slide-number: true
+    footer: <https://posit-conf-2023.github.io/vetiver>
+    preview-links: auto
+    incremental: true
+    theme: [default]
+    width: 1280
+    height: 720
+knitr:
+  opts_chunk: 
+    echo: true
+    collapse: true
+    comment: "#>"
+---
+
+```{r}
+#| include: false
+#| file: setup.R
+```
+
+::: r-fit-text
+We made it! 🎉
+:::
+
+## Your turn 🏺 {transition="slide-in"}
+
+*What is one thing you learned that surprised you?*
+
+*What is one thing you learned that you plan to use?*
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+## Resources to keep learning
+
+-   Documentation at <https://vetiver.rstudio.com/>
+
+-   Isabel's talk from rstudio::conf() 2022 on [Demystifying MLOps](https://www.rstudio.com/conference/2022/talks/demystifying-mlops/)
+
+-   [Webinar by Julia and Isabel](https://juliasilge.github.io/mlops-rstudio-meetup/) for Posit Enterprise Meetup
+
+-   End-to-end demos from Posit Solution Engineering in [R](https://github.com/sol-eng/bike_predict) and [Python](https://github.com/sol-eng/bike_predict_python)
+
+-   Are you on the right track with your MLOps system? Use the rubric in ["The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction"](https://research.google/pubs/pub46555/) by Breck et al (2017)
+
+. . .
+
+Follow Posit and/or us on your preferred social media for updates!
+
+# Submit feedback before you leave 🗳️
+
+[feedback-url-goes-here](tktk)
+
+Your feedback is crucial! Data from the survey informs curriculum and format decisions for future conf workshops and we really appreciate you taking the time to provide it.
