@@ -280,11 +280,14 @@ This histogram brings up a concern. What if we split our data into training/test
 
 ## 
 
-```{r}
+
+```{python}
 #| fig-align: 'center'
-## TODO: replace with a Python plot
-ggplot(abalone, aes(rings, sex, fill = sex)) +
-  geom_boxplot(alpha = 0.5, show.legend = FALSE)
+from plotnine import ggplot, aes, geom_boxplot, coord_flip
+(ggplot(abalone, aes('sex', 'rings', fill='sex')) 
+  + geom_boxplot(alpha=0.5, show_legend = False)
+  + coord_flip()
+)
 ```
 
 ## 
@@ -331,8 +334,9 @@ ring_test <- testing(ring_split)
 ### Python
 
 ```{python}
-## TODO set a seed
 from sklearn import model_selection
+import numpy as np
+np.random.seed(123)
 X, y = abalone.iloc[:,:8], abalone['rings']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
