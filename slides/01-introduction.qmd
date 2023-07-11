@@ -196,3 +196,200 @@ you likely *should* operationalize that model!
 #| echo: false
 countdown(minutes = 3)
 ```
+
+
+##  {background-image="https://upload.wikimedia.org/wikipedia/commons/0/0b/AbaloneInside.jpg" background-size="70%"}
+
+## Abalone ages
+
+::: {.nonincremental}
+-   Age of abalone can be determined by cutting the shell and counting the number of rings through a microscope
+-   Can other measurements be used to determine age?
+-   Data from _The Population Biology of Abalone (Haliotis species) in Tasmania. I. Blacklip Abalone (H. rubra) from the North Coast and the Islands of Bass Strait_ by Nash et al (1994)
+:::
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+library(tidyverse)
+abalone <- read_csv("abalone.csv")
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+import pandas as pd
+abalone = pd.read_csv("abalone.csv")  
+```
+
+:::
+
+::::
+
+## Abalone ages
+
+-   `N = 4177`
+-   A numeric outcome, `rings`
+-   Other variables to use for prediction:
+-   `sex` is a **nominal** predictor
+-   `shucked_weight` and `diameter` are **numeric** predictors
+
+
+## Abalone ages
+
+```{r}
+#| echo: false
+gt::gt(slice_sample(abalone, n = 15))
+```
+
+
+## Your turn 🏺 {transition="slide-in"}
+
+. . .
+
+*Explore the `abalone` data on your own!*
+
+* *What's the distribution of the outcome, rings?*
+* *What's the distribution of numeric variables like weight?*
+* *How do rings differ across sex?*
+
+```{r}
+#| echo: false
+countdown(minutes = 8, id = "explore-abalone")
+```
+
+::: notes
+Make a plot or summary and then share with neighbor
+:::
+
+## 
+
+```{r}
+#| fig-align: 'center'
+ggplot(abalone, aes(rings)) +
+  geom_histogram(bins = 15)
+```
+
+:::notes
+This histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn't be able to predict such values. Let's come back to that!
+:::
+
+## 
+
+
+```{python}
+#| fig-align: 'center'
+from plotnine import ggplot, aes, geom_boxplot, coord_flip
+(ggplot(abalone, aes('sex', 'rings', fill='sex')) 
+  + geom_boxplot(alpha=0.5, show_legend = False)
+  + coord_flip()
+)
+```
+
+## 
+
+```{r}
+#| fig-align: 'center'
+abalone |>
+  ggplot(aes(shucked_weight, rings, color = shell_weight)) +
+  geom_point(alpha = 0.5) +
+  scale_color_viridis_c()
+```
+
+## Time for machine learning!
+
+```{r tree-example}
+#| echo: false
+#| fig.width: 16
+#| fig.height: 8
+#| fig-align: 'center'
+#| dev-args: list(bg = "transparent")
+tree_mod <- 
+  rpart::rpart(
+    rings ~ .,
+    data = abalone,
+    control = rpart::rpart.control(maxdepth = 3, cp = 0.001)
+  ) |> 
+  partykit::as.party()
+plot(tree_mod)
+```
+
+
+## Spend your data budget
+
+### R
+
+```{r}
+library(tidymodels)
+set.seed(123)
+ring_split <- initial_split(abalone, prop = 0.8, strata = rings)
+ring_train <- training(ring_split)
+ring_test <- testing(ring_split)
+```
+
+### Python
+
+```{python}
+from sklearn import model_selection
+import numpy as np
+np.random.seed(123)
+X, y = abalone.iloc[:,:8], abalone['rings']
+X_train, X_test, y_train, y_test = model_selection.train_test_split(
+    X, y,
+    test_size = 0.2
+)
+```
+
+
+## Fit a decision tree 🌳
+
+Or your model of choice!
+
+### R
+
+```{r}
+abalone_fit <-
+  workflow(
+    rings ~ ., 
+    decision_tree(mode = "regression")
+  ) |> 
+  fit(data = ring_train) 
+```
+
+### Python
+
+```{python}
+from sklearn import preprocessing, tree, pipeline
+le = preprocessing.OrdinalEncoder().fit(X_train)
+tr = tree.DecisionTreeRegressor().fit(le.transform(X_train), y_train)
+abalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])
+```
+
+## Bind preprocessors and models together
+
+![](images/good_workflow.png){fig-align="center"}
+
+
+## What is wrong with this? {.annotation}
+
+![](images/bad_workflow.png){fig-align="center"}
+
+
+## Your turn 🏺 {transition="slide-in"}
+
+. . .
+
+* *Split your data in training and testing.*
+* *Fit a model to your training data.*
+
+```{r}
+#| echo: false
+countdown(minutes = 5, id = "first-model")
+```
+
+
+
