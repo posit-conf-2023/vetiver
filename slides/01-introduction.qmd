@@ -381,8 +381,9 @@ abalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])
 
 ## Your turn 🏺 {transition="slide-in"}
 
-* *Split your data in training and testing.*
-* *Fit a model to your training data.*
+*Split your data in training and testing.*
+
+*Fit a model to your training data.*
 
 ```{r}
 #| echo: false
@@ -413,8 +414,9 @@ v.description
 
 ## Your turn 🏺 {transition="slide-in"}
 
-* *Create your vetiver model object.*
-* *Check out the default `description` that is created, and try out using a custom description.*
+*Create your vetiver model object.*
+
+*Check out the default `description` that is created, and try out using a custom description.*
 
 ```{r}
 #| echo: false
@@ -486,8 +488,9 @@ board |> vetiver_pin_write(v)
 
 ## Your turn 🏺 {transition="slide-in"}
 
-* *Pin your vetiver model object to a temporary board.*
-* *Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.*
+*Pin your vetiver model object to a temporary board.*
+
+*Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.*
 
 ```{r}
 #| echo: false
@@ -544,9 +547,11 @@ vetiver_pin_write(board, v)
 
 ## Your turn 🏺 {transition="slide-in"}
 
-* *Pin your model to our Connect instance.*
-* *Train your model again, using a different ML algorithm (random forest is a good option).*
-* *Write this new version of your model to the same pin, and see what versions you have with `pin_versions`.*
+*Pin your model to our Connect instance.*
+
+*Train your model again, using a different ML algorithm (random forest is a good option).*
+
+*Write this new version of your model to the same pin, and see what versions you have with `pin_versions`.*
 
 ```{r}
 #| echo: false
