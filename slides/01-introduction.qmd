@@ -169,17 +169,17 @@ a set of <u>practices</u> to *deploy* and *maintain* machine learning models in 
 > Vetiver, the oil of tranquility, is used as a stabilizing ingredient in perfumery to preserve more volatile fragrances.
 
 
-# If you develop a model... {auto-animate=true}
+# If you develop a model...
 
 . . .
 
 you can operationalize that model!
 
-# If you develop a model... {auto-animate=true}
+# If you develop a model...
 
 . . .
 
-you likely *should* operationalize that model!
+you likely *should* be the one to operationalize that model!
 
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -457,8 +457,6 @@ Learn about the pins package  [for Python](https://rstudio.github.io/pins-python
 
 ::: {.panel-tabset}
 
-### R
-
 ### Python
 
 ```{python}
@@ -469,6 +467,8 @@ from vetiver import vetiver_pin_write
 board = board_temp(allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
+
+### R
 
 ```{r}
 #| message: true
