@@ -1,7 +1,6 @@
 knitr::opts_chunk$set(
   digits = 3,
-  comment = "#>",
-  dev = 'svglite'
+  comment = "#>"
 )
 
 # devtools::install_github("gadenbuie/countdown")
