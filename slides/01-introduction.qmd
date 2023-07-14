@@ -179,7 +179,7 @@ you can operationalize that model!
 
 . . .
 
-you likely *should* operationalize that model!
+you likely *should* be the one to operationalize that model!
 
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -381,15 +381,187 @@ abalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])
 
 ## Your turn 🏺 {transition="slide-in"}
 
-. . .
+*Split your data in training and testing.*
 
-* *Split your data in training and testing.*
-* *Fit a model to your training data.*
+*Fit a model to your training data.*
 
 ```{r}
 #| echo: false
-countdown(minutes = 5, id = "first-model")
+countdown(minutes = 5)
 ```
 
+
+# Create a deployable bundle
+
+## Create a deployable model object
+
+### R
+
+```{r}
+library(vetiver)
+v <- vetiver_model(abalone_fit, "abalone-rings-rstats")
+v
+```
+
+### Python
+
+```{python}
+from vetiver import VetiverModel
+v = VetiverModel(abalone_fit, "abalone-rings-python", ptype_data = X_train)
+v.description
+```
+
+
+## Your turn 🏺 {transition="slide-in"}
+
+*Create your vetiver model object.*
+
+*Check out the default `description` that is created, and try out using a custom description.*
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+
+# Version your model
+
+## {background-color="white" background-image="https://vetiver.rstudio.com/images/ml_ops_cycle.png" background-size="contain"}
+
+::: footer
+:::
+
+## pins 📌
+
+The pins package publishes data, models, and other R and Python objects, making it easy to share them across projects and with your colleagues.
+
+. . .
+
+::: {.callout-tip}
+
+## You can pin objects to a variety of pin **boards**, including:
+
+::: {.nonincremental}
+- a local folder (like a network drive or even a temporary directory)
+- Posit Connect
+- Amazon S3
+- Azure Storage
+- Google Cloud
+:::
+
+:::
+
+## Version your model
+
+Learn about the pins package  [for Python](https://rstudio.github.io/pins-python/) and [for R](https://pins.rstudio.com/)
+
+::: {.panel-tabset}
+
+### Python
+
+```{python}
+#| message: true
+from pins import board_temp
+from vetiver import vetiver_pin_write
+
+board = board_temp(allow_pickle_read = True)
+vetiver_pin_write(board, v)
+```
+
+### R
+
+```{r}
+#| message: true
+library(pins)
+
+board <- board_temp()
+board |> vetiver_pin_write(v)
+```
+
+:::
+
+# Make it easy to do the right thing
+
+-   Robust and human-friendly checking of new data
+-   Track and document software dependencies of models
+-   [Model cards](https://vetiver.rstudio.com/learn-more/model-card.html) for transparent, responsible reporting
+
+## Your turn 🏺 {transition="slide-in"}
+
+*Pin your vetiver model object to a temporary board.*
+
+*Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.*
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+# Posit Connect
+
+tktk -- how do we tell folks to log in, get an API key?
+
+## Version your model {auto-animate=true}
+
+### R
+
+```{r}
+#| eval: false
+library(pins)
+board <- board_temp()
+board |> vetiver_pin_write(v)
+```
+
+### Python
+
+```{python}
+#| eval: false
+from pins import board_connect
+from vetiver import vetiver_pin_write
+
+board = board_temp(allow_pickle_read = True)
+vetiver_pin_write(board, v)
+```
+
+## Version your model {auto-animate=true}
+
+### R
+
+```{r}
+#| eval: false
+library(pins)
+board <- board_connect()
+board |> vetiver_pin_write(v)
+```
+
+### Python
+
+```{python}
+#| eval: false
+from pins import board_connect
+from vetiver import vetiver_pin_write
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("CO_API_KEY")
+rsc_url = os.getenv("CO_RSC_URL")
+
+board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)
+vetiver_pin_write(board, v)
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+*Pin your model to our Connect instance.*
+
+*Train your model again, using a different ML algorithm (random forest is a good option).*
+
+*Write this new version of your model to the same pin, and see what versions you have with `pin_versions`.*
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
 
 
