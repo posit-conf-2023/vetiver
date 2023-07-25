@@ -2,6 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+.Renviron
 
 /.quarto/
 docs/
+
+.python-version
+/vetiver-2023-workshop/
