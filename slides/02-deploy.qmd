@@ -39,11 +39,12 @@ knitr:
 ### R
 
 ```{r}
+library(tidyverse)
 library(tidymodels)
 library(vetiver)
 library(pins)
 
-abalone <- readr::read_csv("abalone.csv")
+abalone <- read_csv("abalone.csv")
 
 set.seed(123)
 ring_split <- initial_split(abalone, prop = 0.8, strata = rings)
@@ -151,6 +152,8 @@ api.run()
 
 *Explore the visual documentation.*
 
+*How many endpoints are there?*
+
 *Discuss what you notice with your neighbor.*
 
 ```{r}
@@ -188,16 +191,151 @@ vetiver_deploy_rsconnect(board, "user.name/abalone-rings-rstats")
 ```{python}
 #| eval: false
 from rsconnect.api import RSConnectServer
-
-connect_server = RSConnectServer(
-    url=rsc_url, 
-    api_key=api_key 
-)
+connect_server = RSConnectServer(url = rsc_url, api_key = api_key)
 
 vetiver.deploy_rsconnect(
     connect_server = connect_server,
     board = board,
     pin_name = "user.name/abalone-rings-python",
 )
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+*Deploy your model to our Posit Connect instance.*
+
+*Give your API a vanity URL.*
+
+*Set your API as accessible to "Anyone", for convenience.*
+
+*Compare the results to your local API. Is anything different?*
+
+```{r}
+#| echo: false
+countdown(minutes = 7)
+```
+
+## 
+
+::: r-fit-text
+You did it! 🥳
+:::
+
+## How do you make a request of your new API?
+
+::: panel-tabset
+
+### R
+
+```{r}
+url <- "https://colorado.posit.co/rsc/seattle-housing/metadata"
+r <- httr::GET(url)
+metadata <- httr::content(r, as = "text", encoding = "UTF-8")
+jsonlite::fromJSON(metadata)
+```
+
+### Python
+
+```{python}
+## TODO: add code for GET rquest for a Python model metadata
+```
+
+:::
+
+## How do you make a request of your new API?
+
+- Python or R packages like [requests](https://requests.readthedocs.io/) or [httr](https://httr.r-lib.org/) (or [httr2](https://httr2.r-lib.org/)!)
+- curl
+- There is special support in vetiver for the `/predict` endpoint
+
+## Create a vetiver endpoint
+
+You can treat your model API much like it is a local model in memory!
+
+### R
+
+```r
+## TODO: put a model on Colorado with our dataset and run this for real
+endpoint <- vetiver_endpoint("https://connect.example.com/content/$APP_ID/predict")
+predict(endpoint, slice_sample(ring_test, n = 10))
+```
+
+### Python
+
+```python
+## TODO: put a model on Colorado with our dataset and run this for real
+from vetiver.server import predict, vetiver_endpoint
+endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
+predict(endpoint = endpoint, data = ring_test)
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+*Create a vetiver endpoint object for your API.*
+
+*Predict with your endpoint for new data.*
+
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+*Create a vetiver endpoint object for* ***your neighbor's*** *API.*
+
+*Predict with your endpoint for new data.*
+
+*You get extra credit if your neighbor's model is in a different language than yours.*
+
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+## Create a vetiver endpoint {auto-animate=true}
+
+What if your model API requires authentication?
+
+### R
+
+```r
+## TODO: put a model on Colorado with our dataset and run this for real
+endpoint <- vetiver_endpoint("https://connect.example.com/content/$APP_ID/predict")
+predict(endpoint, slice_sample(ring_test, n = 10))
+```
+
+### Python
+
+```python
+## TODO: put a model on Colorado with our dataset and run this for real
+from vetiver.server import predict, vetiver_endpoint
+endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
+predict(endpoint = endpoint, data = ring_test)
+```
+
+## Create a vetiver endpoint {auto-animate=true}
+
+What if your model API requires authentication?
+
+### R
+
+```r
+endpoint <- vetiver_endpoint("https://connect.example.com/content/$APP_ID/predict")
+apiKey <- Sys.getenv("CONNECT_API_KEY")
+predict(endpoint, slice_sample(ring_test, n = 10), 
+        httr::add_headers(Authorization = paste("Key", apiKey)))
+```
+
+### Python
+
+```python
+from vetiver.server import predict, vetiver_endpoint
+
+endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
+h = { 'Authorization': f'Key {api_key}' }
+predict(endpoint = endpoint, data = ring_test, headers = h)
 ```
 
