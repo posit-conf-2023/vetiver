@@ -11,6 +11,7 @@ by Julia Silge and Isabel Zimmerman
 :alarm_clock:     09:00 - 17:00  
 :hotel:           ROOM TBD  
 :writing_hand:    [pos.it/conf](http://pos.it/conf)
+:speaking_head:   [GitHub Discussions](https://github.com/posit-conf-2023/vetiver/discussions)
 
 -----
 

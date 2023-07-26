@@ -115,6 +115,10 @@ wide variety of graphs
 
 🟩 "I finished the exercise"
 
+. . .
+
+If you prefer, post on GitHub Discussions for help: <https://github.com/posit-conf-2023/vetiver/discussions>
+
 
 ## Plan for this workshop
 
@@ -126,6 +130,12 @@ wide variety of graphs
     * Tracking model performance 👀
 
 # Introduce yourself to your neighbors 👋
+
+::: {.callout-tip}
+## Optional
+
+Post an introduction on GitHub Discussions: <https://github.com/posit-conf-2023/vetiver/discussions>
+:::
 
 ## What is machine learning?
 

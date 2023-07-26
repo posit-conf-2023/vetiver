@@ -25,6 +25,8 @@ Please join the workshop with a computer that has the following installed:
 
 tktk
 
+Join us on [GitHub Discussions](https://github.com/posit-conf-2023/vetiver/discussions) to ask questions and share ideas.
+
 ## Schedule
 
 Quarto files for working along [are available on GitHub](https://github.com/posit-conf-2023/vetiver/tree/main/class-work).
