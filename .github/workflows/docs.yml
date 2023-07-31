@@ -1,1 +1,13 @@
+name: "Deploy docs to GHPages"
 
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
