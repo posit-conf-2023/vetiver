@@ -1,5 +1,5 @@
-Package: vetiver.rstudio.com
-Title: Vetiver Bilingual Docs
+Package: positconf2023-vetiver-workshop
+Title: positconf2023 vetiver workshop
 Version: 0.1
 Authors@R: c(
     person("Julia", "Silge", , "julia.silge@rstudio.com", role = c("cre", "aut"),

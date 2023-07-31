@@ -1,4 +1,4 @@
-vetiver>0.1.6
+vetiver==0.2.1
 scikit-learn
 pins
 pandas
