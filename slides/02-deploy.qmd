@@ -237,7 +237,7 @@ jsonlite::fromJSON(metadata)
 ### Python
 
 ```{python}
-## TODO: add code for GET rquest for a Python model metadata
+board.pin_meta("isabel.zimmerman/test_model").user
 ```
 
 :::
