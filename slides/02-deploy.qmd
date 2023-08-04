@@ -43,6 +43,7 @@ library(tidyverse)
 library(tidymodels)
 library(vetiver)
 library(pins)
+library(countdown)
 
 abalone <- read_csv("abalone.csv")
 
@@ -100,6 +101,7 @@ board |> vetiver_pin_write(v)
 ```{python}
 #| eval: false
 from vetiver import VetiverModel, vetiver_pin_write
+from pins import board_connect
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -237,6 +239,7 @@ jsonlite::fromJSON(metadata)
 ### Python
 
 ```{python}
+#| eval: false
 board.pin_meta("isabel.zimmerman/test_model").user
 ```
 

@@ -1,0 +1,28 @@
+Package: positconf2023-vetiver-workshop
+Title: positconf2023 vetiver workshop
+Version: 0.1
+Authors@R: c(
+    person("Julia", "Silge", , "julia.silge@rstudio.com", role = c("cre", "aut"),
+           comment = c(ORCID = "0000-0002-3671-836X")),
+    person("Isabel", "Zimmerman", , "isabel.zimmerman@rstudio.com", role = "aut"),
+    person("RStudio", role = c("cph", "fnd"))
+  )
+License: MIT
+Depends: 
+    R (>= 3.1.0)
+Imports: 
+    countdown,
+    gt,
+    partykit,
+    pins,
+    plumber,
+    ranger,
+    reticulate,
+    rmarkdown,
+    rsample (>= 1.1.1),
+    tidymodels,
+    tidyverse,
+    vetiver
+Encoding: UTF-8
+Remotes:  
+    tidymodels/rsample
