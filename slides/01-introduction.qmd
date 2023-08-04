@@ -204,6 +204,7 @@ you likely *should* be the one to operationalize that model!
 
 ```{r}
 #| echo: false
+library(countdown)
 countdown(minutes = 3)
 ```
 
@@ -293,7 +294,8 @@ This histogram brings up a concern. What if we split our data into training/test
 ## 
 
 
-```{python}
+```{python, execute=FALSE}
+#| eval: false
 #| fig-align: 'center'
 from plotnine import ggplot, aes, geom_boxplot, coord_flip
 (ggplot(abalone, aes('sex', 'rings', fill='sex')) 
