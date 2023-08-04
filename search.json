@@ -1,0 +1,415 @@
+[
+  {
+    "objectID": "slides/04-monitor.html#your-turn",
+    "href": "slides/04-monitor.html#your-turn",
+    "title": "4 - Monitor your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nWhat is one thing you learned that surprised you?\nWhat is one thing you learned that you plan to use?\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/04-monitor.html#resources-to-keep-learning",
+    "href": "slides/04-monitor.html#resources-to-keep-learning",
+    "title": "4 - Monitor your model",
+    "section": "Resources to keep learning",
+    "text": "Resources to keep learning\n\nDocumentation at https://vetiver.rstudio.com/\nIsabel’s talk from rstudio::conf() 2022 on Demystifying MLOps\nWebinar by Julia and Isabel for Posit Enterprise Meetup\nEnd-to-end demos from Posit Solution Engineering in R and Python\nAre you on the right track with your MLOps system? Use the rubric in “The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” by Breck et al (2017)\n\n\nFollow Posit and/or us on your preferred social media for updates!"
+  },
+  {
+    "objectID": "slides/01-introduction.html#who-are-you",
+    "href": "slides/01-introduction.html#who-are-you",
+    "title": "1 - Introduction",
+    "section": "Who are you?",
+    "text": "Who are you?\n\nYou have intermediate R or Python knowledge\nYou can read data from CSV and other flat files, transform and reshape data, and make a wide variety of graphs\nYou can fit a model to data with your modeling framework of choice wide variety of graphs\nYou have exposure to basic modeling and machine learning practice\nYou do not need expert familiarity with advanced ML or MLOps topics"
+  },
+  {
+    "objectID": "slides/01-introduction.html#who-are-we",
+    "href": "slides/01-introduction.html#who-are-we",
+    "title": "1 - Introduction",
+    "section": "Who are we?",
+    "text": "Who are we?\n\n\n\n\n\n @isabelizimm\n @isabelizimm@fosstodon.org\n isabelizimm.github.io\n\n\n\n\n @juliasilge\n @juliasilge@fosstodon.org\n youtube.com/juliasilge\n juliasilge.com"
+  },
+  {
+    "objectID": "slides/01-introduction.html#plan-for-this-workshop",
+    "href": "slides/01-introduction.html#plan-for-this-workshop",
+    "title": "1 - Introduction",
+    "section": "Plan for this workshop",
+    "text": "Plan for this workshop\n\nVersioning\n\nManaging change in models ✅\n\nDeploying\n\nPutting models in REST APIs 🎯\n\nMonitoring\n\nTracking model performance 👀"
+  },
+  {
+    "objectID": "slides/01-introduction.html#what-is-machine-learning",
+    "href": "slides/01-introduction.html#what-is-machine-learning",
+    "title": "1 - Introduction",
+    "section": "What is machine learning?",
+    "text": "What is machine learning?\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+  },
+  {
+    "objectID": "slides/01-introduction.html#what-is-machine-learning-1",
+    "href": "slides/01-introduction.html#what-is-machine-learning-1",
+    "title": "1 - Introduction",
+    "section": "What is machine learning?",
+    "text": "What is machine learning?\n\n\nIllustration credit: Chapter 1 of Tidy Modeling with R"
+  },
+  {
+    "objectID": "slides/01-introduction.html#mlops-is",
+    "href": "slides/01-introduction.html#mlops-is",
+    "title": "1 - Introduction",
+    "section": "MLOps is…",
+    "text": "MLOps is…"
+  },
+  {
+    "objectID": "slides/01-introduction.html#mlops-is-1",
+    "href": "slides/01-introduction.html#mlops-is-1",
+    "title": "1 - Introduction",
+    "section": "MLOps is…",
+    "text": "MLOps is…\n\na set of practices to deploy and maintain machine learning models in production reliably and efficiently"
+  },
+  {
+    "objectID": "slides/01-introduction.html#mlops-with-vetiver",
+    "href": "slides/01-introduction.html#mlops-with-vetiver",
+    "title": "1 - Introduction",
+    "section": "MLOps with vetiver",
+    "text": "MLOps with vetiver\n\nVetiver, the oil of tranquility, is used as a stabilizing ingredient in perfumery to preserve more volatile fragrances."
+  },
+  {
+    "objectID": "slides/01-introduction.html#your-turn",
+    "href": "slides/01-introduction.html#your-turn",
+    "title": "1 - Introduction",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\nWhat language does your team use for machine learning?\nWhat kinds of models do you commonly use?\nHave you ever deployed a model?\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/01-introduction.html#abalone-ages",
+    "href": "slides/01-introduction.html#abalone-ages",
+    "title": "1 - Introduction",
+    "section": "Abalone ages",
+    "text": "Abalone ages\n\n\nAge of abalone can be determined by cutting the shell and counting the number of rings through a microscope\nCan other measurements be used to determine age?\nData from The Population Biology of Abalone (Haliotis species) in Tasmania. I. Blacklip Abalone (H. rubra) from the North Coast and the Islands of Bass Strait by Nash et al (1994)\n\n\n\n\n\nlibrary(tidyverse)\nabalone &lt;- read_csv(\"abalone.csv\")\n\n\n\nimport pandas as pd\nabalone = pd.read_csv(\"abalone.csv\")"
+  },
+  {
+    "objectID": "slides/01-introduction.html#abalone-ages-1",
+    "href": "slides/01-introduction.html#abalone-ages-1",
+    "title": "1 - Introduction",
+    "section": "Abalone ages",
+    "text": "Abalone ages\n\nN = 4177\nA numeric outcome, rings\nOther variables to use for prediction:\nsex is a nominal predictor\nshucked_weight and diameter are numeric predictors"
+  },
+  {
+    "objectID": "slides/01-introduction.html#abalone-ages-2",
+    "href": "slides/01-introduction.html#abalone-ages-2",
+    "title": "1 - Introduction",
+    "section": "Abalone ages",
+    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.610\n0.490\n0.160\n1.1460\n0.5970\n0.2460\n0.2650\n8\n    female\n0.625\n0.475\n0.130\n0.8595\n0.3195\n0.1775\n0.2400\n13\n    male\n0.620\n0.505\n0.185\n1.5275\n0.6900\n0.3680\n0.3500\n13\n    male\n0.460\n0.365\n0.125\n0.4670\n0.1895\n0.0945\n0.1580\n10\n    infant\n0.575\n0.450\n0.135\n0.8070\n0.3615\n0.1760\n0.2540\n10\n    infant\n0.305\n0.225\n0.090\n0.1465\n0.0630\n0.0340\n0.0415\n6\n    female\n0.520\n0.460\n0.150\n1.0190\n0.5230\n0.1985\n0.2540\n7\n    male\n0.630\n0.500\n0.175\n1.2645\n0.5635\n0.3065\n0.3425\n10\n    male\n0.445\n0.340\n0.120\n0.4475\n0.1930\n0.1035\n0.1300\n9\n    infant\n0.295\n0.215\n0.070\n0.1210\n0.0470\n0.0155\n0.0405\n6\n    female\n0.380\n0.305\n0.095\n0.2815\n0.1255\n0.0525\n0.0900\n8\n    infant\n0.270\n0.195\n0.065\n0.1065\n0.0475\n0.0225\n0.0285\n5\n    female\n0.695\n0.565\n0.190\n1.7635\n0.7465\n0.3990\n0.4975\n11\n    female\n0.620\n0.480\n0.180\n1.2215\n0.5820\n0.2695\n0.3130\n12\n    male\n0.625\n0.505\n0.215\n1.4455\n0.4960\n0.2870\n0.4350\n22"
+  },
+  {
+    "objectID": "slides/01-introduction.html#your-turn-1",
+    "href": "slides/01-introduction.html#your-turn-1",
+    "title": "1 - Introduction",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\nExplore the abalone data on your own!\n\nWhat’s the distribution of the outcome, rings?\nWhat’s the distribution of numeric variables like weight?\nHow do rings differ across sex?\n\nShare something you noticed with your neighbor.\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
+  },
+  {
+    "objectID": "slides/01-introduction.html#section-2",
+    "href": "slides/01-introduction.html#section-2",
+    "title": "1 - Introduction",
+    "section": "",
+    "text": "ggplot(abalone, aes(rings)) +\n  geom_histogram(bins = 15)\n\n\n\nThis histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn’t be able to predict such values. Let’s come back to that!"
+  },
+  {
+    "objectID": "slides/01-introduction.html#section-3",
+    "href": "slides/01-introduction.html#section-3",
+    "title": "1 - Introduction",
+    "section": "",
+    "text": "from plotnine import ggplot, aes, geom_boxplot, coord_flip\n(ggplot(abalone, aes('sex', 'rings', fill='sex')) \n  + geom_boxplot(alpha=0.5, show_legend = False)\n  + coord_flip()\n)"
+  },
+  {
+    "objectID": "slides/01-introduction.html#section-4",
+    "href": "slides/01-introduction.html#section-4",
+    "title": "1 - Introduction",
+    "section": "",
+    "text": "abalone |&gt;\n  ggplot(aes(shucked_weight, rings, color = shell_weight)) +\n  geom_point(alpha = 0.5) +\n  scale_color_viridis_c()"
+  },
+  {
+    "objectID": "slides/01-introduction.html#time-for-machine-learning",
+    "href": "slides/01-introduction.html#time-for-machine-learning",
+    "title": "1 - Introduction",
+    "section": "Time for machine learning!",
+    "text": "Time for machine learning!"
+  },
+  {
+    "objectID": "slides/01-introduction.html#spend-your-data-budget",
+    "href": "slides/01-introduction.html#spend-your-data-budget",
+    "title": "1 - Introduction",
+    "section": "Spend your data budget",
+    "text": "Spend your data budget\nR\n\nlibrary(tidymodels)\nset.seed(123)\nring_split &lt;- initial_split(abalone, prop = 0.8, strata = rings)\nring_train &lt;- training(ring_split)\nring_test &lt;- testing(ring_split)\n\nPython\n\nfrom sklearn import model_selection\nimport numpy as np\nnp.random.seed(123)\nX, y = abalone.iloc[:,:8], abalone['rings']\nX_train, X_test, y_train, y_test = model_selection.train_test_split(\n    X, y,\n    test_size = 0.2\n)"
+  },
+  {
+    "objectID": "slides/01-introduction.html#fit-a-decision-tree",
+    "href": "slides/01-introduction.html#fit-a-decision-tree",
+    "title": "1 - Introduction",
+    "section": "Fit a decision tree 🌳",
+    "text": "Fit a decision tree 🌳\nOr your model of choice!\nR\n\nabalone_fit &lt;-\n  workflow(\n    rings ~ ., \n    decision_tree(mode = \"regression\")\n  ) |&gt; \n  fit(data = ring_train) \n\nPython\n\nfrom sklearn import preprocessing, tree, pipeline\nle = preprocessing.OrdinalEncoder().fit(X_train)\ntr = tree.DecisionTreeRegressor().fit(le.transform(X_train), y_train)\nabalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])"
+  },
+  {
+    "objectID": "slides/01-introduction.html#bind-preprocessors-and-models-together",
+    "href": "slides/01-introduction.html#bind-preprocessors-and-models-together",
+    "title": "1 - Introduction",
+    "section": "Bind preprocessors and models together",
+    "text": "Bind preprocessors and models together"
+  },
+  {
+    "objectID": "slides/01-introduction.html#what-is-wrong-with-this",
+    "href": "slides/01-introduction.html#what-is-wrong-with-this",
+    "title": "1 - Introduction",
+    "section": "What is wrong with this?",
+    "text": "What is wrong with this?"
+  },
+  {
+    "objectID": "slides/01-introduction.html#your-turn-2",
+    "href": "slides/01-introduction.html#your-turn-2",
+    "title": "1 - Introduction",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nSplit your data in training and testing.\nFit a model to your training data.\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/01-introduction.html#create-a-deployable-model-object",
+    "href": "slides/01-introduction.html#create-a-deployable-model-object",
+    "title": "1 - Introduction",
+    "section": "Create a deployable model object",
+    "text": "Create a deployable model object\nR\n\nlibrary(vetiver)\nv &lt;- vetiver_model(abalone_fit, \"abalone-rings-rstats\")\nv\n#&gt; \n#&gt; ── abalone-rings-rstats ─ &lt;bundled_workflow&gt; model for deployment \n#&gt; A rpart regression modeling workflow using 8 features\n\nPython\n\nfrom vetiver import VetiverModel\nv = VetiverModel(abalone_fit, \"abalone-rings-python\", ptype_data = X_train)\n#&gt; &lt;string&gt;:1: DeprecationWarning: argument for saving input data prototype has changed to prototype_data, from ptype_data\nv.description\n#&gt; 'A scikit-learn Pipeline model'"
+  },
+  {
+    "objectID": "slides/01-introduction.html#your-turn-3",
+    "href": "slides/01-introduction.html#your-turn-3",
+    "title": "1 - Introduction",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nCreate your vetiver model object.\nCheck out the default description that is created, and try out using a custom description.\nShow your custom description to your neighbor.\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/01-introduction.html#pins",
+    "href": "slides/01-introduction.html#pins",
+    "title": "1 - Introduction",
+    "section": "pins 📌",
+    "text": "pins 📌\nThe pins package publishes data, models, and other R and Python objects, making it easy to share them across projects and with your colleagues.\n\n\n\n\n\n\n\nYou can pin objects to a variety of pin boards, including:\n\n\n\n\na local folder (like a network drive or even a temporary directory)\nPosit Connect\nAmazon S3\nAzure Storage\nGoogle Cloud"
+  },
+  {
+    "objectID": "slides/01-introduction.html#version-your-model-1",
+    "href": "slides/01-introduction.html#version-your-model-1",
+    "title": "1 - Introduction",
+    "section": "Version your model",
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230804T110225Z-08892\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230804T150225Z-dfa3d'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+  },
+  {
+    "objectID": "slides/01-introduction.html#your-turn-4",
+    "href": "slides/01-introduction.html#your-turn-4",
+    "title": "1 - Introduction",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nPin your vetiver model object to a temporary board.\nOpen the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.\nDiscuss something you notice about the Model Card with your neighbor.\n\n\n\n−+\n07:00"
+  },
+  {
+    "objectID": "slides/01-introduction.html#version-your-model-2",
+    "href": "slides/01-introduction.html#version-your-model-2",
+    "title": "1 - Introduction",
+    "section": "Version your model",
+    "text": "Version your model\nR\n\nlibrary(pins)\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+  },
+  {
+    "objectID": "slides/01-introduction.html#version-your-model-3",
+    "href": "slides/01-introduction.html#version-your-model-3",
+    "title": "1 - Introduction",
+    "section": "Version your model",
+    "text": "Version your model\nR\n\nlibrary(pins)\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\n\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nboard = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+  },
+  {
+    "objectID": "slides/01-introduction.html#your-turn-5",
+    "href": "slides/01-introduction.html#your-turn-5",
+    "title": "1 - Introduction",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nPin your model to our Connect instance.\nTrain your model again, using a different ML algorithm (random forest is a good option).\nWrite this new version of your model to the same pin, and see what versions you have with pin_versions.\n\n\n\n−+\n05:00\n\n\n\n\n\nhttps://posit-conf-2023.github.io/vetiver"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "",
+    "text": "These are the materials for a one-day workshop on MLOps with vetiver on Monday, 18 Sept at posit::conf 2023!\nMany data scientists understand what goes into training a machine learning or statistical model, but creating a strategy to deploy and maintain that model can be daunting. In this workshop, learn what MLOps (machine learning operations) is, what principles can be used to create a practical MLOps strategy, and what kinds of tasks and components are involved. We’ll use vetiver, a framework for MLOps tasks in Python and R, to version, deploy, and monitor the models you have trained and want to deploy and maintain in production reliably and efficiently."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "",
+    "text": "These are the materials for a one-day workshop on MLOps with vetiver on Monday, 18 Sept at posit::conf 2023!\nMany data scientists understand what goes into training a machine learning or statistical model, but creating a strategy to deploy and maintain that model can be daunting. In this workshop, learn what MLOps (machine learning operations) is, what principles can be used to create a practical MLOps strategy, and what kinds of tasks and components are involved. We’ll use vetiver, a framework for MLOps tasks in Python and R, to version, deploy, and monitor the models you have trained and want to deploy and maintain in production reliably and efficiently."
+  },
+  {
+    "objectID": "index.html#is-this-workshop-for-me",
+    "href": "index.html#is-this-workshop-for-me",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "Is this workshop for me?",
+    "text": "Is this workshop for me?\nWe expect participants to have exposure to basic modeling and machine learning practice, but NOT expert familiarity with advanced ML or MLOps topics. This workshop is for you if you:\n\nhave intermediate R or Python knowledge (this will be a “choose your own adventure” workshop where you can work through the exercises in either R or Python)\ncan read data from CSV and other flat files, transform and reshape data, and make a wide variety of graphs\ncan fit a model to data with your modeling framework of choice wide variety of graphs"
+  },
+  {
+    "objectID": "index.html#preparation",
+    "href": "index.html#preparation",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "Preparation",
+    "text": "Preparation\nPlease join the workshop with a computer that has the following installed:\ntktk\nJoin us on GitHub Discussions to ask questions and share ideas."
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "Schedule",
+    "text": "Schedule\nQuarto files for working along are available on GitHub.\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\nIntroduction\n\n\n10:30 - 11:00\nCoffee break\n\n\n11:00 - 12:30\nDeploy your model\n\n\n12:30 - 13:30\nLunch break\n\n\n13:30 - 15:00\nDeeper into deployment\n\n\n15:00 - 15:30\nCoffee break\n\n\n15:30 - 17:00\nMonitor your model"
+  },
+  {
+    "objectID": "index.html#instructors",
+    "href": "index.html#instructors",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "Instructors",
+    "text": "Instructors\nJulia Silge is a software engineer at Posit PBC focusing on open source MLOps tools, as well as an author and international keynote speaker. Julia loves making beautiful charts, Jane Austen, and her two cats.\nIsabel Zimmerman is also a software engineer on the open source team at Posit PBC, where she works on building MLOps frameworks. When she’s not geeking out over new data science techniques, she can be found hanging out with her dog or watching Marvel movies."
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nThis website, including the slides, is made with Quarto. Please submit an issue on the GitHub repo for this workshop if you find something that could be fixed or improved."
+  },
+  {
+    "objectID": "index.html#reuse-and-licensing",
+    "href": "index.html#reuse-and-licensing",
+    "title": "Deploy and maintain models with vetiver",
+    "section": "Reuse and licensing",
+    "text": "Reuse and licensing\n\n This work is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "slides/02-deploy.html#plan-for-this-workshop",
+    "href": "slides/02-deploy.html#plan-for-this-workshop",
+    "title": "2 - Deploy your model",
+    "section": "Plan for this workshop",
+    "text": "Plan for this workshop\n\n\nVersioning\n\nManaging change in models ✅\n\nDeploying\n\nPutting models in REST APIs 🎯\n\nMonitoring\n\nTracking model performance 👀"
+  },
+  {
+    "objectID": "slides/02-deploy.html#fit-a-random-forest",
+    "href": "slides/02-deploy.html#fit-a-random-forest",
+    "title": "2 - Deploy your model",
+    "section": "Fit a random forest 🌳🌴🌲🌲🌴🌳🌴🌳🌲",
+    "text": "Fit a random forest 🌳🌴🌲🌲🌴🌳🌴🌳🌲\n\nRPython\n\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(vetiver)\nlibrary(pins)\nlibrary(countdown)\n\nabalone &lt;- read_csv(\"abalone.csv\")\n\nset.seed(123)\nring_split &lt;- initial_split(abalone, prop = 0.8, strata = rings)\nring_train &lt;- training(ring_split)\nring_test &lt;- testing(ring_split)\n\nabalone_fit &lt;-\n  workflow(\n    rings ~ ., \n    rand_forest(mode = \"regression\")\n  ) |&gt; \n  fit(data = ring_train) \n\n\n\n\nimport pandas as pd\nimport numpy as np\nfrom sklearn import model_selection, preprocessing, ensemble, pipeline\n\n\nabalone = pd.read_csv(\"abalone.csv\")  \n\nnp.random.seed(123)\nX, y = abalone.iloc[:,:8], abalone['rings']\nX_train, X_test, y_train, y_test = model_selection.train_test_split(\n    X, y,\n    test_size = 0.2\n)\nle = preprocessing.OrdinalEncoder().fit(X_train)\nrf = ensemble.RandomForestRegressor().fit(le.transform(X_train), y_train)\nabalone_fit = pipeline.Pipeline([('label_encoder', le), ('random_forest', rf)])"
+  },
+  {
+    "objectID": "slides/02-deploy.html#create-your-vetiver-model-and-version",
+    "href": "slides/02-deploy.html#create-your-vetiver-model-and-version",
+    "title": "2 - Deploy your model",
+    "section": "Create your vetiver model and version",
+    "text": "Create your vetiver model and version\nR\n\nlibrary(vetiver)\nlibrary(pins)\n\nv &lt;- vetiver_model(abalone_fit, \"abalone-rings-rstats\")\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom vetiver import VetiverModel, vetiver_pin_write\nfrom pins import board_connect\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nv = VetiverModel(abalone_fit, \"abalone-rings-python\", ptype_data = X_train)\nboard = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+  },
+  {
+    "objectID": "slides/02-deploy.html#you-can-deploy-your-model-as-a",
+    "href": "slides/02-deploy.html#you-can-deploy-your-model-as-a",
+    "title": "2 - Deploy your model",
+    "section": "You can deploy your model as a…",
+    "text": "You can deploy your model as a…\n\n\nREST API"
+  },
+  {
+    "objectID": "slides/02-deploy.html#what-is-a-rest-api",
+    "href": "slides/02-deploy.html#what-is-a-rest-api",
+    "title": "2 - Deploy your model",
+    "section": "What is a REST API?",
+    "text": "What is a REST API?\n\nAn interface that can connect applications in a standard way"
+  },
+  {
+    "objectID": "slides/02-deploy.html#create-a-vetiver-rest-api",
+    "href": "slides/02-deploy.html#create-a-vetiver-rest-api",
+    "title": "2 - Deploy your model",
+    "section": "Create a vetiver REST API",
+    "text": "Create a vetiver REST API\nR\n\nlibrary(plumber)\n\npr() |&gt;\n  vetiver_api(v) |&gt;\n  pr_run()\n\nPython\n\napi = VetiverAPI(v)\napi.run()"
+  },
+  {
+    "objectID": "slides/02-deploy.html#your-turn",
+    "href": "slides/02-deploy.html#your-turn",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nCreate a vetiver API for your model and run it locally.\nExplore the visual documentation.\nHow many endpoints are there?\nDiscuss what you notice with your neighbor.\n\n\n\n−+\n07:00"
+  },
+  {
+    "objectID": "slides/02-deploy.html#what-does-deploy-mean",
+    "href": "slides/02-deploy.html#what-does-deploy-mean",
+    "title": "2 - Deploy your model",
+    "section": "What does “deploy” mean?",
+    "text": "What does “deploy” mean?"
+  },
+  {
+    "objectID": "slides/02-deploy.html#what-does-deploy-mean-1",
+    "href": "slides/02-deploy.html#what-does-deploy-mean-1",
+    "title": "2 - Deploy your model",
+    "section": "What does “deploy” mean?",
+    "text": "What does “deploy” mean?"
+  },
+  {
+    "objectID": "slides/02-deploy.html#deploy-to-posit-connect",
+    "href": "slides/02-deploy.html#deploy-to-posit-connect",
+    "title": "2 - Deploy your model",
+    "section": "Deploy to Posit Connect",
+    "text": "Deploy to Posit Connect\nR\n\nvetiver_deploy_rsconnect(board, \"user.name/abalone-rings-rstats\")\n\nPython\n\nfrom rsconnect.api import RSConnectServer\nconnect_server = RSConnectServer(url = rsc_url, api_key = api_key)\n\nvetiver.deploy_rsconnect(\n    connect_server = connect_server,\n    board = board,\n    pin_name = \"user.name/abalone-rings-python\",\n)"
+  },
+  {
+    "objectID": "slides/02-deploy.html#your-turn-1",
+    "href": "slides/02-deploy.html#your-turn-1",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nDeploy your model to our Posit Connect instance.\nGive your API a vanity URL.\nSet your API as accessible to “Anyone”, for convenience.\nCompare the results to your local API. Is anything different?\n\n\n\n−+\n07:00"
+  },
+  {
+    "objectID": "slides/02-deploy.html#section",
+    "href": "slides/02-deploy.html#section",
+    "title": "2 - Deploy your model",
+    "section": "",
+    "text": "You did it! 🥳"
+  },
+  {
+    "objectID": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api",
+    "href": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api",
+    "title": "2 - Deploy your model",
+    "section": "How do you make a request of your new API?",
+    "text": "How do you make a request of your new API?\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/seattle-housing/metadata\"\nr &lt;- httr::GET(url)\nmetadata &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(metadata)\n#&gt; $user\n#&gt; list()\n#&gt; \n#&gt; $version\n#&gt; [1] \"77101\"\n#&gt; \n#&gt; $url\n#&gt; [1] \"https://colorado.posit.co/rsc/content/bfb9a9c6-70da-4993-99dc-3559e9c8cdae/_rev77101/\"\n#&gt; \n#&gt; $required_pkgs\n#&gt; [1] \"parsnip\"   \"ranger\"    \"workflows\"\n\n\n\n\nboard.pin_meta(\"isabel.zimmerman/test_model\").user"
+  },
+  {
+    "objectID": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api-1",
+    "href": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api-1",
+    "title": "2 - Deploy your model",
+    "section": "How do you make a request of your new API?",
+    "text": "How do you make a request of your new API?\n\nPython or R packages like requests or httr (or httr2!)\ncurl\nThere is special support in vetiver for the /predict endpoint"
+  },
+  {
+    "objectID": "slides/02-deploy.html#create-a-vetiver-endpoint",
+    "href": "slides/02-deploy.html#create-a-vetiver-endpoint",
+    "title": "2 - Deploy your model",
+    "section": "Create a vetiver endpoint",
+    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\nR\n## TODO: put a model on Colorado with our dataset and run this for real\nendpoint &lt;- vetiver_endpoint(\"https://connect.example.com/content/$APP_ID/predict\")\npredict(endpoint, slice_sample(ring_test, n = 10))\nPython\n## TODO: put a model on Colorado with our dataset and run this for real\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(f\"https://connect.example.com/content/{APP_ID}/predict\")\npredict(endpoint = endpoint, data = ring_test)"
+  },
+  {
+    "objectID": "slides/02-deploy.html#your-turn-2",
+    "href": "slides/02-deploy.html#your-turn-2",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nCreate a vetiver endpoint object for your API.\nPredict with your endpoint for new data.\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/02-deploy.html#your-turn-3",
+    "href": "slides/02-deploy.html#your-turn-3",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nCreate a vetiver endpoint object for your neighbor’s API.\nPredict with your endpoint for new data.\nYou get extra credit if your neighbor’s model is in a different language than yours.\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/02-deploy.html#create-a-vetiver-endpoint-1",
+    "href": "slides/02-deploy.html#create-a-vetiver-endpoint-1",
+    "title": "2 - Deploy your model",
+    "section": "Create a vetiver endpoint",
+    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\n## TODO: put a model on Colorado with our dataset and run this for real\nendpoint &lt;- vetiver_endpoint(\"https://connect.example.com/content/$APP_ID/predict\")\npredict(endpoint, slice_sample(ring_test, n = 10))\nPython\n## TODO: put a model on Colorado with our dataset and run this for real\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(f\"https://connect.example.com/content/{APP_ID}/predict\")\npredict(endpoint = endpoint, data = ring_test)"
+  },
+  {
+    "objectID": "slides/02-deploy.html#create-a-vetiver-endpoint-2",
+    "href": "slides/02-deploy.html#create-a-vetiver-endpoint-2",
+    "title": "2 - Deploy your model",
+    "section": "Create a vetiver endpoint",
+    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nendpoint &lt;- vetiver_endpoint(\"https://connect.example.com/content/$APP_ID/predict\")\napiKey &lt;- Sys.getenv(\"CONNECT_API_KEY\")\npredict(endpoint, slice_sample(ring_test, n = 10), \n        httr::add_headers(Authorization = paste(\"Key\", apiKey)))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\n\nendpoint = vetiver_endpoint(f\"https://connect.example.com/content/{APP_ID}/predict\")\nh = { 'Authorization': f'Key {api_key}' }\npredict(endpoint = endpoint, data = ring_test, headers = h)\n\n\nhttps://posit-conf-2023.github.io/vetiver"
+  }
+]
