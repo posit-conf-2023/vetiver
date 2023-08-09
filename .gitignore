@@ -9,3 +9,5 @@ docs/
 
 .python-version
 /vetiver-2023-workshop/
+
+/.luarc.json
