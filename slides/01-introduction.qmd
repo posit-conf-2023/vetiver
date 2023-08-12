@@ -502,6 +502,11 @@ board |> vetiver_pin_write(v)
 -   Track and document software dependencies of models
 -   [Model cards](https://vetiver.rstudio.com/learn-more/model-card.html) for transparent, responsible reporting
 
+# Make it easy to do the right thing
+
+![](images/vetiver-templates.png){fig-align="center"}
+
+
 ## Your turn 🏺 {transition="slide-in"}
 
 *Pin your vetiver model object to a temporary board.*
