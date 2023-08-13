@@ -383,14 +383,6 @@ tr = tree.DecisionTreeRegressor().fit(le.transform(X_train), y_train)
 abalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])
 ```
 
-## Bind preprocessors and models together
-
-![](images/good_workflow.png){fig-align="center"}
-
-
-## What is wrong with this? {.annotation}
-
-![](images/bad_workflow.png){fig-align="center"}
 
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -496,28 +488,15 @@ board |> vetiver_pin_write(v)
 
 :::
 
-# Make it easy to do the right thing
-
--   Robust and human-friendly checking of new data
--   Track and document software dependencies of models
--   [Model cards](https://vetiver.rstudio.com/learn-more/model-card.html) for transparent, responsible reporting
-
-# Make it easy to do the right thing
-
-![](images/vetiver-templates.png){fig-align="center"}
-
-
 ## Your turn 🏺 {transition="slide-in"}
 
 *Pin your vetiver model object to a temporary board.*
 
-*Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.*
-
-*Discuss something you notice about the Model Card with your neighbor.*
+*Retrieve the model metadata with `pin_meta()`.*
 
 ```{r}
 #| echo: false
-countdown(minutes = 7)
+countdown(minutes = 5)
 ```
 
 # Posit Connect

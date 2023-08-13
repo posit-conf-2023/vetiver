@@ -113,6 +113,29 @@ board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = T
 vetiver_pin_write(board, v)
 ```
 
+
+# Make it easy to do the right thing
+
+-   Robust and human-friendly checking of new data
+-   Track and document software dependencies of models
+-   [Model cards](https://vetiver.rstudio.com/learn-more/model-card.html) for transparent, responsible reporting
+
+# Make it easy to do the right thing
+
+![](images/vetiver-templates.png){fig-align="center"}
+
+## Your turn 🏺 {transition="slide-in"}
+
+*Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.*
+
+*Discuss something you notice about the Model Card with your neighbor.*
+
+```{r}
+#| echo: false
+countdown(minutes = 7)
+```
+
+
 ## You can deploy your model as a...
 
 . . .
@@ -278,10 +301,12 @@ predict(endpoint = endpoint, data = ring_test)
 
 *Predict with your endpoint for new data.*
 
+*Optional: call another endpoint from Python or R.*
+
 
 ```{r}
 #| echo: false
-countdown(minutes = 5)
+countdown(minutes = 10)
 ```
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -290,7 +315,7 @@ countdown(minutes = 5)
 
 *Predict with your endpoint for new data.*
 
-*You get extra credit if your neighbor's model is in a different language than yours.*
+*You get extra credit if your neighbor's model is in a different language than yours!*
 
 
 ```{r}
@@ -342,3 +367,6 @@ h = { 'Authorization': f'Key {api_key}' }
 predict(endpoint = endpoint, data = ring_test, headers = h)
 ```
 
+# Model input prototype
+
+tktk

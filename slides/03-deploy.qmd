@@ -1,0 +1,65 @@
+---
+title: "3 - Deeper into deployment"
+subtitle: "Deploy and maintain models with vetiver"
+format:
+  revealjs: 
+    slide-number: true
+    footer: <https://posit-conf-2023.github.io/vetiver>
+    preview-links: auto
+    incremental: true
+    theme: [default]
+    width: 1280
+    height: 720
+knitr:
+  opts_chunk: 
+    echo: true
+    collapse: true
+    comment: "#>"
+---
+
+```{r}
+#| include: false
+#| file: setup.R
+```
+
+## Plan for this workshop
+
+::: nonincremental
+-   *Versioning*
+    -   Managing change in models ✅
+-   *Deploying*
+    -   Putting models in REST APIs 🎯
+-   *Monitoring*
+    -   Tracking model performance 👀
+:::
+
+# Where does vetiver work?
+
+-   Posit's pro products, like [Connect](https://posit.co/products/enterprise/connect/)
+
+-   AWS SageMaker (R only, for now)
+
+-   A public or private cloud, using Docker
+
+# Docker
+
+tktk
+
+# Deploy preprocessors and models together
+
+tktk more substantive feature engineering (like with learned transformation from training data)
+
+## Deploy preprocessors and models together
+
+![](images/good_workflow.png){fig-align="center"}
+
+
+## What is wrong with this?
+
+![](images/bad_workflow.png){fig-align="center"}
+
+# Model metrics as metadata
+
+tktk like https://vetiver.rstudio.com/learn-more/metrics-metadata.html
+
+Transition to model monitoring at end
