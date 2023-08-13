@@ -240,10 +240,14 @@ jsonlite::fromJSON(metadata)
 
 ```{python}
 #| eval: false
-board.pin_meta("isabel.zimmerman/test_model").user
+## TODO: add code for GET rquest for a Python model metadata
 ```
 
 :::
+
+. . .
+
+This is the same as calling `pin_meta()` on your pins board.
 
 ## How do you make a request of your new API?
 
