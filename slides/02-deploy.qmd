@@ -247,7 +247,7 @@ jsonlite::fromJSON(metadata)
 
 . . .
 
-This is the same as calling `pin_meta()` on your pins board.
+This gives you the same information as calling `pin_meta()` on your pins board.
 
 ## How do you make a request of your new API?
 
