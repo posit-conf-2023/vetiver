@@ -1,0 +1,18 @@
+---
+title: "X - Deploy with docker"
+subtitle: "Deploy and maintain models with vetiver"
+format:
+  revealjs: 
+    slide-number: true
+    footer: <https://posit-conf-2023.github.io/vetiver>
+    preview-links: auto
+    incremental: true
+    theme: [default]
+    width: 1280
+    height: 720
+knitr:
+  opts_chunk: 
+    echo: true
+    collapse: true
+    comment: "#>"
+---
