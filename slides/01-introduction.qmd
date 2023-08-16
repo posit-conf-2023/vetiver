@@ -231,8 +231,11 @@ board <- board_connect_url(c(
   inspection_data = 'https://colorado.posit.co/rsc/inspection_data/'
   ))
 
+# TODO: read pin from vanity url
 inspection <- read_csv('/Users/isabelzimmerman/code/github/vetiver/slides/inspection.csv') 
 # board %>% pin_read("inspection_data")
+
+# TODO: can we set str to factors?
 inspection <- inspection |> mutate_at(c('risk', 'facility_type', 'results'), factor)
 ```
 
@@ -300,6 +303,7 @@ ggplot(inspection, aes(results)) +
 ```
 
 :::notes
+# TODO: not really relevant, but not sure if we want to bring up this point in a different way
 This histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn't be able to predict such values. Let's come back to that!
 :::
 
@@ -320,10 +324,10 @@ from plotnine import ggplot, aes, geom_boxplot, coord_flip
 
 ```{r}
 #| fig-align: 'center'
+
 inspection |>
-  ggplot(aes(shucked_weight, rings, color = shell_weight)) +
-  geom_point(alpha = 0.5) +
-  scale_color_viridis_c()
+  ggplot(aes(inspection_date, total_violations, color = results)) +
+  geom_point(alpha = 0.5)
 ```
 
 ## Time for machine learning!

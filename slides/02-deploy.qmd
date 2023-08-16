@@ -50,7 +50,10 @@ board <- board_connect_url(c(
   ))
 
 inspection <- read_csv('/Users/isabelzimmerman/code/github/vetiver/slides/inspection.csv') 
+# TODO: read pin from vanity url
 # board %>% pin_read("inspection_data")
+
+# TODO: can we set str to factors?
 inspection <- inspection |> mutate_at(c('risk', 'facility_type', 'results'), factor)
 
 set.seed(123)
