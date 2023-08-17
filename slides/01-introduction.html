@@ -11,7 +11,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.3.340">
 
   <title>Deploy and maintain models with vetiver - 1 - Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -97,7 +97,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -573,7 +573,7 @@
 <p><em>Have you ever deployed a model?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_0d62baf1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_52c6d777" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -622,23 +622,23 @@
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="ruppxqwoui" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ruppxqwoui table {
+<div id="gyccthjpnx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gyccthjpnx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ruppxqwoui thead, #ruppxqwoui tbody, #ruppxqwoui tfoot, #ruppxqwoui tr, #ruppxqwoui td, #ruppxqwoui th {
+#gyccthjpnx thead, #gyccthjpnx tbody, #gyccthjpnx tfoot, #gyccthjpnx tr, #gyccthjpnx td, #gyccthjpnx th {
   border-style: none;
 }
 
-#ruppxqwoui p {
+#gyccthjpnx p {
   margin: 0;
   padding: 0;
 }
 
-#ruppxqwoui .gt_table {
+#gyccthjpnx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -664,12 +664,12 @@
   border-left-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_caption {
+#gyccthjpnx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ruppxqwoui .gt_title {
+#gyccthjpnx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -681,7 +681,7 @@
   border-bottom-width: 0;
 }
 
-#ruppxqwoui .gt_subtitle {
+#gyccthjpnx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -693,7 +693,7 @@
   border-top-width: 0;
 }
 
-#ruppxqwoui .gt_heading {
+#gyccthjpnx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -705,13 +705,13 @@
   border-right-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_bottom_border {
+#gyccthjpnx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_col_headings {
+#gyccthjpnx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -726,7 +726,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_col_heading {
+#gyccthjpnx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -746,7 +746,7 @@
   overflow-x: hidden;
 }
 
-#ruppxqwoui .gt_column_spanner_outer {
+#gyccthjpnx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -758,15 +758,15 @@
   padding-right: 4px;
 }
 
-#ruppxqwoui .gt_column_spanner_outer:first-child {
+#gyccthjpnx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ruppxqwoui .gt_column_spanner_outer:last-child {
+#gyccthjpnx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ruppxqwoui .gt_column_spanner {
+#gyccthjpnx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -778,11 +778,11 @@
   width: 100%;
 }
 
-#ruppxqwoui .gt_spanner_row {
+#gyccthjpnx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ruppxqwoui .gt_group_heading {
+#gyccthjpnx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -808,7 +808,7 @@
   text-align: left;
 }
 
-#ruppxqwoui .gt_empty_group_heading {
+#gyccthjpnx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -823,15 +823,15 @@
   vertical-align: middle;
 }
 
-#ruppxqwoui .gt_from_md > :first-child {
+#gyccthjpnx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ruppxqwoui .gt_from_md > :last-child {
+#gyccthjpnx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ruppxqwoui .gt_row {
+#gyccthjpnx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -850,7 +850,7 @@
   overflow-x: hidden;
 }
 
-#ruppxqwoui .gt_stub {
+#gyccthjpnx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -863,7 +863,7 @@
   padding-right: 5px;
 }
 
-#ruppxqwoui .gt_stub_row_group {
+#gyccthjpnx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -877,15 +877,15 @@
   vertical-align: top;
 }
 
-#ruppxqwoui .gt_row_group_first td {
+#gyccthjpnx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ruppxqwoui .gt_row_group_first th {
+#gyccthjpnx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ruppxqwoui .gt_summary_row {
+#gyccthjpnx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -895,16 +895,16 @@
   padding-right: 5px;
 }
 
-#ruppxqwoui .gt_first_summary_row {
+#gyccthjpnx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_first_summary_row.thick {
+#gyccthjpnx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ruppxqwoui .gt_last_summary_row {
+#gyccthjpnx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -914,7 +914,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_grand_summary_row {
+#gyccthjpnx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -924,7 +924,7 @@
   padding-right: 5px;
 }
 
-#ruppxqwoui .gt_first_grand_summary_row {
+#gyccthjpnx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -934,7 +934,7 @@
   border-top-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_last_grand_summary_row_top {
+#gyccthjpnx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -944,11 +944,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_striped {
+#gyccthjpnx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ruppxqwoui .gt_table_body {
+#gyccthjpnx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -957,7 +957,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_footnotes {
+#gyccthjpnx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -971,7 +971,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_footnote {
+#gyccthjpnx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -980,7 +980,7 @@
   padding-right: 5px;
 }
 
-#ruppxqwoui .gt_sourcenotes {
+#gyccthjpnx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -994,7 +994,7 @@
   border-right-color: #D3D3D3;
 }
 
-#ruppxqwoui .gt_sourcenote {
+#gyccthjpnx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1002,63 +1002,63 @@
   padding-right: 5px;
 }
 
-#ruppxqwoui .gt_left {
+#gyccthjpnx .gt_left {
   text-align: left;
 }
 
-#ruppxqwoui .gt_center {
+#gyccthjpnx .gt_center {
   text-align: center;
 }
 
-#ruppxqwoui .gt_right {
+#gyccthjpnx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ruppxqwoui .gt_font_normal {
+#gyccthjpnx .gt_font_normal {
   font-weight: normal;
 }
 
-#ruppxqwoui .gt_font_bold {
+#gyccthjpnx .gt_font_bold {
   font-weight: bold;
 }
 
-#ruppxqwoui .gt_font_italic {
+#gyccthjpnx .gt_font_italic {
   font-style: italic;
 }
 
-#ruppxqwoui .gt_super {
+#gyccthjpnx .gt_super {
   font-size: 65%;
 }
 
-#ruppxqwoui .gt_footnote_marks {
+#gyccthjpnx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ruppxqwoui .gt_asterisk {
+#gyccthjpnx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ruppxqwoui .gt_indent_1 {
+#gyccthjpnx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ruppxqwoui .gt_indent_2 {
+#gyccthjpnx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ruppxqwoui .gt_indent_3 {
+#gyccthjpnx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ruppxqwoui .gt_indent_4 {
+#gyccthjpnx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ruppxqwoui .gt_indent_5 {
+#gyccthjpnx .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1080,139 +1080,139 @@
   <tbody class="gt_table_body">
     <tr><td headers="sex" class="gt_row gt_left">male</td>
 <td headers="length" class="gt_row gt_right">0.610</td>
-<td headers="diameter" class="gt_row gt_right">0.490</td>
+<td headers="diameter" class="gt_row gt_right">0.485</td>
 <td headers="height" class="gt_row gt_right">0.160</td>
-<td headers="whole_weight" class="gt_row gt_right">1.1460</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.5970</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.2460</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2650</td>
-<td headers="rings" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.625</td>
-<td headers="diameter" class="gt_row gt_right">0.475</td>
-<td headers="height" class="gt_row gt_right">0.130</td>
-<td headers="whole_weight" class="gt_row gt_right">0.8595</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.3195</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1775</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2400</td>
-<td headers="rings" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.620</td>
-<td headers="diameter" class="gt_row gt_right">0.505</td>
-<td headers="height" class="gt_row gt_right">0.185</td>
-<td headers="whole_weight" class="gt_row gt_right">1.5275</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.6900</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.3680</td>
-<td headers="shell_weight" class="gt_row gt_right">0.3500</td>
-<td headers="rings" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.460</td>
-<td headers="diameter" class="gt_row gt_right">0.365</td>
-<td headers="height" class="gt_row gt_right">0.125</td>
-<td headers="whole_weight" class="gt_row gt_right">0.4670</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.1895</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.0945</td>
-<td headers="shell_weight" class="gt_row gt_right">0.1580</td>
-<td headers="rings" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">infant</td>
-<td headers="length" class="gt_row gt_right">0.575</td>
-<td headers="diameter" class="gt_row gt_right">0.450</td>
-<td headers="height" class="gt_row gt_right">0.135</td>
-<td headers="whole_weight" class="gt_row gt_right">0.8070</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.3615</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1760</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2540</td>
-<td headers="rings" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">infant</td>
-<td headers="length" class="gt_row gt_right">0.305</td>
-<td headers="diameter" class="gt_row gt_right">0.225</td>
-<td headers="height" class="gt_row gt_right">0.090</td>
-<td headers="whole_weight" class="gt_row gt_right">0.1465</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.0630</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.0340</td>
-<td headers="shell_weight" class="gt_row gt_right">0.0415</td>
-<td headers="rings" class="gt_row gt_right">6</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.520</td>
-<td headers="diameter" class="gt_row gt_right">0.460</td>
-<td headers="height" class="gt_row gt_right">0.150</td>
-<td headers="whole_weight" class="gt_row gt_right">1.0190</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.5230</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1985</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2540</td>
-<td headers="rings" class="gt_row gt_right">7</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.630</td>
-<td headers="diameter" class="gt_row gt_right">0.500</td>
-<td headers="height" class="gt_row gt_right">0.175</td>
-<td headers="whole_weight" class="gt_row gt_right">1.2645</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.5635</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.3065</td>
-<td headers="shell_weight" class="gt_row gt_right">0.3425</td>
-<td headers="rings" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.445</td>
-<td headers="diameter" class="gt_row gt_right">0.340</td>
-<td headers="height" class="gt_row gt_right">0.120</td>
-<td headers="whole_weight" class="gt_row gt_right">0.4475</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.1930</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1035</td>
-<td headers="shell_weight" class="gt_row gt_right">0.1300</td>
-<td headers="rings" class="gt_row gt_right">9</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">infant</td>
-<td headers="length" class="gt_row gt_right">0.295</td>
-<td headers="diameter" class="gt_row gt_right">0.215</td>
-<td headers="height" class="gt_row gt_right">0.070</td>
-<td headers="whole_weight" class="gt_row gt_right">0.1210</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.0470</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.0155</td>
-<td headers="shell_weight" class="gt_row gt_right">0.0405</td>
-<td headers="rings" class="gt_row gt_right">6</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.380</td>
-<td headers="diameter" class="gt_row gt_right">0.305</td>
-<td headers="height" class="gt_row gt_right">0.095</td>
-<td headers="whole_weight" class="gt_row gt_right">0.2815</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.1255</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.0525</td>
-<td headers="shell_weight" class="gt_row gt_right">0.0900</td>
+<td headers="whole_weight" class="gt_row gt_right">1.0145</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.5315</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.2120</td>
+<td headers="shell_weight" class="gt_row gt_right">0.2415</td>
 <td headers="rings" class="gt_row gt_right">8</td></tr>
     <tr><td headers="sex" class="gt_row gt_left">infant</td>
-<td headers="length" class="gt_row gt_right">0.270</td>
-<td headers="diameter" class="gt_row gt_right">0.195</td>
-<td headers="height" class="gt_row gt_right">0.065</td>
-<td headers="whole_weight" class="gt_row gt_right">0.1065</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.0475</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.0225</td>
-<td headers="shell_weight" class="gt_row gt_right">0.0285</td>
-<td headers="rings" class="gt_row gt_right">5</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.695</td>
-<td headers="diameter" class="gt_row gt_right">0.565</td>
-<td headers="height" class="gt_row gt_right">0.190</td>
-<td headers="whole_weight" class="gt_row gt_right">1.7635</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.7465</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.3990</td>
-<td headers="shell_weight" class="gt_row gt_right">0.4975</td>
+<td headers="length" class="gt_row gt_right">0.490</td>
+<td headers="diameter" class="gt_row gt_right">0.385</td>
+<td headers="height" class="gt_row gt_right">0.140</td>
+<td headers="whole_weight" class="gt_row gt_right">0.5425</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.1980</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.1270</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1750</td>
 <td headers="rings" class="gt_row gt_right">11</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">male</td>
+<td headers="length" class="gt_row gt_right">0.450</td>
+<td headers="diameter" class="gt_row gt_right">0.325</td>
+<td headers="height" class="gt_row gt_right">0.115</td>
+<td headers="whole_weight" class="gt_row gt_right">0.4305</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.2235</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.0785</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1155</td>
+<td headers="rings" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">male</td>
+<td headers="length" class="gt_row gt_right">0.565</td>
+<td headers="diameter" class="gt_row gt_right">0.440</td>
+<td headers="height" class="gt_row gt_right">0.185</td>
+<td headers="whole_weight" class="gt_row gt_right">0.9090</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.3440</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.2325</td>
+<td headers="shell_weight" class="gt_row gt_right">0.2550</td>
+<td headers="rings" class="gt_row gt_right">15</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">infant</td>
+<td headers="length" class="gt_row gt_right">0.400</td>
+<td headers="diameter" class="gt_row gt_right">0.315</td>
+<td headers="height" class="gt_row gt_right">0.085</td>
+<td headers="whole_weight" class="gt_row gt_right">0.2675</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.1160</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.0585</td>
+<td headers="shell_weight" class="gt_row gt_right">0.0765</td>
+<td headers="rings" class="gt_row gt_right">6</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">male</td>
+<td headers="length" class="gt_row gt_right">0.510</td>
+<td headers="diameter" class="gt_row gt_right">0.380</td>
+<td headers="height" class="gt_row gt_right">0.135</td>
+<td headers="whole_weight" class="gt_row gt_right">0.6810</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.3435</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.1420</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1700</td>
+<td headers="rings" class="gt_row gt_right">9</td></tr>
     <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.620</td>
-<td headers="diameter" class="gt_row gt_right">0.480</td>
-<td headers="height" class="gt_row gt_right">0.180</td>
-<td headers="whole_weight" class="gt_row gt_right">1.2215</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.5820</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.2695</td>
-<td headers="shell_weight" class="gt_row gt_right">0.3130</td>
+<td headers="length" class="gt_row gt_right">0.645</td>
+<td headers="diameter" class="gt_row gt_right">0.510</td>
+<td headers="height" class="gt_row gt_right">0.200</td>
+<td headers="whole_weight" class="gt_row gt_right">1.5675</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.6210</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.3670</td>
+<td headers="shell_weight" class="gt_row gt_right">0.4600</td>
+<td headers="rings" class="gt_row gt_right">12</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">infant</td>
+<td headers="length" class="gt_row gt_right">0.420</td>
+<td headers="diameter" class="gt_row gt_right">0.345</td>
+<td headers="height" class="gt_row gt_right">0.115</td>
+<td headers="whole_weight" class="gt_row gt_right">0.3435</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.1515</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.0795</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1150</td>
+<td headers="rings" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">female</td>
+<td headers="length" class="gt_row gt_right">0.440</td>
+<td headers="diameter" class="gt_row gt_right">0.330</td>
+<td headers="height" class="gt_row gt_right">0.115</td>
+<td headers="whole_weight" class="gt_row gt_right">0.4005</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.1430</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.1130</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1200</td>
+<td headers="rings" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">infant</td>
+<td headers="length" class="gt_row gt_right">0.440</td>
+<td headers="diameter" class="gt_row gt_right">0.355</td>
+<td headers="height" class="gt_row gt_right">0.120</td>
+<td headers="whole_weight" class="gt_row gt_right">0.4950</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.2310</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.1100</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1250</td>
+<td headers="rings" class="gt_row gt_right">7</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">infant</td>
+<td headers="length" class="gt_row gt_right">0.465</td>
+<td headers="diameter" class="gt_row gt_right">0.355</td>
+<td headers="height" class="gt_row gt_right">0.090</td>
+<td headers="whole_weight" class="gt_row gt_right">0.4325</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.2005</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.0740</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1275</td>
+<td headers="rings" class="gt_row gt_right">9</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">male</td>
+<td headers="length" class="gt_row gt_right">0.290</td>
+<td headers="diameter" class="gt_row gt_right">0.225</td>
+<td headers="height" class="gt_row gt_right">0.080</td>
+<td headers="whole_weight" class="gt_row gt_right">0.1295</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.0535</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.0260</td>
+<td headers="shell_weight" class="gt_row gt_right">0.0450</td>
+<td headers="rings" class="gt_row gt_right">10</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">male</td>
+<td headers="length" class="gt_row gt_right">0.555</td>
+<td headers="diameter" class="gt_row gt_right">0.430</td>
+<td headers="height" class="gt_row gt_right">0.165</td>
+<td headers="whole_weight" class="gt_row gt_right">0.7575</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.2735</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.1635</td>
+<td headers="shell_weight" class="gt_row gt_right">0.2750</td>
+<td headers="rings" class="gt_row gt_right">13</td></tr>
+    <tr><td headers="sex" class="gt_row gt_left">female</td>
+<td headers="length" class="gt_row gt_right">0.525</td>
+<td headers="diameter" class="gt_row gt_right">0.430</td>
+<td headers="height" class="gt_row gt_right">0.125</td>
+<td headers="whole_weight" class="gt_row gt_right">0.8130</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.3315</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.1660</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1775</td>
 <td headers="rings" class="gt_row gt_right">12</td></tr>
     <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.625</td>
-<td headers="diameter" class="gt_row gt_right">0.505</td>
-<td headers="height" class="gt_row gt_right">0.215</td>
-<td headers="whole_weight" class="gt_row gt_right">1.4455</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.4960</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.2870</td>
-<td headers="shell_weight" class="gt_row gt_right">0.4350</td>
-<td headers="rings" class="gt_row gt_right">22</td></tr>
+<td headers="length" class="gt_row gt_right">0.510</td>
+<td headers="diameter" class="gt_row gt_right">0.405</td>
+<td headers="height" class="gt_row gt_right">0.130</td>
+<td headers="whole_weight" class="gt_row gt_right">0.7175</td>
+<td headers="shucked_weight" class="gt_row gt_right">0.3725</td>
+<td headers="viscera_weight" class="gt_row gt_right">0.1580</td>
+<td headers="shell_weight" class="gt_row gt_right">0.1700</td>
+<td headers="rings" class="gt_row gt_right">9</td></tr>
   </tbody>
   
   
@@ -1261,7 +1261,7 @@
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="01-introduction_files/figure-revealjs/unnamed-chunk-14-1.svg" class="r-stretch quarto-figure-center"><aside class="notes">
+<img data-src="01-introduction_files/figure-revealjs/unnamed-chunk-7-1.svg" class="r-stretch quarto-figure-center"><aside class="notes">
 <p>This histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn’t be able to predict such values. Let’s come back to that!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1294,7 +1294,7 @@
 <span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="01-introduction_files/figure-revealjs/unnamed-chunk-18-1.svg" class="r-stretch quarto-figure-center"></section>
+<img data-src="01-introduction_files/figure-revealjs/unnamed-chunk-9-1.svg" class="r-stretch quarto-figure-center"></section>
 <section id="time-for-machine-learning" class="slide level2">
 <h2>Time for machine learning!</h2>
 
@@ -1341,21 +1341,13 @@
 <span id="cb9-4"><a href="#cb9-4"></a>abalone_fit <span class="op">=</span> pipeline.Pipeline([(<span class="st">'label_encoder'</span>, le), (<span class="st">'decision_tree'</span>, tr)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="bind-preprocessors-and-models-together" class="slide level2">
-<h2>Bind preprocessors and models together</h2>
-
-<img data-src="images/good_workflow.png" class="r-stretch quarto-figure-center"></section>
-<section id="what-is-wrong-with-this" class="slide level2 annotation">
-<h2>What is wrong with this?</h2>
-
-<img data-src="images/bad_workflow.png" class="r-stretch quarto-figure-center"></section>
 <section id="your-turn-2" class="slide level2" data-transition="slide-in">
 <h2>Your turn 🏺</h2>
 <p><em>Split your data in training and testing.</em></p>
 <p><em>Fit a model to your training data.</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_ba06e14c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_7b492fd9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1382,9 +1374,8 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">from</span> vetiver <span class="im">import</span> VetiverModel</span>
 <span id="cb11-2"><a href="#cb11-2"></a>v <span class="op">=</span> VetiverModel(abalone_fit, <span class="st">"abalone-rings-python"</span>, ptype_data <span class="op">=</span> X_train)</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt; &lt;string&gt;:1: DeprecationWarning: argument for saving input data prototype has changed to prototype_data, from ptype_data</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>v.description</span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#&gt; 'A scikit-learn Pipeline model'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3"></a>v.description</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt; 'A scikit-learn Pipeline model'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-turn-3" class="slide level2" data-transition="slide-in">
@@ -1394,7 +1385,7 @@
 <p><em>Show your custom description to your neighbor.</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_04aa017d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_12d52b21" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1457,7 +1448,7 @@
 <span id="cb12-8"><a href="#cb12-8"></a><span class="co">#&gt;  with vetiver.model_card()</span></span>
 <span id="cb12-9"><a href="#cb12-9"></a><span class="co">#&gt; Writing pin:</span></span>
 <span id="cb12-10"><a href="#cb12-10"></a><span class="co">#&gt; Name: 'abalone-rings-python'</span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; Version: 20230804T110225Z-08892</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; Version: 20230817T183522Z-c46cb</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -1466,7 +1457,7 @@
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a>board <span class="ot">&lt;-</span> <span class="fu">board_temp</span>()</span>
 <span id="cb13-4"><a href="#cb13-4"></a>board <span class="sc">|&gt;</span> <span class="fu">vetiver_pin_write</span>(v)</span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt; Creating new version '20230804T150225Z-dfa3d'</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt; Creating new version '20230817T183522Z-deb38'</span></span>
 <span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt; Writing to pin 'abalone-rings-rstats'</span></span>
 <span id="cb13-7"><a href="#cb13-7"></a><span class="co">#&gt; </span></span>
 <span id="cb13-8"><a href="#cb13-8"></a><span class="co">#&gt; Create a Model Card for your published model</span></span>
@@ -1476,26 +1467,16 @@
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="make-it-easy-to-do-the-right-thing" class="title-slide slide level1 center">
-<h1>Make it easy to do the right thing</h1>
-<ul>
-<li class="fragment">Robust and human-friendly checking of new data</li>
-<li class="fragment">Track and document software dependencies of models</li>
-<li class="fragment"><a href="https://vetiver.rstudio.com/learn-more/model-card.html">Model cards</a> for transparent, responsible reporting</li>
-</ul>
 </section>
 <section id="your-turn-4" class="slide level2" data-transition="slide-in">
 <h2>Your turn 🏺</h2>
 <p><em>Pin your vetiver model object to a temporary board.</em></p>
-<p><em>Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.</em></p>
-<p><em>Discuss something you notice about the Model Card with your neighbor.</em></p>
+<p><em>Retrieve the model metadata with <code>pin_meta()</code>.</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a26ebf79" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_9b45516f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
@@ -1552,7 +1533,7 @@
 <p><em>Write this new version of your model to the same pin, and see what versions you have with <code>pin_versions</code>.</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_2897cad0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_f07a7848" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
