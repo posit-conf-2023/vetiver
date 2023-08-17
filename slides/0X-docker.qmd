@@ -16,3 +16,120 @@ knitr:
     collapse: true
     comment: "#>"
 ---
+
+::: nonincremental
+-   *Versioning*
+    -   Managing change in models ✅
+-   *Deploying*
+    -   Putting models in REST APIs 🎯
+-   *Monitoring*
+    -   Tracking model performance 👀
+:::
+
+## Why Docker?
+
+![](https://external-preview.redd.it/aR6WdUcsrEgld5xUlglgKX_0sC_NlryCPTXIHk5qdu8.jpg?auto=webp&s=5fe64dd318eec71711d87805d43def2765dd83cd){fig-align="center"}
+
+## Why Docker?
+
+::: nonincremental
+-   Open source
+-   Reproducible
+-   Bring your own container philosophy
+:::
+
+## Create your vetiver model and version
+
+### R
+
+```{r}
+#| eval: false
+library(vetiver)
+library(pins)
+
+v <- vetiver_model(abalone_fit, "abalone-rings-rstats")
+board <- board_connect()
+board |> vetiver_pin_write(v)
+```
+
+### Python
+
+```{python}
+#| eval: false
+from vetiver import VetiverModel, vetiver_pin_write
+from pins import board_connect
+import os
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("CO_API_KEY")
+rsc_url = os.getenv("CO_RSC_URL")
+
+v = VetiverModel(abalone_fit, "abalone-rings-python", ptype_data = X_train)
+board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)
+vetiver_pin_write(board, v)
+```
+
+## Create Docker artifacts
+
+::: nonincremental
+-   Dockerfile
+-   Model dependencies, typically `requirements.txt` or `renv.lock`
+-   File to serve API, typically `app.py` or `plumber.R`
+:::
+
+### R
+
+```{r}
+#| eval: false
+vetiver_prepare_docker(board, "isabel.zimmerman/abalone-rings-r", port = 8080)
+```
+
+### Python
+
+```{python}
+#| eval: false
+vetiver.prepare_docker(
+    board, 
+    "isabel.zimmerman/abalone-rings-python",
+    version = "20220901T144702Z-fd402",
+    port = 8080
+)
+```
+
+## Build your container
+
+```bash
+docker build -t superbowlads .
+```
+
+## Run your container
+
+```bash
+docker run --env-file .env -p 8080:8080 superbowlads
+```
+
+## Make predictions
+
+### R
+
+```{r}
+#| eval: false
+endpoint <- vetiver_endpoint("http://0.0.0.0:8080/predict")
+
+predict(endpoint, X_test)
+```
+
+### Python
+
+```{python}
+#| eval: false
+endpoint = vetiver.vetiver_endpoint("http://0.0.0.0:8080/predict")
+vetiver.predict(endpoint=endpoint, data=X_test)
+```
+
+## Docker resources
+
+- [Enough Docker to be Dangerous](https://seankross.com/2017/09/17/Enough-Docker-to-be-Dangerous.html)
+- [Python Docker](https://zetcode.com/python/docker/)
+- [Ten simple rules for writing Dockerfiles for reproducible data science](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008316)
+- [Docker info from Posit Solutions Engineering](https://solutions.posit.co/envs-pkgs/environments/docker/)
