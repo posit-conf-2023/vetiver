@@ -137,7 +137,7 @@
     "href": "slides/01-introduction.html#abalone-ages-2",
     "title": "1 - Introduction",
     "section": "Abalone ages",
-    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.610\n0.485\n0.160\n1.0145\n0.5315\n0.2120\n0.2415\n8\n    infant\n0.490\n0.385\n0.140\n0.5425\n0.1980\n0.1270\n0.1750\n11\n    male\n0.450\n0.325\n0.115\n0.4305\n0.2235\n0.0785\n0.1155\n8\n    male\n0.565\n0.440\n0.185\n0.9090\n0.3440\n0.2325\n0.2550\n15\n    infant\n0.400\n0.315\n0.085\n0.2675\n0.1160\n0.0585\n0.0765\n6\n    male\n0.510\n0.380\n0.135\n0.6810\n0.3435\n0.1420\n0.1700\n9\n    female\n0.645\n0.510\n0.200\n1.5675\n0.6210\n0.3670\n0.4600\n12\n    infant\n0.420\n0.345\n0.115\n0.3435\n0.1515\n0.0795\n0.1150\n9\n    female\n0.440\n0.330\n0.115\n0.4005\n0.1430\n0.1130\n0.1200\n8\n    infant\n0.440\n0.355\n0.120\n0.4950\n0.2310\n0.1100\n0.1250\n7\n    infant\n0.465\n0.355\n0.090\n0.4325\n0.2005\n0.0740\n0.1275\n9\n    male\n0.290\n0.225\n0.080\n0.1295\n0.0535\n0.0260\n0.0450\n10\n    male\n0.555\n0.430\n0.165\n0.7575\n0.2735\n0.1635\n0.2750\n13\n    female\n0.525\n0.430\n0.125\n0.8130\n0.3315\n0.1660\n0.1775\n12\n    male\n0.510\n0.405\n0.130\n0.7175\n0.3725\n0.1580\n0.1700\n9"
+    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.620\n0.495\n0.195\n1.5145\n0.5790\n0.3460\n0.5195\n15\n    male\n0.630\n0.470\n0.155\n1.1325\n0.5890\n0.2110\n0.2870\n8\n    female\n0.525\n0.410\n0.115\n0.7745\n0.4160\n0.1630\n0.1800\n7\n    infant\n0.560\n0.435\n0.135\n0.7200\n0.3290\n0.1030\n0.2510\n11\n    infant\n0.440\n0.345\n0.120\n0.3650\n0.1655\n0.0830\n0.1100\n7\n    infant\n0.355\n0.275\n0.090\n0.2510\n0.0970\n0.0530\n0.0800\n7\n    infant\n0.380\n0.270\n0.080\n0.2105\n0.0865\n0.0420\n0.0700\n8\n    infant\n0.530\n0.420\n0.130\n0.6580\n0.2960\n0.1245\n0.1980\n8\n    infant\n0.250\n0.175\n0.060\n0.0635\n0.0275\n0.0080\n0.0200\n4\n    infant\n0.190\n0.140\n0.030\n0.0315\n0.0125\n0.0050\n0.0105\n3\n    male\n0.505\n0.385\n0.150\n0.6415\n0.2460\n0.1520\n0.2150\n12\n    male\n0.550\n0.410\n0.150\n0.7850\n0.2820\n0.1860\n0.2750\n12\n    male\n0.565\n0.430\n0.150\n0.8310\n0.4245\n0.1735\n0.2190\n10\n    infant\n0.435\n0.315\n0.110\n0.3685\n0.1615\n0.0715\n0.1200\n7\n    male\n0.505\n0.390\n0.105\n0.6555\n0.2595\n0.1800\n0.1900\n11"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
@@ -221,7 +221,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230817T183522Z-c46cb\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230817T183522Z-deb38'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230818T205845Z-ea3f9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230818T205845Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -397,6 +397,62 @@
     "title": "3 - Deeper into deployment",
     "section": "Plan for this workshop",
     "text": "Plan for this workshop\n\n\nVersioning\n\nManaging change in models ✅\n\nDeploying\n\nPutting models in REST APIs 🎯\n\nMonitoring\n\nTracking model performance 👀"
+  },
+  {
+    "objectID": "slides/03-deploy.html#why-docker",
+    "href": "slides/03-deploy.html#why-docker",
+    "title": "3 - Deeper into deployment",
+    "section": "Why Docker?",
+    "text": "Why Docker?\n\n\nOpen source\nReproducible\nBring your own container philosophy\n\n\n\nECR in AWS, etc huggingface"
+  },
+  {
+    "objectID": "slides/03-deploy.html#why-docker-1",
+    "href": "slides/03-deploy.html#why-docker-1",
+    "title": "3 - Deeper into deployment",
+    "section": "Why Docker?",
+    "text": "Why Docker?"
+  },
+  {
+    "objectID": "slides/03-deploy.html#create-docker-artifacts",
+    "href": "slides/03-deploy.html#create-docker-artifacts",
+    "title": "3 - Deeper into deployment",
+    "section": "Create Docker artifacts",
+    "text": "Create Docker artifacts\n\nStart with a trained and versioned model"
+  },
+  {
+    "objectID": "slides/03-deploy.html#create-docker-artifacts-1",
+    "href": "slides/03-deploy.html#create-docker-artifacts-1",
+    "title": "3 - Deeper into deployment",
+    "section": "Create Docker artifacts",
+    "text": "Create Docker artifacts\n\n\nDockerfile\nModel dependencies, typically requirements.txt or renv.lock\nFile to serve API, typically app.py or plumber.R\n\n\nR\n\nvetiver_prepare_docker(board, \"isabel.zimmerman/inspection-results-r\", port = 8080)\n\nPython\n\nvetiver.prepare_docker(\n    board, \n    \"isabel.zimmerman/inspection-results-python\",\n    version = \"20220901T144702Z-fd402\",\n    port = 8080\n)"
+  },
+  {
+    "objectID": "slides/03-deploy.html#build-your-container",
+    "href": "slides/03-deploy.html#build-your-container",
+    "title": "3 - Deeper into deployment",
+    "section": "Build your container",
+    "text": "Build your container\ndocker build -t inspection ."
+  },
+  {
+    "objectID": "slides/03-deploy.html#run-your-container",
+    "href": "slides/03-deploy.html#run-your-container",
+    "title": "3 - Deeper into deployment",
+    "section": "Run your container",
+    "text": "Run your container\ndocker run --env-file .env -p 8080:8080 inspection\n\nprobably .Renv if you are in R"
+  },
+  {
+    "objectID": "slides/03-deploy.html#make-predictions",
+    "href": "slides/03-deploy.html#make-predictions",
+    "title": "3 - Deeper into deployment",
+    "section": "Make predictions",
+    "text": "Make predictions\nR\n\nendpoint &lt;- vetiver_endpoint(\"http://0.0.0.0:8080/predict\")\n\npredict(endpoint, X_test)\n\nPython\n\nendpoint = vetiver.vetiver_endpoint(\"http://0.0.0.0:8080/predict\")\nvetiver.predict(endpoint=endpoint, data=X_test)"
+  },
+  {
+    "objectID": "slides/03-deploy.html#docker-resources",
+    "href": "slides/03-deploy.html#docker-resources",
+    "title": "3 - Deeper into deployment",
+    "section": "Docker resources",
+    "text": "Docker resources\n\nEnough Docker to be Dangerous\nPython Docker\nTen simple rules for writing Dockerfiles for reproducible data science\nDocker info from Posit Solutions Engineering"
   },
   {
     "objectID": "slides/03-deploy.html#deploy-preprocessors-and-models-together-1",
