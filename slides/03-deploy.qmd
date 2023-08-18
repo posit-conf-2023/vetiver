@@ -80,7 +80,7 @@ huggingface
 
 ```{r}
 #| eval: false
-vetiver_prepare_docker(board, "isabel.zimmerman/abalone-rings-r", port = 8080)
+vetiver_prepare_docker(board, "isabel.zimmerman/inspection-results-r", port = 8080)
 ```
 
 ### Python
@@ -89,7 +89,7 @@ vetiver_prepare_docker(board, "isabel.zimmerman/abalone-rings-r", port = 8080)
 #| eval: false
 vetiver.prepare_docker(
     board, 
-    "isabel.zimmerman/abalone-rings-python",
+    "isabel.zimmerman/inspection-results-python",
     version = "20220901T144702Z-fd402",
     port = 8080
 )
@@ -98,13 +98,13 @@ vetiver.prepare_docker(
 ## Build your container
 
 ```bash
-docker build -t superbowlads .
+docker build -t inspection .
 ```
 
 ## Run your container
 
 ```bash
-docker run --env-file .env -p 8080:8080 superbowlads
+docker run --env-file .env -p 8080:8080 inspection
 ```
 
 ::: notes
