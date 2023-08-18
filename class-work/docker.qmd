@@ -8,9 +8,15 @@ title: Deploying a model with Docker
 ```{python}
 #| eval: false
 import pins
+import os
+from dotenv import load_dotenv
 from vetiver import VetiverModel
 
-board = pins.board_connect()
+load_dotenv()
+api_key = os.getenv("CO_API_KEY")
+rsc_url = os.getenv("CO_RSC_URL")
+
+board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)
 VetiverModel.from_pin(
     board, 
     "isabel.zimmerman/inspection-python",
@@ -22,6 +28,8 @@ VetiverModel.from_pin(
 
 ```{python}
 #| eval: false
+import vetiver
+
 vetiver.prepare_docker(
     board = ___, 
     pin_name = ___,
