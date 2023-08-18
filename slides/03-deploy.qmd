@@ -41,9 +41,101 @@ knitr:
 
 -   A public or private cloud, using Docker
 
+# {background-color="white" background-image="https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo-1536x864.png" background-size="70%"}
+
 # Docker
 
-tktk
+_Containerized environments for your code._
+
+## Why Docker?
+
+::: nonincremental
+-   Open source
+-   Reproducible
+-   Bring your own container philosophy
+:::
+
+::: notes
+ECR in AWS, etc
+huggingface
+:::
+
+## Why Docker?
+
+![](https://external-preview.redd.it/aR6WdUcsrEgld5xUlglgKX_0sC_NlryCPTXIHk5qdu8.jpg?auto=webp&s=5fe64dd318eec71711d87805d43def2765dd83cd){fig-align="center"}
+
+## Create Docker artifacts
+
+-   Start with a trained and versioned model
+
+## Create Docker artifacts
+
+::: nonincremental
+-   Dockerfile
+-   Model dependencies, typically `requirements.txt` or `renv.lock`
+-   File to serve API, typically `app.py` or `plumber.R`
+:::
+
+### R
+
+```{r}
+#| eval: false
+vetiver_prepare_docker(board, "isabel.zimmerman/abalone-rings-r", port = 8080)
+```
+
+### Python
+
+```{python}
+#| eval: false
+vetiver.prepare_docker(
+    board, 
+    "isabel.zimmerman/abalone-rings-python",
+    version = "20220901T144702Z-fd402",
+    port = 8080
+)
+```
+
+## Build your container
+
+```bash
+docker build -t superbowlads .
+```
+
+## Run your container
+
+```bash
+docker run --env-file .env -p 8080:8080 superbowlads
+```
+
+::: notes
+probably .Renv if you are in R
+:::
+
+## Make predictions
+
+### R
+
+```{r}
+#| eval: false
+endpoint <- vetiver_endpoint("http://0.0.0.0:8080/predict")
+
+predict(endpoint, X_test)
+```
+
+### Python
+
+```{python}
+#| eval: false
+endpoint = vetiver.vetiver_endpoint("http://0.0.0.0:8080/predict")
+vetiver.predict(endpoint=endpoint, data=X_test)
+```
+
+## Docker resources
+
+- [Enough Docker to be Dangerous](https://seankross.com/2017/09/17/Enough-Docker-to-be-Dangerous.html)
+- [Python Docker](https://zetcode.com/python/docker/)
+- [Ten simple rules for writing Dockerfiles for reproducible data science](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008316)
+- [Docker info from Posit Solutions Engineering](https://solutions.posit.co/envs-pkgs/environments/docker/)
 
 # Deploy preprocessors and models together
 
