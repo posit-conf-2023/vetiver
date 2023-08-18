@@ -1,0 +1,62 @@
+---
+format: html
+title: Deploying a model with Docker
+---
+
+## Choose a pinned model to deploy
+
+```{python}
+#| eval: false
+import pins
+import os
+from dotenv import load_dotenv
+from vetiver import VetiverModel
+
+load_dotenv()
+api_key = os.getenv("CO_API_KEY")
+rsc_url = os.getenv("CO_RSC_URL")
+
+board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)
+VetiverModel.from_pin(
+    board, 
+    "isabel.zimmerman/inspection-python",
+    version = "20220901T144702Z-fd402"
+).description
+```
+
+## Create artifacts to run a Dockerfile
+
+```{python}
+#| eval: false
+import vetiver
+
+vetiver.prepare_docker(
+    board = ___, 
+    pin_name = ___,
+    version = ___,
+    host = ___,
+    port = ___
+)
+```
+
+What outputs are created?
+
+## Build your container
+
+```bash
+docker build -t inpection .
+```
+
+## Run your container
+
+```bash
+docker run --env-file .env -p 8080:8080 inpection
+```
+
+## Make predictions
+
+```{python}
+#| eval: false
+endpoint = vetiver.vetiver_endpoint(url = ___)
+vetiver.predict(endpoint = ___, data = ___)
+```
