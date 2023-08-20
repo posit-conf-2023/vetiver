@@ -12,7 +12,8 @@ inspections <-
   as_tibble(inspections_raw) |> 
   mutate(across(c("facility_type", "risk", "results"), as.factor),
          inspection_date = ymd(inspection_date)) |> 
-  select(results, inspection_date, everything())
+  select(results, inspection_date, everything()) |> 
+  filter(inspection_date >= "2018-07-01")
 
 summary(inspections$inspection_date)
 
@@ -20,11 +21,43 @@ path1 <- here::here("data", "inspections.parquet")
 path2 <- here::here("data", "inspections_monitoring.parquet")
 
 inspections |> 
-  filter(inspection_date < ymd("2022-01-01")) |>
+  filter(inspection_date < ymd("2023-01-01")) |>
   arrange(inspection_date) |> 
   write_parquet(path1)
 
 inspections |> 
-  filter(inspection_date >= ymd("2022-01-01")) |> 
+  filter(inspection_date >= ymd("2023-01-01")) |> 
   arrange(inspection_date) |> 
   write_parquet(path2)
+
+library(tidymodels)
+set.seed(123)
+inspect_split <- inspections |> 
+  filter(inspection_date < ymd("2023-01-01")) |>
+  arrange(inspection_date) |> 
+  initial_split(prop = 0.8)
+
+inspect_train <- training(inspect_split)
+inspect_test <- testing(inspect_split)
+
+inspect_fit <-
+  workflow(
+    results ~ facility_type + risk + total_violations + inspection_date, 
+    rand_forest(mode = "classification", trees = 1e3)
+  ) |> 
+  fit(data = inspect_train)
+
+library(vetiver)
+library(pins)
+
+v <- vetiver_model(inspect_fit, "chicago-inspections-rstats")
+board <- board_connect()
+board |> vetiver_pin_write(v)
+
+vetiver_deploy_rsconnect(
+  board, 
+  "julia.silge/chicago-inspections-rstats",
+  account = "julia.silge",
+  appName = "chicago-inspections-rstats-model-api",
+  forceUpdate = TRUE
+)
