@@ -41,30 +41,19 @@ knitr:
 ```{r}
 library(tidyverse)
 library(tidymodels)
-library(vetiver)
-library(pins)
-library(countdown)
-
-board <- board_connect_url(c(
-  inspection_data = 'https://colorado.posit.co/rsc/inspection_data/'
-  ))
-
-inspection <- read_csv('/Users/isabelzimmerman/code/github/vetiver/slides/inspection.csv') 
-# TODO: read pin from vanity url
-# board %>% pin_read("inspection_data")
-
-# TODO: can we set str to factors?
-inspection <- inspection |> mutate_at(c('risk', 'facility_type', 'results'), factor)
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
 
 set.seed(123)
-inspect_split <- initial_split(inspection, prop = 0.8)
+inspect_split <- initial_split(inspections, prop = 0.8)
 inspect_train <- training(inspect_split)
 inspect_test <- testing(inspect_split)
 
 inspect_fit <-
   workflow(
     results ~ facility_type + risk + total_violations, 
-    decision_tree(mode = "classification")
+    rand_forest(mode = "classification", trees = 1e3)
   ) |> 
   fit(data = inspect_train)
 ```
@@ -72,17 +61,21 @@ inspect_fit <-
 ### Python
 
 ```{python}
+## TODO for Isabel: can you add the `inspection_date` predictor to this random forest model?
+## TODO for Isabel: can you add a script to `data-raw` that trains this model and deploys to Connect? see my `prep_chicago_inspections.R` but *only* do model training, not data prep
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing, tree, pipeline, compose
 import pins
 
-board = board_url(github_raw, pin_paths)
-board = pins.board_url('https://colorado.posit.co/rsc/', {"df_csv": 'inspection_data/'})
-
-inspection = board.pin_read('df_csv')
-
+pd.read_parquet('./data/inspections.parquet', engine = 'pyarrow')
 categorical_features = ['facility_type', 'risk']
+X, y = inspection.drop(columns=['aka_name', 'results']), inspection['results']
+X_train, X_test, y_train, y_test = model_selection.train_test_split(
+    X, y,
+    stratify = y,
+    test_size = 0.2
+)
 
 oe = compose.make_column_transformer(
     (
@@ -107,7 +100,7 @@ inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", r
 library(vetiver)
 library(pins)
 
-v <- vetiver_model(inspect_fit, "inspect-results-rstats")
+v <- vetiver_model(inspect_fit, "chicago-inspections-rstats")
 board <- board_connect()
 board |> vetiver_pin_write(v)
 ```
@@ -124,8 +117,8 @@ load_dotenv()
 api_key = os.getenv("CO_API_KEY")
 rsc_url = os.getenv("CO_RSC_URL")
 
-v = VetiverModel(inspection_fit, "inspect-results-python", ptype_data = X_train)
-board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)
+v = VetiverModel(inspection_fit, "chicago-inspections-python", ptype_data = X_train)
+board = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
 
@@ -224,7 +217,7 @@ countdown(minutes = 7)
 
 ```{r}
 #| eval: false
-vetiver_deploy_rsconnect(board, "user.name/inspection-results-rstats")
+vetiver_deploy_rsconnect(board, "user.name/chicago-inspections-rstats")
 ```
 
 ### Python
@@ -237,7 +230,7 @@ connect_server = RSConnectServer(url = rsc_url, api_key = api_key)
 vetiver.deploy_rsconnect(
     connect_server = connect_server,
     board = board,
-    pin_name = "user.name/inspection-results-python",
+    pin_name = "user.name/chicago-inspections-python",
 )
 ```
 
@@ -269,7 +262,7 @@ You did it! 🥳
 ### R
 
 ```{r}
-url <- "https://colorado.posit.co/rsc/seattle-housing/metadata"
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/metadata"
 r <- httr::GET(url)
 metadata <- httr::content(r, as = "text", encoding = "UTF-8")
 jsonlite::fromJSON(metadata)
@@ -296,19 +289,18 @@ You can treat your model API much like it is a local model in memory!
 
 ### R
 
-```r
-## TODO: put a model on Colorado with our dataset and run this for real
-endpoint <- vetiver_endpoint("https://connect.example.com/content/$APP_ID/predict")
-predict(endpoint, slice_sample(ring_test, n = 10))
+```{r}
+endpoint <- vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-rstats/predict")
+predict(endpoint, slice_sample(inspect_test, n = 10))
 ```
 
 ### Python
 
 ```python
-## TODO: put a model on Colorado with our dataset and run this for real
+## TODO for Isabel: put a model on Colorado using the script in `data-raw` and run this for real
 from vetiver.server import predict, vetiver_endpoint
 endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
-predict(endpoint = endpoint, data = ring_test)
+predict(endpoint = endpoint, data = X_test)
 ```
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -346,15 +338,14 @@ What if your model API requires authentication?
 ### R
 
 ```r
-## TODO: put a model on Colorado with our dataset and run this for real
-endpoint <- vetiver_endpoint("https://connect.example.com/content/$APP_ID/predict")
-predict(endpoint, slice_sample(ring_test, n = 10))
+endpoint <- vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-rstats/predict")
+predict(endpoint, slice_sample(inspect_test, n = 10))
 ```
 
 ### Python
 
 ```python
-## TODO: put a model on Colorado with our dataset and run this for real
+## TODO for Isabel: update this with real URL but we will not run (just here for auto-animate)
 from vetiver.server import predict, vetiver_endpoint
 endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
 predict(endpoint = endpoint, data = ring_test)
@@ -367,20 +358,21 @@ What if your model API requires authentication?
 ### R
 
 ```r
-endpoint <- vetiver_endpoint("https://connect.example.com/content/$APP_ID/predict")
+endpoint <- vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-rstats/predict")
 apiKey <- Sys.getenv("CONNECT_API_KEY")
-predict(endpoint, slice_sample(ring_test, n = 10), 
+predict(endpoint, slice_sample(inspect_test, n = 10), 
         httr::add_headers(Authorization = paste("Key", apiKey)))
 ```
 
 ### Python
 
 ```python
+## TODO for Isabel: update this with real URL but we will not run (just here for auto-animate)
 from vetiver.server import predict, vetiver_endpoint
 
 endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
 h = { 'Authorization': f'Key {api_key}' }
-predict(endpoint = endpoint, data = ring_test, headers = h)
+predict(endpoint = endpoint, data = X_test, headers = h)
 ```
 
 # Model input prototype
