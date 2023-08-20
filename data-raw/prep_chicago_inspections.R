@@ -47,6 +47,9 @@ inspect_fit <-
   ) |> 
   fit(data = inspect_train)
 
+augment(inspect_fit, new_data = slice_sample(inspect_test, n = 10)) |> 
+  select(-aka_name)
+
 library(vetiver)
 library(pins)
 
@@ -55,8 +58,9 @@ board <- board_connect()
 board |> vetiver_pin_write(v)
 
 vetiver_deploy_rsconnect(
-  board, 
-  "julia.silge/chicago-inspections-rstats",
+  board = board, 
+  name = "julia.silge/chicago-inspections-rstats",
+  predict_args = list(type = "prob", debug = TRUE),
   account = "julia.silge",
   appName = "chicago-inspections-rstats-model-api",
   forceUpdate = TRUE
