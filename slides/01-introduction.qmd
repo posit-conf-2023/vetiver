@@ -209,15 +209,30 @@ countdown(minutes = 3)
 ```
 
 
-##  {background-image="https://upload.wikimedia.org/wikipedia/commons/0/0b/AbaloneInside.jpg" background-size="70%"}
+##  Chicago food inspections data {background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg", background-opacity=0.5}
 
-## Chicago food inspections data
 
 ::: {.nonincremental}
 -   The city of Chicago offers programmatic access to health code inspections of restaurants
 -   Can certain measurements be used to predict inspection outcome?
--   Data from data.cityofchicago.org.
+-   Data from <https://data.cityofchicago.org/>
 :::
+
+
+::: footer
+Image by [Christopher Alvarenga](https://unsplash.com/photos/cfmSStcrDn4)
+:::
+
+## Inspection results
+
+-   `N = 20414`
+-   A class outcome, `results`
+-   Other variables to use for prediction:
+  -   `facility_type` is a **nominal** predictor
+  -   `risk` is a **nominal** (or maybe **ordinal**) predictor
+  -   `violations` is a **numeric** predictor
+  -   `inspection_date` is a **date** predictor
+
 
 :::: {.columns}
 
@@ -225,18 +240,9 @@ countdown(minutes = 3)
 
 ```{r}
 library(tidyverse)
-library(pins)
-
-board <- board_connect_url(c(
-  inspection_data = 'https://colorado.posit.co/rsc/inspection_data/'
-  ))
-
-# TODO: read pin from vanity url
-inspection <- read_csv('/Users/isabelzimmerman/code/github/vetiver/slides/inspection.csv') 
-# board %>% pin_read("inspection_data")
-
-# TODO: can we set str to factors?
-inspection <- inspection |> mutate_at(c('risk', 'facility_type', 'results'), factor)
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
 ```
 
 :::
@@ -244,32 +250,19 @@ inspection <- inspection |> mutate_at(c('risk', 'facility_type', 'results'), fac
 ::: {.column width="50%"}
 
 ```{python}
-import pins
-
-board = board_url(github_raw, pin_paths)
-board = pins.board_url('https://colorado.posit.co/rsc/', {"df_csv": 'inspection_data/'})
-
-inspection = board.pin_read('df_csv')
+import pandas as pd
+pd.read_parquet('./data/inspections.parquet', engine = 'pyarrow')
 ```
 :::
 
 ::::
-
-## Inspection results
-
--   `N = 20414`
--   A numeric outcome, `results`
--   Other variables to use for prediction:
--   `risk` is an **ordinal** predictor
--   `facility_type` is a **nominal** predictor
--   `violations` is a **numeric** predictors
 
 
 ## Inspection results
 
 ```{r}
 #| echo: false
-gt::gt(slice_sample(inspection, n = 15))
+gt::gt(slice_sample(inspections, n = 15))
 ```
 
 
@@ -277,10 +270,10 @@ gt::gt(slice_sample(inspection, n = 15))
 
 . . .
 
-*Explore the `inspection` data on your own!*
+*Explore the `inspections` data on your own!*
 
-* *What's the distribution of the outcome, results?*
-* *What's the distribution of numeric variables like violations?*
+* *What's the distribution of the outcome `results`?*
+* *What's the distribution of the numeric variable `violations`?*
 * *How do results differ across facility type?*
 
 *Share something you noticed with your neighbor.*
@@ -298,24 +291,23 @@ Make a plot or summary and then share with neighbor
 
 ```{r}
 #| fig-align: 'center'
-ggplot(inspection, aes(results)) +
-  geom_histogram(stat="count")
+inspections |> 
+  group_by(inspection_date = floor_date(inspection_date, unit = "month")) |> 
+  summarise(results = mean(results == "PASS")) |> 
+  ggplot(aes(inspection_date, results)) +
+  geom_line(alpha = 0.8, linewidth = 1.5) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(y = "% of inspections that have a PASS result", x = NULL)
 ```
 
-:::notes
-# TODO: not really relevant, but not sure if we want to bring up this point in a different way
-This histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn't be able to predict such values. Let's come back to that!
-:::
-
 ## 
-
 
 ```{python, execute=FALSE}
 #| eval: false
 #| fig-align: 'center'
 from plotnine import ggplot, aes, geom_boxplot, coord_flip
-(ggplot(inspection, aes('facility_type', 'total_violations', fill='facility_type')) 
-  + geom_boxplot(alpha=0.5, show_legend = False)
+(ggplot(inspections, aes('facility_type', 'total_violations', fill = 'facility_type')) 
+  + geom_boxplot(alpha = 0.5, show_legend = False)
   + coord_flip()
 )
 ```
@@ -324,13 +316,15 @@ from plotnine import ggplot, aes, geom_boxplot, coord_flip
 
 ```{r}
 #| fig-align: 'center'
-
-inspection |>
-  ggplot(aes(inspection_date, total_violations, color = results)) +
-  geom_point(alpha = 0.5)
+inspections |>
+  ggplot(aes(inspection_date, total_violations, z = as.integer(results) - 1)) +
+  stat_summary_hex(alpha = 0.7) +
+  scale_fill_viridis_c(labels = scales::percent) +
+  labs(fill = "% passed")
 ```
 
-## Time for machine learning!
+
+## Time for building a model!
 
 ```{r tree-example}
 #| echo: false
@@ -340,11 +334,12 @@ inspection |>
 #| dev-args: list(bg = "transparent")
 tree_mod <- 
   rpart::rpart(
-    results ~ facility_type + risk + total_violations,
-    data = inspection,
-    #control = rpart::rpart.control(maxdepth = 3, cp = 0.001)
+    results ~ facility_type + total_violations + risk,
+    data = inspections,
+    control = rpart::rpart.control(maxdepth = 5, cp = 0.001)
   ) |> 
   partykit::as.party()
+
 plot(tree_mod)
 ```
 
@@ -356,7 +351,7 @@ plot(tree_mod)
 ```{r}
 library(tidymodels)
 set.seed(123)
-inspect_split <- initial_split(inspection, prop = 0.8)
+inspect_split <- initial_split(inspections, prop = 0.8)
 inspect_train <- training(inspect_split)
 inspect_test <- testing(inspect_split)
 ```
@@ -367,7 +362,7 @@ inspect_test <- testing(inspect_split)
 from sklearn import model_selection
 import numpy as np
 np.random.seed(123)
-X, y = inspection.drop(columns=['aka_name', 'inspection_date', 'results']), inspection['results']
+X, y = inspection.drop(columns=['aka_name', 'results']), inspection['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
     test_size = 0.2
@@ -375,17 +370,17 @@ X_train, X_test, y_train, y_test = model_selection.train_test_split(
 ```
 
 
-## Fit a decision tree 🌳
+## Fit a logistic regression model 🚀
 
 Or your model of choice!
 
 ### R
 
 ```{r}
-inspect_fit <-
+inspection_fit <-
   workflow(
-    results ~ facility_type + risk + total_violations, 
-    decision_tree(mode = "classification")
+    results ~ facility_type + risk + total_violations + inspection_date, 
+    logistic_reg()
   ) |> 
   fit(data = inspect_train)
 ```
@@ -393,6 +388,7 @@ inspect_fit <-
 ### Python
 
 ```{python}
+## TODO for Isabel: can you change this to logistic regression and add the `inspection_date` predictor?
 from sklearn import preprocessing, tree, pipeline, compose
 
 categorical_features = ['facility_type', 'risk']
@@ -429,7 +425,7 @@ countdown(minutes = 5)
 
 ```{r}
 library(vetiver)
-v <- vetiver_model(inspect_fit, "inspection-result-rstats")
+v <- vetiver_model(inspection_fit, "inspection-result-rstats")
 v
 ```
 
@@ -542,7 +538,7 @@ board |> vetiver_pin_write(v)
 
 ```{python}
 #| eval: false
-from pins import board_connect
+from pins import board_temp
 from vetiver import vetiver_pin_write
 
 board = board_temp(allow_pickle_read = True)
@@ -573,7 +569,7 @@ load_dotenv()
 api_key = os.getenv("CO_API_KEY")
 rsc_url = os.getenv("CO_RSC_URL")
 
-board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)
+board = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
 
@@ -581,7 +577,7 @@ vetiver_pin_write(board, v)
 
 *Pin your model to our Connect instance.*
 
-*Train your model again, using a different ML algorithm (random forest is a good option).*
+*Train your model again, using a different ML algorithm (decision tree is a good option).*
 
 *Write this new version of your model to the same pin, and see what versions you have with `pin_versions`.*
 
