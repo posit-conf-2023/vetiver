@@ -1,3 +1,4 @@
+pyarrow
 dotenv-python
 ipython
 numpy
