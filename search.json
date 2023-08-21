@@ -137,7 +137,7 @@
     "href": "slides/01-introduction.html#abalone-ages-2",
     "title": "1 - Introduction",
     "section": "Abalone ages",
-    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.620\n0.495\n0.195\n1.5145\n0.5790\n0.3460\n0.5195\n15\n    male\n0.630\n0.470\n0.155\n1.1325\n0.5890\n0.2110\n0.2870\n8\n    female\n0.525\n0.410\n0.115\n0.7745\n0.4160\n0.1630\n0.1800\n7\n    infant\n0.560\n0.435\n0.135\n0.7200\n0.3290\n0.1030\n0.2510\n11\n    infant\n0.440\n0.345\n0.120\n0.3650\n0.1655\n0.0830\n0.1100\n7\n    infant\n0.355\n0.275\n0.090\n0.2510\n0.0970\n0.0530\n0.0800\n7\n    infant\n0.380\n0.270\n0.080\n0.2105\n0.0865\n0.0420\n0.0700\n8\n    infant\n0.530\n0.420\n0.130\n0.6580\n0.2960\n0.1245\n0.1980\n8\n    infant\n0.250\n0.175\n0.060\n0.0635\n0.0275\n0.0080\n0.0200\n4\n    infant\n0.190\n0.140\n0.030\n0.0315\n0.0125\n0.0050\n0.0105\n3\n    male\n0.505\n0.385\n0.150\n0.6415\n0.2460\n0.1520\n0.2150\n12\n    male\n0.550\n0.410\n0.150\n0.7850\n0.2820\n0.1860\n0.2750\n12\n    male\n0.565\n0.430\n0.150\n0.8310\n0.4245\n0.1735\n0.2190\n10\n    infant\n0.435\n0.315\n0.110\n0.3685\n0.1615\n0.0715\n0.1200\n7\n    male\n0.505\n0.390\n0.105\n0.6555\n0.2595\n0.1800\n0.1900\n11"
+    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    infant\n0.405\n0.300\n0.090\n0.2885\n0.1380\n0.0635\n0.0765\n6\n    infant\n0.655\n0.515\n0.145\n1.2500\n0.5265\n0.2830\n0.3150\n15\n    infant\n0.330\n0.255\n0.085\n0.1655\n0.0630\n0.0390\n0.0600\n8\n    female\n0.675\n0.525\n0.170\n1.8095\n0.7840\n0.3910\n0.4550\n12\n    male\n0.645\n0.490\n0.160\n1.2510\n0.5355\n0.3345\n0.3165\n9\n    male\n0.350\n0.265\n0.090\n0.1775\n0.0575\n0.0420\n0.0680\n12\n    female\n0.560\n0.410\n0.160\n0.8215\n0.3420\n0.1840\n0.2530\n9\n    male\n0.760\n0.605\n0.215\n2.1730\n0.8010\n0.4915\n0.6460\n13\n    infant\n0.495\n0.380\n0.135\n0.5095\n0.2065\n0.1165\n0.1650\n8\n    female\n0.690\n0.525\n0.190\n1.4920\n0.6425\n0.3905\n0.4200\n12\n    female\n0.615\n0.500\n0.175\n1.3770\n0.5585\n0.3300\n0.2920\n12\n    male\n0.375\n0.285\n0.095\n0.2530\n0.0960\n0.0575\n0.0925\n9\n    female\n0.435\n0.350\n0.125\n0.4590\n0.1970\n0.1145\n0.1450\n9\n    female\n0.690\n0.550\n0.200\n1.5690\n0.6870\n0.3675\n0.4600\n12\n    female\n0.620\n0.500\n0.170\n1.1480\n0.5475\n0.2200\n0.3315\n10"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
@@ -221,7 +221,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230818T205845Z-ea3f9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230818T205845Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T001543Z-41217\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T001544Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -518,11 +518,25 @@
     "text": "Learn more about model monitoring on tktk\nCome hear Julia’s talk on reliable maintenance of ML models on tktk in tktk!"
   },
   {
-    "objectID": "slides/04-monitor.html#feedback-loops",
-    "href": "slides/04-monitor.html#feedback-loops",
+    "objectID": "slides/04-monitor.html#section",
+    "href": "slides/04-monitor.html#section",
     "title": "4 - Monitor your model",
-    "section": "Feedback loops",
-    "text": "Feedback loops\ntktk"
+    "section": "",
+    "text": "Feedback loops can have unexpected consequences\n\n\nBuilding Machine Learning Pipelines by Hapke & Nelson"
+  },
+  {
+    "objectID": "slides/04-monitor.html#feedback-loops-1",
+    "href": "slides/04-monitor.html#feedback-loops-1",
+    "title": "4 - Monitor your model",
+    "section": "Feedback loops 🔁",
+    "text": "Feedback loops 🔁\n\nUsers take some action as a result of a prediction\nUsers rate or correct the quality of a prediction\nProduce annotations (crowdsource or expert)\nProduce feedback automatically\n\n\nBuilding Machine Learning Pipelines by Hapke & Nelson"
+  },
+  {
+    "objectID": "slides/04-monitor.html#your-turn-1",
+    "href": "slides/04-monitor.html#your-turn-1",
+    "title": "4 - Monitor your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\nWhat is a possible feedback loop for the Chicago inspections data?\nDo you think your example would be harmful or helpful?\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/04-monitor.html#connect-model-metrics-to-business-outcomes",
@@ -546,22 +560,22 @@
     "text": "Possible model monitoring artifacts"
   },
   {
-    "objectID": "slides/04-monitor.html#your-turn-1",
-    "href": "slides/04-monitor.html#your-turn-1",
+    "objectID": "slides/04-monitor.html#your-turn-2",
+    "href": "slides/04-monitor.html#your-turn-2",
     "title": "4 - Monitor your model",
     "section": "Your turn 🏺",
     "text": "Your turn 🏺\nCreate a Quarto report or R Markdown dashboard for model monitoring.\nPublish your document to Connect.\n\n\n\n−+\n15:00"
   },
   {
-    "objectID": "slides/04-monitor.html#section",
-    "href": "slides/04-monitor.html#section",
+    "objectID": "slides/04-monitor.html#section-1",
+    "href": "slides/04-monitor.html#section-1",
     "title": "4 - Monitor your model",
     "section": "",
     "text": "We made it! 🎉"
   },
   {
-    "objectID": "slides/04-monitor.html#your-turn-2",
-    "href": "slides/04-monitor.html#your-turn-2",
+    "objectID": "slides/04-monitor.html#your-turn-3",
+    "href": "slides/04-monitor.html#your-turn-3",
     "title": "4 - Monitor your model",
     "section": "Your turn 🏺",
     "text": "Your turn 🏺\nWhat is one thing you learned that surprised you?\nWhat is one thing you learned that you plan to use?\n\n\n\n−+\n05:00"
