@@ -291,7 +291,6 @@ jsonlite::fromJSON(metadata)
 ### Python
 
 ```{python}
-#| eval: false
 import requests
 url = "https://colorado.posit.co/rsc/chicago-inspections-python/metadata" 
 print(requests.get(url).content)
