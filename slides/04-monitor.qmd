@@ -75,11 +75,15 @@ knitr:
 
 ## Model drift 📉 {auto-animate=true}
 
+. . .
+
 ::: {.r-fit-text}
 DATA drift
 :::
 
 ## Model drift 📉 {auto-animate=true}
+
+. . .
 
 ::: {.r-fit-text}
 CONCEPT drift
