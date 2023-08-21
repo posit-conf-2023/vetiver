@@ -217,7 +217,7 @@ countdown(minutes = 3)
 ```
 
 
-##  Chicago food inspections data {background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg", background-opacity=0.5}
+##  Chicago food inspections data {background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg" background-opacity=0.5}
 
 
 ::: {.nonincremental}
@@ -231,20 +231,19 @@ countdown(minutes = 3)
 Image by [Christopher Alvarenga](https://unsplash.com/photos/cfmSStcrDn4)
 :::
 
-## Inspection results
+## Inspection results {.smaller}
 
 -   `N = 20414`
 -   A class outcome, `results`
 -   Other variables to use for prediction:
-  -   `facility_type` is a **nominal** predictor
-  -   `risk` is a **nominal** (or maybe **ordinal**) predictor
-  -   `violations` is a **numeric** predictor
-  -   `inspection_date` is a **date** predictor
+    -   `facility_type` is a **nominal** predictor
+    -   `risk` is a **nominal** (or maybe **ordinal**) predictor
+    -   `total_violations` is a **numeric** predictor
+    -   `inspection_date` is a **date** predictor
 
+. . .
 
-:::: {.columns}
-
-::: {.column width="50%"}
+### R
 
 ```{r}
 library(arrow)
@@ -252,17 +251,12 @@ path <- here::here("data", "inspections.parquet")
 inspections <- read_parquet(path)
 ```
 
-:::
-
-::: {.column width="50%"}
+### Python
 
 ```{python}
 import pandas as pd
 inspections = pd.read_parquet('../data/inspections.parquet')
 ```
-:::
-
-::::
 
 
 ## Inspection results
@@ -283,7 +277,7 @@ Explore the `inspections` data on your own!
 
 ::: {.nonincremental}
 * What's the distribution of the outcome `results`?
-* What's the distribution of the numeric variable `violations`?
+* What's the distribution of the numeric variable `total_violations`?
 * How do results differ across facility type?
 :::
 
@@ -316,7 +310,7 @@ inspections |>
 
 ## 
 
-```{python, execute=FALSE}
+```{python}
 #| eval: false
 #| fig-align: 'center'
 from plotnine import ggplot, aes, geom_boxplot, coord_flip
@@ -342,18 +336,25 @@ inspections |>
 
 ```{r tree-example}
 #| echo: false
-#| fig.width: 16
-#| fig.height: 8
+#| fig.width: 20
+#| fig.height: 10
 #| fig-align: 'center'
 #| dev-args: list(bg = "transparent")
+library(recipes)
+inspection_rec <- 
+  recipe(results ~ facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE) |> 
+  prep()
+
 tree_mod <- 
   rpart::rpart(
-    results ~ facility_type + total_violations + risk,
-    data = inspections,
+    results ~ total_violations + risk + inspection_date_year,
+    data = juice(inspection_rec),
     control = rpart::rpart.control(maxdepth = 5, cp = 0.001)
   ) |> 
   partykit::as.party()
-
+  
 plot(tree_mod)
 ```
 
@@ -391,6 +392,8 @@ X_train, X_test, y_train, y_test = model_selection.train_test_split(
 
 Or your model of choice!
 
+::: {.panel-tabset}
+
 ### R
 
 ```{r}
@@ -421,7 +424,7 @@ lr = linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)
 inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", lr)])
 ```
 
-
+:::
 
 ## Your turn 🏺 {transition="slide-in"}
 
@@ -617,7 +620,7 @@ vetiver_pin_write(board, v)
 
 Pin your model to our Connect instance.
 
-Train your model again, using a different ML algorithm (random forest is a good option).
+Train your model again, using a different ML algorithm (decision tree or random forest are good options).
 
 Write this new version of your model to the same pin, and see what versions you have with `pin_versions`.
 
