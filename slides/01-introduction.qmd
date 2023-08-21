@@ -251,7 +251,10 @@ inspections <- read_parquet(path)
 
 ```{python}
 import pandas as pd
-pd.read_parquet('./data/inspections.parquet', engine = 'pyarrow')
+inspections = pd.read_parquet('../data/inspections.parquet', engine = 'pyarrow')
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
 ```
 :::
 
@@ -362,7 +365,7 @@ inspect_test <- testing(inspect_split)
 from sklearn import model_selection
 import numpy as np
 np.random.seed(123)
-X, y = inspection.drop(columns=['aka_name', 'results']), inspection['results']
+X, y = inspections.drop(columns=['aka_name', 'results', 'inspection_date']), inspections['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
     test_size = 0.2
@@ -388,10 +391,9 @@ inspection_fit <-
 ### Python
 
 ```{python}
-## TODO for Isabel: can you change this to logistic regression and add the `inspection_date` predictor?
-from sklearn import preprocessing, tree, pipeline, compose
+from sklearn import preprocessing, linear_model, pipeline, compose
 
-categorical_features = ['facility_type', 'risk']
+categorical_features = ['facility_type', 'risk', 'month', 'year']
 
 oe = compose.make_column_transformer(
     (preprocessing.OrdinalEncoder(
@@ -399,8 +401,8 @@ oe = compose.make_column_transformer(
         categorical_features,),
     remainder="passthrough",
 ).fit(X_train)
-rf = RandomForestClassifier().fit(oe.transform(X_train), y_train)
-inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", rf)])
+lr = linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)
+inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", lr)])
 ```
 
 

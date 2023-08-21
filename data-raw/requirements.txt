@@ -1,0 +1,7 @@
+vetiver
+pandas
+numpy
+scikit-learn
+dotenv-python
+pydantic==1.10.11
+pyarrow

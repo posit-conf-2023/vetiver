@@ -58,19 +58,22 @@ inspect_fit <-
   fit(data = inspect_train)
 ```
 
+
 ### Python
 
 ```{python}
-## TODO for Isabel: can you add the `inspection_date` predictor to this random forest model?
-## TODO for Isabel: can you add a script to `data-raw` that trains this model and deploys to Connect? see my `prep_chicago_inspections.R` but *only* do model training, not data prep
 import pandas as pd
 import numpy as np
-from sklearn import preprocessing, tree, pipeline, compose
+from sklearn import preprocessing, ensemble, pipeline, compose, model_selection
 import pins
 
-pd.read_parquet('./data/inspections.parquet', engine = 'pyarrow')
-categorical_features = ['facility_type', 'risk']
-X, y = inspection.drop(columns=['aka_name', 'results']), inspection['results']
+inspections = pd.read_parquet('../data/inspections.parquet', engine = 'pyarrow')
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
+
+categorical_features = ['facility_type', 'risk', 'month', 'year']
+X, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
     stratify = y,
@@ -78,12 +81,9 @@ X_train, X_test, y_train, y_test = model_selection.train_test_split(
 )
 
 oe = compose.make_column_transformer(
-    (
-        preprocessing.OrdinalEncoder(
-            handle_unknown="use_encoded_value", unknown_value=-1
-        ),
-        categorical_features,
-    ),
+    (preprocessing.OrdinalEncoder(
+            handle_unknown="use_encoded_value", unknown_value=-1),
+        categorical_features,),
     remainder="passthrough",
 ).fit(X_train)
 rf = RandomForestClassifier().fit(oe.transform(X_train), y_train)
@@ -226,6 +226,7 @@ vetiver_deploy_rsconnect(board, "user.name/chicago-inspections-rstats")
 #| eval: false
 from rsconnect.api import RSConnectServer
 connect_server = RSConnectServer(url = rsc_url, api_key = api_key)
+board = pins.board_connect(server_url = url, api_key = api_key, allow_pickle_read = True)
 
 vetiver.deploy_rsconnect(
     connect_server = connect_server,
@@ -296,10 +297,9 @@ predict(endpoint, slice_sample(inspect_test, n = 10))
 
 ### Python
 
-```python
-## TODO for Isabel: put a model on Colorado using the script in `data-raw` and run this for real
+```{python}
 from vetiver.server import predict, vetiver_endpoint
-endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
+endpoint = vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-python/predict")
 predict(endpoint = endpoint, data = X_test)
 ```
 
@@ -345,9 +345,8 @@ predict(endpoint, slice_sample(inspect_test, n = 10))
 ### Python
 
 ```python
-## TODO for Isabel: update this with real URL but we will not run (just here for auto-animate)
 from vetiver.server import predict, vetiver_endpoint
-endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
+endpoint = vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-python/predict")
 predict(endpoint = endpoint, data = ring_test)
 ```
 
@@ -367,10 +366,9 @@ predict(endpoint, slice_sample(inspect_test, n = 10),
 ### Python
 
 ```python
-## TODO for Isabel: update this with real URL but we will not run (just here for auto-animate)
 from vetiver.server import predict, vetiver_endpoint
 
-endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predict")
+endpoint = vetiver_endpoint(f"https://connect.example.com/content/isabel_inspection/predict")
 h = { 'Authorization': f'Key {api_key}' }
 predict(endpoint = endpoint, data = X_test, headers = h)
 ```

@@ -1,7 +1,10 @@
-vetiver
-plotnine
-pandas
-numpy
-scikit-learn
 dotenv-python
+ipython
+numpy
+pandas
+pins
+plotnine
+pyarrow
 pydantic==1.10.11
+scikit-learn
+vetiver==0.2.1
