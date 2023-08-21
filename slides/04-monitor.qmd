@@ -41,11 +41,16 @@ knitr:
 
 . . .
 
-### Metrics
+::: {.callout-tip icon=false}
+
+## Metrics
 
 - latency
 - memory and CPU usage
 - uptime
+
+
+:::
 
 ## My model is performing well! 
 
@@ -55,13 +60,18 @@ knitr:
 
 . . .
 
-### Metrics
+::: {.callout-tip icon=false}
+
+## Metrics
 
 - accuracy
 - ROC AUC
 - F1 score
 - RMSE
 - log loss
+
+:::
+
 
 ## Model drift 📉 {auto-animate=true}
 
@@ -77,7 +87,13 @@ CONCEPT drift
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Using our Chicago data, what could be an example of data drift? Concept drift?*
+::: {.callout-note icon=false}
+
+## Activity
+
+Using our Chicago data, what could be an example of data drift? Concept drift?
+
+:::
 
 ```{r}
 #| echo: false
@@ -97,9 +113,53 @@ tktk
 
 tktk
 
-## Feedback loops
+# Feedback loops 🔁
 
-tktk
+Deployment of an ML model may *alter* the training data 
+
+- Movie recommendation systems on Netflix, Disney+, Hulu, etc
+- Identifying fraudulent credit card transactions at Stripe
+- Recidivism models
+
+::: footer
+[*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
+:::
+
+# Feedback loops can have **unexpected consequences**
+
+::: footer
+[*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
+:::
+
+## Feedback loops 🔁
+
+- Users take some action as a result of a prediction
+- Users rate or correct the quality of a prediction
+- Produce annotations (crowdsource or expert)
+- Produce feedback automatically
+
+::: footer
+[*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
+:::
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+What is a possible feedback loop for the Chicago inspections data?
+
+Do you think your example would be harmful or helpful?
+
+:::
+
+```{r}
+#| echo: false
+library(countdown)
+countdown(minutes = 5)
+```
+
 
 ## Connect model metrics to business outcomes
 
@@ -111,15 +171,25 @@ tktk
 - Report that you share in Google Drive
 - Fully automated dashboard published to Posit Connect
 
+::: footer
+[5 Levels of MLOps Maturity](https://www.nannyml.com/blog/5-levels-of-mlops-maturity)
+:::
+
 ## Possible model monitoring artifacts
 
 ![](images/vetiver-templates.png){fig-align="center"}
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Create a Quarto report or R Markdown dashboard for model monitoring.*
+::: {.callout-note icon=false}
 
-*Publish your document to Connect.*
+## Activity
+
+Create a Quarto report or R Markdown dashboard for model monitoring.
+
+Publish your document to Connect.
+
+:::
 
 ```{r}
 #| echo: false
@@ -136,9 +206,15 @@ We made it! 🎉
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*What is one thing you learned that surprised you?*
+::: {.callout-note icon=false}
 
-*What is one thing you learned that you plan to use?*
+## Activity
+
+What is one thing you learned that surprised you?
+
+What is one thing you learned that you plan to use?
+
+:::
 
 ```{r}
 #| echo: false
@@ -152,13 +228,12 @@ countdown(minutes = 5)
 
 -   Isabel's talk from rstudio::conf() 2022 on [Demystifying MLOps](https://www.rstudio.com/conference/2022/talks/demystifying-mlops/)
 
--   [Webinar by Julia and Isabel](https://juliasilge.github.io/mlops-rstudio-meetup/) for Posit Enterprise Meetup
 
 -   End-to-end demos from Posit Solution Engineering in [R](https://github.com/sol-eng/bike_predict) and [Python](https://github.com/sol-eng/bike_predict_python)
 
 -   Are you on the right track with your MLOps system? Use the rubric in ["The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction"](https://research.google/pubs/pub46555/) by Breck et al (2017)
 
-- Want to learn about how MLOps is being practied? Read one of our favorite 😍 papers of the last year, ["Operationalizing Machine Learning: An Interview Study"](https://arxiv.org/abs/2209.09125) by Shankar et al (20222)
+- Want to learn about how MLOps is being practiced? Read one of our favorite 😍 papers of the last year, ["Operationalizing Machine Learning: An Interview Study"](https://arxiv.org/abs/2209.09125) by Shankar et al (20222)
 
 . . .
 
