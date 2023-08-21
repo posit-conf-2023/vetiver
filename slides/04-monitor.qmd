@@ -107,10 +107,19 @@ Deployment of an ML model may *alter* the training data
 - Identifying fraudulent credit card transactions at Stripe
 - Recidivism models
 
+::: footer
+[*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
+:::
+
 ## 
 
 ::: r-fit-text
 Feedback loops can have **unexpected consequences**
+:::
+
+
+::: footer
+[*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
 :::
 
 ## Feedback loops 🔁
@@ -119,6 +128,10 @@ Feedback loops can have **unexpected consequences**
 - Users rate or correct the quality of a prediction
 - Produce annotations (crowdsource or expert)
 - Produce feedback automatically
+
+::: footer
+[*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
+:::
 
 ## Your turn 🏺 {transition="slide-in"}
 
