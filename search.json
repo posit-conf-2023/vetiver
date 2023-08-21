@@ -137,7 +137,7 @@
     "href": "slides/01-introduction.html#abalone-ages-2",
     "title": "1 - Introduction",
     "section": "Abalone ages",
-    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.565\n0.450\n0.115\n0.9085\n0.3980\n0.1970\n0.2900\n17\n    infant\n0.550\n0.465\n0.150\n0.9360\n0.4810\n0.1740\n0.2435\n9\n    male\n0.585\n0.455\n0.145\n0.9530\n0.3945\n0.2685\n0.2580\n10\n    infant\n0.515\n0.405\n0.130\n0.5730\n0.2130\n0.1340\n0.1950\n9\n    infant\n0.480\n0.370\n0.120\n0.5140\n0.2075\n0.1310\n0.1550\n13\n    male\n0.630\n0.515\n0.160\n1.0160\n0.4215\n0.2440\n0.3550\n19\n    infant\n0.435\n0.335\n0.110\n0.3830\n0.1555\n0.0675\n0.1350\n12\n    infant\n0.340\n0.265\n0.080\n0.2015\n0.0900\n0.0475\n0.0550\n5\n    female\n0.485\n0.375\n0.135\n0.5560\n0.1925\n0.1315\n0.1685\n10\n    male\n0.550\n0.460\n0.130\n0.7085\n0.3050\n0.1455\n0.2050\n12\n    male\n0.610\n0.480\n0.185\n1.3065\n0.6895\n0.2915\n0.2900\n10\n    infant\n0.440\n0.320\n0.105\n0.3875\n0.1755\n0.0740\n0.1200\n9\n    female\n0.550\n0.430\n0.150\n0.8400\n0.3950\n0.1950\n0.2230\n8\n    infant\n0.465\n0.355\n0.120\n0.4975\n0.2375\n0.0990\n0.1400\n8\n    female\n0.520\n0.405\n0.145\n0.8290\n0.3535\n0.1685\n0.2050\n15"
+    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    infant\n0.570\n0.440\n0.130\n0.7665\n0.3470\n0.1785\n0.2020\n10\n    male\n0.500\n0.390\n0.135\n0.6595\n0.3145\n0.1535\n0.1565\n6\n    male\n0.620\n0.505\n0.185\n1.5275\n0.6900\n0.3680\n0.3500\n13\n    female\n0.495\n0.370\n0.120\n0.5940\n0.2800\n0.1100\n0.1375\n7\n    male\n0.500\n0.365\n0.130\n0.5945\n0.3090\n0.1085\n0.1535\n9\n    female\n0.550\n0.435\n0.140\n0.7450\n0.3470\n0.1740\n0.2265\n9\n    female\n0.515\n0.400\n0.125\n0.6150\n0.2865\n0.1230\n0.1765\n8\n    male\n0.440\n0.320\n0.120\n0.4565\n0.2435\n0.0920\n0.1025\n8\n    infant\n0.330\n0.245\n0.065\n0.1445\n0.0580\n0.0320\n0.0505\n6\n    male\n0.475\n0.370\n0.110\n0.4895\n0.2185\n0.1070\n0.1460\n8\n    infant\n0.585\n0.470\n0.170\n0.9850\n0.3695\n0.2395\n0.3150\n10\n    infant\n0.475\n0.355\n0.135\n0.4775\n0.2145\n0.0900\n0.1435\n8\n    male\n0.660\n0.530\n0.175\n1.5830\n0.7395\n0.3505\n0.4050\n10\n    male\n0.630\n0.485\n0.165\n1.2330\n0.6565\n0.2315\n0.3035\n10\n    female\n0.470\n0.355\n0.180\n0.4410\n0.1525\n0.1165\n0.1350\n8"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
@@ -221,7 +221,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T153010Z-ffb71\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T153010Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T154547Z-2903b\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T154547Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -271,6 +271,20 @@
     "title": "2 - Deploy your model",
     "section": "Create your vetiver model and version",
     "text": "Create your vetiver model and version\nR\n\nlibrary(vetiver)\nlibrary(pins)\n\nv &lt;- vetiver_model(abalone_fit, \"abalone-rings-rstats\")\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom vetiver import VetiverModel, vetiver_pin_write\nfrom pins import board_connect\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nv = VetiverModel(abalone_fit, \"abalone-rings-python\", ptype_data = X_train)\nboard = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+  },
+  {
+    "objectID": "slides/02-deploy.html#make-it-easy-to-do-the-right-thing",
+    "href": "slides/02-deploy.html#make-it-easy-to-do-the-right-thing",
+    "title": "2 - Deploy your model",
+    "section": "Make it easy to do the right thing",
+    "text": "Make it easy to do the right thing\n\nRobust and human-friendly checking of new data\nTrack and document software dependencies of models\nModel cards for transparent, responsible reporting"
+  },
+  {
+    "objectID": "slides/02-deploy.html#make-it-easy-to-do-the-right-thing-1",
+    "href": "slides/02-deploy.html#make-it-easy-to-do-the-right-thing-1",
+    "title": "2 - Deploy your model",
+    "section": "Make it easy to do the right thing",
+    "text": "Make it easy to do the right thing"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn",
@@ -364,18 +378,18 @@
     "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\nR\n## TODO: put a model on Colorado with our dataset and run this for real\nendpoint &lt;- vetiver_endpoint(\"https://connect.example.com/content/$APP_ID/predict\")\npredict(endpoint, slice_sample(ring_test, n = 10))\nPython\n## TODO: put a model on Colorado with our dataset and run this for real\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(f\"https://connect.example.com/content/{APP_ID}/predict\")\npredict(endpoint = endpoint, data = ring_test)"
   },
   {
+    "objectID": "slides/02-deploy.html#your-turn-transitionslide-in-auto-animationtrue",
+    "href": "slides/02-deploy.html#your-turn-transitionslide-in-auto-animationtrue",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺 {transition=“slide-in”, auto-animation=TRUE}",
+    "text": "Your turn 🏺 {transition=“slide-in”, auto-animation=TRUE}\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for your API.\nPredict with your endpoint for new data.\nOptional: call another endpoint from Python or R.\n\n\n\n\n\n\n−+\n10:00"
+  },
+  {
     "objectID": "slides/02-deploy.html#your-turn-3",
     "href": "slides/02-deploy.html#your-turn-3",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for your API.\nPredict with your endpoint for new data.\nOptional: call another endpoint from Python or R.\n\n\n\n\n\n\n−+\n10:00"
-  },
-  {
-    "objectID": "slides/02-deploy.html#your-turn-4",
-    "href": "slides/02-deploy.html#your-turn-4",
-    "title": "2 - Deploy your model",
-    "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for* your neighbor’s API.\nPredict with your endpoint for new data.\nYou get extra credit if your neighbor’s model is in a different language than yours!\n\n\n\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for your neighbor’s API.\nPredict with your endpoint for new data.\nYou get extra credit if your neighbor’s model is in a different language than yours!\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/02-deploy.html#create-a-vetiver-endpoint-1",
