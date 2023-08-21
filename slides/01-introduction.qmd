@@ -166,8 +166,6 @@ Illustration credit: Chapter 1 of [*Tidy Modeling with R*](https://www.tmwr.org/
 
 ## MLOps is... 
 
-. . .
-
 a set of <u>practices</u> to *deploy* and *maintain* machine learning models in production **reliably** and **efficiently**
 
 
@@ -188,8 +186,6 @@ a set of <u>practices</u> to *deploy* and *maintain* machine learning models in 
 you can operationalize that model!
 
 # If you develop a model...
-
-. . .
 
 you likely *should* be the one to operationalize that model!
 
@@ -343,7 +339,7 @@ inspections |>
 library(recipes)
 inspection_rec <- 
   recipe(results ~ facility_type + risk + total_violations + inspection_date, 
-         data = inspect_train) |> 
+         data = inspections) |> 
   step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE) |> 
   prep()
 
