@@ -40,9 +40,14 @@ inspect_split <- inspections |>
 inspect_train <- training(inspect_split)
 inspect_test <- testing(inspect_split)
 
+inspection_rec <- 
+  recipe(results ~ facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE)
+
 inspect_fit <-
   workflow(
-    results ~ facility_type + risk + total_violations + inspection_date, 
+    inspection_rec, 
     rand_forest(mode = "classification", trees = 1e3)
   ) |> 
   fit(data = inspect_train)
@@ -53,7 +58,7 @@ augment(inspect_fit, new_data = slice_sample(inspect_test, n = 10)) |>
 library(vetiver)
 library(pins)
 
-v <- vetiver_model(inspect_fit, "chicago-inspections-rstats")
+v <- vetiver_model(inspect_fit, "julia.silge/chicago-inspections-rstats")
 board <- board_connect()
 board |> vetiver_pin_write(v)
 

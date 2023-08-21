@@ -269,7 +269,7 @@ inspections = pd.read_parquet('../data/inspections.parquet')
 
 ```{r}
 #| echo: false
-gt::gt(slice_sample(inspections, n = 15))
+gt::gt(dplyr::slice_sample(inspections, n = 15))
 ```
 
 
@@ -397,7 +397,7 @@ Or your model of choice!
 inspection_rec <- 
   recipe(results ~ facility_type + risk + total_violations + inspection_date, 
          data = inspect_train) |> 
-  step_date(features = c("month", "year"), keep_original_cols = FALSE)
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE)
 
 inspection_fit <-
   workflow(inspection_rec, logistic_reg()) |> 
