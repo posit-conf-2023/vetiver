@@ -117,8 +117,6 @@ tktk
 
 Deployment of an ML model may *alter* the training data 
 
-. . .
-
 - Movie recommendation systems on Netflix, Disney+, Hulu, etc
 - Identifying fraudulent credit card transactions at Stripe
 - Recidivism models
@@ -127,12 +125,7 @@ Deployment of an ML model may *alter* the training data
 [*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
 :::
 
-## 
-
-::: r-fit-text
-Feedback loops can have **unexpected consequences**
-:::
-
+# Feedback loops can have **unexpected consequences**
 
 ::: footer
 [*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
@@ -235,13 +228,12 @@ countdown(minutes = 5)
 
 -   Isabel's talk from rstudio::conf() 2022 on [Demystifying MLOps](https://www.rstudio.com/conference/2022/talks/demystifying-mlops/)
 
--   [Webinar by Julia and Isabel](https://juliasilge.github.io/mlops-rstudio-meetup/) for Posit Enterprise Meetup
 
 -   End-to-end demos from Posit Solution Engineering in [R](https://github.com/sol-eng/bike_predict) and [Python](https://github.com/sol-eng/bike_predict_python)
 
 -   Are you on the right track with your MLOps system? Use the rubric in ["The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction"](https://research.google/pubs/pub46555/) by Breck et al (2017)
 
-- Want to learn about how MLOps is being practied? Read one of our favorite 😍 papers of the last year, ["Operationalizing Machine Learning: An Interview Study"](https://arxiv.org/abs/2209.09125) by Shankar et al (20222)
+- Want to learn about how MLOps is being practiced? Read one of our favorite 😍 papers of the last year, ["Operationalizing Machine Learning: An Interview Study"](https://arxiv.org/abs/2209.09125) by Shankar et al (20222)
 
 . . .
 
