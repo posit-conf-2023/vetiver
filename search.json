@@ -116,7 +116,7 @@
     "href": "slides/01-introduction.html#your-turn",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\nWhat language does your team use for machine learning?\nWhat kinds of models do you commonly use?\nHave you ever deployed a model?\n\n\n\n−+\n03:00"
+    "text": "Your turn 🏺\n\n\n\n\nActivity\n\n\nWhat language does your team use for machine learning?\nWhat kinds of models do you commonly use?\nHave you ever deployed a model?\n\n\n\n\n\n\n−+\n03:00"
   },
   {
     "objectID": "slides/01-introduction.html#abalone-ages",
@@ -137,14 +137,14 @@
     "href": "slides/01-introduction.html#abalone-ages-2",
     "title": "1 - Introduction",
     "section": "Abalone ages",
-    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    infant\n0.425\n0.315\n0.095\n0.3675\n0.1865\n0.0675\n0.0985\n7\n    male\n0.700\n0.540\n0.205\n1.7400\n0.7885\n0.3730\n0.4865\n13\n    infant\n0.390\n0.310\n0.105\n0.2665\n0.1185\n0.0525\n0.0810\n8\n    infant\n0.530\n0.425\n0.130\n0.7810\n0.3905\n0.2005\n0.2150\n9\n    infant\n0.200\n0.145\n0.060\n0.0370\n0.0125\n0.0095\n0.0110\n4\n    male\n0.645\n0.515\n0.160\n1.1845\n0.5060\n0.3110\n0.3350\n9\n    male\n0.550\n0.450\n0.130\n0.9200\n0.3780\n0.2385\n0.2900\n11\n    female\n0.670\n0.530\n0.205\n1.4015\n0.6430\n0.2465\n0.4160\n12\n    male\n0.625\n0.490\n0.165\n1.1165\n0.4895\n0.2615\n0.3325\n11\n    male\n0.570\n0.455\n0.175\n1.0200\n0.4805\n0.2145\n0.2900\n9\n    male\n0.385\n0.255\n0.100\n0.3175\n0.1370\n0.0680\n0.0920\n8\n    male\n0.595\n0.455\n0.155\n1.0410\n0.4160\n0.2105\n0.3650\n14\n    female\n0.645\n0.535\n0.190\n1.2395\n0.4680\n0.2385\n0.4240\n10\n    infant\n0.475\n0.360\n0.145\n0.6325\n0.2825\n0.1370\n0.1900\n8\n    infant\n0.365\n0.270\n0.085\n0.1875\n0.0810\n0.0420\n0.0580\n6"
+    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.425\n0.315\n0.125\n0.3525\n0.1135\n0.0565\n0.1300\n18\n    female\n0.620\n0.465\n0.140\n1.0110\n0.4790\n0.2385\n0.2550\n8\n    female\n0.640\n0.500\n0.175\n1.3940\n0.4935\n0.2910\n0.4000\n10\n    female\n0.600\n0.475\n0.180\n1.1805\n0.4345\n0.2475\n0.4250\n19\n    female\n0.450\n0.360\n0.110\n0.4470\n0.2030\n0.0820\n0.1300\n12\n    male\n0.645\n0.515\n0.175\n1.6115\n0.6745\n0.3840\n0.3850\n14\n    male\n0.275\n0.205\n0.070\n0.0940\n0.0335\n0.0200\n0.0325\n5\n    infant\n0.395\n0.320\n0.100\n0.3075\n0.1490\n0.0535\n0.0900\n8\n    infant\n0.555\n0.430\n0.150\n0.7830\n0.3450\n0.1755\n0.2470\n9\n    infant\n0.435\n0.340\n0.115\n0.3925\n0.1825\n0.0780\n0.1145\n6\n    male\n0.545\n0.435\n0.165\n0.9955\n0.3245\n0.2665\n0.3250\n19\n    infant\n0.420\n0.310\n0.095\n0.2790\n0.1255\n0.0510\n0.0880\n6\n    female\n0.605\n0.455\n0.145\n0.9775\n0.4680\n0.1775\n0.2750\n9\n    female\n0.450\n0.350\n0.135\n0.5600\n0.2310\n0.1370\n0.1450\n13\n    female\n0.705\n0.555\n0.200\n1.4685\n0.4715\n0.3235\n0.5200\n19"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
     "href": "slides/01-introduction.html#your-turn-1",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\nExplore the abalone data on your own!\n\nWhat’s the distribution of the outcome, rings?\nWhat’s the distribution of numeric variables like weight?\nHow do rings differ across sex?\n\nShare something you noticed with your neighbor.\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nExplore the abalone data on your own!\n\n\nWhat’s the distribution of the outcome, rings?\nWhat’s the distribution of numeric variables like weight?\nHow do rings differ across sex?\n\n\nShare something you noticed with your neighbor.\n\n\n\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
   },
   {
     "objectID": "slides/01-introduction.html#section-2",
@@ -193,7 +193,7 @@
     "href": "slides/01-introduction.html#your-turn-2",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nSplit your data in training and testing.\nFit a model to your training data.\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nSplit your data in training and testing.\nFit a model to your training data.\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/01-introduction.html#create-a-deployable-model-object",
@@ -207,7 +207,7 @@
     "href": "slides/01-introduction.html#your-turn-3",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nCreate your vetiver model object.\nCheck out the default description that is created, and try out using a custom description.\nShow your custom description to your neighbor.\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate your vetiver model object.\nCheck out the default description that is created, and try out using a custom description.\nShow your custom description to your neighbor.\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/01-introduction.html#pins",
@@ -221,14 +221,14 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T150459Z-e2f49\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T150500Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T152225Z-58ffb\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T152225Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
     "href": "slides/01-introduction.html#your-turn-4",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nPin your vetiver model object to a temporary board.\nRetrieve the model metadata with pin_meta().\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nPin your vetiver model object to a temporary board.\nRetrieve the model metadata with pin_meta().\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/01-introduction.html#version-your-model-2",
@@ -249,7 +249,7 @@
     "href": "slides/01-introduction.html#your-turn-5",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nPin your model to our Connect instance.\nTrain your model again, using a different ML algorithm (random forest is a good option).\nWrite this new version of your model to the same pin, and see what versions you have with pin_versions.\n\n\n\n−+\n05:00\n\n\n\n\n\nhttps://posit-conf-2023.github.io/vetiver"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nPin your model to our Connect instance.\nTrain your model again, using a different ML algorithm (random forest is a good option).\nWrite this new version of your model to the same pin, and see what versions you have with pin_versions.\n\n\n\n\n\n\n−+\n05:00\n\n\n\n\n\nhttps://posit-conf-2023.github.io/vetiver"
   },
   {
     "objectID": "slides/02-deploy.html#plan-for-this-workshop",
@@ -277,7 +277,7 @@
     "href": "slides/02-deploy.html#your-turn",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nOpen the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.\nDiscuss something you notice about the Model Card with your neighbor.\n\n\n\n−+\n07:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nOpen the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.\nDiscuss something you notice about the Model Card with your neighbor.\n\n\n\n\n\n\n−+\n07:00"
   },
   {
     "objectID": "slides/02-deploy.html#you-can-deploy-your-model-as-a",
@@ -305,7 +305,7 @@
     "href": "slides/02-deploy.html#your-turn-1",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nCreate a vetiver API for your model and run it locally.\nExplore the visual documentation.\nHow many endpoints are there?\nDiscuss what you notice with your neighbor.\n\n\n\n−+\n07:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver API for your model and run it locally.\nExplore the visual documentation.\nHow many endpoints are there?\nDiscuss what you notice with your neighbor.\n\n\n\n\n\n\n−+\n07:00"
   },
   {
     "objectID": "slides/02-deploy.html#what-does-deploy-mean",
@@ -333,7 +333,7 @@
     "href": "slides/02-deploy.html#your-turn-2",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nDeploy your model to our Posit Connect instance.\nGive your API a vanity URL.\nSet your API as accessible to “Anyone”, for convenience.\nCompare the results to your local API. Is anything different?\n\n\n\n−+\n07:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nDeploy your model to our Posit Connect instance.\nGive your API a vanity URL.\nSet your API as accessible to “Anyone”, for convenience.\nCompare the results to your local API. Is anything different?\n\n\n\n\n\n\n−+\n07:00"
   },
   {
     "objectID": "slides/02-deploy.html#section",
@@ -368,14 +368,14 @@
     "href": "slides/02-deploy.html#your-turn-3",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nCreate a vetiver endpoint object for your API.\nPredict with your endpoint for new data.\nOptional: call another endpoint from Python or R.\n\n\n\n−+\n10:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for your API.\nPredict with your endpoint for new data.\nOptional: call another endpoint from Python or R.\n\n\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-4",
     "href": "slides/02-deploy.html#your-turn-4",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nCreate a vetiver endpoint object for your neighbor’s API.\nPredict with your endpoint for new data.\nYou get extra credit if your neighbor’s model is in a different language than yours!\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for* your neighbor’s API.\nPredict with your endpoint for new data.\nYou get extra credit if your neighbor’s model is in a different language than yours!\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/02-deploy.html#create-a-vetiver-endpoint-1",
@@ -508,7 +508,7 @@
     "href": "slides/04-monitor.html#your-turn",
     "title": "4 - Monitor your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nUsing our Chicago data, what could be an example of data drift? Concept drift?\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nUsing our Chicago data, what could be an example of data drift? Concept drift?\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/04-monitor.html#learn-more-about-model-monitoring-on-tktk",
@@ -536,7 +536,7 @@
     "href": "slides/04-monitor.html#your-turn-1",
     "title": "4 - Monitor your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nWhat is a possible feedback loop for the Chicago inspections data?\nDo you think your example would be harmful or helpful?\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nWhat is a possible feedback loop for the Chicago inspections data?\nDo you think your example would be harmful or helpful?\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/04-monitor.html#connect-model-metrics-to-business-outcomes",
@@ -564,7 +564,7 @@
     "href": "slides/04-monitor.html#your-turn-2",
     "title": "4 - Monitor your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nCreate a Quarto report or R Markdown dashboard for model monitoring.\nPublish your document to Connect.\n\n\n\n−+\n15:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a Quarto report or R Markdown dashboard for model monitoring.\nPublish your document to Connect.\n\n\n\n\n\n\n−+\n15:00"
   },
   {
     "objectID": "slides/04-monitor.html#section-1",
@@ -578,7 +578,7 @@
     "href": "slides/04-monitor.html#your-turn-3",
     "title": "4 - Monitor your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\nWhat is one thing you learned that surprised you?\nWhat is one thing you learned that you plan to use?\n\n\n\n−+\n05:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nWhat is one thing you learned that surprised you?\nWhat is one thing you learned that you plan to use?\n\n\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "slides/04-monitor.html#resources-to-keep-learning",
