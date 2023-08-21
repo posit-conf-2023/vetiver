@@ -156,6 +156,10 @@ tktk
 - Report that you share in Google Drive
 - Fully automated dashboard published to Posit Connect
 
+::: footer
+[5 Levels of MLOps Maturity](https://www.nannyml.com/blog/5-levels-of-mlops-maturity)
+:::
+
 ## Possible model monitoring artifacts
 
 ![](images/vetiver-templates.png){fig-align="center"}
