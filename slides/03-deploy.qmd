@@ -121,7 +121,6 @@ probably .Renv if you are in R
 ```{r}
 #| eval: false
 endpoint <- vetiver_endpoint("http://0.0.0.0:8080/predict")
-
 predict(endpoint, X_test)
 ```
 
