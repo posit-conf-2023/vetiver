@@ -41,11 +41,16 @@ knitr:
 
 . . .
 
-### Metrics
+::: {.callout-tip icon=false}
+
+## Metrics
 
 - latency
 - memory and CPU usage
 - uptime
+
+
+:::
 
 ## My model is performing well! 
 
@@ -55,13 +60,18 @@ knitr:
 
 . . .
 
-### Metrics
+::: {.callout-tip icon=false}
+
+## Metrics
 
 - accuracy
 - ROC AUC
 - F1 score
 - RMSE
 - log loss
+
+:::
+
 
 ## Model drift 📉 {auto-animate=true}
 
