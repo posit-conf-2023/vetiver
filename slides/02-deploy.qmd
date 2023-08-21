@@ -140,7 +140,7 @@ vetiver_pin_write(board, v)
 
 ## Activity
 
-Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this inspection rings model.
+Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this inspection model.
 
 Discuss something you notice about the Model Card with your neighbor.
 
@@ -308,11 +308,13 @@ print(requests.get(url).content)
 
 You can treat your model API much like it is a local model in memory!
 
+::: panel-tabset
 ### R
 
 ```{r}
 library(vetiver)
-endpoint <- vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-rstats/predict")
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"
+endpoint <- vetiver_endpoint(url)
 predict(endpoint, slice_sample(inspect_test, n = 10))
 ```
 
@@ -320,11 +322,13 @@ predict(endpoint, slice_sample(inspect_test, n = 10))
 
 ```{python}
 from vetiver.server import predict, vetiver_endpoint
-endpoint = vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-python/predict")
+url = "https://colorado.posit.co/rsc/chicago-inspections-python/predict"
+endpoint = vetiver_endpoint(url)
 predict(endpoint = endpoint, data = X_test.head(10))
 ```
+:::
 
-## Your turn 🏺 {transition="slide-in", auto-animate=TRUE}
+## Your turn 🏺 {transition="slide-in" auto-animate=TRUE}
 
 ::: {.callout-note icon=false}
 
@@ -369,7 +373,9 @@ What if your model API requires authentication?
 ### R
 
 ```r
-endpoint <- vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-rstats/predict")
+library(vetiver)
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"
+endpoint <- vetiver_endpoint(url)
 predict(endpoint, slice_sample(inspect_test, n = 10))
 ```
 
@@ -377,7 +383,8 @@ predict(endpoint, slice_sample(inspect_test, n = 10))
 
 ```python
 from vetiver.server import predict, vetiver_endpoint
-endpoint = vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-python/predict")
+url = "https://colorado.posit.co/rsc/chicago-inspections-python/predict"
+endpoint = vetiver_endpoint(url)
 predict(endpoint = endpoint, data = ring_test)
 ```
 
@@ -388,7 +395,9 @@ What if your model API requires authentication?
 ### R
 
 ```r
-endpoint <- vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-rstats/predict")
+library(vetiver)
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"
+endpoint <- vetiver_endpoint(url)
 apiKey <- Sys.getenv("CONNECT_API_KEY")
 predict(endpoint, slice_sample(inspect_test, n = 10), 
         httr::add_headers(Authorization = paste("Key", apiKey)))
@@ -399,7 +408,8 @@ predict(endpoint, slice_sample(inspect_test, n = 10),
 ```python
 from vetiver.server import predict, vetiver_endpoint
 
-endpoint = vetiver_endpoint(f"https://colorado.posit.co/rsc/chicago-inspections-python/predict")
+url = "https://colorado.posit.co/rsc/chicago-inspections-python/predict"
+endpoint = vetiver_endpoint(url)
 h = { 'Authorization': f'Key {api_key}' }
 predict(endpoint = endpoint, data = X_test, headers = h)
 ```
