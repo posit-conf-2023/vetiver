@@ -217,15 +217,30 @@ countdown(minutes = 3)
 ```
 
 
-##  {background-image="https://upload.wikimedia.org/wikipedia/commons/0/0b/AbaloneInside.jpg" background-size="70%"}
+##  Chicago food inspections data {background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg", background-opacity=0.5}
 
-## Abalone ages
 
 ::: {.nonincremental}
--   Age of abalone can be determined by cutting the shell and counting the number of rings through a microscope
--   Can other measurements be used to determine age?
--   Data from _The Population Biology of Abalone (Haliotis species) in Tasmania. I. Blacklip Abalone (H. rubra) from the North Coast and the Islands of Bass Strait_ by Nash et al (1994)
+-   The city of Chicago offers programmatic access to health code inspections of restaurants
+-   Can certain measurements be used to predict inspection outcome?
+-   Data from <https://data.cityofchicago.org/>
 :::
+
+
+::: footer
+Image by [Christopher Alvarenga](https://unsplash.com/photos/cfmSStcrDn4)
+:::
+
+## Inspection results
+
+-   `N = 20414`
+-   A class outcome, `results`
+-   Other variables to use for prediction:
+  -   `facility_type` is a **nominal** predictor
+  -   `risk` is a **nominal** (or maybe **ordinal**) predictor
+  -   `violations` is a **numeric** predictor
+  -   `inspection_date` is a **date** predictor
+
 
 :::: {.columns}
 
@@ -233,7 +248,9 @@ countdown(minutes = 3)
 
 ```{r}
 library(tidyverse)
-abalone <- read_csv("abalone.csv")
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
 ```
 
 :::
@@ -242,27 +259,18 @@ abalone <- read_csv("abalone.csv")
 
 ```{python}
 import pandas as pd
-abalone = pd.read_csv("abalone.csv")  
+inspections = pd.read_parquet('../data/inspections.parquet', engine = 'pyarrow')
 ```
-
 :::
 
 ::::
 
-## Abalone ages
 
--   `N = 4177`
--   A numeric outcome, `rings`
--   Other variables to use for prediction:
--   `sex` is a **nominal** predictor
--   `shucked_weight` and `diameter` are **numeric** predictors
-
-
-## Abalone ages
+## Inspection results
 
 ```{r}
 #| echo: false
-gt::gt(slice_sample(abalone, n = 15))
+gt::gt(slice_sample(inspections, n = 15))
 ```
 
 
@@ -272,12 +280,12 @@ gt::gt(slice_sample(abalone, n = 15))
 
 ## Activity
 
-Explore the `abalone` data on your own!
+Explore the `inspections` data on your own!
 
 ::: {.nonincremental}
-* What's the distribution of the outcome, rings?
-* What's the distribution of numeric variables like weight?
-* How do rings differ across sex?
+* What's the distribution of the outcome `results`?
+* What's the distribution of the numeric variable `violations`?
+* How do results differ across facility type?
 :::
 
 Share something you noticed with your neighbor.
@@ -286,7 +294,7 @@ Share something you noticed with your neighbor.
 
 ```{r}
 #| echo: false
-countdown(minutes = 8, id = "explore-abalone")
+countdown(minutes = 8, id = "explore-inspection")
 ```
 
 ::: notes
@@ -297,23 +305,23 @@ Make a plot or summary and then share with neighbor
 
 ```{r}
 #| fig-align: 'center'
-ggplot(abalone, aes(rings)) +
-  geom_histogram(bins = 15)
+inspections |> 
+  group_by(inspection_date = floor_date(inspection_date, unit = "month")) |> 
+  summarise(results = mean(results == "PASS")) |> 
+  ggplot(aes(inspection_date, results)) +
+  geom_line(alpha = 0.8, linewidth = 1.5) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(y = "% of inspections that have a PASS result", x = NULL)
 ```
 
-:::notes
-This histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn't be able to predict such values. Let's come back to that!
-:::
-
 ## 
-
 
 ```{python, execute=FALSE}
 #| eval: false
 #| fig-align: 'center'
 from plotnine import ggplot, aes, geom_boxplot, coord_flip
-(ggplot(abalone, aes('sex', 'rings', fill='sex')) 
-  + geom_boxplot(alpha=0.5, show_legend = False)
+(ggplot(inspections, aes('facility_type', 'total_violations', fill = 'facility_type')) 
+  + geom_boxplot(alpha = 0.5, show_legend = False)
   + coord_flip()
 )
 ```
@@ -322,13 +330,15 @@ from plotnine import ggplot, aes, geom_boxplot, coord_flip
 
 ```{r}
 #| fig-align: 'center'
-abalone |>
-  ggplot(aes(shucked_weight, rings, color = shell_weight)) +
-  geom_point(alpha = 0.5) +
-  scale_color_viridis_c()
+inspections |>
+  ggplot(aes(inspection_date, total_violations, z = as.integer(results) - 1)) +
+  stat_summary_hex(alpha = 0.7) +
+  scale_fill_viridis_c(labels = scales::percent) +
+  labs(fill = "% passed")
 ```
 
-## Time for machine learning!
+
+## Time for building a model!
 
 ```{r tree-example}
 #| echo: false
@@ -338,11 +348,12 @@ abalone |>
 #| dev-args: list(bg = "transparent")
 tree_mod <- 
   rpart::rpart(
-    rings ~ .,
-    data = abalone,
-    control = rpart::rpart.control(maxdepth = 3, cp = 0.001)
+    results ~ facility_type + total_violations + risk,
+    data = inspections,
+    control = rpart::rpart.control(maxdepth = 5, cp = 0.001)
   ) |> 
   partykit::as.party()
+
 plot(tree_mod)
 ```
 
@@ -354,9 +365,9 @@ plot(tree_mod)
 ```{r}
 library(tidymodels)
 set.seed(123)
-ring_split <- initial_split(abalone, prop = 0.8, strata = rings)
-ring_train <- training(ring_split)
-ring_test <- testing(ring_split)
+inspect_split <- initial_split(inspections, prop = 0.8)
+inspect_train <- training(inspect_split)
+inspect_test <- testing(inspect_split)
 ```
 
 ### Python
@@ -365,7 +376,10 @@ ring_test <- testing(ring_split)
 from sklearn import model_selection
 import numpy as np
 np.random.seed(123)
-X, y = abalone.iloc[:,:8], abalone['rings']
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
+X, y = inspections.drop(columns=['aka_name', 'results', 'inspection_date']), inspections['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
     test_size = 0.2
@@ -373,28 +387,38 @@ X_train, X_test, y_train, y_test = model_selection.train_test_split(
 ```
 
 
-## Fit a decision tree 🌳
+## Fit a logistic regression model 🚀
 
 Or your model of choice!
 
 ### R
 
 ```{r}
-abalone_fit <-
-  workflow(
-    rings ~ ., 
-    decision_tree(mode = "regression")
-  ) |> 
-  fit(data = ring_train) 
+inspection_rec <- 
+  recipe(facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(features = c("month", "year"), keep_original_cols = FALSE)
+
+inspection_fit <-
+  workflow(inspection_rec, logistic_reg()) |> 
+  fit(data = inspect_train)
 ```
 
 ### Python
 
 ```{python}
-from sklearn import preprocessing, tree, pipeline
-le = preprocessing.OrdinalEncoder().fit(X_train)
-tr = tree.DecisionTreeRegressor().fit(le.transform(X_train), y_train)
-abalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])
+from sklearn import preprocessing, linear_model, pipeline, compose
+
+categorical_features = ['facility_type', 'risk', 'month', 'year']
+
+oe = compose.make_column_transformer(
+    (preprocessing.OrdinalEncoder(
+            handle_unknown="use_encoded_value", unknown_value=-1),
+        categorical_features,),
+    remainder="passthrough",
+).fit(X_train)
+lr = linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)
+inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", lr)])
 ```
 
 
@@ -425,7 +449,7 @@ countdown(minutes = 5)
 
 ```{r}
 library(vetiver)
-v <- vetiver_model(abalone_fit, "abalone-rings-rstats")
+v <- vetiver_model(inspection_fit, "inspection-result-rstats")
 v
 ```
 
@@ -433,7 +457,7 @@ v
 
 ```{python}
 from vetiver import VetiverModel
-v = VetiverModel(abalone_fit, "abalone-rings-python", ptype_data = X_train)
+v = VetiverModel(inspection_fit, "inspection-result-python", prototype_data = X_train)
 v.description
 ```
 
@@ -487,7 +511,7 @@ The pins package publishes data, models, and other R and Python objects, making 
 
 ## Version your model
 
-Learn about the pins package  [for Python](https://rstudio.github.io/pins-python/) and [for R](https://pins.rstudio.com/)
+Learn about the pins package [for Python](https://rstudio.github.io/pins-python/) and [for R](https://pins.rstudio.com/)
 
 ::: {.panel-tabset}
 
@@ -550,7 +574,7 @@ board |> vetiver_pin_write(v)
 
 ```{python}
 #| eval: false
-from pins import board_connect
+from pins import board_temp
 from vetiver import vetiver_pin_write
 
 board = board_temp(allow_pickle_read = True)
@@ -581,7 +605,7 @@ load_dotenv()
 api_key = os.getenv("CO_API_KEY")
 rsc_url = os.getenv("CO_RSC_URL")
 
-board = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)
+board = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
 
