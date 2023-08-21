@@ -85,7 +85,7 @@ oe = compose.make_column_transformer(
         categorical_features,),
     remainder="passthrough",
 ).fit(X_train)
-rf = RandomForestClassifier().fit(oe.transform(X_train), y_train)
+rf = ensemble.RandomForestClassifier().fit(oe.transform(X_train), y_train)
 inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", rf)])
 ```
 :::
@@ -301,7 +301,7 @@ predict(endpoint, slice_sample(inspect_test, n = 10))
 ```{python}
 from vetiver.server import predict, vetiver_endpoint
 endpoint = vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-python/predict")
-predict(endpoint = endpoint, data = X_test)
+predict(endpoint = endpoint, data = X_test.head(10))
 ```
 
 ## Your turn 🏺 {transition="slide-in"}
