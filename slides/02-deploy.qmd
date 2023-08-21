@@ -114,13 +114,13 @@ vetiver_pin_write(board, v)
 ```
 
 
-# Make it easy to do the right thing
+## Make it easy to do the right thing
 
 -   Robust and human-friendly checking of new data
 -   Track and document software dependencies of models
 -   [Model cards](https://vetiver.rstudio.com/learn-more/model-card.html) for transparent, responsible reporting
 
-# Make it easy to do the right thing
+## Make it easy to do the right thing
 
 ![](images/vetiver-templates.png){fig-align="center"}
 
@@ -313,7 +313,7 @@ endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predi
 predict(endpoint = endpoint, data = ring_test)
 ```
 
-## Your turn 🏺 {transition="slide-in"}
+## Your turn 🏺 {transition="slide-in", auto-animation=TRUE}
 
 ::: {.callout-note icon=false}
 
@@ -332,13 +332,13 @@ Optional: call another endpoint from Python or R.
 countdown(minutes = 10)
 ```
 
-## Your turn 🏺 {transition="slide-in"}
+## Your turn 🏺 {auto-animation=TRUE}
 
 ::: {.callout-note icon=false}
 
 ## Activity
 
-Create a vetiver endpoint object for* **your neighbor's** API.
+Create a vetiver endpoint object for *your neighbor's* API.
 
 Predict with your endpoint for new data.
 
