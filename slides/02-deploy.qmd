@@ -68,7 +68,7 @@ import pandas as pd
 import numpy as np
 from sklearn import preprocessing, ensemble, pipeline, compose, model_selection
 
-inspections = pd.read_parquet('../data/inspections.parquet', engine = 'pyarrow')
+inspections = pd.read_parquet('../data/inspections.parquet')
 inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
 inspections['month'] = inspections['inspection_date'].dt.month
 inspections['year'] = inspections['inspection_date'].dt.year
