@@ -1,10 +1,10 @@
 dotenv-python
+fastparquet
 ipython
 numpy
 pandas
 pins
 plotnine
-pyarrow==11.0.0
 pydantic==1.10.11
 scikit-learn
 vetiver==0.2.1
