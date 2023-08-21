@@ -583,7 +583,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_e0138292" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_0af5047b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -591,64 +591,67 @@
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2" data-background-image="https://upload.wikimedia.org/wikipedia/commons/0/0b/AbaloneInside.jpg" data-background-size="70%">
-<h2></h2>
-</section>
-<section id="abalone-ages" class="slide level2">
-<h2>Abalone ages</h2>
+<section id="chicago-food-inspections-data-background-imageimageschristopher-alvarenga-cfmsstcrdn4-unsplash.jpg-background-opacity0.5" class="slide level2">
+<h2>Chicago food inspections data {background-image=“images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg”, background-opacity=0.5}</h2>
 <div>
 <ul>
-<li>Age of abalone can be determined by cutting the shell and counting the number of rings through a microscope</li>
-<li>Can other measurements be used to determine age?</li>
-<li>Data from <em>The Population Biology of Abalone (Haliotis species) in Tasmania. I. Blacklip Abalone (H. rubra) from the North Coast and the Islands of Bass Strait</em> by Nash et al (1994)</li>
+<li>The city of Chicago offers programmatic access to health code inspections of restaurants</li>
+<li>Can certain measurements be used to predict inspection outcome?</li>
+<li>Data from <a href="https://data.cityofchicago.org/" class="uri">https://data.cityofchicago.org/</a></li>
 </ul>
 </div>
+<div class="footer">
+<p>Image by <a href="https://unsplash.com/photos/cfmSStcrDn4">Christopher Alvarenga</a></p>
+</div>
+</section>
+<section id="inspection-results" class="slide level2">
+<h2>Inspection results</h2>
+<ul>
+<li class="fragment"><code>N = 20414</code></li>
+<li class="fragment">A class outcome, <code>results</code></li>
+<li class="fragment">Other variables to use for prediction:</li>
+<li class="fragment"><code>facility_type</code> is a <strong>nominal</strong> predictor</li>
+<li class="fragment"><code>risk</code> is a <strong>nominal</strong> (or maybe <strong>ordinal</strong>) predictor</li>
+<li class="fragment"><code>violations</code> is a <strong>numeric</strong> predictor</li>
+<li class="fragment"><code>inspection_date</code> is a <strong>date</strong> predictor</li>
+</ul>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>abalone <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"abalone.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>path <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"inspections.parquet"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>inspections <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2"></a>abalone <span class="op">=</span> pd.read_csv(<span class="st">"abalone.csv"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a>inspections <span class="op">=</span> pd.read_parquet(<span class="st">'../data/inspections.parquet'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="abalone-ages-1" class="slide level2">
-<h2>Abalone ages</h2>
-<ul>
-<li class="fragment"><code>N = 4177</code></li>
-<li class="fragment">A numeric outcome, <code>rings</code></li>
-<li class="fragment">Other variables to use for prediction:</li>
-<li class="fragment"><code>sex</code> is a <strong>nominal</strong> predictor</li>
-<li class="fragment"><code>shucked_weight</code> and <code>diameter</code> are <strong>numeric</strong> predictors</li>
-</ul>
-</section>
-<section id="abalone-ages-2" class="slide level2">
-<h2>Abalone ages</h2>
+<section id="inspection-results-1" class="slide level2">
+<h2>Inspection results</h2>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="hnndrjsrnq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hnndrjsrnq table {
+<div id="oqimmhtbae" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#oqimmhtbae table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hnndrjsrnq thead, #hnndrjsrnq tbody, #hnndrjsrnq tfoot, #hnndrjsrnq tr, #hnndrjsrnq td, #hnndrjsrnq th {
+#oqimmhtbae thead, #oqimmhtbae tbody, #oqimmhtbae tfoot, #oqimmhtbae tr, #oqimmhtbae td, #oqimmhtbae th {
   border-style: none;
 }
 
-#hnndrjsrnq p {
+#oqimmhtbae p {
   margin: 0;
   padding: 0;
 }
 
-#hnndrjsrnq .gt_table {
+#oqimmhtbae .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -674,12 +677,12 @@
   border-left-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_caption {
+#oqimmhtbae .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hnndrjsrnq .gt_title {
+#oqimmhtbae .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -691,7 +694,7 @@
   border-bottom-width: 0;
 }
 
-#hnndrjsrnq .gt_subtitle {
+#oqimmhtbae .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -703,7 +706,7 @@
   border-top-width: 0;
 }
 
-#hnndrjsrnq .gt_heading {
+#oqimmhtbae .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -715,13 +718,13 @@
   border-right-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_bottom_border {
+#oqimmhtbae .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_col_headings {
+#oqimmhtbae .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -736,7 +739,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_col_heading {
+#oqimmhtbae .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -756,7 +759,7 @@
   overflow-x: hidden;
 }
 
-#hnndrjsrnq .gt_column_spanner_outer {
+#oqimmhtbae .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -768,15 +771,15 @@
   padding-right: 4px;
 }
 
-#hnndrjsrnq .gt_column_spanner_outer:first-child {
+#oqimmhtbae .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hnndrjsrnq .gt_column_spanner_outer:last-child {
+#oqimmhtbae .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hnndrjsrnq .gt_column_spanner {
+#oqimmhtbae .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -788,11 +791,11 @@
   width: 100%;
 }
 
-#hnndrjsrnq .gt_spanner_row {
+#oqimmhtbae .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hnndrjsrnq .gt_group_heading {
+#oqimmhtbae .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -818,7 +821,7 @@
   text-align: left;
 }
 
-#hnndrjsrnq .gt_empty_group_heading {
+#oqimmhtbae .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -833,15 +836,15 @@
   vertical-align: middle;
 }
 
-#hnndrjsrnq .gt_from_md > :first-child {
+#oqimmhtbae .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hnndrjsrnq .gt_from_md > :last-child {
+#oqimmhtbae .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hnndrjsrnq .gt_row {
+#oqimmhtbae .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -860,7 +863,7 @@
   overflow-x: hidden;
 }
 
-#hnndrjsrnq .gt_stub {
+#oqimmhtbae .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -873,7 +876,7 @@
   padding-right: 5px;
 }
 
-#hnndrjsrnq .gt_stub_row_group {
+#oqimmhtbae .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -887,15 +890,15 @@
   vertical-align: top;
 }
 
-#hnndrjsrnq .gt_row_group_first td {
+#oqimmhtbae .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hnndrjsrnq .gt_row_group_first th {
+#oqimmhtbae .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hnndrjsrnq .gt_summary_row {
+#oqimmhtbae .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -905,16 +908,16 @@
   padding-right: 5px;
 }
 
-#hnndrjsrnq .gt_first_summary_row {
+#oqimmhtbae .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_first_summary_row.thick {
+#oqimmhtbae .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hnndrjsrnq .gt_last_summary_row {
+#oqimmhtbae .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -924,7 +927,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_grand_summary_row {
+#oqimmhtbae .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -934,7 +937,7 @@
   padding-right: 5px;
 }
 
-#hnndrjsrnq .gt_first_grand_summary_row {
+#oqimmhtbae .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -944,7 +947,7 @@
   border-top-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_last_grand_summary_row_top {
+#oqimmhtbae .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -954,11 +957,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_striped {
+#oqimmhtbae .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hnndrjsrnq .gt_table_body {
+#oqimmhtbae .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -967,7 +970,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_footnotes {
+#oqimmhtbae .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -981,7 +984,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_footnote {
+#oqimmhtbae .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -990,7 +993,7 @@
   padding-right: 5px;
 }
 
-#hnndrjsrnq .gt_sourcenotes {
+#oqimmhtbae .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1004,7 +1007,7 @@
   border-right-color: #D3D3D3;
 }
 
-#hnndrjsrnq .gt_sourcenote {
+#oqimmhtbae .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1012,63 +1015,63 @@
   padding-right: 5px;
 }
 
-#hnndrjsrnq .gt_left {
+#oqimmhtbae .gt_left {
   text-align: left;
 }
 
-#hnndrjsrnq .gt_center {
+#oqimmhtbae .gt_center {
   text-align: center;
 }
 
-#hnndrjsrnq .gt_right {
+#oqimmhtbae .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hnndrjsrnq .gt_font_normal {
+#oqimmhtbae .gt_font_normal {
   font-weight: normal;
 }
 
-#hnndrjsrnq .gt_font_bold {
+#oqimmhtbae .gt_font_bold {
   font-weight: bold;
 }
 
-#hnndrjsrnq .gt_font_italic {
+#oqimmhtbae .gt_font_italic {
   font-style: italic;
 }
 
-#hnndrjsrnq .gt_super {
+#oqimmhtbae .gt_super {
   font-size: 65%;
 }
 
-#hnndrjsrnq .gt_footnote_marks {
+#oqimmhtbae .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hnndrjsrnq .gt_asterisk {
+#oqimmhtbae .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hnndrjsrnq .gt_indent_1 {
+#oqimmhtbae .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hnndrjsrnq .gt_indent_2 {
+#oqimmhtbae .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hnndrjsrnq .gt_indent_3 {
+#oqimmhtbae .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hnndrjsrnq .gt_indent_4 {
+#oqimmhtbae .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hnndrjsrnq .gt_indent_5 {
+#oqimmhtbae .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1076,153 +1079,105 @@
   <thead>
     
     <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="sex">sex</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="length">length</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="diameter">diameter</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="height">height</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="whole_weight">whole_weight</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="shucked_weight">shucked_weight</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="viscera_weight">viscera_weight</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="shell_weight">shell_weight</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="rings">rings</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="results">results</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="inspection_date">inspection_date</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="aka_name">aka_name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="facility_type">facility_type</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="risk">risk</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="total_violations">total_violations</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.555</td>
-<td headers="diameter" class="gt_row gt_right">0.440</td>
-<td headers="height" class="gt_row gt_right">0.140</td>
-<td headers="whole_weight" class="gt_row gt_right">0.8460</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.3460</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1715</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2735</td>
-<td headers="rings" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.475</td>
-<td headers="diameter" class="gt_row gt_right">0.350</td>
-<td headers="height" class="gt_row gt_right">0.115</td>
-<td headers="whole_weight" class="gt_row gt_right">0.4870</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.1940</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1455</td>
-<td headers="shell_weight" class="gt_row gt_right">0.1250</td>
-<td headers="rings" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.630</td>
-<td headers="diameter" class="gt_row gt_right">0.515</td>
-<td headers="height" class="gt_row gt_right">0.170</td>
-<td headers="whole_weight" class="gt_row gt_right">1.3850</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.6355</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.2955</td>
-<td headers="shell_weight" class="gt_row gt_right">0.3800</td>
-<td headers="rings" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.540</td>
-<td headers="diameter" class="gt_row gt_right">0.420</td>
-<td headers="height" class="gt_row gt_right">0.135</td>
-<td headers="whole_weight" class="gt_row gt_right">0.8075</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.3485</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1795</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2350</td>
-<td headers="rings" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.615</td>
-<td headers="diameter" class="gt_row gt_right">0.470</td>
-<td headers="height" class="gt_row gt_right">0.165</td>
-<td headers="whole_weight" class="gt_row gt_right">1.1280</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.4465</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.2195</td>
-<td headers="shell_weight" class="gt_row gt_right">0.3400</td>
-<td headers="rings" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.565</td>
-<td headers="diameter" class="gt_row gt_right">0.455</td>
-<td headers="height" class="gt_row gt_right">0.130</td>
-<td headers="whole_weight" class="gt_row gt_right">1.0580</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.4390</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.2645</td>
-<td headers="shell_weight" class="gt_row gt_right">0.3000</td>
-<td headers="rings" class="gt_row gt_right">10</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.515</td>
-<td headers="diameter" class="gt_row gt_right">0.405</td>
-<td headers="height" class="gt_row gt_right">0.145</td>
-<td headers="whole_weight" class="gt_row gt_right">0.6950</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.2150</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1635</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2340</td>
-<td headers="rings" class="gt_row gt_right">15</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.610</td>
-<td headers="diameter" class="gt_row gt_right">0.500</td>
-<td headers="height" class="gt_row gt_right">0.165</td>
-<td headers="whole_weight" class="gt_row gt_right">1.2715</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.4915</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1850</td>
-<td headers="shell_weight" class="gt_row gt_right">0.4900</td>
-<td headers="rings" class="gt_row gt_right">12</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.545</td>
-<td headers="diameter" class="gt_row gt_right">0.440</td>
-<td headers="height" class="gt_row gt_right">0.175</td>
-<td headers="whole_weight" class="gt_row gt_right">0.7745</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.2985</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1875</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2650</td>
-<td headers="rings" class="gt_row gt_right">11</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.595</td>
-<td headers="diameter" class="gt_row gt_right">0.465</td>
-<td headers="height" class="gt_row gt_right">0.150</td>
-<td headers="whole_weight" class="gt_row gt_right">1.1005</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.5415</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.1660</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2650</td>
-<td headers="rings" class="gt_row gt_right">8</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">male</td>
-<td headers="length" class="gt_row gt_right">0.555</td>
-<td headers="diameter" class="gt_row gt_right">0.440</td>
-<td headers="height" class="gt_row gt_right">0.135</td>
-<td headers="whole_weight" class="gt_row gt_right">0.9025</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.3805</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.2105</td>
-<td headers="shell_weight" class="gt_row gt_right">0.2800</td>
-<td headers="rings" class="gt_row gt_right">13</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.690</td>
-<td headers="diameter" class="gt_row gt_right">0.525</td>
-<td headers="height" class="gt_row gt_right">0.190</td>
-<td headers="whole_weight" class="gt_row gt_right">1.4920</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.6425</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.3905</td>
-<td headers="shell_weight" class="gt_row gt_right">0.4200</td>
-<td headers="rings" class="gt_row gt_right">12</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">infant</td>
-<td headers="length" class="gt_row gt_right">0.295</td>
-<td headers="diameter" class="gt_row gt_right">0.220</td>
-<td headers="height" class="gt_row gt_right">0.085</td>
-<td headers="whole_weight" class="gt_row gt_right">0.1285</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.0585</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.0270</td>
-<td headers="shell_weight" class="gt_row gt_right">0.0365</td>
-<td headers="rings" class="gt_row gt_right">5</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">infant</td>
-<td headers="length" class="gt_row gt_right">0.305</td>
-<td headers="diameter" class="gt_row gt_right">0.230</td>
-<td headers="height" class="gt_row gt_right">0.075</td>
-<td headers="whole_weight" class="gt_row gt_right">0.1455</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.0595</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.0305</td>
-<td headers="shell_weight" class="gt_row gt_right">0.0500</td>
-<td headers="rings" class="gt_row gt_right">6</td></tr>
-    <tr><td headers="sex" class="gt_row gt_left">female</td>
-<td headers="length" class="gt_row gt_right">0.720</td>
-<td headers="diameter" class="gt_row gt_right">0.545</td>
-<td headers="height" class="gt_row gt_right">0.185</td>
-<td headers="whole_weight" class="gt_row gt_right">1.7185</td>
-<td headers="shucked_weight" class="gt_row gt_right">0.7925</td>
-<td headers="viscera_weight" class="gt_row gt_right">0.4010</td>
-<td headers="shell_weight" class="gt_row gt_right">0.4680</td>
-<td headers="rings" class="gt_row gt_right">11</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">FAIL</td>
+<td headers="inspection_date" class="gt_row gt_right">2019-04-19</td>
+<td headers="aka_name" class="gt_row gt_left">RADIO RIBS</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">17</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2022-04-27</td>
+<td headers="aka_name" class="gt_row gt_left">SWEETWATERS COFFEE &amp; TEA NEWCITY</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 2 (MEDIUM)</td>
+<td headers="total_violations" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2020-09-23</td>
+<td headers="aka_name" class="gt_row gt_left">LIME LEAF</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">11</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2020-06-25</td>
+<td headers="aka_name" class="gt_row gt_left">COUNTY BBQ</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2020-06-12</td>
+<td headers="aka_name" class="gt_row gt_left">CHOWBUS</td>
+<td headers="facility_type" class="gt_row gt_center">GROCERY STORE</td>
+<td headers="risk" class="gt_row gt_center">RISK 3 (LOW)</td>
+<td headers="total_violations" class="gt_row gt_right">3</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2022-10-03</td>
+<td headers="aka_name" class="gt_row gt_left">BEREKET</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">2</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2022-11-03</td>
+<td headers="aka_name" class="gt_row gt_left">PANADERIA LE PARIS</td>
+<td headers="facility_type" class="gt_row gt_center">BAKERY</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">112</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2019-06-14</td>
+<td headers="aka_name" class="gt_row gt_left">SARAH &amp; LEE'S CAFE &amp; CATERING</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">76</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2020-06-12</td>
+<td headers="aka_name" class="gt_row gt_left">DOLLAR STAR &amp; MORE 1 INC.</td>
+<td headers="facility_type" class="gt_row gt_center">GROCERY STORE</td>
+<td headers="risk" class="gt_row gt_center">RISK 3 (LOW)</td>
+<td headers="total_violations" class="gt_row gt_right">11</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">FAIL</td>
+<td headers="inspection_date" class="gt_row gt_right">2019-01-18</td>
+<td headers="aka_name" class="gt_row gt_left">SQUARE BISCUITS</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">33</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2022-08-30</td>
+<td headers="aka_name" class="gt_row gt_left">STAR LOUNGE COFFEE BAR</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 2 (MEDIUM)</td>
+<td headers="total_violations" class="gt_row gt_right">34</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">FAIL</td>
+<td headers="inspection_date" class="gt_row gt_right">2022-02-18</td>
+<td headers="aka_name" class="gt_row gt_left">CARNICERIA Y TAQUERIA TIERRA</td>
+<td headers="facility_type" class="gt_row gt_center">GROCERY STORE</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">73</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">FAIL</td>
+<td headers="inspection_date" class="gt_row gt_right">2022-01-18</td>
+<td headers="aka_name" class="gt_row gt_left">FLIK INTERNATIONAL CORP</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 2 (MEDIUM)</td>
+<td headers="total_violations" class="gt_row gt_right">8</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">FAIL</td>
+<td headers="inspection_date" class="gt_row gt_right">2019-06-18</td>
+<td headers="aka_name" class="gt_row gt_left">SALERNO'S PIZZA / WHISKEY HILL BREWING &amp; PIZZA B</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="results" class="gt_row gt_center">PASS</td>
+<td headers="inspection_date" class="gt_row gt_right">2022-12-08</td>
+<td headers="aka_name" class="gt_row gt_left">GUAPO TACO</td>
+<td headers="facility_type" class="gt_row gt_center">RESTAURANT</td>
+<td headers="risk" class="gt_row gt_center">RISK 1 (HIGH)</td>
+<td headers="total_violations" class="gt_row gt_right">46</td></tr>
   </tbody>
   
   
@@ -1239,12 +1194,12 @@
 <p><strong>Activity</strong></p>
 </div>
 <div class="callout-content">
-<p>Explore the <code>abalone</code> data on your own!</p>
+<p>Explore the <code>inspections</code> data on your own!</p>
 <div>
 <ul>
-<li>What’s the distribution of the outcome, rings?</li>
-<li>What’s the distribution of numeric variables like weight?</li>
-<li>How do rings differ across sex?</li>
+<li>What’s the distribution of the outcome <code>results</code>?</li>
+<li>What’s the distribution of the numeric variable <code>violations</code>?</li>
+<li>How do results differ across facility type?</li>
 </ul>
 </div>
 <p>Share something you noticed with your neighbor.</p>
@@ -1253,7 +1208,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="explore-abalone" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="explore-inspection" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1273,49 +1228,43 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(abalone, <span class="fu">aes</span>(rings)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>inspections <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">group_by</span>(<span class="at">inspection_date =</span> <span class="fu">floor_date</span>(inspection_date, <span class="at">unit =</span> <span class="st">"month"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">summarise</span>(<span class="at">results =</span> <span class="fu">mean</span>(results <span class="sc">==</span> <span class="st">"PASS"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(inspection_date, results)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"% of inspections that have a PASS result"</span>, <span class="at">x =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="01-introduction_files/figure-revealjs/unnamed-chunk-7-1.svg" class="r-stretch quarto-figure-center"><aside class="notes">
-<p>This histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn’t be able to predict such values. Let’s come back to that!</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-3" class="slide level2">
+<img data-src="01-introduction_files/figure-revealjs/unnamed-chunk-7-1.svg" class="r-stretch quarto-figure-center"></section>
+<section id="section-2" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center" data-execute="false">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, aes, geom_boxplot, coord_flip</span>
-<span id="cb4-2"><a href="#cb4-2"></a>(ggplot(abalone, aes(<span class="st">'sex'</span>, <span class="st">'rings'</span>, fill<span class="op">=</span><span class="st">'sex'</span>)) </span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="op">+</span> geom_boxplot(alpha<span class="op">=</span><span class="fl">0.5</span>, show_legend <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>(ggplot(inspections, aes(<span class="st">'facility_type'</span>, <span class="st">'total_violations'</span>, fill <span class="op">=</span> <span class="st">'facility_type'</span>)) </span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="op">+</span> geom_boxplot(alpha <span class="op">=</span> <span class="fl">0.5</span>, show_legend <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb4-4"><a href="#cb4-4"></a>  <span class="op">+</span> coord_flip()</span>
 <span id="cb4-5"><a href="#cb4-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>abalone <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(shucked_weight, rings, <span class="at">color =</span> shell_weight)) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>inspections <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(inspection_date, total_violations, <span class="at">z =</span> <span class="fu">as.integer</span>(results) <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">stat_summary_hex</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"% passed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="01-introduction_files/figure-revealjs/unnamed-chunk-9-1.svg" class="r-stretch quarto-figure-center"></section>
-<section id="time-for-machine-learning" class="slide level2">
-<h2>Time for machine learning!</h2>
+<section id="time-for-building-a-model" class="slide level2">
+<h2>Time for building a model!</h2>
 
 <img data-src="01-introduction_files/figure-revealjs/tree-example-1.svg" class="r-stretch quarto-figure-center"></section>
 <section id="spend-your-data-budget" class="slide level2">
@@ -1324,40 +1273,53 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(tidymodels)</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>ring_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(abalone, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> rings)</span>
-<span id="cb6-4"><a href="#cb6-4"></a>ring_train <span class="ot">&lt;-</span> <span class="fu">training</span>(ring_split)</span>
-<span id="cb6-5"><a href="#cb6-5"></a>ring_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(ring_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3"></a>inspect_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(inspections, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>inspect_train <span class="ot">&lt;-</span> <span class="fu">training</span>(inspect_split)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>inspect_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(inspect_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 id="python">Python</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">from</span> sklearn <span class="im">import</span> model_selection</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-3"><a href="#cb7-3"></a>np.random.seed(<span class="dv">123</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>X, y <span class="op">=</span> abalone.iloc[:,:<span class="dv">8</span>], abalone[<span class="st">'rings'</span>]</span>
-<span id="cb7-5"><a href="#cb7-5"></a>X_train, X_test, y_train, y_test <span class="op">=</span> model_selection.train_test_split(</span>
-<span id="cb7-6"><a href="#cb7-6"></a>    X, y,</span>
-<span id="cb7-7"><a href="#cb7-7"></a>    test_size <span class="op">=</span> <span class="fl">0.2</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4"></a>inspections[<span class="st">'inspection_date'</span>] <span class="op">=</span> pd.to_datetime(inspections[<span class="st">'inspection_date'</span>])</span>
+<span id="cb7-5"><a href="#cb7-5"></a>inspections[<span class="st">'month'</span>] <span class="op">=</span> inspections[<span class="st">'inspection_date'</span>].dt.month</span>
+<span id="cb7-6"><a href="#cb7-6"></a>inspections[<span class="st">'year'</span>] <span class="op">=</span> inspections[<span class="st">'inspection_date'</span>].dt.year</span>
+<span id="cb7-7"><a href="#cb7-7"></a>X, y <span class="op">=</span> inspections.drop(columns<span class="op">=</span>[<span class="st">'aka_name'</span>, <span class="st">'results'</span>, <span class="st">'inspection_date'</span>]), inspections[<span class="st">'results'</span>]</span>
+<span id="cb7-8"><a href="#cb7-8"></a>X_train, X_test, y_train, y_test <span class="op">=</span> model_selection.train_test_split(</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    X, y,</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    test_size <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="fit-a-decision-tree" class="slide level2">
-<h2>Fit a decision tree 🌳</h2>
+<section id="fit-a-logistic-regression-model" class="slide level2">
+<h2>Fit a logistic regression model 🚀</h2>
 <p>Or your model of choice!</p>
 <h3 id="r-1">R</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>abalone_fit <span class="ot">&lt;-</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">workflow</span>(</span>
-<span id="cb8-3"><a href="#cb8-3"></a>    rings <span class="sc">~</span> ., </span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="fu">decision_tree</span>(<span class="at">mode =</span> <span class="st">"regression"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">fit</span>(<span class="at">data =</span> ring_train) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>inspection_rec <span class="ot">&lt;-</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">recipe</span>(results <span class="sc">~</span> facility_type <span class="sc">+</span> risk <span class="sc">+</span> total_violations <span class="sc">+</span> inspection_date, </span>
+<span id="cb8-3"><a href="#cb8-3"></a>         <span class="at">data =</span> inspect_train) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">step_date</span>(inspection_date, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">"month"</span>, <span class="st">"year"</span>), <span class="at">keep_original_cols =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a>inspection_fit <span class="ot">&lt;-</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="fu">workflow</span>(inspection_rec, <span class="fu">logistic_reg</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="fu">fit</span>(<span class="at">data =</span> inspect_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 id="python-1">Python</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing, tree, pipeline</span>
-<span id="cb9-2"><a href="#cb9-2"></a>le <span class="op">=</span> preprocessing.OrdinalEncoder().fit(X_train)</span>
-<span id="cb9-3"><a href="#cb9-3"></a>tr <span class="op">=</span> tree.DecisionTreeRegressor().fit(le.transform(X_train), y_train)</span>
-<span id="cb9-4"><a href="#cb9-4"></a>abalone_fit <span class="op">=</span> pipeline.Pipeline([(<span class="st">'label_encoder'</span>, le), (<span class="st">'decision_tree'</span>, tr)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing, linear_model, pipeline, compose</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>categorical_features <span class="op">=</span> [<span class="st">'facility_type'</span>, <span class="st">'risk'</span>, <span class="st">'month'</span>, <span class="st">'year'</span>]</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a>oe <span class="op">=</span> compose.make_column_transformer(</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    (preprocessing.OrdinalEncoder(</span>
+<span id="cb9-7"><a href="#cb9-7"></a>            handle_unknown<span class="op">=</span><span class="st">"use_encoded_value"</span>, unknown_value<span class="op">=-</span><span class="dv">1</span>),</span>
+<span id="cb9-8"><a href="#cb9-8"></a>        categorical_features,),</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    remainder<span class="op">=</span><span class="st">"passthrough"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10"></a>).fit(X_train)</span>
+<span id="cb9-11"><a href="#cb9-11"></a>lr <span class="op">=</span> linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)</span>
+<span id="cb9-12"><a href="#cb9-12"></a>inspection_fit <span class="op">=</span> pipeline.Pipeline([(<span class="st">"ordinal_encoder"</span>, oe), (<span class="st">"random_forest"</span>, lr)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-turn-2" class="slide level2" data-transition="slide-in">
@@ -1375,7 +1337,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_9722303b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_63cb552f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1392,16 +1354,16 @@
 <h3 id="r-2">R</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(vetiver)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>v <span class="ot">&lt;-</span> <span class="fu">vetiver_model</span>(abalone_fit, <span class="st">"abalone-rings-rstats"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>v <span class="ot">&lt;-</span> <span class="fu">vetiver_model</span>(inspection_fit, <span class="st">"inspection-result-rstats"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a>v</span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; </span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; ── abalone-rings-rstats ─ &lt;bundled_workflow&gt; model for deployment </span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; A rpart regression modeling workflow using 8 features</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; ── inspection-result-rstats ─ &lt;bundled_workflow&gt; model for deployment </span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; A glm classification modeling workflow using 4 features</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 id="python-2">Python</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">from</span> vetiver <span class="im">import</span> VetiverModel</span>
-<span id="cb11-2"><a href="#cb11-2"></a>v <span class="op">=</span> VetiverModel(abalone_fit, <span class="st">"abalone-rings-python"</span>, ptype_data <span class="op">=</span> X_train)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>v <span class="op">=</span> VetiverModel(inspection_fit, <span class="st">"inspection-result-python"</span>, prototype_data <span class="op">=</span> X_train)</span>
 <span id="cb11-3"><a href="#cb11-3"></a>v.description</span>
 <span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt; 'A scikit-learn Pipeline model'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1422,7 +1384,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_0db6d917" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e0a84dfc" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1434,7 +1396,7 @@
 <h1>Version your model</h1>
 
 </section>
-<section id="section-5" class="slide level2" data-background-color="white" data-background-image="https://vetiver.rstudio.com/images/ml_ops_cycle.png" data-background-size="contain">
+<section id="section-4" class="slide level2" data-background-color="white" data-background-image="https://vetiver.rstudio.com/images/ml_ops_cycle.png" data-background-size="contain">
 <h2></h2>
 <div class="footer">
 
@@ -1484,8 +1446,8 @@
 <span id="cb12-7"><a href="#cb12-7"></a><span class="co">#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, </span></span>
 <span id="cb12-8"><a href="#cb12-8"></a><span class="co">#&gt;  with vetiver.model_card()</span></span>
 <span id="cb12-9"><a href="#cb12-9"></a><span class="co">#&gt; Writing pin:</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="co">#&gt; Name: 'abalone-rings-python'</span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; Version: 20230821T172823Z-f8513</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="co">#&gt; Name: 'inspection-result-python'</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; Version: 20230821T230141Z-d32c9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -1494,8 +1456,8 @@
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a>board <span class="ot">&lt;-</span> <span class="fu">board_temp</span>()</span>
 <span id="cb13-4"><a href="#cb13-4"></a>board <span class="sc">|&gt;</span> <span class="fu">vetiver_pin_write</span>(v)</span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt; Creating new version '20230821T172823Z-adfb9'</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt; Writing to pin 'abalone-rings-rstats'</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt; Creating new version '20230821T230141Z-7abba'</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt; Writing to pin 'inspection-result-rstats'</span></span>
 <span id="cb13-7"><a href="#cb13-7"></a><span class="co">#&gt; </span></span>
 <span id="cb13-8"><a href="#cb13-8"></a><span class="co">#&gt; Create a Model Card for your published model</span></span>
 <span id="cb13-9"><a href="#cb13-9"></a><span class="co">#&gt; • Model Cards provide a framework for transparent, responsible reporting</span></span>
@@ -1520,7 +1482,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_007b2f28" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_f08860ea" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1542,7 +1504,7 @@
 </div>
 <h3 id="python-4">Python</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> pins <span class="im">import</span> board_connect</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> pins <span class="im">import</span> board_temp</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="im">from</span> vetiver <span class="im">import</span> vetiver_pin_write</span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
 <span id="cb15-4"><a href="#cb15-4"></a>board <span class="op">=</span> board_temp(allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
@@ -1568,7 +1530,7 @@
 <span id="cb17-7"><a href="#cb17-7"></a>api_key <span class="op">=</span> os.getenv(<span class="st">"CO_API_KEY"</span>)</span>
 <span id="cb17-8"><a href="#cb17-8"></a>rsc_url <span class="op">=</span> os.getenv(<span class="st">"CO_RSC_URL"</span>)</span>
 <span id="cb17-9"><a href="#cb17-9"></a></span>
-<span id="cb17-10"><a href="#cb17-10"></a>board <span class="op">=</span> board_connect(server_url<span class="op">=</span>rsc_url, api_key<span class="op">=</span>api_key, allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb17-10"><a href="#cb17-10"></a>board <span class="op">=</span> board_connect(server_url <span class="op">=</span> rsc_url, api_key <span class="op">=</span> api_key, allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb17-11"><a href="#cb17-11"></a>vetiver_pin_write(board, v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -1588,7 +1550,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3db721ba" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_102e422c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>

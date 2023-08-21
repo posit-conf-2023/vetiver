@@ -119,74 +119,74 @@
     "text": "Your turn 🏺\n\n\n\n\nActivity\n\n\nWhat language does your team use for machine learning?\nWhat kinds of models do you commonly use?\nHave you ever deployed a model?\n\n\n\n\n\n\n−+\n03:00"
   },
   {
-    "objectID": "slides/01-introduction.html#abalone-ages",
-    "href": "slides/01-introduction.html#abalone-ages",
+    "objectID": "slides/01-introduction.html#chicago-food-inspections-data-background-imageimageschristopher-alvarenga-cfmsstcrdn4-unsplash.jpg-background-opacity0.5",
+    "href": "slides/01-introduction.html#chicago-food-inspections-data-background-imageimageschristopher-alvarenga-cfmsstcrdn4-unsplash.jpg-background-opacity0.5",
     "title": "1 - Introduction",
-    "section": "Abalone ages",
-    "text": "Abalone ages\n\n\nAge of abalone can be determined by cutting the shell and counting the number of rings through a microscope\nCan other measurements be used to determine age?\nData from The Population Biology of Abalone (Haliotis species) in Tasmania. I. Blacklip Abalone (H. rubra) from the North Coast and the Islands of Bass Strait by Nash et al (1994)\n\n\n\n\n\nlibrary(tidyverse)\nabalone &lt;- read_csv(\"abalone.csv\")\n\n\n\nimport pandas as pd\nabalone = pd.read_csv(\"abalone.csv\")"
+    "section": "Chicago food inspections data {background-image=“images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg”, background-opacity=0.5}",
+    "text": "Chicago food inspections data {background-image=“images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg”, background-opacity=0.5}\n\n\nThe city of Chicago offers programmatic access to health code inspections of restaurants\nCan certain measurements be used to predict inspection outcome?\nData from https://data.cityofchicago.org/\n\n\n\nImage by Christopher Alvarenga"
   },
   {
-    "objectID": "slides/01-introduction.html#abalone-ages-1",
-    "href": "slides/01-introduction.html#abalone-ages-1",
+    "objectID": "slides/01-introduction.html#inspection-results",
+    "href": "slides/01-introduction.html#inspection-results",
     "title": "1 - Introduction",
-    "section": "Abalone ages",
-    "text": "Abalone ages\n\nN = 4177\nA numeric outcome, rings\nOther variables to use for prediction:\nsex is a nominal predictor\nshucked_weight and diameter are numeric predictors"
+    "section": "Inspection results",
+    "text": "Inspection results\n\nN = 20414\nA class outcome, results\nOther variables to use for prediction:\nfacility_type is a nominal predictor\nrisk is a nominal (or maybe ordinal) predictor\nviolations is a numeric predictor\ninspection_date is a date predictor\n\n\n\n\nlibrary(arrow)\npath &lt;- here::here(\"data\", \"inspections.parquet\")\ninspections &lt;- read_parquet(path)\n\n\n\nimport pandas as pd\ninspections = pd.read_parquet('../data/inspections.parquet')"
   },
   {
-    "objectID": "slides/01-introduction.html#abalone-ages-2",
-    "href": "slides/01-introduction.html#abalone-ages-2",
+    "objectID": "slides/01-introduction.html#inspection-results-1",
+    "href": "slides/01-introduction.html#inspection-results-1",
     "title": "1 - Introduction",
-    "section": "Abalone ages",
-    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    female\n0.555\n0.440\n0.140\n0.8460\n0.3460\n0.1715\n0.2735\n10\n    female\n0.475\n0.350\n0.115\n0.4870\n0.1940\n0.1455\n0.1250\n13\n    male\n0.630\n0.515\n0.170\n1.3850\n0.6355\n0.2955\n0.3800\n11\n    male\n0.540\n0.420\n0.135\n0.8075\n0.3485\n0.1795\n0.2350\n11\n    male\n0.615\n0.470\n0.165\n1.1280\n0.4465\n0.2195\n0.3400\n10\n    female\n0.565\n0.455\n0.130\n1.0580\n0.4390\n0.2645\n0.3000\n10\n    male\n0.515\n0.405\n0.145\n0.6950\n0.2150\n0.1635\n0.2340\n15\n    male\n0.610\n0.500\n0.165\n1.2715\n0.4915\n0.1850\n0.4900\n12\n    female\n0.545\n0.440\n0.175\n0.7745\n0.2985\n0.1875\n0.2650\n11\n    female\n0.595\n0.465\n0.150\n1.1005\n0.5415\n0.1660\n0.2650\n8\n    male\n0.555\n0.440\n0.135\n0.9025\n0.3805\n0.2105\n0.2800\n13\n    female\n0.690\n0.525\n0.190\n1.4920\n0.6425\n0.3905\n0.4200\n12\n    infant\n0.295\n0.220\n0.085\n0.1285\n0.0585\n0.0270\n0.0365\n5\n    infant\n0.305\n0.230\n0.075\n0.1455\n0.0595\n0.0305\n0.0500\n6\n    female\n0.720\n0.545\n0.185\n1.7185\n0.7925\n0.4010\n0.4680\n11"
+    "section": "Inspection results",
+    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    FAIL\n2019-04-19\nRADIO RIBS\nRESTAURANT\nRISK 1 (HIGH)\n17\n    PASS\n2022-04-27\nSWEETWATERS COFFEE & TEA NEWCITY\nRESTAURANT\nRISK 2 (MEDIUM)\n0\n    PASS\n2020-09-23\nLIME LEAF\nRESTAURANT\nRISK 1 (HIGH)\n11\n    PASS\n2020-06-25\nCOUNTY BBQ\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2020-06-12\nCHOWBUS\nGROCERY STORE\nRISK 3 (LOW)\n3\n    PASS\n2022-10-03\nBEREKET\nRESTAURANT\nRISK 1 (HIGH)\n2\n    PASS\n2022-11-03\nPANADERIA LE PARIS\nBAKERY\nRISK 1 (HIGH)\n112\n    PASS\n2019-06-14\nSARAH & LEE'S CAFE & CATERING\nRESTAURANT\nRISK 1 (HIGH)\n76\n    PASS\n2020-06-12\nDOLLAR STAR & MORE 1 INC.\nGROCERY STORE\nRISK 3 (LOW)\n11\n    FAIL\n2019-01-18\nSQUARE BISCUITS\nRESTAURANT\nRISK 1 (HIGH)\n33\n    PASS\n2022-08-30\nSTAR LOUNGE COFFEE BAR\nRESTAURANT\nRISK 2 (MEDIUM)\n34\n    FAIL\n2022-02-18\nCARNICERIA Y TAQUERIA TIERRA\nGROCERY STORE\nRISK 1 (HIGH)\n73\n    FAIL\n2022-01-18\nFLIK INTERNATIONAL CORP\nRESTAURANT\nRISK 2 (MEDIUM)\n8\n    FAIL\n2019-06-18\nSALERNO'S PIZZA / WHISKEY HILL BREWING & PIZZA B\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2022-12-08\nGUAPO TACO\nRESTAURANT\nRISK 1 (HIGH)\n46"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
     "href": "slides/01-introduction.html#your-turn-1",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nExplore the abalone data on your own!\n\n\nWhat’s the distribution of the outcome, rings?\nWhat’s the distribution of numeric variables like weight?\nHow do rings differ across sex?\n\n\nShare something you noticed with your neighbor.\n\n\n\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nExplore the inspections data on your own!\n\n\nWhat’s the distribution of the outcome results?\nWhat’s the distribution of the numeric variable violations?\nHow do results differ across facility type?\n\n\nShare something you noticed with your neighbor.\n\n\n\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
+  },
+  {
+    "objectID": "slides/01-introduction.html#section-1",
+    "href": "slides/01-introduction.html#section-1",
+    "title": "1 - Introduction",
+    "section": "",
+    "text": "library(tidyverse)\ninspections |&gt; \n  group_by(inspection_date = floor_date(inspection_date, unit = \"month\")) |&gt; \n  summarise(results = mean(results == \"PASS\")) |&gt; \n  ggplot(aes(inspection_date, results)) +\n  geom_line(alpha = 0.8, linewidth = 1.5) +\n  scale_y_continuous(labels = scales::percent) +\n  labs(y = \"% of inspections that have a PASS result\", x = NULL)"
   },
   {
     "objectID": "slides/01-introduction.html#section-2",
     "href": "slides/01-introduction.html#section-2",
     "title": "1 - Introduction",
     "section": "",
-    "text": "ggplot(abalone, aes(rings)) +\n  geom_histogram(bins = 15)\n\n\n\nThis histogram brings up a concern. What if we split our data into training/testing and we get unlucky and sample few or none of these large values? That could mean that our model wouldn’t be able to predict such values. Let’s come back to that!"
+    "text": "from plotnine import ggplot, aes, geom_boxplot, coord_flip\n(ggplot(inspections, aes('facility_type', 'total_violations', fill = 'facility_type')) \n  + geom_boxplot(alpha = 0.5, show_legend = False)\n  + coord_flip()\n)"
   },
   {
     "objectID": "slides/01-introduction.html#section-3",
     "href": "slides/01-introduction.html#section-3",
     "title": "1 - Introduction",
     "section": "",
-    "text": "from plotnine import ggplot, aes, geom_boxplot, coord_flip\n(ggplot(abalone, aes('sex', 'rings', fill='sex')) \n  + geom_boxplot(alpha=0.5, show_legend = False)\n  + coord_flip()\n)"
+    "text": "inspections |&gt;\n  ggplot(aes(inspection_date, total_violations, z = as.integer(results) - 1)) +\n  stat_summary_hex(alpha = 0.7) +\n  scale_fill_viridis_c(labels = scales::percent) +\n  labs(fill = \"% passed\")"
   },
   {
-    "objectID": "slides/01-introduction.html#section-4",
-    "href": "slides/01-introduction.html#section-4",
+    "objectID": "slides/01-introduction.html#time-for-building-a-model",
+    "href": "slides/01-introduction.html#time-for-building-a-model",
     "title": "1 - Introduction",
-    "section": "",
-    "text": "abalone |&gt;\n  ggplot(aes(shucked_weight, rings, color = shell_weight)) +\n  geom_point(alpha = 0.5) +\n  scale_color_viridis_c()"
-  },
-  {
-    "objectID": "slides/01-introduction.html#time-for-machine-learning",
-    "href": "slides/01-introduction.html#time-for-machine-learning",
-    "title": "1 - Introduction",
-    "section": "Time for machine learning!",
-    "text": "Time for machine learning!"
+    "section": "Time for building a model!",
+    "text": "Time for building a model!"
   },
   {
     "objectID": "slides/01-introduction.html#spend-your-data-budget",
     "href": "slides/01-introduction.html#spend-your-data-budget",
     "title": "1 - Introduction",
     "section": "Spend your data budget",
-    "text": "Spend your data budget\nR\n\nlibrary(tidymodels)\nset.seed(123)\nring_split &lt;- initial_split(abalone, prop = 0.8, strata = rings)\nring_train &lt;- training(ring_split)\nring_test &lt;- testing(ring_split)\n\nPython\n\nfrom sklearn import model_selection\nimport numpy as np\nnp.random.seed(123)\nX, y = abalone.iloc[:,:8], abalone['rings']\nX_train, X_test, y_train, y_test = model_selection.train_test_split(\n    X, y,\n    test_size = 0.2\n)"
+    "text": "Spend your data budget\nR\n\nlibrary(tidymodels)\nset.seed(123)\ninspect_split &lt;- initial_split(inspections, prop = 0.8)\ninspect_train &lt;- training(inspect_split)\ninspect_test &lt;- testing(inspect_split)\n\nPython\n\nfrom sklearn import model_selection\nimport numpy as np\nnp.random.seed(123)\ninspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])\ninspections['month'] = inspections['inspection_date'].dt.month\ninspections['year'] = inspections['inspection_date'].dt.year\nX, y = inspections.drop(columns=['aka_name', 'results', 'inspection_date']), inspections['results']\nX_train, X_test, y_train, y_test = model_selection.train_test_split(\n    X, y,\n    test_size = 0.2\n)"
   },
   {
-    "objectID": "slides/01-introduction.html#fit-a-decision-tree",
-    "href": "slides/01-introduction.html#fit-a-decision-tree",
+    "objectID": "slides/01-introduction.html#fit-a-logistic-regression-model",
+    "href": "slides/01-introduction.html#fit-a-logistic-regression-model",
     "title": "1 - Introduction",
-    "section": "Fit a decision tree 🌳",
-    "text": "Fit a decision tree 🌳\nOr your model of choice!\nR\n\nabalone_fit &lt;-\n  workflow(\n    rings ~ ., \n    decision_tree(mode = \"regression\")\n  ) |&gt; \n  fit(data = ring_train) \n\nPython\n\nfrom sklearn import preprocessing, tree, pipeline\nle = preprocessing.OrdinalEncoder().fit(X_train)\ntr = tree.DecisionTreeRegressor().fit(le.transform(X_train), y_train)\nabalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])"
+    "section": "Fit a logistic regression model 🚀",
+    "text": "Fit a logistic regression model 🚀\nOr your model of choice!\nR\n\ninspection_rec &lt;- \n  recipe(results ~ facility_type + risk + total_violations + inspection_date, \n         data = inspect_train) |&gt; \n  step_date(inspection_date, features = c(\"month\", \"year\"), keep_original_cols = FALSE)\n\ninspection_fit &lt;-\n  workflow(inspection_rec, logistic_reg()) |&gt; \n  fit(data = inspect_train)\n\nPython\n\nfrom sklearn import preprocessing, linear_model, pipeline, compose\n\ncategorical_features = ['facility_type', 'risk', 'month', 'year']\n\noe = compose.make_column_transformer(\n    (preprocessing.OrdinalEncoder(\n            handle_unknown=\"use_encoded_value\", unknown_value=-1),\n        categorical_features,),\n    remainder=\"passthrough\",\n).fit(X_train)\nlr = linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)\ninspection_fit = pipeline.Pipeline([(\"ordinal_encoder\", oe), (\"random_forest\", lr)])"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-2",
@@ -200,7 +200,7 @@
     "href": "slides/01-introduction.html#create-a-deployable-model-object",
     "title": "1 - Introduction",
     "section": "Create a deployable model object",
-    "text": "Create a deployable model object\nR\n\nlibrary(vetiver)\nv &lt;- vetiver_model(abalone_fit, \"abalone-rings-rstats\")\nv\n#&gt; \n#&gt; ── abalone-rings-rstats ─ &lt;bundled_workflow&gt; model for deployment \n#&gt; A rpart regression modeling workflow using 8 features\n\nPython\n\nfrom vetiver import VetiverModel\nv = VetiverModel(abalone_fit, \"abalone-rings-python\", ptype_data = X_train)\nv.description\n#&gt; 'A scikit-learn Pipeline model'"
+    "text": "Create a deployable model object\nR\n\nlibrary(vetiver)\nv &lt;- vetiver_model(inspection_fit, \"inspection-result-rstats\")\nv\n#&gt; \n#&gt; ── inspection-result-rstats ─ &lt;bundled_workflow&gt; model for deployment \n#&gt; A glm classification modeling workflow using 4 features\n\nPython\n\nfrom vetiver import VetiverModel\nv = VetiverModel(inspection_fit, \"inspection-result-python\", prototype_data = X_train)\nv.description\n#&gt; 'A scikit-learn Pipeline model'"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-3",
@@ -221,7 +221,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T172823Z-f8513\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T172823Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230821T230141Z-d32c9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T230141Z-7abba'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -235,14 +235,14 @@
     "href": "slides/01-introduction.html#version-your-model-2",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nR\n\nlibrary(pins)\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+    "text": "Version your model\nR\n\nlibrary(pins)\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)"
   },
   {
     "objectID": "slides/01-introduction.html#version-your-model-3",
     "href": "slides/01-introduction.html#version-your-model-3",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nR\n\nlibrary(pins)\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\n\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nboard = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+    "text": "Version your model\nR\n\nlibrary(pins)\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\n\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nboard = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-5",
@@ -263,14 +263,14 @@
     "href": "slides/02-deploy.html#fit-a-random-forest",
     "title": "2 - Deploy your model",
     "section": "Fit a random forest 🌳🌴🌲🌲🌴🌳🌴🌳🌲",
-    "text": "Fit a random forest 🌳🌴🌲🌲🌴🌳🌴🌳🌲\n\nRPython\n\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(vetiver)\nlibrary(pins)\nlibrary(countdown)\n\nabalone &lt;- read_csv(\"abalone.csv\")\n\nset.seed(123)\nring_split &lt;- initial_split(abalone, prop = 0.8, strata = rings)\nring_train &lt;- training(ring_split)\nring_test &lt;- testing(ring_split)\n\nabalone_fit &lt;-\n  workflow(\n    rings ~ ., \n    rand_forest(mode = \"regression\")\n  ) |&gt; \n  fit(data = ring_train) \n\n\n\n\nimport pandas as pd\nimport numpy as np\nfrom sklearn import model_selection, preprocessing, ensemble, pipeline\n\n\nabalone = pd.read_csv(\"abalone.csv\")  \n\nnp.random.seed(123)\nX, y = abalone.iloc[:,:8], abalone['rings']\nX_train, X_test, y_train, y_test = model_selection.train_test_split(\n    X, y,\n    test_size = 0.2\n)\nle = preprocessing.OrdinalEncoder().fit(X_train)\nrf = ensemble.RandomForestRegressor().fit(le.transform(X_train), y_train)\nabalone_fit = pipeline.Pipeline([('label_encoder', le), ('random_forest', rf)])"
+    "text": "Fit a random forest 🌳🌴🌲🌲🌴🌳🌴🌳🌲\n\nRPython\n\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(arrow)\npath &lt;- here::here(\"data\", \"inspections.parquet\")\ninspections &lt;- read_parquet(path)\n\nset.seed(123)\ninspect_split &lt;- initial_split(inspections, prop = 0.8)\ninspect_train &lt;- training(inspect_split)\ninspect_test &lt;- testing(inspect_split)\n\ninspection_rec &lt;- \n  recipe(results ~ facility_type + risk + total_violations + inspection_date, \n         data = inspect_train) |&gt; \n  step_date(inspection_date, features = c(\"month\", \"year\"), keep_original_cols = FALSE)\n\ninspection_fit &lt;-\n  workflow(inspection_rec, rand_forest(mode = \"classification\", trees = 1e3)) |&gt; \n  fit(data = inspect_train)\n\n\n\n\nimport pandas as pd\nimport numpy as np\nfrom sklearn import preprocessing, ensemble, pipeline, compose, model_selection\n\ninspections = pd.read_parquet('../data/inspections.parquet')\ninspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])\ninspections['month'] = inspections['inspection_date'].dt.month\ninspections['year'] = inspections['inspection_date'].dt.year\n\ncategorical_features = ['facility_type', 'risk', 'month', 'year']\nX, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']\nX_train, X_test, y_train, y_test = model_selection.train_test_split(\n    X, y,\n    stratify = y,\n    test_size = 0.2\n)\n\noe = compose.make_column_transformer(\n    (preprocessing.OrdinalEncoder(\n            handle_unknown=\"use_encoded_value\", unknown_value=-1),\n        categorical_features,),\n    remainder=\"passthrough\",\n).fit(X_train)\nrf = ensemble.RandomForestClassifier().fit(oe.transform(X_train), y_train)\ninspection_fit = pipeline.Pipeline([(\"ordinal_encoder\", oe), (\"random_forest\", rf)])"
   },
   {
     "objectID": "slides/02-deploy.html#create-your-vetiver-model-and-version",
     "href": "slides/02-deploy.html#create-your-vetiver-model-and-version",
     "title": "2 - Deploy your model",
     "section": "Create your vetiver model and version",
-    "text": "Create your vetiver model and version\nR\n\nlibrary(vetiver)\nlibrary(pins)\n\nv &lt;- vetiver_model(abalone_fit, \"abalone-rings-rstats\")\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom vetiver import VetiverModel, vetiver_pin_write\nfrom pins import board_connect\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nv = VetiverModel(abalone_fit, \"abalone-rings-python\", ptype_data = X_train)\nboard = board_connect(server_url=rsc_url, api_key=api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+    "text": "Create your vetiver model and version\nR\n\nlibrary(vetiver)\nlibrary(pins)\n\nv &lt;- vetiver_model(inspect_fit, \"chicago-inspections-rstats\")\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom vetiver import VetiverModel, vetiver_pin_write\nfrom pins import board_connect\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nv = VetiverModel(inspection_fit, \"chicago-inspections-python\", ptype_data = X_train)\nboard = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
   },
   {
     "objectID": "slides/02-deploy.html#make-it-easy-to-do-the-right-thing",
@@ -291,7 +291,7 @@
     "href": "slides/02-deploy.html#your-turn",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nOpen the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.\nDiscuss something you notice about the Model Card with your neighbor.\n\n\n\n\n\n\n−+\n07:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nOpen the Model Card template, and spend a few minutes exploring how you might create a Model Card for this inspection rings model.\nDiscuss something you notice about the Model Card with your neighbor.\n\n\n\n\n\n\n−+\n07:00"
   },
   {
     "objectID": "slides/02-deploy.html#you-can-deploy-your-model-as-a",
@@ -340,7 +340,7 @@
     "href": "slides/02-deploy.html#deploy-to-posit-connect",
     "title": "2 - Deploy your model",
     "section": "Deploy to Posit Connect",
-    "text": "Deploy to Posit Connect\nR\n\nvetiver_deploy_rsconnect(board, \"user.name/abalone-rings-rstats\")\n\nPython\n\nfrom rsconnect.api import RSConnectServer\nconnect_server = RSConnectServer(url = rsc_url, api_key = api_key)\n\nvetiver.deploy_rsconnect(\n    connect_server = connect_server,\n    board = board,\n    pin_name = \"user.name/abalone-rings-python\",\n)"
+    "text": "Deploy to Posit Connect\nR\n\nvetiver_deploy_rsconnect(board, \"user.name/chicago-inspections-rstats\")\n\nPython\n\nfrom rsconnect.api import RSConnectServer\nconnect_server = RSConnectServer(url = rsc_url, api_key = api_key)\nboard = pins.board_connect(server_url = url, api_key = api_key, allow_pickle_read = True)\n\nvetiver.deploy_rsconnect(\n    connect_server = connect_server,\n    board = board,\n    pin_name = \"user.name/chicago-inspections-python\",\n)"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-2",
@@ -361,7 +361,7 @@
     "href": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api",
     "title": "2 - Deploy your model",
     "section": "How do you make a request of your new API?",
-    "text": "How do you make a request of your new API?\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/seattle-housing/metadata\"\nr &lt;- httr::GET(url)\nmetadata &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(metadata)\n#&gt; $user\n#&gt; list()\n#&gt; \n#&gt; $version\n#&gt; [1] \"77101\"\n#&gt; \n#&gt; $url\n#&gt; [1] \"https://colorado.posit.co/rsc/content/bfb9a9c6-70da-4993-99dc-3559e9c8cdae/_rev77101/\"\n#&gt; \n#&gt; $required_pkgs\n#&gt; [1] \"parsnip\"   \"ranger\"    \"workflows\"\n\n\n\n\nboard.pin_meta(\"isabel.zimmerman/test_model\").user"
+    "text": "How do you make a request of your new API?\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/metadata\"\nr &lt;- httr::GET(url)\nmetadata &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(metadata)\n#&gt; $user\n#&gt; list()\n#&gt; \n#&gt; $version\n#&gt; [1] \"78859\"\n#&gt; \n#&gt; $url\n#&gt; [1] \"https://colorado.posit.co/rsc/content/0e1cdefd-8762-46b4-a60e-33a8b3fa7964/_rev78859/\"\n#&gt; \n#&gt; $required_pkgs\n#&gt; [1] \"parsnip\"   \"ranger\"    \"recipes\"   \"workflows\"\n\n\n\n\nimport requests\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/metadata\" \nprint(requests.get(url).content)\n#&gt; b'{\"user\":{},\"version\":\"78841\",\"url\":\"https://colorado.posit.co/rsc/content/d08259c2-8fe0-4466-a474-0b9adbcf91dc/\",\"required_pkgs\":[\"scikit-learn\"],\"python_version\":[3,9,4,\"final\",0]}'"
   },
   {
     "objectID": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api-1",
@@ -375,7 +375,7 @@
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\nR\n## TODO: put a model on Colorado with our dataset and run this for real\nendpoint &lt;- vetiver_endpoint(\"https://connect.example.com/content/$APP_ID/predict\")\npredict(endpoint, slice_sample(ring_test, n = 10))\nPython\n## TODO: put a model on Colorado with our dataset and run this for real\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(f\"https://connect.example.com/content/{APP_ID}/predict\")\npredict(endpoint = endpoint, data = ring_test)"
+    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\nR\n\nlibrary(vetiver)\nendpoint &lt;- vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\")\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 2\n#&gt;    .pred_FAIL .pred_PASS\n#&gt;         &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1     0.890       0.110\n#&gt;  2     0.282       0.718\n#&gt;  3     0.251       0.749\n#&gt;  4     0.693       0.307\n#&gt;  5     0.779       0.221\n#&gt;  6     0.190       0.810\n#&gt;  7     0.779       0.221\n#&gt;  8     0.552       0.448\n#&gt;  9     0.0732      0.927\n#&gt; 10     0.696       0.304\n\nPython\n\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-python/predict\")\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    PASS\n#&gt; 1    PASS\n#&gt; 2    FAIL\n#&gt; 3    PASS\n#&gt; 4    PASS\n#&gt; 5    FAIL\n#&gt; 6    PASS\n#&gt; 7    PASS\n#&gt; 8    PASS\n#&gt; 9    PASS"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-transitionslide-in-auto-animatetrue",
@@ -396,14 +396,14 @@
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint-1",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\n## TODO: put a model on Colorado with our dataset and run this for real\nendpoint &lt;- vetiver_endpoint(\"https://connect.example.com/content/$APP_ID/predict\")\npredict(endpoint, slice_sample(ring_test, n = 10))\nPython\n## TODO: put a model on Colorado with our dataset and run this for real\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(f\"https://connect.example.com/content/{APP_ID}/predict\")\npredict(endpoint = endpoint, data = ring_test)"
+    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nendpoint &lt;- vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\")\npredict(endpoint, slice_sample(inspect_test, n = 10))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-python/predict\")\npredict(endpoint = endpoint, data = ring_test)"
   },
   {
     "objectID": "slides/02-deploy.html#create-a-vetiver-endpoint-2",
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint-2",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nendpoint &lt;- vetiver_endpoint(\"https://connect.example.com/content/$APP_ID/predict\")\napiKey &lt;- Sys.getenv(\"CONNECT_API_KEY\")\npredict(endpoint, slice_sample(ring_test, n = 10), \n        httr::add_headers(Authorization = paste(\"Key\", apiKey)))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\n\nendpoint = vetiver_endpoint(f\"https://connect.example.com/content/{APP_ID}/predict\")\nh = { 'Authorization': f'Key {api_key}' }\npredict(endpoint = endpoint, data = ring_test, headers = h)"
+    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nendpoint &lt;- vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\")\napiKey &lt;- Sys.getenv(\"CONNECT_API_KEY\")\npredict(endpoint, slice_sample(inspect_test, n = 10), \n        httr::add_headers(Authorization = paste(\"Key\", apiKey)))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\n\nendpoint = vetiver_endpoint(f\"https://colorado.posit.co/rsc/chicago-inspections-python/predict\")\nh = { 'Authorization': f'Key {api_key}' }\npredict(endpoint = endpoint, data = X_test, headers = h)"
   },
   {
     "objectID": "slides/03-deploy.html#plan-for-this-workshop",
