@@ -260,9 +260,6 @@ inspections <- read_parquet(path)
 ```{python}
 import pandas as pd
 inspections = pd.read_parquet('../data/inspections.parquet', engine = 'pyarrow')
-inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
-inspections['month'] = inspections['inspection_date'].dt.month
-inspections['year'] = inspections['inspection_date'].dt.year
 ```
 :::
 
@@ -379,6 +376,9 @@ inspect_test <- testing(inspect_split)
 from sklearn import model_selection
 import numpy as np
 np.random.seed(123)
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
 X, y = inspections.drop(columns=['aka_name', 'results', 'inspection_date']), inspections['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
@@ -394,11 +394,13 @@ Or your model of choice!
 ### R
 
 ```{r}
+inspection_rec <- 
+  recipe(facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(features = c("month", "year"), keep_original_cols = FALSE)
+
 inspection_fit <-
-  workflow(
-    results ~ facility_type + risk + total_violations + inspection_date, 
-    logistic_reg()
-  ) |> 
+  workflow(inspection_rec, logistic_reg()) |> 
   fit(data = inspect_train)
 ```
 
