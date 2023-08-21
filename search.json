@@ -137,7 +137,7 @@
     "href": "slides/01-introduction.html#abalone-ages-2",
     "title": "1 - Introduction",
     "section": "Abalone ages",
-    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.425\n0.315\n0.125\n0.3525\n0.1135\n0.0565\n0.1300\n18\n    female\n0.620\n0.465\n0.140\n1.0110\n0.4790\n0.2385\n0.2550\n8\n    female\n0.640\n0.500\n0.175\n1.3940\n0.4935\n0.2910\n0.4000\n10\n    female\n0.600\n0.475\n0.180\n1.1805\n0.4345\n0.2475\n0.4250\n19\n    female\n0.450\n0.360\n0.110\n0.4470\n0.2030\n0.0820\n0.1300\n12\n    male\n0.645\n0.515\n0.175\n1.6115\n0.6745\n0.3840\n0.3850\n14\n    male\n0.275\n0.205\n0.070\n0.0940\n0.0335\n0.0200\n0.0325\n5\n    infant\n0.395\n0.320\n0.100\n0.3075\n0.1490\n0.0535\n0.0900\n8\n    infant\n0.555\n0.430\n0.150\n0.7830\n0.3450\n0.1755\n0.2470\n9\n    infant\n0.435\n0.340\n0.115\n0.3925\n0.1825\n0.0780\n0.1145\n6\n    male\n0.545\n0.435\n0.165\n0.9955\n0.3245\n0.2665\n0.3250\n19\n    infant\n0.420\n0.310\n0.095\n0.2790\n0.1255\n0.0510\n0.0880\n6\n    female\n0.605\n0.455\n0.145\n0.9775\n0.4680\n0.1775\n0.2750\n9\n    female\n0.450\n0.350\n0.135\n0.5600\n0.2310\n0.1370\n0.1450\n13\n    female\n0.705\n0.555\n0.200\n1.4685\n0.4715\n0.3235\n0.5200\n19"
+    "text": "Abalone ages\n\n\n\n\n\n\n  \n    \n    \n      sex\n      length\n      diameter\n      height\n      whole_weight\n      shucked_weight\n      viscera_weight\n      shell_weight\n      rings\n    \n  \n  \n    male\n0.565\n0.450\n0.115\n0.9085\n0.3980\n0.1970\n0.2900\n17\n    infant\n0.550\n0.465\n0.150\n0.9360\n0.4810\n0.1740\n0.2435\n9\n    male\n0.585\n0.455\n0.145\n0.9530\n0.3945\n0.2685\n0.2580\n10\n    infant\n0.515\n0.405\n0.130\n0.5730\n0.2130\n0.1340\n0.1950\n9\n    infant\n0.480\n0.370\n0.120\n0.5140\n0.2075\n0.1310\n0.1550\n13\n    male\n0.630\n0.515\n0.160\n1.0160\n0.4215\n0.2440\n0.3550\n19\n    infant\n0.435\n0.335\n0.110\n0.3830\n0.1555\n0.0675\n0.1350\n12\n    infant\n0.340\n0.265\n0.080\n0.2015\n0.0900\n0.0475\n0.0550\n5\n    female\n0.485\n0.375\n0.135\n0.5560\n0.1925\n0.1315\n0.1685\n10\n    male\n0.550\n0.460\n0.130\n0.7085\n0.3050\n0.1455\n0.2050\n12\n    male\n0.610\n0.480\n0.185\n1.3065\n0.6895\n0.2915\n0.2900\n10\n    infant\n0.440\n0.320\n0.105\n0.3875\n0.1755\n0.0740\n0.1200\n9\n    female\n0.550\n0.430\n0.150\n0.8400\n0.3950\n0.1950\n0.2230\n8\n    infant\n0.465\n0.355\n0.120\n0.4975\n0.2375\n0.0990\n0.1400\n8\n    female\n0.520\n0.405\n0.145\n0.8290\n0.3535\n0.1685\n0.2050\n15"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
@@ -221,7 +221,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T152225Z-58ffb\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T152225Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'abalone-rings-python'\n#&gt; Version: 20230821T153010Z-ffb71\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T153010Z-adfb9'\n#&gt; Writing to pin 'abalone-rings-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -480,14 +480,14 @@
     "href": "slides/04-monitor.html#my-model-is-performing-well",
     "title": "4 - Monitor your model",
     "section": "My model is performing well!",
-    "text": "My model is performing well!\n\n👩🏼‍🔧 My model returns predictions quickly, doesn’t use too much memory or processing power, and doesn’t have outages.\n\n\nMetrics\n\nlatency\nmemory and CPU usage\nuptime"
+    "text": "My model is performing well!\n\n👩🏼‍🔧 My model returns predictions quickly, doesn’t use too much memory or processing power, and doesn’t have outages.\n\n\n\n\n\nMetrics\n\n\n\nlatency\nmemory and CPU usage\nuptime"
   },
   {
     "objectID": "slides/04-monitor.html#my-model-is-performing-well-1",
     "href": "slides/04-monitor.html#my-model-is-performing-well-1",
     "title": "4 - Monitor your model",
     "section": "My model is performing well!",
-    "text": "My model is performing well!\n\n👩🏽‍🔬 My model returns predictions that are close to the true values for the predicted quantity.\n\n\nMetrics\n\naccuracy\nROC AUC\nF1 score\nRMSE\nlog loss"
+    "text": "My model is performing well!\n\n👩🏽‍🔬 My model returns predictions that are close to the true values for the predicted quantity.\n\n\n\n\n\nMetrics\n\n\n\naccuracy\nROC AUC\nF1 score\nRMSE\nlog loss"
   },
   {
     "objectID": "slides/04-monitor.html#model-drift",
@@ -516,13 +516,6 @@
     "title": "4 - Monitor your model",
     "section": "Learn more about model monitoring on tktk",
     "text": "Learn more about model monitoring on tktk\nCome hear Julia’s talk on reliable maintenance of ML models on tktk in tktk!"
-  },
-  {
-    "objectID": "slides/04-monitor.html#section",
-    "href": "slides/04-monitor.html#section",
-    "title": "4 - Monitor your model",
-    "section": "",
-    "text": "Feedback loops can have unexpected consequences\n\n\nBuilding Machine Learning Pipelines by Hapke & Nelson"
   },
   {
     "objectID": "slides/04-monitor.html#feedback-loops-1",
@@ -567,8 +560,8 @@
     "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a Quarto report or R Markdown dashboard for model monitoring.\nPublish your document to Connect.\n\n\n\n\n\n\n−+\n15:00"
   },
   {
-    "objectID": "slides/04-monitor.html#section-1",
-    "href": "slides/04-monitor.html#section-1",
+    "objectID": "slides/04-monitor.html#section",
+    "href": "slides/04-monitor.html#section",
     "title": "4 - Monitor your model",
     "section": "",
     "text": "We made it! 🎉"
@@ -585,6 +578,6 @@
     "href": "slides/04-monitor.html#resources-to-keep-learning",
     "title": "4 - Monitor your model",
     "section": "Resources to keep learning",
-    "text": "Resources to keep learning\n\nDocumentation at https://vetiver.rstudio.com/\nIsabel’s talk from rstudio::conf() 2022 on Demystifying MLOps\nWebinar by Julia and Isabel for Posit Enterprise Meetup\nEnd-to-end demos from Posit Solution Engineering in R and Python\nAre you on the right track with your MLOps system? Use the rubric in “The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” by Breck et al (2017)\nWant to learn about how MLOps is being practied? Read one of our favorite 😍 papers of the last year, “Operationalizing Machine Learning: An Interview Study” by Shankar et al (20222)\n\n\nFollow Posit and/or us on your preferred social media for updates!"
+    "text": "Resources to keep learning\n\nDocumentation at https://vetiver.rstudio.com/\nIsabel’s talk from rstudio::conf() 2022 on Demystifying MLOps\nEnd-to-end demos from Posit Solution Engineering in R and Python\nAre you on the right track with your MLOps system? Use the rubric in “The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” by Breck et al (2017)\nWant to learn about how MLOps is being practiced? Read one of our favorite 😍 papers of the last year, “Operationalizing Machine Learning: An Interview Study” by Shankar et al (20222)\n\n\nFollow Posit and/or us on your preferred social media for updates!"
   }
 ]
