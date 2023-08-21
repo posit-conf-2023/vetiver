@@ -258,7 +258,7 @@ inspections <- read_parquet(path)
 
 ```{python}
 import pandas as pd
-inspections = pd.read_parquet('../data/inspections.parquet', engine = 'pyarrow')
+inspections = pd.read_parquet('../data/inspections.parquet')
 ```
 :::
 
