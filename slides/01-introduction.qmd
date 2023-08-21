@@ -247,7 +247,6 @@ Image by [Christopher Alvarenga](https://unsplash.com/photos/cfmSStcrDn4)
 ::: {.column width="50%"}
 
 ```{r}
-library(tidyverse)
 library(arrow)
 path <- here::here("data", "inspections.parquet")
 inspections <- read_parquet(path)
@@ -305,6 +304,7 @@ Make a plot or summary and then share with neighbor
 
 ```{r}
 #| fig-align: 'center'
+library(tidyverse)
 inspections |> 
   group_by(inspection_date = floor_date(inspection_date, unit = "month")) |> 
   summarise(results = mean(results == "PASS")) |> 
