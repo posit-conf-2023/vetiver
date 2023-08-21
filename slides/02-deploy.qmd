@@ -126,9 +126,15 @@ vetiver_pin_write(board, v)
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.*
+::: {.callout-note icon=false}
 
-*Discuss something you notice about the Model Card with your neighbor.*
+## Activity
+
+Open the Model Card template, and spend a few minutes exploring how you might create a Model Card for this abalone rings model.
+
+Discuss something you notice about the Model Card with your neighbor.
+
+:::
 
 ```{r}
 #| echo: false
@@ -173,13 +179,19 @@ api.run()
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Create a vetiver API for your model and run it locally.*
+::: {.callout-note icon=false}
 
-*Explore the visual documentation.*
+## Activity
 
-*How many endpoints are there?*
+Create a vetiver API for your model and run it locally.
 
-*Discuss what you notice with your neighbor.*
+Explore the visual documentation.
+
+How many endpoints are there?
+
+Discuss what you notice with your neighbor.
+
+:::
 
 ```{r}
 #| echo: false
@@ -227,13 +239,19 @@ vetiver.deploy_rsconnect(
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Deploy your model to our Posit Connect instance.*
+::: {.callout-note icon=false}
 
-*Give your API a vanity URL.*
+## Activity
 
-*Set your API as accessible to "Anyone", for convenience.*
+Deploy your model to our Posit Connect instance.
 
-*Compare the results to your local API. Is anything different?*
+Give your API a vanity URL.
+
+Set your API as accessible to "Anyone", for convenience.
+
+Compare the results to your local API. Is anything different?
+
+:::
 
 ```{r}
 #| echo: false
@@ -297,12 +315,17 @@ predict(endpoint = endpoint, data = ring_test)
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Create a vetiver endpoint object for your API.*
+::: {.callout-note icon=false}
 
-*Predict with your endpoint for new data.*
+## Activity
 
-*Optional: call another endpoint from Python or R.*
+Create a vetiver endpoint object for your API.
 
+Predict with your endpoint for new data.
+
+Optional: call another endpoint from Python or R.
+
+:::
 
 ```{r}
 #| echo: false
@@ -311,12 +334,17 @@ countdown(minutes = 10)
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Create a vetiver endpoint object for* ***your neighbor's*** *API.*
+::: {.callout-note icon=false}
 
-*Predict with your endpoint for new data.*
+## Activity
 
-*You get extra credit if your neighbor's model is in a different language than yours!*
+Create a vetiver endpoint object for* **your neighbor's** API.
 
+Predict with your endpoint for new data.
+
+You get extra credit if your neighbor's model is in a different language than yours!
+
+:::
 
 ```{r}
 #| echo: false

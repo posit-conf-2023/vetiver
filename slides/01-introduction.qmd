@@ -196,11 +196,17 @@ you likely *should* be the one to operationalize that model!
 
 . . .
 
-*What language does your team use for machine learning?*
+::: {.callout-note icon=false}
 
-*What kinds of models do you commonly use?*
+## Activity
 
-*Have you ever deployed a model?*
+What language does your team use for machine learning?
+
+What kinds of models do you commonly use?
+
+Have you ever deployed a model?
+
+:::
 
 ```{r}
 #| echo: false
@@ -260,15 +266,21 @@ gt::gt(slice_sample(abalone, n = 15))
 
 ## Your turn 🏺 {transition="slide-in"}
 
-. . .
+::: {.callout-note icon=false}
 
-*Explore the `abalone` data on your own!*
+## Activity
 
-* *What's the distribution of the outcome, rings?*
-* *What's the distribution of numeric variables like weight?*
-* *How do rings differ across sex?*
+Explore the `abalone` data on your own!
 
-*Share something you noticed with your neighbor.*
+::: {.nonincremental}
+* What's the distribution of the outcome, rings?
+* What's the distribution of numeric variables like weight?
+* How do rings differ across sex?
+:::
+
+Share something you noticed with your neighbor.
+
+:::
 
 ```{r}
 #| echo: false
@@ -387,9 +399,15 @@ abalone_fit = pipeline.Pipeline([('label_encoder', le), ('decision_tree', tr)])
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Split your data in training and testing.*
+::: {.callout-note icon=false}
 
-*Fit a model to your training data.*
+## Activity
+
+Split your data in training and testing.
+
+Fit a model to your training data.
+
+:::
 
 ```{r}
 #| echo: false
@@ -420,11 +438,17 @@ v.description
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Create your vetiver model object.*
+::: {.callout-note icon=false}
 
-*Check out the default `description` that is created, and try out using a custom description.*
+## Activity
 
-*Show your custom description to your neighbor.*
+Create your vetiver model object.
+
+Check out the default `description` that is created, and try out using a custom description.
+
+Show your custom description to your neighbor.
+
+:::
 
 ```{r}
 #| echo: false
@@ -490,9 +514,15 @@ board |> vetiver_pin_write(v)
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Pin your vetiver model object to a temporary board.*
+::: {.callout-note icon=false}
 
-*Retrieve the model metadata with `pin_meta()`.*
+## Activity
+
+Pin your vetiver model object to a temporary board.
+
+Retrieve the model metadata with `pin_meta()`.
+
+:::
 
 ```{r}
 #| echo: false
@@ -555,11 +585,17 @@ vetiver_pin_write(board, v)
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Pin your model to our Connect instance.*
+::: {.callout-note icon=false}
 
-*Train your model again, using a different ML algorithm (random forest is a good option).*
+## Activity
 
-*Write this new version of your model to the same pin, and see what versions you have with `pin_versions`.*
+Pin your model to our Connect instance.
+
+Train your model again, using a different ML algorithm (random forest is a good option).
+
+Write this new version of your model to the same pin, and see what versions you have with `pin_versions`.
+
+:::
 
 ```{r}
 #| echo: false

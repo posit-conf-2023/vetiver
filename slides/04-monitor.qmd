@@ -77,7 +77,13 @@ CONCEPT drift
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Using our Chicago data, what could be an example of data drift? Concept drift?*
+::: {.callout-note icon=false}
+
+## Activity
+
+Using our Chicago data, what could be an example of data drift? Concept drift?
+
+:::
 
 ```{r}
 #| echo: false
@@ -135,9 +141,15 @@ Feedback loops can have **unexpected consequences**
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*What is a possible feedback loop for the Chicago inspections data?*
+::: {.callout-note icon=false}
 
-*Do you think your example would be harmful or helpful?*
+## Activity
+
+What is a possible feedback loop for the Chicago inspections data?
+
+Do you think your example would be harmful or helpful?
+
+:::
 
 ```{r}
 #| echo: false
@@ -166,9 +178,15 @@ tktk
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*Create a Quarto report or R Markdown dashboard for model monitoring.*
+::: {.callout-note icon=false}
 
-*Publish your document to Connect.*
+## Activity
+
+Create a Quarto report or R Markdown dashboard for model monitoring.
+
+Publish your document to Connect.
+
+:::
 
 ```{r}
 #| echo: false
@@ -185,9 +203,15 @@ We made it! 🎉
 
 ## Your turn 🏺 {transition="slide-in"}
 
-*What is one thing you learned that surprised you?*
+::: {.callout-note icon=false}
 
-*What is one thing you learned that you plan to use?*
+## Activity
+
+What is one thing you learned that surprised you?
+
+What is one thing you learned that you plan to use?
+
+:::
 
 ```{r}
 #| echo: false
