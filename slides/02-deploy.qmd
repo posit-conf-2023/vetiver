@@ -311,6 +311,7 @@ You can treat your model API much like it is a local model in memory!
 ### R
 
 ```{r}
+library(vetiver)
 endpoint <- vetiver_endpoint("https://colorado.posit.co/rsc/chicago-inspections-rstats/predict")
 predict(endpoint, slice_sample(inspect_test, n = 10))
 ```
