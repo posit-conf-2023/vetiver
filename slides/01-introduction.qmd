@@ -117,7 +117,9 @@ wide variety of graphs
 
 . . .
 
-If you prefer, post on GitHub Discussions for help: <https://github.com/posit-conf-2023/vetiver/discussions>
+If you prefer, post on GitHub Discussions for help: 
+
+<https://github.com/posit-conf-2023/vetiver/discussions>
 
 
 ## Plan for this workshop

@@ -35,17 +35,20 @@ knitr:
 
 # Where does vetiver work?
 
+::: nonincremental
 -   Posit's pro products, like [Connect](https://posit.co/products/enterprise/connect/)
 
 -   AWS SageMaker (R only, for now)
 
 -   A public or private cloud, using Docker
+:::
+
 
 # {background-color="white" background-image="https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo-1536x864.png" background-size="70%"}
 
 # Docker
 
-_Containerized environments for your code._
+_Containerized environments for your code_
 
 ## Why Docker?
 
@@ -66,7 +69,7 @@ huggingface
 
 ## Create Docker artifacts
 
--   Start with a trained and versioned model
+Start with a trained and versioned model
 
 ## Create Docker artifacts
 

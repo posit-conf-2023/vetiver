@@ -200,11 +200,11 @@ countdown(minutes = 7)
 
 ## What does "deploy" mean?
 
-![](https://github.com/isabelizimm/pydata-nyc2022/blob/main/images/deploy-cloud.jpg?raw=true)
+![](https://github.com/isabelizimm/pydata-nyc2022/blob/main/images/deploy-cloud.jpg?raw=true){fig-align="center"}
 
 ## What does "deploy" mean?
 
-![](https://github.com/isabelizimm/pydata-nyc2022/blob/main/images/deploy-not-here.jpg?raw=true)
+![](https://github.com/isabelizimm/pydata-nyc2022/blob/main/images/deploy-not-here.jpg?raw=true){fig-align="center"}
 
 # Where does vetiver work?
 
@@ -313,7 +313,7 @@ endpoint = vetiver_endpoint(f"https://connect.example.com/content/{APP_ID}/predi
 predict(endpoint = endpoint, data = ring_test)
 ```
 
-## Your turn 🏺 {transition="slide-in", auto-animation=TRUE}
+## Your turn 🏺 {transition="slide-in", auto-animate=TRUE}
 
 ::: {.callout-note icon=false}
 
@@ -332,7 +332,7 @@ Optional: call another endpoint from Python or R.
 countdown(minutes = 10)
 ```
 
-## Your turn 🏺 {auto-animation=TRUE}
+## Your turn 🏺 {auto-animate=TRUE}
 
 ::: {.callout-note icon=false}
 
