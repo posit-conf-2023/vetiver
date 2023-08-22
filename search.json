@@ -102,7 +102,7 @@
     "href": "slides/01-introduction.html#mlops-is-1",
     "title": "1 - Introduction",
     "section": "MLOps is…",
-    "text": "MLOps is…\n\na set of practices to deploy and maintain machine learning models in production reliably and efficiently"
+    "text": "MLOps is…\na set of practices to deploy and maintain machine learning models in production reliably and efficiently"
   },
   {
     "objectID": "slides/01-introduction.html#mlops-with-vetiver",
@@ -119,32 +119,32 @@
     "text": "Your turn 🏺\n\n\n\n\nActivity\n\n\nWhat language does your team use for machine learning?\nWhat kinds of models do you commonly use?\nHave you ever deployed a model?\n\n\n\n\n\n\n−+\n03:00"
   },
   {
-    "objectID": "slides/01-introduction.html#chicago-food-inspections-data-background-imageimageschristopher-alvarenga-cfmsstcrdn4-unsplash.jpg-background-opacity0.5",
-    "href": "slides/01-introduction.html#chicago-food-inspections-data-background-imageimageschristopher-alvarenga-cfmsstcrdn4-unsplash.jpg-background-opacity0.5",
+    "objectID": "slides/01-introduction.html#chicago-food-inspections-data",
+    "href": "slides/01-introduction.html#chicago-food-inspections-data",
     "title": "1 - Introduction",
-    "section": "Chicago food inspections data {background-image=“images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg”, background-opacity=0.5}",
-    "text": "Chicago food inspections data {background-image=“images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg”, background-opacity=0.5}\n\n\nThe city of Chicago offers programmatic access to health code inspections of restaurants\nCan certain measurements be used to predict inspection outcome?\nData from https://data.cityofchicago.org/\n\n\n\nImage by Christopher Alvarenga"
+    "section": "Chicago food inspections data",
+    "text": "Chicago food inspections data\n\n\nThe city of Chicago offers programmatic access to health code inspections of restaurants\nCan certain measurements be used to predict inspection outcome?\nData from https://data.cityofchicago.org/\n\n\n\nImage by Christopher Alvarenga"
   },
   {
     "objectID": "slides/01-introduction.html#inspection-results",
     "href": "slides/01-introduction.html#inspection-results",
     "title": "1 - Introduction",
     "section": "Inspection results",
-    "text": "Inspection results\n\nN = 20414\nA class outcome, results\nOther variables to use for prediction:\nfacility_type is a nominal predictor\nrisk is a nominal (or maybe ordinal) predictor\nviolations is a numeric predictor\ninspection_date is a date predictor\n\n\n\n\nlibrary(arrow)\npath &lt;- here::here(\"data\", \"inspections.parquet\")\ninspections &lt;- read_parquet(path)\n\n\n\nimport pandas as pd\ninspections = pd.read_parquet('../data/inspections.parquet')"
+    "text": "Inspection results\n\nN = 20414\nA class outcome, results\nOther variables to use for prediction:\n\nfacility_type is a nominal predictor\nrisk is a nominal (or maybe ordinal) predictor\ntotal_violations is a numeric predictor\ninspection_date is a date predictor\n\n\n\nR\n\nlibrary(arrow)\npath &lt;- here::here(\"data\", \"inspections.parquet\")\ninspections &lt;- read_parquet(path)\n\nPython\n\nimport pandas as pd\ninspections = pd.read_parquet('../data/inspections.parquet')"
   },
   {
     "objectID": "slides/01-introduction.html#inspection-results-1",
     "href": "slides/01-introduction.html#inspection-results-1",
     "title": "1 - Introduction",
     "section": "Inspection results",
-    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    FAIL\n2019-04-19\nRADIO RIBS\nRESTAURANT\nRISK 1 (HIGH)\n17\n    PASS\n2022-04-27\nSWEETWATERS COFFEE & TEA NEWCITY\nRESTAURANT\nRISK 2 (MEDIUM)\n0\n    PASS\n2020-09-23\nLIME LEAF\nRESTAURANT\nRISK 1 (HIGH)\n11\n    PASS\n2020-06-25\nCOUNTY BBQ\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2020-06-12\nCHOWBUS\nGROCERY STORE\nRISK 3 (LOW)\n3\n    PASS\n2022-10-03\nBEREKET\nRESTAURANT\nRISK 1 (HIGH)\n2\n    PASS\n2022-11-03\nPANADERIA LE PARIS\nBAKERY\nRISK 1 (HIGH)\n112\n    PASS\n2019-06-14\nSARAH & LEE'S CAFE & CATERING\nRESTAURANT\nRISK 1 (HIGH)\n76\n    PASS\n2020-06-12\nDOLLAR STAR & MORE 1 INC.\nGROCERY STORE\nRISK 3 (LOW)\n11\n    FAIL\n2019-01-18\nSQUARE BISCUITS\nRESTAURANT\nRISK 1 (HIGH)\n33\n    PASS\n2022-08-30\nSTAR LOUNGE COFFEE BAR\nRESTAURANT\nRISK 2 (MEDIUM)\n34\n    FAIL\n2022-02-18\nCARNICERIA Y TAQUERIA TIERRA\nGROCERY STORE\nRISK 1 (HIGH)\n73\n    FAIL\n2022-01-18\nFLIK INTERNATIONAL CORP\nRESTAURANT\nRISK 2 (MEDIUM)\n8\n    FAIL\n2019-06-18\nSALERNO'S PIZZA / WHISKEY HILL BREWING & PIZZA B\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2022-12-08\nGUAPO TACO\nRESTAURANT\nRISK 1 (HIGH)\n46"
+    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    PASS\n2020-08-13\nDOLLAR TREE #650\nGROCERY STORE\nRISK 3 (LOW)\n28\n    FAIL\n2022-07-01\nBLAZE PIZZA\nRESTAURANT\nRISK 2 (MEDIUM)\n9\n    PASS\n2020-05-12\nDOLLAR TREE #4204\nGROCERY STORE\nRISK 3 (LOW)\n26\n    FAIL\n2018-10-17\nCHICANO HAMBURGER & WINGS LLC\nRESTAURANT\nRISK 2 (MEDIUM)\n6\n    FAIL\n2018-12-04\nPORTAGE BAR AND GRILL\nRESTAURANT\nRISK 1 (HIGH)\n0\n    FAIL\n2020-04-22\nCLUB FAMILIAR\nRESTAURANT\nRISK 2 (MEDIUM)\n20\n    PASS\n2022-10-05\nCERISE\nRESTAURANT\nRISK 1 (HIGH)\n29\n    PASS\n2022-04-12\nROYCE CHICAGO\nRESTAURANT\nRISK 3 (LOW)\n1\n    FAIL\n2018-08-29\nBOMBON CAKE GALLERY AND DESIGN\nBAKERY\nRISK 2 (MEDIUM)\n11\n    PASS\n2021-09-30\nCARNICERIA LOS CUATES\nGROCERY STORE\nRISK 1 (HIGH)\n11\n    FAIL\n2018-09-19\nBIRRERIA AGUSCALIENTES\nRESTAURANT\nRISK 1 (HIGH)\n21\n    PASS\n2022-11-10\nBRANKO'S RESTAURANT\nRESTAURANT\nRISK 1 (HIGH)\n53\n    PASS\n2020-08-11\nFAMILY DOLLAR STORE #10874\nGROCERY STORE\nRISK 3 (LOW)\n8\n    PASS\n2019-03-19\nGALIT\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2022-10-27\nKENDALL COLLEGE\nRESTAURANT\nRISK 1 (HIGH)\n4"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
     "href": "slides/01-introduction.html#your-turn-1",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nExplore the inspections data on your own!\n\n\nWhat’s the distribution of the outcome results?\nWhat’s the distribution of the numeric variable violations?\nHow do results differ across facility type?\n\n\nShare something you noticed with your neighbor.\n\n\n\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nExplore the inspections data on your own!\n\n\nWhat’s the distribution of the outcome results?\nWhat’s the distribution of the numeric variable total_violations?\nHow do results differ across facility type?\n\n\nShare something you noticed with your neighbor.\n\n\n\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
   },
   {
     "objectID": "slides/01-introduction.html#section-1",
@@ -186,7 +186,7 @@
     "href": "slides/01-introduction.html#fit-a-logistic-regression-model",
     "title": "1 - Introduction",
     "section": "Fit a logistic regression model 🚀",
-    "text": "Fit a logistic regression model 🚀\nOr your model of choice!\nR\n\ninspection_rec &lt;- \n  recipe(results ~ facility_type + risk + total_violations + inspection_date, \n         data = inspect_train) |&gt; \n  step_date(inspection_date, features = c(\"month\", \"year\"), keep_original_cols = FALSE)\n\ninspection_fit &lt;-\n  workflow(inspection_rec, logistic_reg()) |&gt; \n  fit(data = inspect_train)\n\nPython\n\nfrom sklearn import preprocessing, linear_model, pipeline, compose\n\ncategorical_features = ['facility_type', 'risk', 'month', 'year']\n\noe = compose.make_column_transformer(\n    (preprocessing.OrdinalEncoder(\n            handle_unknown=\"use_encoded_value\", unknown_value=-1),\n        categorical_features,),\n    remainder=\"passthrough\",\n).fit(X_train)\nlr = linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)\ninspection_fit = pipeline.Pipeline([(\"ordinal_encoder\", oe), (\"random_forest\", lr)])"
+    "text": "Fit a logistic regression model 🚀\nOr your model of choice!\n\nRPython\n\n\n\ninspection_rec &lt;- \n  recipe(results ~ facility_type + risk + total_violations + inspection_date, \n         data = inspect_train) |&gt; \n  step_date(inspection_date, features = c(\"month\", \"year\"), keep_original_cols = FALSE)\n\ninspection_fit &lt;-\n  workflow(inspection_rec, logistic_reg()) |&gt; \n  fit(data = inspect_train)\n\n\n\n\nfrom sklearn import preprocessing, linear_model, pipeline, compose\n\ncategorical_features = ['facility_type', 'risk', 'month', 'year']\n\noe = compose.make_column_transformer(\n    (preprocessing.OrdinalEncoder(\n            handle_unknown=\"use_encoded_value\", unknown_value=-1),\n        categorical_features,),\n    remainder=\"passthrough\",\n).fit(X_train)\nlr = linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)\ninspection_fit = pipeline.Pipeline([(\"ordinal_encoder\", oe), (\"random_forest\", lr)])"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-2",
@@ -221,7 +221,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230821T230141Z-d32c9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230821T230141Z-7abba'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230822T000236Z-d32c9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230822T000236Z-7abba'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -249,7 +249,7 @@
     "href": "slides/01-introduction.html#your-turn-5",
     "title": "1 - Introduction",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nPin your model to our Connect instance.\nTrain your model again, using a different ML algorithm (random forest is a good option).\nWrite this new version of your model to the same pin, and see what versions you have with pin_versions.\n\n\n\n\n\n\n−+\n05:00\n\n\n\n\n\nhttps://posit-conf-2023.github.io/vetiver"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nPin your model to our Connect instance.\nTrain your model again, using a different ML algorithm (decision tree or random forest are good options).\nWrite this new version of your model to the same pin, and see what versions you have with pin_versions.\n\n\n\n\n\n\n−+\n05:00\n\n\n\n\n\nhttps://posit-conf-2023.github.io/vetiver"
   },
   {
     "objectID": "slides/02-deploy.html#plan-for-this-workshop",
@@ -291,7 +291,7 @@
     "href": "slides/02-deploy.html#your-turn",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
-    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nOpen the Model Card template, and spend a few minutes exploring how you might create a Model Card for this inspection rings model.\nDiscuss something you notice about the Model Card with your neighbor.\n\n\n\n\n\n\n−+\n07:00"
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nOpen the Model Card template, and spend a few minutes exploring how you might create a Model Card for this inspection model.\nDiscuss something you notice about the Model Card with your neighbor.\n\n\n\n\n\n\n−+\n07:00"
   },
   {
     "objectID": "slides/02-deploy.html#you-can-deploy-your-model-as-a",
@@ -361,7 +361,7 @@
     "href": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api",
     "title": "2 - Deploy your model",
     "section": "How do you make a request of your new API?",
-    "text": "How do you make a request of your new API?\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/metadata\"\nr &lt;- httr::GET(url)\nmetadata &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(metadata)\n#&gt; $user\n#&gt; list()\n#&gt; \n#&gt; $version\n#&gt; [1] \"78859\"\n#&gt; \n#&gt; $url\n#&gt; [1] \"https://colorado.posit.co/rsc/content/0e1cdefd-8762-46b4-a60e-33a8b3fa7964/_rev78859/\"\n#&gt; \n#&gt; $required_pkgs\n#&gt; [1] \"parsnip\"   \"ranger\"    \"recipes\"   \"workflows\"\n\n\n\n\nimport requests\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/metadata\" \nprint(requests.get(url).content)\n#&gt; b'{\"user\":{},\"version\":\"78841\",\"url\":\"https://colorado.posit.co/rsc/content/d08259c2-8fe0-4466-a474-0b9adbcf91dc/\",\"required_pkgs\":[\"scikit-learn\"],\"python_version\":[3,9,4,\"final\",0]}'"
+    "text": "How do you make a request of your new API?\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/metadata\"\nr &lt;- httr::GET(url)\nmetadata &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(metadata)\n#&gt; $user\n#&gt; list()\n#&gt; \n#&gt; $version\n#&gt; [1] \"78859\"\n#&gt; \n#&gt; $url\n#&gt; [1] \"https://colorado.posit.co/rsc/content/0e1cdefd-8762-46b4-a60e-33a8b3fa7964/_rev78859/\"\n#&gt; \n#&gt; $required_pkgs\n#&gt; [1] \"parsnip\"   \"ranger\"    \"recipes\"   \"workflows\"\n\n\n\n\nimport requests\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/metadata\" \nprint(requests.get(url).content)\n#&gt; b'&lt;html&gt;\\r\\n&lt;head&gt;&lt;title&gt;504 Gateway Time-out&lt;/title&gt;&lt;/head&gt;\\r\\n&lt;body&gt;\\r\\n&lt;center&gt;&lt;h1&gt;504 Gateway Time-out&lt;/h1&gt;&lt;/center&gt;\\r\\n&lt;hr&gt;&lt;center&gt;nginx/1.23.4&lt;/center&gt;\\r\\n&lt;/body&gt;\\r\\n&lt;/html&gt;\\r\\n'"
   },
   {
     "objectID": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api-1",
@@ -375,18 +375,18 @@
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\nR\n\nlibrary(vetiver)\nendpoint &lt;- vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\")\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 2\n#&gt;    .pred_FAIL .pred_PASS\n#&gt;         &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1     0.890       0.110\n#&gt;  2     0.282       0.718\n#&gt;  3     0.251       0.749\n#&gt;  4     0.693       0.307\n#&gt;  5     0.779       0.221\n#&gt;  6     0.190       0.810\n#&gt;  7     0.779       0.221\n#&gt;  8     0.552       0.448\n#&gt;  9     0.0732      0.927\n#&gt; 10     0.696       0.304\n\nPython\n\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-python/predict\")\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    PASS\n#&gt; 1    PASS\n#&gt; 2    FAIL\n#&gt; 3    PASS\n#&gt; 4    PASS\n#&gt; 5    FAIL\n#&gt; 6    PASS\n#&gt; 7    PASS\n#&gt; 8    PASS\n#&gt; 9    PASS"
-  },
-  {
-    "objectID": "slides/02-deploy.html#your-turn-transitionslide-in-auto-animatetrue",
-    "href": "slides/02-deploy.html#your-turn-transitionslide-in-auto-animatetrue",
-    "title": "2 - Deploy your model",
-    "section": "Your turn 🏺 {transition=“slide-in”, auto-animate=TRUE}",
-    "text": "Your turn 🏺 {transition=“slide-in”, auto-animate=TRUE}\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for your API.\nPredict with your endpoint for new data.\nOptional: call another endpoint from Python or R.\n\n\n\n\n\n\n−+\n10:00"
+    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\n\nRPython\n\n\n\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 2\n#&gt;    .pred_FAIL .pred_PASS\n#&gt;         &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1     0.890       0.110\n#&gt;  2     0.282       0.718\n#&gt;  3     0.251       0.749\n#&gt;  4     0.693       0.307\n#&gt;  5     0.779       0.221\n#&gt;  6     0.190       0.810\n#&gt;  7     0.779       0.221\n#&gt;  8     0.552       0.448\n#&gt;  9     0.0732      0.927\n#&gt; 10     0.696       0.304\n\n\n\n\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    FAIL\n#&gt; 1    PASS\n#&gt; 2    FAIL\n#&gt; 3    FAIL\n#&gt; 4    PASS\n#&gt; 5    FAIL\n#&gt; 6    PASS\n#&gt; 7    FAIL\n#&gt; 8    PASS\n#&gt; 9    PASS"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-3",
     "href": "slides/02-deploy.html#your-turn-3",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for your API.\nPredict with your endpoint for new data.\nOptional: call another endpoint from Python or R.\n\n\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/02-deploy.html#your-turn-4",
+    "href": "slides/02-deploy.html#your-turn-4",
     "title": "2 - Deploy your model",
     "section": "Your turn 🏺",
     "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a vetiver endpoint object for your neighbor’s API.\nPredict with your endpoint for new data.\nYou get extra credit if your neighbor’s model is in a different language than yours!\n\n\n\n\n\n\n−+\n05:00"
@@ -396,14 +396,14 @@
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint-1",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nendpoint &lt;- vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\")\npredict(endpoint, slice_sample(inspect_test, n = 10))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\nendpoint = vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-python/predict\")\npredict(endpoint = endpoint, data = ring_test)"
+    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = ring_test)"
   },
   {
     "objectID": "slides/02-deploy.html#create-a-vetiver-endpoint-2",
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint-2",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nendpoint &lt;- vetiver_endpoint(\"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\")\napiKey &lt;- Sys.getenv(\"CONNECT_API_KEY\")\npredict(endpoint, slice_sample(inspect_test, n = 10), \n        httr::add_headers(Authorization = paste(\"Key\", apiKey)))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\n\nendpoint = vetiver_endpoint(f\"https://colorado.posit.co/rsc/chicago-inspections-python/predict\")\nh = { 'Authorization': f'Key {api_key}' }\npredict(endpoint = endpoint, data = X_test, headers = h)"
+    "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\napiKey &lt;- Sys.getenv(\"CONNECT_API_KEY\")\npredict(endpoint, slice_sample(inspect_test, n = 10), \n        httr::add_headers(Authorization = paste(\"Key\", apiKey)))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\n\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\nh = { 'Authorization': f'Key {api_key}' }\npredict(endpoint = endpoint, data = X_test, headers = h)"
   },
   {
     "objectID": "slides/03-deploy.html#plan-for-this-workshop",
@@ -459,7 +459,7 @@
     "href": "slides/03-deploy.html#make-predictions",
     "title": "3 - Deeper into deployment",
     "section": "Make predictions",
-    "text": "Make predictions\nR\n\nendpoint &lt;- vetiver_endpoint(\"http://0.0.0.0:8080/predict\")\n\npredict(endpoint, X_test)\n\nPython\n\nendpoint = vetiver.vetiver_endpoint(\"http://0.0.0.0:8080/predict\")\nvetiver.predict(endpoint=endpoint, data=X_test)"
+    "text": "Make predictions\nR\n\nendpoint &lt;- vetiver_endpoint(\"http://0.0.0.0:8080/predict\")\npredict(endpoint, X_test)\n\nPython\n\nendpoint = vetiver.vetiver_endpoint(\"http://0.0.0.0:8080/predict\")\nvetiver.predict(endpoint=endpoint, data=X_test)"
   },
   {
     "objectID": "slides/03-deploy.html#docker-resources",
@@ -508,14 +508,14 @@
     "href": "slides/04-monitor.html#model-drift",
     "title": "4 - Monitor your model",
     "section": "Model drift 📉",
-    "text": "Model drift 📉\n\nDATA drift"
+    "text": "Model drift 📉\n\n\nDATA drift"
   },
   {
     "objectID": "slides/04-monitor.html#model-drift-1",
     "href": "slides/04-monitor.html#model-drift-1",
     "title": "4 - Monitor your model",
     "section": "Model drift 📉",
-    "text": "Model drift 📉\n\nCONCEPT drift"
+    "text": "Model drift 📉\n\n\nCONCEPT drift"
   },
   {
     "objectID": "slides/04-monitor.html#your-turn",
