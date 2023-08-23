@@ -165,9 +165,35 @@ countdown(minutes = 5)
 ```
 
 
-## Connect model metrics to business outcomes
+## Connect model metrics to organizational outcomes
 
-tktk
+- Are machine learning metrics like F1 score or accuracy what matter to your organization?
+- Consider how ML metrics are related to important outcomes or KPIs for your business or org
+- There isn't always a 1-on-1 mapping 😔
+- You can **partner** with stakeholders to monitor what's truly important about your model
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Let's say that the most important organizational outcome for the Chicago Department of Public Health is how many establishments were predicted to pass their inspection but _failed_.
+
+Depending on whether "pass" or "fail" is the event level of interest, this is either the false positive rate or false negative rate.
+
+Compute this quantity with the monitoring data, and aggregate by week/month or facility type.
+
+For extra credit, make a visualization showing your results.
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 7)
+```
+
+
 
 ## Possible model monitoring artifacts
 
