@@ -426,17 +426,21 @@ inputs ➡️ outputs
 
 Notice that our Python model has different inputs than our R model:
 
-## R
+::: panel-tabset
+
+### R
 
 ```{r}
 glimpse(inspect_train)
 ```
 
-## Python
+### Python
 
 ```{python}
 X_train
 ```
+
+:::
 
 ## Your turn 🏺 {transition="slide-in"}
 
@@ -483,10 +487,7 @@ print(requests.get(url).content)
 - In Python, you supply the model's input prototype via `prototype_data`
 - In R, the model input prototype is found automatically in most cases, but you can override this default via `save_prototype`
 - In both cases, it is ultimately up to you to decide what your API's inputs should be!
-
-. . .
-
-The vetiver framework has sensible defaults but is extensible for more complex use cases
+- The vetiver framework has sensible defaults but is extensible for more complex use cases
 
 ## Your turn 🏺 {transition="slide-in"}
 
@@ -494,11 +495,11 @@ The vetiver framework has sensible defaults but is extensible for more complex u
 
 ## Activity
 
-Pretend you need to customize your model API's inputs for a more complex use case.
+Let's say you need to customize your model API's inputs for a more complex use case.
 
 Make a new vetiver model object and change the input data prototype.
 
-Run an API locally for your new vetiver model object and explore the visual documentation. ^[Note that making predictions will not work now, since we haven't updated the API behavior to match these inputs.]
+Run an API locally for your new vetiver model object and explore the visual documentation. (Note that making predictions will not work now, since we haven't updated the API behavior to match these inputs.)
 
 Discuss a possible situation you might use this with your neighbor.
 
