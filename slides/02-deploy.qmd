@@ -416,4 +416,98 @@ predict(endpoint = endpoint, data = X_test, headers = h)
 
 # Model input prototype
 
-tktk
+inputs ➡️ outputs
+
+# Model input prototype
+
+**inputs** ➡️ outputs
+
+## Model input prototype
+
+Notice that our Python model has different inputs than our R model:
+
+## R
+
+```{r}
+glimpse(inspect_train)
+```
+
+## Python
+
+```{python}
+X_train
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Call the `prototype` endpoints for both the Python and R model.
+
+How do they compare?
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+## Model input prototype
+
+::: panel-tabset
+
+### R
+
+```{r}
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/prototype"
+r <- httr::GET(url)
+prototype <- httr::content(r, as = "text", encoding = "UTF-8")
+jsonlite::fromJSON(prototype)
+```
+
+### Python
+
+```{python}
+import requests
+url = "https://colorado.posit.co/rsc/chicago-inspections-python/prototype" 
+print(requests.get(url).content)
+```
+
+:::
+
+## Model input prototype
+
+- In Python, you supply the model's input prototype via `prototype_data`
+- In R, the model input prototype is found automatically in most cases, but you can override this default via `save_prototype`
+- In both cases, it is ultimately up to you to decide what your API's inputs should be!
+
+. . .
+
+The vetiver framework has sensible defaults but is extensible for more complex use cases
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Pretend you need to customize your model API's inputs for a more complex use case.
+
+Make a new vetiver model object and change the input data prototype.
+
+Run an API locally for your new vetiver model object and explore the visual documentation. ^[Note that making predictions will not work now, since we haven't updated the API behavior to match these inputs.]
+
+Discuss a possible situation you might use this with your neighbor.
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 7)
+```
+
+
+
