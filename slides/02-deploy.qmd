@@ -416,10 +416,6 @@ predict(endpoint = endpoint, data = X_test, headers = h)
 
 # Model input prototype
 
-inputs ➡️ outputs
-
-# Model input prototype
-
 **inputs** ➡️ outputs
 
 ## Model input prototype
