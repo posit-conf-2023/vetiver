@@ -137,7 +137,7 @@
     "href": "slides/01-introduction.html#inspection-results-1",
     "title": "1 - Introduction",
     "section": "Inspection results",
-    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    PASS\n2020-08-13\nDOLLAR TREE #650\nGROCERY STORE\nRISK 3 (LOW)\n28\n    FAIL\n2022-07-01\nBLAZE PIZZA\nRESTAURANT\nRISK 2 (MEDIUM)\n9\n    PASS\n2020-05-12\nDOLLAR TREE #4204\nGROCERY STORE\nRISK 3 (LOW)\n26\n    FAIL\n2018-10-17\nCHICANO HAMBURGER & WINGS LLC\nRESTAURANT\nRISK 2 (MEDIUM)\n6\n    FAIL\n2018-12-04\nPORTAGE BAR AND GRILL\nRESTAURANT\nRISK 1 (HIGH)\n0\n    FAIL\n2020-04-22\nCLUB FAMILIAR\nRESTAURANT\nRISK 2 (MEDIUM)\n20\n    PASS\n2022-10-05\nCERISE\nRESTAURANT\nRISK 1 (HIGH)\n29\n    PASS\n2022-04-12\nROYCE CHICAGO\nRESTAURANT\nRISK 3 (LOW)\n1\n    FAIL\n2018-08-29\nBOMBON CAKE GALLERY AND DESIGN\nBAKERY\nRISK 2 (MEDIUM)\n11\n    PASS\n2021-09-30\nCARNICERIA LOS CUATES\nGROCERY STORE\nRISK 1 (HIGH)\n11\n    FAIL\n2018-09-19\nBIRRERIA AGUSCALIENTES\nRESTAURANT\nRISK 1 (HIGH)\n21\n    PASS\n2022-11-10\nBRANKO'S RESTAURANT\nRESTAURANT\nRISK 1 (HIGH)\n53\n    PASS\n2020-08-11\nFAMILY DOLLAR STORE #10874\nGROCERY STORE\nRISK 3 (LOW)\n8\n    PASS\n2019-03-19\nGALIT\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2022-10-27\nKENDALL COLLEGE\nRESTAURANT\nRISK 1 (HIGH)\n4"
+    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    PASS\n2022-07-18\nLUDLOW CHARLINGTONS\nRESTAURANT\nRISK 2 (MEDIUM)\n1\n    PASS\n2022-10-04\nOSTERIA DEL PASTAIO\nRESTAURANT\nRISK 1 (HIGH)\n49\n    PASS\n2022-08-10\nBOXCAR BETTYS\nRESTAURANT\nRISK 1 (HIGH)\n5\n    PASS\n2021-12-02\nFRIENDS SUSHI/RAMEN/STATION\nRESTAURANT\nRISK 1 (HIGH)\n0\n    FAIL\n2020-05-15\nPLAZA MIMI MART\nGROCERY STORE\nRISK 3 (LOW)\n7\n    PASS\n2022-09-22\nTUFANO'S/VERNON PARK TAP\nRESTAURANT\nRISK 1 (HIGH)\n44\n    PASS\n2022-11-29\nEL ARTESANAL\nRESTAURANT\nRISK 2 (MEDIUM)\n11\n    FAIL\n2022-06-15\n1308\nRESTAURANT\nRISK 2 (MEDIUM)\n3\n    FAIL\n2019-07-08\nBENNY'S GRILL\nRESTAURANT\nRISK 1 (HIGH)\n10\n    PASS\n2022-02-09\nLE BOUCHON\nRESTAURANT\nRISK 1 (HIGH)\n105\n    FAIL\n2022-07-20\nEL RANCHITO FOOD MARKET\nGROCERY STORE\nRISK 1 (HIGH)\n126\n    PASS\n2022-07-08\nVICTOR'S RESTAURANT AND PIZZA\nRESTAURANT\nRISK 1 (HIGH)\n18\n    PASS\n2019-02-26\nLOLAS CONEY\nRESTAURANT\nRISK 1 (HIGH)\n14\n    PASS\n2022-01-14\nALPANA\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2020-03-05\nTAQUERIA LA ESTRELLA\nRESTAURANT\nRISK 1 (HIGH)\n49"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
@@ -221,7 +221,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230822T000236Z-d32c9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230822T000236Z-7abba'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230823T202047Z-9bac5\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230823T202048Z-650ad'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -361,7 +361,7 @@
     "href": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api",
     "title": "2 - Deploy your model",
     "section": "How do you make a request of your new API?",
-    "text": "How do you make a request of your new API?\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/metadata\"\nr &lt;- httr::GET(url)\nmetadata &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(metadata)\n#&gt; $user\n#&gt; list()\n#&gt; \n#&gt; $version\n#&gt; [1] \"78859\"\n#&gt; \n#&gt; $url\n#&gt; [1] \"https://colorado.posit.co/rsc/content/0e1cdefd-8762-46b4-a60e-33a8b3fa7964/_rev78859/\"\n#&gt; \n#&gt; $required_pkgs\n#&gt; [1] \"parsnip\"   \"ranger\"    \"recipes\"   \"workflows\"\n\n\n\n\nimport requests\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/metadata\" \nprint(requests.get(url).content)\n#&gt; b'&lt;html&gt;\\r\\n&lt;head&gt;&lt;title&gt;504 Gateway Time-out&lt;/title&gt;&lt;/head&gt;\\r\\n&lt;body&gt;\\r\\n&lt;center&gt;&lt;h1&gt;504 Gateway Time-out&lt;/h1&gt;&lt;/center&gt;\\r\\n&lt;hr&gt;&lt;center&gt;nginx/1.23.4&lt;/center&gt;\\r\\n&lt;/body&gt;\\r\\n&lt;/html&gt;\\r\\n'"
+    "text": "How do you make a request of your new API?\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/metadata\"\nr &lt;- httr::GET(url)\nmetadata &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(metadata)\n#&gt; $user\n#&gt; list()\n#&gt; \n#&gt; $version\n#&gt; [1] \"78859\"\n#&gt; \n#&gt; $url\n#&gt; [1] \"https://colorado.posit.co/rsc/content/0e1cdefd-8762-46b4-a60e-33a8b3fa7964/_rev78859/\"\n#&gt; \n#&gt; $required_pkgs\n#&gt; [1] \"parsnip\"   \"ranger\"    \"recipes\"   \"workflows\"\n\n\n\n\nimport requests\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/metadata\" \nprint(requests.get(url).content)\n#&gt; b'{\"user\":{},\"version\":\"78841\",\"url\":\"https://colorado.posit.co/rsc/content/d08259c2-8fe0-4466-a474-0b9adbcf91dc/\",\"required_pkgs\":[\"scikit-learn\"],\"python_version\":[3,9,4,\"final\",0]}'"
   },
   {
     "objectID": "slides/02-deploy.html#how-do-you-make-a-request-of-your-new-api-1",
@@ -375,7 +375,7 @@
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\n\nRPython\n\n\n\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 2\n#&gt;    .pred_FAIL .pred_PASS\n#&gt;         &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1     0.890       0.110\n#&gt;  2     0.282       0.718\n#&gt;  3     0.251       0.749\n#&gt;  4     0.693       0.307\n#&gt;  5     0.779       0.221\n#&gt;  6     0.190       0.810\n#&gt;  7     0.779       0.221\n#&gt;  8     0.552       0.448\n#&gt;  9     0.0732      0.927\n#&gt; 10     0.696       0.304\n\n\n\n\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    FAIL\n#&gt; 1    PASS\n#&gt; 2    FAIL\n#&gt; 3    FAIL\n#&gt; 4    PASS\n#&gt; 5    FAIL\n#&gt; 6    PASS\n#&gt; 7    FAIL\n#&gt; 8    PASS\n#&gt; 9    PASS"
+    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\n\nRPython\n\n\n\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 2\n#&gt;    .pred_FAIL .pred_PASS\n#&gt;         &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1     0.890       0.110\n#&gt;  2     0.282       0.718\n#&gt;  3     0.251       0.749\n#&gt;  4     0.693       0.307\n#&gt;  5     0.779       0.221\n#&gt;  6     0.190       0.810\n#&gt;  7     0.779       0.221\n#&gt;  8     0.552       0.448\n#&gt;  9     0.0732      0.927\n#&gt; 10     0.696       0.304\n\n\n\n\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    PASS\n#&gt; 1    PASS\n#&gt; 2    PASS\n#&gt; 3    FAIL\n#&gt; 4    FAIL\n#&gt; 5    FAIL\n#&gt; 6    FAIL\n#&gt; 7    FAIL\n#&gt; 8    FAIL\n#&gt; 9    FAIL"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-3",
@@ -404,6 +404,55 @@
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
     "text": "Create a vetiver endpoint\nWhat if your model API requires authentication?\nR\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\napiKey &lt;- Sys.getenv(\"CONNECT_API_KEY\")\npredict(endpoint, slice_sample(inspect_test, n = 10), \n        httr::add_headers(Authorization = paste(\"Key\", apiKey)))\nPython\nfrom vetiver.server import predict, vetiver_endpoint\n\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\nh = { 'Authorization': f'Key {api_key}' }\npredict(endpoint = endpoint, data = X_test, headers = h)"
+  },
+  {
+    "objectID": "slides/02-deploy.html#model-input-prototype-2",
+    "href": "slides/02-deploy.html#model-input-prototype-2",
+    "title": "2 - Deploy your model",
+    "section": "Model input prototype",
+    "text": "Model input prototype\nNotice that our Python model has different inputs than our R model:"
+  },
+  {
+    "objectID": "slides/02-deploy.html#r-8",
+    "href": "slides/02-deploy.html#r-8",
+    "title": "2 - Deploy your model",
+    "section": "R",
+    "text": "R\n\nglimpse(inspect_train)\n#&gt; Rows: 5,573\n#&gt; Columns: 6\n#&gt; $ results          &lt;fct&gt; FAIL, PASS, FAIL, FAIL, FAIL, PASS, PASS, PASS, PASS,…\n#&gt; $ inspection_date  &lt;date&gt; 2020-05-28, 2020-06-11, 2020-04-09, 2019-02-04, 2021…\n#&gt; $ aka_name         &lt;chr&gt; \"GRAND SHELL\", \"DSD DELI\", \"BP GAS\", \"LA MICHOACANA I…\n#&gt; $ facility_type    &lt;fct&gt; GROCERY STORE, GROCERY STORE, GROCERY STORE, RESTAURA…\n#&gt; $ risk             &lt;fct&gt; RISK 3 (LOW), RISK 1 (HIGH), RISK 3 (LOW), RISK 1 (HI…\n#&gt; $ total_violations &lt;dbl&gt; 31, 0, 25, 42, 17, 4, 17, 0, 2, 80, 94, 0, 37, 86, 66…"
+  },
+  {
+    "objectID": "slides/02-deploy.html#python-8",
+    "href": "slides/02-deploy.html#python-8",
+    "title": "2 - Deploy your model",
+    "section": "Python",
+    "text": "Python\n\nX_train\n#&gt;       facility_type             risk  total_violations  month  year\n#&gt; 5711     RESTAURANT    RISK 1 (HIGH)             105.0      8  2022\n#&gt; 485      RESTAURANT    RISK 1 (HIGH)              80.0      1  2019\n#&gt; 4375     RESTAURANT  RISK 2 (MEDIUM)               0.0      1  2022\n#&gt; 5242     RESTAURANT    RISK 1 (HIGH)              66.0      6  2022\n#&gt; 6189     RESTAURANT  RISK 2 (MEDIUM)              19.0     10  2022\n#&gt; ...             ...              ...               ...    ...   ...\n#&gt; 4661  GROCERY STORE     RISK 3 (LOW)               4.0      3  2022\n#&gt; 2021     RESTAURANT    RISK 1 (HIGH)              20.0      2  2020\n#&gt; 3454     RESTAURANT  RISK 2 (MEDIUM)               8.0      5  2021\n#&gt; 2061     RESTAURANT  RISK 2 (MEDIUM)             124.0      3  2020\n#&gt; 3426  GROCERY STORE     RISK 3 (LOW)               2.0      5  2021\n#&gt; \n#&gt; [5573 rows x 5 columns]"
+  },
+  {
+    "objectID": "slides/02-deploy.html#your-turn-5",
+    "href": "slides/02-deploy.html#your-turn-5",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCall the prototype endpoints for both the Python and R model.\nHow do they compare?\n\n\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/02-deploy.html#model-input-prototype-3",
+    "href": "slides/02-deploy.html#model-input-prototype-3",
+    "title": "2 - Deploy your model",
+    "section": "Model input prototype",
+    "text": "Model input prototype\n\nRPython\n\n\n\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/prototype\"\nr &lt;- httr::GET(url)\nprototype &lt;- httr::content(r, as = \"text\", encoding = \"UTF-8\")\njsonlite::fromJSON(prototype)\n#&gt; $facility_type\n#&gt; $facility_type$type\n#&gt; [1] \"factor\"\n#&gt; \n#&gt; $facility_type$example\n#&gt; NULL\n#&gt; \n#&gt; $facility_type$details\n#&gt; $facility_type$details$levels\n#&gt; [1] \"BAKERY\"        \"GROCERY STORE\" \"RESTAURANT\"   \n#&gt; \n#&gt; \n#&gt; \n#&gt; $risk\n#&gt; $risk$type\n#&gt; [1] \"factor\"\n#&gt; \n#&gt; $risk$example\n#&gt; NULL\n#&gt; \n#&gt; $risk$details\n#&gt; $risk$details$levels\n#&gt; [1] \"RISK 1 (HIGH)\"   \"RISK 2 (MEDIUM)\" \"RISK 3 (LOW)\"   \n#&gt; \n#&gt; \n#&gt; \n#&gt; $total_violations\n#&gt; $total_violations$type\n#&gt; [1] \"numeric\"\n#&gt; \n#&gt; $total_violations$example\n#&gt; NULL\n#&gt; \n#&gt; $total_violations$details\n#&gt; list()\n#&gt; \n#&gt; \n#&gt; $inspection_date\n#&gt; $inspection_date$type\n#&gt; [1] \"Date\"\n#&gt; \n#&gt; $inspection_date$example\n#&gt; NULL\n#&gt; \n#&gt; $inspection_date$details\n#&gt; list()\n\n\n\n\nimport requests\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/prototype\" \nprint(requests.get(url).content)\n#&gt; b'{\"detail\":\"Not Found\"}'"
+  },
+  {
+    "objectID": "slides/02-deploy.html#model-input-prototype-4",
+    "href": "slides/02-deploy.html#model-input-prototype-4",
+    "title": "2 - Deploy your model",
+    "section": "Model input prototype",
+    "text": "Model input prototype\n\nIn Python, you supply the model’s input prototype via prototype_data\nIn R, the model input prototype is found automatically in most cases, but you can override this default via save_prototype\nIn both cases, it is ultimately up to you to decide what your API’s inputs should be!\n\n\nThe vetiver framework has sensible defaults but is extensible for more complex use cases"
+  },
+  {
+    "objectID": "slides/02-deploy.html#your-turn-6",
+    "href": "slides/02-deploy.html#your-turn-6",
+    "title": "2 - Deploy your model",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nPretend you need to customize your model API’s inputs for a more complex use case.\nMake a new vetiver model object and change the input data prototype.\nRun an API locally for your new vetiver model object and explore the visual documentation. 1\nDiscuss a possible situation you might use this with your neighbor.\n\n\n\n\n\n\n−+\n07:00\n\n\n\n\n\nhttps://posit-conf-2023.github.io/vetiver\n\nNote that making predictions will not work now, since we haven’t updated the API behavior to match these inputs."
   },
   {
     "objectID": "slides/03-deploy.html#plan-for-this-workshop",
