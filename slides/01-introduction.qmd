@@ -219,7 +219,7 @@ countdown(minutes = 3)
 ::: {.nonincremental}
 -   The city of Chicago offers programmatic access to health code inspections of restaurants
 -   Can certain measurements be used to predict inspection outcome?
--   Data from <https://data.cityofchicago.org/>
+-   Data from Chicago Department of Public Health, available at <https://data.cityofchicago.org/>
 :::
 
 
