@@ -65,7 +65,7 @@ board |> vetiver_pin_write(v)
 vetiver_deploy_rsconnect(
   board = board, 
   name = "julia.silge/chicago-inspections-rstats",
-  predict_args = list(type = "prob", debug = TRUE),
+  predict_args = list(debug = TRUE),
   account = "julia.silge",
   appName = "chicago-inspections-rstats-model-api",
   forceUpdate = TRUE
