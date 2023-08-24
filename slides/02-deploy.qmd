@@ -148,7 +148,7 @@ Discuss something you notice about the Model Card with your neighbor.
 
 ```{r}
 #| echo: false
-countdown(minutes = 7)
+countdown(minutes = 5)
 ```
 
 
@@ -328,7 +328,7 @@ predict(endpoint = endpoint, data = X_test.head(10))
 ```
 :::
 
-## Your turn 🏺 {transition="slide-in" auto-animate=TRUE}
+## Your turn 🏺 {transition="slide-in"}
 
 ::: {.callout-note icon=false}
 
@@ -338,7 +338,7 @@ Create a vetiver endpoint object for your API.
 
 Predict with your endpoint for new data.
 
-Optional: call another endpoint from Python or R.
+Optional: call another endpoint like `/ping` or `/metadata`.
 
 :::
 
@@ -347,7 +347,7 @@ Optional: call another endpoint from Python or R.
 countdown(minutes = 10)
 ```
 
-## Your turn 🏺 {auto-animate=TRUE}
+## Your turn 🏺 {transition="slide-in"}
 
 ::: {.callout-note icon=false}
 
