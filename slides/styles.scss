@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: 'Lato', sans-serif;
+$font-family-monospace: 'Roboto Mono', monospace;
+
+/*-- scss:rules --*/
+
+.slide-deck {
+  border: 3px solid #add8e6;
+}

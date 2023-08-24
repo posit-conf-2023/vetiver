@@ -7,7 +7,7 @@ format:
     footer: <https://posit-conf-2023.github.io/vetiver>
     preview-links: auto
     incremental: true
-    theme: [default]
+    theme: [default, styles.scss]
     width: 1280
     height: 720
 knitr:

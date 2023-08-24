@@ -7,7 +7,7 @@ format:
     footer: <https://posit-conf-2023.github.io/vetiver>
     preview-links: auto
     incremental: true
-    theme: [default]
+    theme: [default, styles.scss]
     width: 1280
     height: 720
 knitr:
@@ -154,11 +154,13 @@ tktk more substantive feature engineering (like with learned transformation from
 
 ![](images/bad_workflow.png){fig-align="center"}
 
+# Add a new endpoint to your API
+
 # Model metrics as metadata
 
 tktk like https://vetiver.rstudio.com/learn-more/metrics-metadata.html
 
 Transition to model monitoring at end
 
-# Add a new endpoint to your API
+
 
