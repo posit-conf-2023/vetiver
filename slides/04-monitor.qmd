@@ -70,6 +70,9 @@ inspections_new <- read_parquet(path)
 ```{python}
 import pandas as pd
 inspections_new = pd.read_parquet('../data/inspections_monitoring.parquet')
+inspections_new['inspection_date'] = pd.to_datetime(inspections_new['inspection_date'])
+inspections_new['month'] = inspections_new['inspection_date'].dt.month
+inspections_new['year'] = inspections_new['inspection_date'].dt.year
 ```
 
 ## Data for model monitoring
@@ -253,7 +256,30 @@ countdown(minutes = 7)
 ```{python}
 #| fig-align: center
 #| output-location: slide 
-## TODO for Isabel: make plot like R one after this
+from vetiver import vetiver_endpoint, predict, compute_metrics, plot_metrics
+from sklearn.metrics import recall_score, accuracy_score
+from datetime import timedelta
+
+url = "https://colorado.posit.co/rsc/chicago-inspections-python/predict"
+endpoint = vetiver_endpoint(url)
+inspections_new["preds"] = predict(endpoint = url, data = inspections_new.drop(columns = ["results", "aka_name", "inspection_date"]))
+
+inspections_new["preds"] = inspections_new["preds"].map({"PASS": 1, "FAIL": 0})
+inspections_new["results"] = inspections_new["results"].map({"PASS": 1, "FAIL": 0})
+
+td = timedelta(weeks = 4)
+metric_set = [accuracy_score, recall_score]
+
+m = compute_metrics(
+    data = inspections_new,
+    date_var = "inspection_date", 
+    period = td,
+    metric_set = metric_set,
+    truth = "results",
+    estimate = "preds"
+  )
+  
+plot_metrics(m).show()
 ```
 
 ## Monitor your model's outputs
@@ -264,6 +290,7 @@ countdown(minutes = 7)
 #| fig-align: center
 #| output-location: slide 
 library(vetiver)
+library(tidymodels)
 library(workflows)
 url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"
 endpoint <- vetiver_endpoint(url)
@@ -393,7 +420,11 @@ augment(v, inspections_new) |>
 ### Python
 
 ```{python}
-## TODO for Isabel: compute sensitivity by facility type for monitoring data
+by_facility_type = pd.DataFrame()
+for metric in metric_set:
+    by_facility_type[metric.__qualname__] = inspections_new.groupby("facility_type")\
+        .apply(lambda x: metric(y_pred=x["preds"], y_true=x["results"]))
+by_facility_type
 ```
 
 :::
