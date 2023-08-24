@@ -33,8 +33,9 @@ website:
             text: "R package docs"
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      - default
+      - styles.css
     toc: true
     
 fig-format: svg    
