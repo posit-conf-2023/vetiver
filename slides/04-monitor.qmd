@@ -412,7 +412,8 @@ countdown(minutes = 7)
 ### R
 
 ```{r}
-augment(v, inspections_new) |> 
+augment(endpoint, inspections_new) |> 
+  mutate(.pred_class = as.factor(.pred_class)) |> 
   group_by(facility_type) |> 
   sensitivity(results, .pred_class)
 ```
