@@ -19,7 +19,7 @@ website:
   favicon: "images/favicon.ico"
 
   navbar:
-    background: light
+    background: "#add8e6"
     pinned: true
     logo: images/logo_small.png
     right:
