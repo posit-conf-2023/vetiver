@@ -16,6 +16,7 @@ website:
   site-url: https://posit-conf-2023.github.io/vetiver
   repo-url: https://github.com/posit-conf-2023/vetiver
   repo-actions: [edit, issue]
+  image: "images/vetiver-social.jpeg"
   favicon: "images/favicon.ico"
 
   navbar:
