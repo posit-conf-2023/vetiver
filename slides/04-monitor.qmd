@@ -33,6 +33,11 @@ knitr:
     -   Tracking model performance 👀
 :::
 
+## {background-color="white" background-image="https://vetiver.rstudio.com/images/ml_ops_cycle.png" background-size="contain"}
+
+::: footer
+:::
+
 ## Data for model development
 
 Data that you use while building a model for training/testing

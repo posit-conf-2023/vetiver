@@ -152,6 +152,11 @@ countdown(minutes = 5)
 ```
 
 
+## {background-color="white" background-image="https://vetiver.rstudio.com/images/ml_ops_cycle.png" background-size="contain"}
+
+::: footer
+:::
+
 ## You can deploy your model as a...
 
 . . .
