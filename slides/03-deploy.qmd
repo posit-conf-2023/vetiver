@@ -214,11 +214,13 @@ inspection_fit <-
 from sklearn import metrics
 
 metric_set = [metrics.accuracy_score, metrics.f1_score, metrics.log_loss]
+y_predictions = inspection_fit.predict(X_test).map({"PASS": 1, "FAIL": 0})
+y_truth = y_test.map({"PASS": 1, "FAIL": 0})
 
 inspect_metrics = pd.DataFrame()
 for metric in metric_set:
     metric_name = str(metric.__name__)
-    metric_output = metric(y_test, inspection_fit.predict(X_test))
+    metric_output = metric(y_test, )
     inspect_metrics = pd.concat(
         (
             inspect_metrics,
