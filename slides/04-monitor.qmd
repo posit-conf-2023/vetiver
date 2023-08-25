@@ -70,9 +70,6 @@ inspections_new <- read_parquet(path)
 ```{python}
 import pandas as pd
 inspections_new = pd.read_parquet('../data/inspections_monitoring.parquet')
-inspections_new['inspection_date'] = pd.to_datetime(inspections_new['inspection_date'])
-inspections_new['month'] = inspections_new['inspection_date'].dt.month
-inspections_new['year'] = inspections_new['inspection_date'].dt.year
 ```
 
 ## Data for model monitoring
@@ -167,7 +164,7 @@ library(countdown)
 countdown(minutes = 5)
 ```
 
-## Learn more about model monitoring tomorrow
+# Learn more about model monitoring tomorrow 🚀
 
 Come hear Julia's talk on reliable maintenance of ML models on Tues, Sept 19 at 1:50pm!
 
@@ -256,6 +253,10 @@ countdown(minutes = 7)
 from vetiver import vetiver_endpoint, predict, compute_metrics, plot_metrics
 from sklearn.metrics import recall_score, accuracy_score
 from datetime import timedelta
+
+inspections_new['inspection_date'] = pd.to_datetime(inspections_new['inspection_date'])
+inspections_new['month'] = inspections_new['inspection_date'].dt.month
+inspections_new['year'] = inspections_new['inspection_date'].dt.year
 
 url = "https://colorado.posit.co/rsc/chicago-inspections-python/predict"
 endpoint = vetiver_endpoint(url)
