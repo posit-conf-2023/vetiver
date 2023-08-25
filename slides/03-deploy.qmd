@@ -83,7 +83,7 @@ Start with a trained and versioned model
 
 ```{r}
 #| eval: false
-vetiver_prepare_docker(board, "isabel.zimmerman/inspection-results-r", port = 8080)
+vetiver_prepare_docker(board, "julia.silge/inspection-results-rstats", port = 8080)
 ```
 
 ### Python
@@ -141,26 +141,464 @@ vetiver.predict(endpoint=endpoint, data=X_test)
 - [Ten simple rules for writing Dockerfiles for reproducible data science](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008316)
 - [Docker info from Posit Solutions Engineering](https://solutions.posit.co/envs-pkgs/environments/docker/)
 
-# Deploy preprocessors and models together
-
-tktk more substantive feature engineering (like with learned transformation from training data)
+# Deploy preprocessors and models together 🤗
 
 ## Deploy preprocessors and models together
 
 ![](images/good_workflow.png){fig-align="center"}
 
-
 ## What is wrong with this?
 
 ![](images/bad_workflow.png){fig-align="center"}
 
-# Add a new endpoint to your API
+## Deploy preprocessors and models together
 
-# Model metrics as metadata
+::: panel-tabset
+### R
 
-tktk like https://vetiver.rstudio.com/learn-more/metrics-metadata.html
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
 
-Transition to model monitoring at end
+set.seed(123)
+inspect_split <- initial_split(inspections, prop = 0.8)
+inspect_train <- training(inspect_split)
+inspect_test <- testing(inspect_split)
+```
 
 
+### Python
 
+```{python}
+import pandas as pd
+import numpy as np
+from sklearn import preprocessing, ensemble, pipeline, compose, model_selection
+
+inspections = pd.read_parquet('../data/inspections.parquet')
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
+
+categorical_features = ['facility_type', 'risk', 'month', 'year']
+X, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']
+X_train, X_test, y_train, y_test = model_selection.train_test_split(
+    X, y,
+    stratify = y,
+    test_size = 0.2
+)
+```
+:::
+
+## Deploy preprocessors and models together
+
+::: panel-tabset
+### R
+
+```{r}
+inspection_rec <- 
+  recipe(results ~ facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE) |> 
+  step_dummy(all_nominal_predictors()) |> 
+  step_normalize(all_predictors())
+
+inspection_fit <-
+  workflow(inspection_rec, svm_rbf(mode = "classification")) |> 
+  fit(data = inspect_train)
+```
+
+### Python
+
+```{r}
+## TODO for Isabel: put a model here that involves substantive feature engineering (i.e. something learned that could cause data leakage)
+```
+
+:::
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+When do you think it makes sense to deploy a preprocessor and pipeline together?
+
+When do you think you might want to deploy them separately?
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+# Model metrics as metadata 🎯
+
+## Model metrics as metadata
+
+::: panel-tabset
+
+### Python
+
+```{python}
+from sklearn import metrics
+
+metric_set = [metrics.accuracy_score, metrics.f1_score, metrics.log_loss]
+
+inspect_metrics = pd.DataFrame()
+for metric in metric_set:
+    metric_name = str(metric.__name__)
+    metric_output = metric(y_test, inspection_fit.predict(X_test))
+    inspect_metrics = pd.concat(
+        (
+            inspect_metrics,
+            pd.DataFrame({"name": [metric_name],
+                          "score": [metric_output]}),
+        ),
+        axis=0,
+    )
+
+inspect_metrics.reset_index(inplace=True, drop=True)
+inspect_metrics
+```
+
+### R
+
+```{r}
+inspect_metric_set <- metric_set(accuracy, mn_log_loss, f_meas)
+inspect_metrics <-
+    augment(inspection_fit, new_data = inspect_test) |>
+    inspect_metric_set(truth = results, estimate = .pred_class, .pred_FAIL)
+
+inspect_metrics
+```
+
+:::
+
+## Model metrics as metadata
+
+::: panel-tabset
+
+### Python
+
+```{python}
+import vetiver
+v = vetiver.VetiverModel(
+    inspection_fit,
+    prototype_data = X_train,
+    model_name = "chicago-inspections-python",
+    metadata = inspect_metrics.to_dict(),
+)
+v.description
+```
+
+
+### R
+
+```{r}
+library(vetiver)
+v <- vetiver_model(
+    inspection_fit, 
+    "chicago-inspections-rstats", 
+    metadata = list(metrics = inspect_metrics)
+)
+v
+```
+
+:::
+
+## Model metrics as metadata
+
+- We pin our vetiver model to a board to version it
+- The metadata, including our metrics, are versioned along with the model
+
+::: panel-tabset
+## Python
+
+```{python}
+#| eval: false
+from pins import board_connect
+from vetiver import vetiver_pin_write
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("CO_API_KEY")
+rsc_url = os.getenv("CO_RSC_URL")
+
+board = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
+vetiver_pin_write(board, v)
+```
+
+```{python}
+#| echo: false
+#| output: false
+from pins import board_temp
+from vetiver import vetiver_pin_write
+
+board = board_temp(versioned=True, allow_pickle_read=True)
+vetiver_pin_write(board, v)
+```
+
+
+## R
+
+```{r}
+#| eval: false
+library(pins)
+board <- board_connect()
+board |> vetiver_pin_write(v)
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(pins)
+board <- board_temp(versioned = TRUE)
+board |> vetiver_pin_write(v)
+```
+
+:::
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Compute metrics for your model using the _testing_ data.
+
+Store these metrics as metadata in a vetiver model object.
+
+Write this new vetiver model object as a new version of your pin.
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 7)
+```
+
+## Model metrics as metadata
+
+How do we extract our metrics out to use them?
+
+::: panel-tabset
+## Python
+
+```{python}
+metadata = board.pin_meta("inspection-result-python")
+extracted_metrics = pd.DataFrame(metadata.user.get("user"))
+extracted_metrics
+```
+
+## R
+
+```{r}
+extracted_metrics <- 
+    board |> 
+    pin_meta("inspection-result-rstats") |> 
+    pluck("user", "metrics") |> 
+    as_tibble()
+
+extracted_metrics
+```
+:::
+
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Obtain the metrics metadata for your versioned model.
+
+Obtain the metrics metadata for _your neighbor's_ model.
+
+What else might you want to store as model metadata?
+
+How or when might you use model metadata?
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 7)
+```
+
+# Add a new endpoint to your API ✨
+
+## Add a new endpoint to your API
+
+- A lot of code is being generated throughout this deployment process
+- You have access to that code and can alter it yourself!
+- The vetiver framework has sensible defaults but is extensible for more complex use cases
+- What really sets up your model API?
+
+## Add a new endpoint to your API
+
+### R
+
+```{r}
+#| eval: false
+vetiver_write_plumber(board, "inspection-result-rstats")
+```
+
+```r
+# Generated by the vetiver package; edit with care
+
+library(pins)
+library(plumber)
+library(rapidoc)
+library(vetiver)
+
+# Packages needed to generate model predictions
+if (FALSE) {
+    library(kernlab)
+    library(parsnip)
+    library(recipes)
+    library(workflows)
+}
+b <- board_connect(auth = "envvar")
+v <- vetiver_pin_read(b, "julia.silge/chicago-inspections-rstats", version = "78859")
+
+#* @plumber
+function(pr) {
+    pr %>% vetiver_api(v)
+}
+```
+
+## Add a new endpoint to your API
+
+### Python
+
+```{python}
+## TODO for Isabel: show output file (hard-coded like R is fine)
+vetiver.write_app(board, "inspection-result-python")
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Create a Plumber or FastAPI app file to serve your model's predictions.
+
+Run this app locally and check out the visual documentation again.
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 5)
+```
+
+## Add a new endpoint to your API
+
+- In Python, you add more endpoints to your `VetiverAPI` object
+- In R, you add more endpoints in your Plumber app file
+- In both cases, it is ultimately up to you to decide what your API's endpoints should be!
+
+## Add a new endpoint to your API {auto-animate=true}
+
+### R
+
+```r
+# Generated by the vetiver package; edit with care
+
+library(pins)
+library(plumber)
+library(rapidoc)
+library(vetiver)
+
+# Packages needed to generate model predictions
+if (FALSE) {
+    library(kernlab)
+    library(parsnip)
+    library(recipes)
+    library(workflows)
+}
+b <- board_connect(auth = "envvar")
+v <- vetiver_pin_read(b, "julia.silge/chicago-inspections-rstats", version = "78859")
+
+#* @plumber
+function(pr) {
+    pr %>% vetiver_api(v)
+}
+```
+
+## Add a new endpoint to your API {auto-animate=true}
+
+### R
+
+```r
+# Generated by the vetiver package; edit with care
+
+library(pins)
+library(plumber)
+library(rapidoc)
+library(vetiver)
+library(lubridate)
+
+# Packages needed to generate model predictions
+if (FALSE) {
+    library(kernlab)
+    library(parsnip)
+    library(recipes)
+    library(workflows)
+}
+b <- board_connect(auth = "envvar")
+v <- vetiver_pin_read(b, "julia.silge/chicago-inspections-rstats", version = "78859")
+
+hander_weekday <- function(req) {
+    wday(req$body$inspection_date, label = TRUE)
+}
+
+#* @plumber
+function(pr) {
+    pr |>  
+        vetiver_api(v) |> 
+        pr_post(path = "/weekday", handler = hander_weekday)
+}
+```
+
+## Add a new endpoint to your API {auto-animate=true}
+
+### Python
+
+```{python}
+## TODO for Isabel: show original app.py
+```
+
+
+## Add a new endpoint to your API {auto-animate=true}
+
+### Python
+
+```{python}
+## TODO for Isabel: show new updated app.py with additional endpoint
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Add a new endpoint to the API app file you already made.
+
+Run the app locally and check out your new endpoint.
+
+How might you want to use an additional endpoint?
+
+:::
+
+```{r}
+#| echo: false
+countdown(minutes = 7)
+```
