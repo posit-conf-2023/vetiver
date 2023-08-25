@@ -459,6 +459,13 @@ v = VetiverModel(inspection_fit, "inspection-result-python", prototype_data = X_
 v.description
 ```
 
+## Deploy preprocessors and models together
+
+![](images/good_workflow.png){fig-align="center"}
+
+## What is wrong with this?
+
+![](images/bad_workflow.png){fig-align="center"}
 
 ## Your turn 🏺 {transition="slide-in"}
 
