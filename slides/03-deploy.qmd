@@ -258,7 +258,7 @@ import vetiver
 v = vetiver.VetiverModel(
     inspection_fit,
     prototype_data = X_train,
-    model_name = "isabel.zimmerman/chicago-inspections-python",
+    model_name = "chicago-inspections-python",
     metadata = inspect_metrics.to_dict(),
 )
 v.description
@@ -348,6 +348,7 @@ Write this new vetiver model object as a new version of your pin.
 
 ```{r}
 #| echo: false
+library(countdown)
 countdown(minutes = 7)
 ```
 
@@ -359,7 +360,7 @@ How do we extract our metrics out to use them?
 ## Python
 
 ```{python}
-metadata = board.pin_meta("inspection-result-python")
+metadata = board.pin_meta("chicago-inspections-python")
 extracted_metrics = pd.DataFrame(metadata.user.get("user"))
 extracted_metrics
 ```
@@ -369,7 +370,7 @@ extracted_metrics
 ```{r}
 extracted_metrics <- 
     board |> 
-    pin_meta("inspection-result-rstats") |> 
+    pin_meta("chicago-inspections-rstats") |> 
     pluck("user", "metrics") |> 
     as_tibble()
 
