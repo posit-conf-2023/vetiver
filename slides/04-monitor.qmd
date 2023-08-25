@@ -80,7 +80,7 @@ inspections_new['year'] = inspections_new['inspection_date'].dt.year
 ```{r}
 #| echo: false
 #| fig-width: 9
-#| fig-height: 4
+#| fig-height: 4.5
 #| fig-align: center
 library(tidyverse)
 
@@ -89,7 +89,8 @@ bind_rows(inspections |> mutate(monitoring = "Data available at training time"),
   ggplot(aes(inspection_date)) +
   geom_histogram(alpha = 0.8, fill = "midnightblue", bins = 100) +
   facet_wrap(vars(monitoring), nrow = 2) +
-  theme_light()
+  theme_light() +
+  labs(x = NULL)
 ```
 
 
@@ -148,11 +149,7 @@ DATA drift
 CONCEPT drift
 :::
 
-##
-
-::: r-fit-text
-MODEL RETRAINING
-:::
+# When should you retrain your model? 🧐
 
 ## Your turn 🏺 {transition="slide-in"}
 
@@ -211,7 +208,7 @@ bind_rows(
   group_by(monitor) |> 
   mutate(proportion = n / sum(n)) |> 
   ggplot(aes(facility_type, proportion, fill = monitor)) +
-  geom_col(alpha = 0.5, position = "dodge") +
+  geom_col(alpha = 0.8, position = "dodge") +
   scale_y_continuous(labels = scales::percent) +
   labs(fill = NULL, y = "% of establishments", x = NULL)
 ```
@@ -340,7 +337,7 @@ Deployment of an ML model may *alter* the training data
 [*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
 :::
 
-# Feedback loops can have **unexpected consequences**
+# Feedback loops can have unexpected consequences
 
 ::: footer
 [*Building Machine Learning Pipelines* by Hapke & Nelson](https://www.oreilly.com/library/view/building-machine-learning/9781492053187/)
@@ -380,7 +377,7 @@ countdown(minutes = 5)
 
 - Are machine learning metrics like F1 score or accuracy what matter to your organization?
 - Consider how ML metrics are related to important outcomes or KPIs for your business or org
-- There isn't always a 1-on-1 mapping 😔
+- There isn't always a 1-to-1 mapping 😔
 - You can **partner** with stakeholders to monitor what's truly important about your model
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -431,6 +428,8 @@ by_facility_type
 :::
 
 ## What is going on with these inspections?! 😳
+
+. . .
 
 ```{r}
 #| fig-align: 'center'
