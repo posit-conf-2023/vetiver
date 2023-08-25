@@ -33,6 +33,66 @@ knitr:
     -   Tracking model performance 👀
 :::
 
+## Data for model development
+
+Data that you use while building a model for training/testing
+
+### R
+
+```{r}
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
+```
+
+### Python
+
+```{python}
+import pandas as pd
+inspections = pd.read_parquet('../data/inspections.parquet')
+```
+
+
+## Data for model monitoring
+
+New data that you predict on after your model deployed
+
+### R
+
+```{r}
+library(arrow)
+path <- here::here("data", "inspections_monitoring.parquet")
+inspections_new <- read_parquet(path)
+```
+
+### Python
+
+```{python}
+import pandas as pd
+inspections_new = pd.read_parquet('../data/inspections_monitoring.parquet')
+inspections_new['inspection_date'] = pd.to_datetime(inspections_new['inspection_date'])
+inspections_new['month'] = inspections_new['inspection_date'].dt.month
+inspections_new['year'] = inspections_new['inspection_date'].dt.year
+```
+
+## Data for model monitoring
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 4
+#| fig-align: center
+library(tidyverse)
+
+bind_rows(inspections |> mutate(monitoring = "Data available at training time"),
+          inspections_new |> mutate(monitoring = "New data")) |> 
+  ggplot(aes(inspection_date)) +
+  geom_histogram(alpha = 0.8, fill = "midnightblue", bins = 100) +
+  facet_wrap(vars(monitoring), nrow = 2) +
+  theme_light()
+```
+
+
 ## My model is performing well!
 
 . . .
@@ -72,7 +132,6 @@ knitr:
 
 :::
 
-
 ## Model drift 📉 {auto-animate=true}
 
 . . .
@@ -87,6 +146,12 @@ DATA drift
 
 ::: {.r-fit-text}
 CONCEPT drift
+:::
+
+##
+
+::: r-fit-text
+MODEL RETRAINING
 :::
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -109,13 +174,159 @@ countdown(minutes = 5)
 
 Come hear Julia's talk on reliable maintenance of ML models on tktk in tktk!
 
-# Monitor your models' **inputs**
+# Monitor your model's **inputs**
 
-tktk
+## Monitor your model's inputs
 
-# Monitor your models' **outputs**
+Typically it is most useful to compare to your _model development_ data^[Remember you can store metrics of any kind from model development as metadata!]
 
-tktk
+- Statistical distribution of features individually
+- Statistical characteristics of features as a whole
+    - Applicability scores: <https://applicable.tidymodels.org/>
+
+## Monitor your model's inputs
+
+```{r}
+#| echo: false
+#| fig-align: center
+bind_rows(
+  inspections |> mutate(monitor = "Training/testing"),
+  inspections_new |> mutate(monitor = "Monitoring")
+) |> 
+  ggplot(aes(total_violations, after_stat(density), fill = monitor)) +
+  geom_histogram(alpha = 0.5, position = "identity") +
+  labs(fill = NULL)
+```
+
+## Monitor your model's inputs
+
+```{r}
+#| echo: false
+#| fig-align: center
+bind_rows(
+  inspections |> mutate(monitor = "Training/testing"),
+  inspections_new |> mutate(monitor = "Monitoring")
+) |> 
+  count(monitor, facility_type) |> 
+  group_by(monitor) |> 
+  mutate(proportion = n / sum(n)) |> 
+  ggplot(aes(facility_type, proportion, fill = monitor)) +
+  geom_col(alpha = 0.5, position = "dodge") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(fill = NULL, y = "% of establishments", x = NULL)
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Create a plot or table comparing the development vs. monitoring distributions of a model input/feature.
+
+How might you make this comparison if you didn't have all the model development data available when monitoring?
+
+What summary statistics might you record during model development, to prepare for monitoring?
+
+:::
+
+```{r}
+#| echo: false
+library(countdown)
+countdown(minutes = 7)
+```
+
+
+# Monitor your model's **outputs**
+
+## Monitor your model's outputs
+
+- In some ML systems, you eventually get a "real" result after making a prediction
+- If the Chicago of Public Health used a model like this one, they would get:
+    - A prediction from their model
+    - A real inspection result after they did their inspection
+- In this case, we can monitor our model's statistical performance    
+- If you don't ever get a "real" result, you can still monitor the distribution of your outputs
+
+
+## Monitor your model's outputs
+
+### Python
+
+```{python}
+#| fig-align: center
+#| output-location: slide 
+from vetiver import vetiver_endpoint, predict, compute_metrics, plot_metrics
+from sklearn.metrics import recall_score, accuracy_score
+from datetime import timedelta
+
+url = "https://colorado.posit.co/rsc/chicago-inspections-python/predict"
+endpoint = vetiver_endpoint(url)
+inspections_new["preds"] = predict(endpoint = url, data = inspections_new.drop(columns = ["results", "aka_name", "inspection_date"]))
+
+inspections_new["preds"] = inspections_new["preds"].map({"PASS": 1, "FAIL": 0})
+inspections_new["results"] = inspections_new["results"].map({"PASS": 1, "FAIL": 0})
+
+td = timedelta(weeks = 4)
+metric_set = [accuracy_score, recall_score]
+
+m = compute_metrics(
+    data = inspections_new,
+    date_var = "inspection_date", 
+    period = td,
+    metric_set = metric_set,
+    truth = "results",
+    estimate = "preds"
+  )
+  
+plot_metrics(m).show()
+```
+
+## Monitor your model's outputs
+
+### R
+
+```{r}
+#| fig-align: center
+#| output-location: slide 
+library(vetiver)
+library(tidymodels)
+library(workflows)
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"
+endpoint <- vetiver_endpoint(url)
+
+augment(endpoint, new_data = inspections_new) |>
+  mutate(.pred_class = as.factor(.pred_class)) |> 
+  vetiver_compute_metrics(
+    inspection_date, 
+    "month", 
+    results, 
+    .pred_class,
+    metric_set = metric_set(accuracy, sensitivity)
+  ) |> 
+  vetiver_plot_metrics()
+```
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Use the functions for metrics monitoring from vetiver to create a monitoring visualization.
+
+Choose a different set of metrics or time aggregation.
+
+Note that there are functions for using pins as a way to version and update monitoring results too!
+
+:::
+
+```{r}
+#| echo: false
+library(countdown)
+countdown(minutes = 5)
+```
+
 
 # Feedback loops 🔁
 
@@ -165,7 +376,7 @@ countdown(minutes = 5)
 ```
 
 
-## Connect model metrics to organizational outcomes
+## ML metrics ➡️ organizational outcomes
 
 - Are machine learning metrics like F1 score or accuracy what matter to your organization?
 - Consider how ML metrics are related to important outcomes or KPIs for your business or org
@@ -178,9 +389,9 @@ countdown(minutes = 5)
 
 ## Activity
 
-Let's say that the most important organizational outcome for the Chicago Department of Public Health is how many establishments were predicted to pass their inspection but _failed_.
+Let's say that the most important organizational outcome for the Chicago Department of Public Health is what proportion of failed inspections were predicted to fail.
 
-Depending on whether "pass" or "fail" is the event level of interest, this is either the false positive rate or false negative rate.
+If "fail" is the event we are predicting, this is the **sensitivity**.
 
 Compute this quantity with the monitoring data, and aggregate by week/month or facility type.
 
@@ -193,6 +404,51 @@ For extra credit, make a visualization showing your results.
 countdown(minutes = 7)
 ```
 
+
+## ML metrics ➡️ organizational outcomes
+
+::: panel-tabset
+
+### R
+
+```{r}
+augment(endpoint, inspections_new) |> 
+  mutate(.pred_class = as.factor(.pred_class)) |> 
+  group_by(facility_type) |> 
+  sensitivity(results, .pred_class)
+```
+
+### Python
+
+```{python}
+by_facility_type = pd.DataFrame()
+for metric in metric_set:
+    by_facility_type[metric.__qualname__] = inspections_new.groupby("facility_type")\
+        .apply(lambda x: metric(y_pred=x["preds"], y_true=x["results"]))
+by_facility_type
+```
+
+:::
+
+## What is going on with these inspections?! 😳
+
+```{r}
+#| fig-align: 'center'
+#| echo: false
+bind_rows(
+  inspections |> mutate(monitor = "Training/testing"),
+  inspections_new |> mutate(monitor = "Monitoring")
+) |> 
+  group_by(monitor, 
+           inspection_date = floor_date(inspection_date, unit = "month")) |> 
+  summarise(results = mean(results == "PASS")) |> 
+  ggplot(aes(inspection_date, results, color = monitor)) +
+  geom_line(alpha = 0.8, linewidth = 1.5) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(y = "% of inspections that have a PASS result", 
+       x = NULL, 
+       color = NULL)
+```
 
 
 ## Possible model monitoring artifacts
@@ -217,6 +473,8 @@ countdown(minutes = 7)
 
 Create a Quarto report or R Markdown dashboard for model monitoring.
 
+Keep in mind that we are seeing some real ✨problems✨ with this model we trained.
+
 Publish your document to Connect.
 
 :::
@@ -226,7 +484,6 @@ Publish your document to Connect.
 library(countdown)
 countdown(minutes = 15)
 ```
-
 
 ## 
 
