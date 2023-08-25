@@ -10,7 +10,7 @@ by Julia Silge and Isabel Zimmerman
 :spiral_calendar: September 18, 2023  
 :alarm_clock:     09:00 - 17:00  
 :hotel:           ROOM TBD  
-:writing_hand:    [pos.it/conf](http://pos.it/conf)
+:writing_hand:    [pos.it/conf](http://pos.it/conf)  
 :speaking_head:   [GitHub Discussions](https://github.com/posit-conf-2023/vetiver/discussions)
 
 -----
@@ -54,7 +54,7 @@ Quarto files for working along [are available on GitHub](https://github.com/posi
 | 15:00 - 15:30 | *Coffee break*   |
 | 15:30 - 17:00 | [Monitor your model](https://posit-conf-2023.github.io/vetiver/slides/04-monitor.html)      |
 
-## Instructor
+## Instructors
 
 Julia Silge is a software engineer at Posit PBC focusing on open source MLOps tools, as well as an author and international keynote speaker. Julia loves making beautiful charts, Jane Austen, and her two cats.
 
