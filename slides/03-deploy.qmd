@@ -140,34 +140,11 @@ vetiver.predict(endpoint=endpoint, data=X_test)
 - [Ten simple rules for writing Dockerfiles for reproducible data science](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008316)
 - [Docker info from Posit Solutions Engineering](https://solutions.posit.co/envs-pkgs/environments/docker/)
 
-# Deploy preprocessors and models together 🤗
+# Model metrics as metadata 🎯
 
-## Deploy preprocessors and models together
-
-![](images/good_workflow.png){fig-align="center"}
-
-## What is wrong with this?
-
-![](images/bad_workflow.png){fig-align="center"}
-
-## Deploy preprocessors and models together
+## Model metrics as metadata
 
 ::: panel-tabset
-### R
-
-```{r}
-library(tidyverse)
-library(tidymodels)
-library(arrow)
-path <- here::here("data", "inspections.parquet")
-inspections <- read_parquet(path)
-
-set.seed(123)
-inspect_split <- initial_split(inspections, prop = 0.8)
-inspect_train <- training(inspect_split)
-inspect_test <- testing(inspect_split)
-```
-
 
 ### Python
 
@@ -188,53 +165,44 @@ X_train, X_test, y_train, y_test = model_selection.train_test_split(
     stratify = y,
     test_size = 0.2
 )
+
+oe = compose.make_column_transformer(
+    (preprocessing.OrdinalEncoder(
+            handle_unknown="use_encoded_value", unknown_value=-1),
+        categorical_features,),
+    remainder="passthrough",
+).fit(X_train)
+rf = ensemble.RandomForestClassifier().fit(oe.transform(X_train), y_train)
+inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", rf)])
 ```
-:::
 
-## Deploy preprocessors and models together
 
-::: panel-tabset
 ### R
 
 ```{r}
+library(tidyverse)
+library(tidymodels)
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
+
+set.seed(123)
+inspect_split <- initial_split(inspections, prop = 0.8)
+inspect_train <- training(inspect_split)
+inspect_test <- testing(inspect_split)
+
 inspection_rec <- 
   recipe(results ~ facility_type + risk + total_violations + inspection_date, 
          data = inspect_train) |> 
-  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE) |> 
-  step_dummy(all_nominal_predictors()) |> 
-  step_normalize(all_predictors())
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE)
 
 inspection_fit <-
-  workflow(inspection_rec, svm_rbf(mode = "classification")) |> 
+  workflow(inspection_rec, rand_forest(mode = "classification", trees = 1e3)) |> 
   fit(data = inspect_train)
 ```
 
-### Python
-
-```{r}
-## TODO for Isabel: put a model here that involves substantive feature engineering (i.e. something learned that could cause data leakage)
-```
 
 :::
-
-## Your turn 🏺 {transition="slide-in"}
-
-::: {.callout-note icon=false}
-
-## Activity
-
-When do you think it makes sense to deploy a preprocessor and pipeline together?
-
-When do you think you might want to deploy them separately?
-
-:::
-
-```{r}
-#| echo: false
-countdown(minutes = 5)
-```
-
-# Model metrics as metadata 🎯
 
 ## Model metrics as metadata
 
