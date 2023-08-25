@@ -18,14 +18,14 @@
     "href": "index.html#is-this-workshop-for-me",
     "title": "Deploy and maintain models with vetiver",
     "section": "Is this workshop for me?",
-    "text": "Is this workshop for me?\nWe expect participants to have exposure to basic modeling and machine learning practice, but NOT expert familiarity with advanced ML or MLOps topics. This workshop is for you if you:\n\nhave intermediate R or Python knowledge (this will be a “choose your own adventure” workshop where you can work through the exercises in either R or Python)\ncan read data from CSV and other flat files, transform and reshape data, and make a wide variety of graphs\ncan fit a model to data with your modeling framework of choice wide variety of graphs"
+    "text": "Is this workshop for me?\nWe expect participants to have exposure to basic modeling and machine learning practice, but NOT expert familiarity with advanced ML or MLOps topics. This workshop is for you if you:\n\nhave intermediate R or Python knowledge (this will be a “choose your own adventure” workshop where you can work through the exercises in either R or Python)\ncan read data from CSV and other flat files, transform and reshape data, and make a wide variety of graphs\ncan fit a model to data with your modeling framework of choice"
   },
   {
     "objectID": "index.html#preparation",
     "href": "index.html#preparation",
     "title": "Deploy and maintain models with vetiver",
     "section": "Preparation",
-    "text": "Preparation\nPlease join the workshop with a computer that has the following installed:\ntktk\nJoin us on GitHub Discussions to ask questions and share ideas."
+    "text": "Preparation\nWe will provide an environment with Posit Workbench and Posit Connect available, but you also have the option to do work locally on your laptop rather than on Posit Workbench. If this is your preference, please come to the workshop with your laptop already set up.\n\nClone the repo so you have the files and data locally\nTo use R: Install recent versions of R and RStudio, along with the packages outlined in our DESCRIPTION file\nTo use Python: Install recent versions of Python (3.7 or greater) in your preferred IDE, along with the packages outlined in our requirements.txt.\nOptionally, install Docker Desktop\n\nJoin us on GitHub Discussions to ask questions and share ideas."
   },
   {
     "objectID": "index.html#schedule",
@@ -137,7 +137,7 @@
     "href": "slides/01-introduction.html#inspection-results-1",
     "title": "1 - Introduction",
     "section": "Inspection results",
-    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    FAIL\n2022-09-23\nTASTY SPOT FOOD & GRILL ON\nGROCERY STORE\nRISK 1 (HIGH)\n8\n    PASS\n2019-09-06\nTZUCO / TALES / PANANGO\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2022-10-21\nSULTAN'S MARKET\nRESTAURANT\nRISK 1 (HIGH)\n180\n    FAIL\n2020-03-23\nROYAL FLAT CARIBBEAN JERK CUISINE\nRESTAURANT\nRISK 1 (HIGH)\n73\n    FAIL\n2019-05-21\nSILVER PLATE\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2022-07-11\nAFC SUSHI @ JEWEL OSCO\nGROCERY STORE\nRISK 1 (HIGH)\n18\n    FAIL\n2019-02-13\nTHE COFFEE ALLEY\nRESTAURANT\nRISK 1 (HIGH)\n35\n    FAIL\n2019-12-09\nRESTAURANT EL MOGOTE\nRESTAURANT\nRISK 1 (HIGH)\n64\n    PASS\n2022-10-25\nFIREFLY BURGER\nRESTAURANT\nRISK 2 (MEDIUM)\n16\n    PASS\n2020-12-15\nFAMILY FOOD & DOLLAR PLUS\nGROCERY STORE\nRISK 2 (MEDIUM)\n33\n    FAIL\n2018-08-08\nWHITEHALL HOTEL/ FORNETTO MEI/ MEI'S CORNER\nRESTAURANT\nRISK 1 (HIGH)\n72\n    FAIL\n2021-05-27\nBIG BOSS\nRESTAURANT\nRISK 1 (HIGH)\n34\n    FAIL\n2019-02-07\nKESHA'S PLACE\nRESTAURANT\nRISK 2 (MEDIUM)\n3\n    FAIL\n2019-02-11\nROCKING HORSE\nRESTAURANT\nRISK 1 (HIGH)\n97\n    FAIL\n2019-08-09\nXANDO COFFEE & BAR / COSI SANDWICH BAR\nRESTAURANT\nRISK 1 (HIGH)\n77"
+    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    FAIL\n2021-10-06\nTHE ROW TAVERN\nRESTAURANT\nRISK 1 (HIGH)\n43\n    FAIL\n2022-11-15\nDAVE FROMANS\nRESTAURANT\nRISK 1 (HIGH)\n4\n    PASS\n2020-07-24\nLA BODEGA FOOD MARKET\nGROCERY STORE\nRISK 2 (MEDIUM)\n16\n    FAIL\n2019-09-26\nARETHA'S DREAM\nRESTAURANT\nRISK 1 (HIGH)\n43\n    FAIL\n2021-03-12\nA & R PUBLIC CLOSEOUT\nGROCERY STORE\nRISK 3 (LOW)\n5\n    FAIL\n2020-05-21\nSAM'S QUICK STOP\nGROCERY STORE\nRISK 3 (LOW)\n3\n    PASS\n2022-12-19\nBUFFET CITY\nRESTAURANT\nRISK 1 (HIGH)\n124\n    PASS\n2019-07-25\nKIDZ CAN COOK\nRESTAURANT\nRISK 1 (HIGH)\n0\n    FAIL\n2020-03-11\nALOHA POKE CO.\nRESTAURANT\nRISK 1 (HIGH)\n13\n    FAIL\n2019-03-06\nSIMPLE DELIGHTS\nRESTAURANT\nRISK 1 (HIGH)\n74\n    PASS\n2022-03-04\n24 HRS GYROS & SUB\nRESTAURANT\nRISK 1 (HIGH)\n75\n    FAIL\n2021-07-20\nDON  PEZ\nRESTAURANT\nRISK 1 (HIGH)\n0\n    FAIL\n2019-12-19\nOAK MILL BAKERY\nRESTAURANT\nRISK 2 (MEDIUM)\n33\n    FAIL\n2021-12-22\nURBAN MARKET\nGROCERY STORE\nRISK 1 (HIGH)\n0\n    PASS\n2019-06-18\nPHILIPPINE PLAZA/UNI-MART ONE STOP SHOPPING\nGROCERY STORE\nRISK 3 (LOW)\n39"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
@@ -203,6 +203,20 @@
     "text": "Create a deployable model object\nR\n\nlibrary(vetiver)\nv &lt;- vetiver_model(inspection_fit, \"inspection-result-rstats\")\nv\n#&gt; \n#&gt; ── inspection-result-rstats ─ &lt;bundled_workflow&gt; model for deployment \n#&gt; A glm classification modeling workflow using 4 features\n\nPython\n\nfrom vetiver import VetiverModel\nv = VetiverModel(inspection_fit, \"inspection-result-python\", prototype_data = X_train)\nv.description\n#&gt; 'A scikit-learn Pipeline model'"
   },
   {
+    "objectID": "slides/01-introduction.html#deploy-preprocessors-and-models-together",
+    "href": "slides/01-introduction.html#deploy-preprocessors-and-models-together",
+    "title": "1 - Introduction",
+    "section": "Deploy preprocessors and models together",
+    "text": "Deploy preprocessors and models together"
+  },
+  {
+    "objectID": "slides/01-introduction.html#what-is-wrong-with-this",
+    "href": "slides/01-introduction.html#what-is-wrong-with-this",
+    "title": "1 - Introduction",
+    "section": "What is wrong with this?",
+    "text": "What is wrong with this?"
+  },
+  {
     "objectID": "slides/01-introduction.html#your-turn-3",
     "href": "slides/01-introduction.html#your-turn-3",
     "title": "1 - Introduction",
@@ -221,7 +235,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230825T203412Z-d32c9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230825T203412Z-7abba'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230825T212943Z-9bac5\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230825T212943Z-650ad'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -270,7 +284,7 @@
     "href": "slides/02-deploy.html#create-your-vetiver-model-and-version",
     "title": "2 - Deploy your model",
     "section": "Create your vetiver model and version",
-    "text": "Create your vetiver model and version\nR\n\nlibrary(vetiver)\nlibrary(pins)\n\nv &lt;- vetiver_model(inspect_fit, \"chicago-inspections-rstats\")\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom vetiver import VetiverModel, vetiver_pin_write\nfrom pins import board_connect\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nv = VetiverModel(inspection_fit, \"chicago-inspections-python\", ptype_data = X_train)\nboard = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
+    "text": "Create your vetiver model and version\nR\n\nlibrary(vetiver)\nlibrary(pins)\n\nv &lt;- vetiver_model(inspect_fit, \"chicago-inspections-rstats\")\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)\n\nPython\n\nfrom vetiver import VetiverModel, vetiver_pin_write\nfrom pins import board_connect\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nv = VetiverModel(inspection_fit, \"chicago-inspections-python\", prototype_data = X_train)\nboard = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)"
   },
   {
     "objectID": "slides/02-deploy.html#make-it-easy-to-do-the-right-thing",
@@ -350,8 +364,8 @@
     "text": "Your turn 🏺\n\n\n\nActivity\n\n\nDeploy your model to our Posit Connect instance.\nGive your API a vanity URL.\nSet your API as accessible to “Anyone”, for convenience.\nCompare the results to your local API. Is anything different?\n\n\n\n\n\n\n−+\n07:00"
   },
   {
-    "objectID": "slides/02-deploy.html#section",
-    "href": "slides/02-deploy.html#section",
+    "objectID": "slides/02-deploy.html#section-1",
+    "href": "slides/02-deploy.html#section-1",
     "title": "2 - Deploy your model",
     "section": "",
     "text": "You did it! 🥳"
@@ -375,7 +389,7 @@
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\n\nRPython\n\n\n\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 1\n#&gt;    .pred_class\n#&gt;    &lt;chr&gt;      \n#&gt;  1 FAIL       \n#&gt;  2 PASS       \n#&gt;  3 PASS       \n#&gt;  4 FAIL       \n#&gt;  5 FAIL       \n#&gt;  6 PASS       \n#&gt;  7 FAIL       \n#&gt;  8 FAIL       \n#&gt;  9 PASS       \n#&gt; 10 FAIL\n\n\n\n\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    PASS\n#&gt; 1    FAIL\n#&gt; 2    PASS\n#&gt; 3    FAIL\n#&gt; 4    PASS\n#&gt; 5    PASS\n#&gt; 6    PASS\n#&gt; 7    FAIL\n#&gt; 8    FAIL\n#&gt; 9    PASS"
+    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\n\nRPython\n\n\n\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 1\n#&gt;    .pred_class\n#&gt;    &lt;chr&gt;      \n#&gt;  1 FAIL       \n#&gt;  2 PASS       \n#&gt;  3 PASS       \n#&gt;  4 FAIL       \n#&gt;  5 FAIL       \n#&gt;  6 PASS       \n#&gt;  7 FAIL       \n#&gt;  8 FAIL       \n#&gt;  9 PASS       \n#&gt; 10 FAIL\n\n\n\n\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    PASS\n#&gt; 1    FAIL\n#&gt; 2    FAIL\n#&gt; 3    PASS\n#&gt; 4    PASS\n#&gt; 5    FAIL\n#&gt; 6    PASS\n#&gt; 7    FAIL\n#&gt; 8    PASS\n#&gt; 9    PASS"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-3",
@@ -410,7 +424,7 @@
     "href": "slides/02-deploy.html#model-input-prototype-1",
     "title": "2 - Deploy your model",
     "section": "Model input prototype",
-    "text": "Model input prototype\nNotice that our Python model has different inputs than our R model:\n\nRPython\n\n\n\nglimpse(inspect_train)\n#&gt; Rows: 5,573\n#&gt; Columns: 6\n#&gt; $ results          &lt;fct&gt; FAIL, PASS, FAIL, FAIL, FAIL, PASS, PASS, PASS, PASS,…\n#&gt; $ inspection_date  &lt;date&gt; 2020-05-28, 2020-06-11, 2020-04-09, 2019-02-04, 2021…\n#&gt; $ aka_name         &lt;chr&gt; \"GRAND SHELL\", \"DSD DELI\", \"BP GAS\", \"LA MICHOACANA I…\n#&gt; $ facility_type    &lt;fct&gt; GROCERY STORE, GROCERY STORE, GROCERY STORE, RESTAURA…\n#&gt; $ risk             &lt;fct&gt; RISK 3 (LOW), RISK 1 (HIGH), RISK 3 (LOW), RISK 1 (HI…\n#&gt; $ total_violations &lt;dbl&gt; 31, 0, 25, 42, 17, 4, 17, 0, 2, 80, 94, 0, 37, 86, 66…\n\n\n\n\nX_train\n#&gt;       facility_type             risk  total_violations  month  year\n#&gt; 5520  GROCERY STORE    RISK 1 (HIGH)              94.0      7  2022\n#&gt; 2660  GROCERY STORE     RISK 3 (LOW)               8.0      7  2020\n#&gt; 5087     RESTAURANT    RISK 1 (HIGH)              49.0      6  2022\n#&gt; 6163     RESTAURANT    RISK 1 (HIGH)              98.0     10  2022\n#&gt; 600      RESTAURANT    RISK 1 (HIGH)               2.0      2  2019\n#&gt; ...             ...              ...               ...    ...   ...\n#&gt; 124      RESTAURANT    RISK 1 (HIGH)              31.0      8  2018\n#&gt; 1031     RESTAURANT  RISK 2 (MEDIUM)               0.0      6  2019\n#&gt; 1694     RESTAURANT    RISK 1 (HIGH)             131.0     11  2019\n#&gt; 1382     RESTAURANT    RISK 1 (HIGH)               0.0      9  2019\n#&gt; 372      RESTAURANT  RISK 2 (MEDIUM)               3.0     11  2018\n#&gt; \n#&gt; [5573 rows x 5 columns]"
+    "text": "Model input prototype\nNotice that our Python model has different inputs than our R model:\n\nRPython\n\n\n\nglimpse(inspect_train)\n#&gt; Rows: 5,573\n#&gt; Columns: 6\n#&gt; $ results          &lt;fct&gt; FAIL, PASS, FAIL, FAIL, FAIL, PASS, PASS, PASS, PASS,…\n#&gt; $ inspection_date  &lt;date&gt; 2020-05-28, 2020-06-11, 2020-04-09, 2019-02-04, 2021…\n#&gt; $ aka_name         &lt;chr&gt; \"GRAND SHELL\", \"DSD DELI\", \"BP GAS\", \"LA MICHOACANA I…\n#&gt; $ facility_type    &lt;fct&gt; GROCERY STORE, GROCERY STORE, GROCERY STORE, RESTAURA…\n#&gt; $ risk             &lt;fct&gt; RISK 3 (LOW), RISK 1 (HIGH), RISK 3 (LOW), RISK 1 (HI…\n#&gt; $ total_violations &lt;dbl&gt; 31, 0, 25, 42, 17, 4, 17, 0, 2, 80, 94, 0, 37, 86, 66…\n\n\n\n\nX_train\n#&gt;       facility_type             risk  total_violations  month  year\n#&gt; 6755     RESTAURANT    RISK 1 (HIGH)               0.0     12  2022\n#&gt; 406   GROCERY STORE    RISK 1 (HIGH)              10.0     12  2018\n#&gt; 5613     RESTAURANT    RISK 1 (HIGH)               7.0      8  2022\n#&gt; 4275     RESTAURANT  RISK 2 (MEDIUM)              63.0     12  2021\n#&gt; 832      RESTAURANT    RISK 1 (HIGH)              69.0      4  2019\n#&gt; ...             ...              ...               ...    ...   ...\n#&gt; 1373     RESTAURANT    RISK 1 (HIGH)               0.0      9  2019\n#&gt; 3588     RESTAURANT  RISK 2 (MEDIUM)              48.0      6  2021\n#&gt; 765      RESTAURANT     RISK 3 (LOW)               2.0      4  2019\n#&gt; 6050  GROCERY STORE     RISK 3 (LOW)               1.0      9  2022\n#&gt; 1940     RESTAURANT    RISK 1 (HIGH)              10.0      1  2020\n#&gt; \n#&gt; [5573 rows x 5 columns]"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-5",
@@ -473,7 +487,7 @@
     "href": "slides/03-deploy.html#create-docker-artifacts-1",
     "title": "3 - Deeper into deployment",
     "section": "Create Docker artifacts",
-    "text": "Create Docker artifacts\n\n\nDockerfile\nModel dependencies, typically requirements.txt or renv.lock\nFile to serve API, typically app.py or plumber.R\n\n\nR\n\nvetiver_prepare_docker(board, \"isabel.zimmerman/inspection-results-r\", port = 8080)\n\nPython\n\nvetiver.prepare_docker(\n    board, \n    \"isabel.zimmerman/inspection-results-python\",\n    version = \"20220901T144702Z-fd402\",\n    port = 8080\n)"
+    "text": "Create Docker artifacts\n\n\nDockerfile\nModel dependencies, typically requirements.txt or renv.lock\nFile to serve API, typically app.py or plumber.R\n\n\nR\n\nvetiver_prepare_docker(board, \"julia.silge/inspection-results-rstats\", port = 8080)\n\nPython\n\nvetiver.prepare_docker(\n    board, \n    \"isabel.zimmerman/inspection-results-python\"\n    port = 8080\n)"
   },
   {
     "objectID": "slides/03-deploy.html#build-your-container",
@@ -504,18 +518,123 @@
     "text": "Docker resources\n\nEnough Docker to be Dangerous\nPython Docker\nTen simple rules for writing Dockerfiles for reproducible data science\nDocker info from Posit Solutions Engineering"
   },
   {
-    "objectID": "slides/03-deploy.html#deploy-preprocessors-and-models-together-1",
-    "href": "slides/03-deploy.html#deploy-preprocessors-and-models-together-1",
+    "objectID": "slides/03-deploy.html#model-metrics-as-metadata-1",
+    "href": "slides/03-deploy.html#model-metrics-as-metadata-1",
     "title": "3 - Deeper into deployment",
-    "section": "Deploy preprocessors and models together",
-    "text": "Deploy preprocessors and models together"
+    "section": "Model metrics as metadata",
+    "text": "Model metrics as metadata\n\nPythonR\n\n\n\nimport pandas as pd\nimport numpy as np\nfrom sklearn import preprocessing, ensemble, pipeline, compose, model_selection\n\ninspections = pd.read_parquet('../data/inspections.parquet')\ninspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])\ninspections['month'] = inspections['inspection_date'].dt.month\ninspections['year'] = inspections['inspection_date'].dt.year\n\ncategorical_features = ['facility_type', 'risk', 'month', 'year']\nX, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']\nX_train, X_test, y_train, y_test = model_selection.train_test_split(\n    X, y,\n    stratify = y,\n    test_size = 0.2\n)\n\noe = compose.make_column_transformer(\n    (preprocessing.OrdinalEncoder(\n            handle_unknown=\"use_encoded_value\", unknown_value=-1),\n        categorical_features,),\n    remainder=\"passthrough\",\n).fit(X_train)\nrf = ensemble.RandomForestClassifier().fit(oe.transform(X_train), y_train)\ninspection_fit = pipeline.Pipeline([(\"ordinal_encoder\", oe), (\"random_forest\", rf)])\n\n\n\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(arrow)\npath &lt;- here::here(\"data\", \"inspections.parquet\")\ninspections &lt;- read_parquet(path)\n\nset.seed(123)\ninspect_split &lt;- initial_split(inspections, prop = 0.8)\ninspect_train &lt;- training(inspect_split)\ninspect_test &lt;- testing(inspect_split)\n\ninspection_rec &lt;- \n  recipe(results ~ facility_type + risk + total_violations + inspection_date, \n         data = inspect_train) |&gt; \n  step_date(inspection_date, features = c(\"month\", \"year\"), keep_original_cols = FALSE)\n\ninspection_fit &lt;-\n  workflow(inspection_rec, rand_forest(mode = \"classification\", trees = 1e3)) |&gt; \n  fit(data = inspect_train)"
   },
   {
-    "objectID": "slides/03-deploy.html#what-is-wrong-with-this",
-    "href": "slides/03-deploy.html#what-is-wrong-with-this",
+    "objectID": "slides/03-deploy.html#model-metrics-as-metadata-2",
+    "href": "slides/03-deploy.html#model-metrics-as-metadata-2",
     "title": "3 - Deeper into deployment",
-    "section": "What is wrong with this?",
-    "text": "What is wrong with this?"
+    "section": "Model metrics as metadata",
+    "text": "Model metrics as metadata\n\nPythonR\n\n\n\nfrom sklearn import metrics\n\nmetric_set = [metrics.accuracy_score, metrics.f1_score, metrics.log_loss]\ny_predictions = pd.Series(inspection_fit.predict(X_test)).map({\"PASS\": 1, \"FAIL\": 0})\ny_truth = y_test.map({\"PASS\": 1, \"FAIL\": 0})\n\ninspect_metrics = pd.DataFrame()\nfor metric in metric_set:\n    metric_name = str(metric.__name__)\n    metric_output = metric(y_truth, y_predictions)\n    inspect_metrics = pd.concat(\n        (\n            inspect_metrics,\n            pd.DataFrame({\"name\": [metric_name],\n                          \"score\": [metric_output]}),\n        ),\n        axis=0,\n    )\n\ninspect_metrics.reset_index(inplace=True, drop=True)\ninspect_metrics\n#&gt;              name      score\n#&gt; 0  accuracy_score   0.663558\n#&gt; 1        f1_score   0.692862\n#&gt; 2        log_loss  12.126595\n\n\n\n\ninspect_metric_set &lt;- metric_set(accuracy, mn_log_loss, f_meas)\ninspect_metrics &lt;-\n    augment(inspection_fit, new_data = inspect_test) |&gt;\n    inspect_metric_set(truth = results, estimate = .pred_class, .pred_FAIL)\n\ninspect_metrics\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.694\n#&gt; 2 f_meas      binary         0.643\n#&gt; 3 mn_log_loss binary         0.601"
+  },
+  {
+    "objectID": "slides/03-deploy.html#model-metrics-as-metadata-3",
+    "href": "slides/03-deploy.html#model-metrics-as-metadata-3",
+    "title": "3 - Deeper into deployment",
+    "section": "Model metrics as metadata",
+    "text": "Model metrics as metadata\n\nPythonR\n\n\n\nimport vetiver\nv = vetiver.VetiverModel(\n    inspection_fit,\n    prototype_data = X_train,\n    model_name = \"chicago-inspections-python\",\n    metadata = inspect_metrics.to_dict(),\n)\nv.description\n#&gt; 'A scikit-learn Pipeline model'\n\n\n\n\nlibrary(vetiver)\nv &lt;- vetiver_model(\n    inspection_fit, \n    \"chicago-inspections-rstats\", \n    metadata = list(metrics = inspect_metrics)\n)\nv\n#&gt; \n#&gt; ── chicago-inspections-rstats ─ &lt;bundled_workflow&gt; model for deployment \n#&gt; A ranger classification modeling workflow using 4 features"
+  },
+  {
+    "objectID": "slides/03-deploy.html#model-metrics-as-metadata-4",
+    "href": "slides/03-deploy.html#model-metrics-as-metadata-4",
+    "title": "3 - Deeper into deployment",
+    "section": "Model metrics as metadata",
+    "text": "Model metrics as metadata\n\nWe pin our vetiver model to a board to version it\nThe metadata, including our metrics, are versioned along with the model\n\n\nPythonR\n\n\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\n\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nboard = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)\n\n\n\n\nlibrary(pins)\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)"
+  },
+  {
+    "objectID": "slides/03-deploy.html#your-turn",
+    "href": "slides/03-deploy.html#your-turn",
+    "title": "3 - Deeper into deployment",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCompute metrics for your model using the testing data.\nStore these metrics as metadata in a vetiver model object.\nWrite this new vetiver model object as a new version of your pin.\n\n\n\n\n\n\n−+\n07:00"
+  },
+  {
+    "objectID": "slides/03-deploy.html#model-metrics-as-metadata-5",
+    "href": "slides/03-deploy.html#model-metrics-as-metadata-5",
+    "title": "3 - Deeper into deployment",
+    "section": "Model metrics as metadata",
+    "text": "Model metrics as metadata\nHow do we extract our metrics out to use them?\n\nPythonR\n\n\n\nmetadata = board.pin_meta(\"chicago-inspections-python\")\nextracted_metrics = pd.DataFrame(metadata.user.get(\"user\"))\nextracted_metrics\n#&gt;              name      score\n#&gt; 0  accuracy_score   0.663558\n#&gt; 1        f1_score   0.692862\n#&gt; 2        log_loss  12.126595\n\n\n\n\nextracted_metrics &lt;- \n    board |&gt; \n    pin_meta(\"chicago-inspections-rstats\") |&gt; \n    pluck(\"user\", \"metrics\") |&gt; \n    as_tibble()\n\nextracted_metrics\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.694\n#&gt; 2 f_meas      binary         0.643\n#&gt; 3 mn_log_loss binary         0.601"
+  },
+  {
+    "objectID": "slides/03-deploy.html#your-turn-1",
+    "href": "slides/03-deploy.html#your-turn-1",
+    "title": "3 - Deeper into deployment",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nObtain the metrics metadata for your versioned model.\nObtain the metrics metadata for your neighbor’s model.\nWhat else might you want to store as model metadata?\nHow or when might you use model metadata?\n\n\n\n\n\n\n−+\n07:00"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-1",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-1",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\n\nA lot of code is being generated throughout this deployment process\nYou have access to that code and can alter it yourself!\nThe vetiver framework has sensible defaults but is extensible for more complex use cases\nWhat really sets up your model API?"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-2",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-2",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\nR\n\nvetiver_write_plumber(board, \"inspection-result-rstats\")\n\n# Generated by the vetiver package; edit with care\n\nlibrary(pins)\nlibrary(plumber)\nlibrary(rapidoc)\nlibrary(vetiver)\n\n# Packages needed to generate model predictions\nif (FALSE) {\n    library(kernlab)\n    library(parsnip)\n    library(recipes)\n    library(workflows)\n}\nb &lt;- board_connect(auth = \"envvar\")\nv &lt;- vetiver_pin_read(b, \"julia.silge/chicago-inspections-rstats\", version = \"78859\")\n\n#* @plumber\nfunction(pr) {\n    pr %&gt;% vetiver_api(v)\n}"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-3",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-3",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\nPython\n\nvetiver.write_app(board, \"isabel.zimmerman/inspection-result-python\")\n\nfrom vetiver import VetiverModel\nimport vetiver\nimport pins\n\n\nb = pins.board_connect(server_url='https://colorado.posit.co/rsc', allow_pickle_read=True)\nv = VetiverModel.from_pin(b, 'isabel.zimmerman/inspection-result-python', version = '78841')\n\nvetiver_api = vetiver.VetiverAPI(v)\napi = vetiver_api.app"
+  },
+  {
+    "objectID": "slides/03-deploy.html#your-turn-2",
+    "href": "slides/03-deploy.html#your-turn-2",
+    "title": "3 - Deeper into deployment",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a Plumber or FastAPI app file to serve your model’s predictions.\nRun this app locally and check out the visual documentation again.\n\n\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-4",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-4",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\n\nIn Python, you add more endpoints to your FastAPI app file\nIn R, you add more endpoints in your Plumber app file\nIn both cases, it is ultimately up to you to decide what your API’s endpoints should be!"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-5",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-5",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\nR\n# Generated by the vetiver package; edit with care\n\nlibrary(pins)\nlibrary(plumber)\nlibrary(rapidoc)\nlibrary(vetiver)\n\n# Packages needed to generate model predictions\nif (FALSE) {\n    library(kernlab)\n    library(parsnip)\n    library(recipes)\n    library(workflows)\n}\nb &lt;- board_connect(auth = \"envvar\")\nv &lt;- vetiver_pin_read(b, \"julia.silge/chicago-inspections-rstats\", version = \"78859\")\n\n#* @plumber\nfunction(pr) {\n    pr %&gt;% vetiver_api(v)\n}"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-6",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-6",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\nR\n# Generated by the vetiver package; edit with care\n\nlibrary(pins)\nlibrary(plumber)\nlibrary(rapidoc)\nlibrary(vetiver)\nlibrary(lubridate)\n\n# Packages needed to generate model predictions\nif (FALSE) {\n    library(kernlab)\n    library(parsnip)\n    library(recipes)\n    library(workflows)\n}\nb &lt;- board_connect(auth = \"envvar\")\nv &lt;- vetiver_pin_read(b, \"julia.silge/chicago-inspections-rstats\", version = \"78859\")\n\nhander_weekday &lt;- function(req) {\n    wday(req$body$inspection_date, label = TRUE)\n}\n\n#* @plumber\nfunction(pr) {\n    pr |&gt;  \n        vetiver_api(v) |&gt; \n        pr_post(path = \"/weekday\", handler = hander_weekday)\n}"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-7",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-7",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\nPython\nfrom vetiver import VetiverModel\nimport vetiver\nimport pins\n\n\nb = pins.board_connect(server_url='https://colorado.posit.co/rsc', allow_pickle_read=True)\nv = VetiverModel.from_pin(b, 'isabel.zimmerman/inspection-result-python', version = '78841')\n\nvetiver_api = vetiver.VetiverAPI(v)\napi = vetiver_api.app"
+  },
+  {
+    "objectID": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-8",
+    "href": "slides/03-deploy.html#add-a-new-endpoint-to-your-api-8",
+    "title": "3 - Deeper into deployment",
+    "section": "Add a new endpoint to your API",
+    "text": "Add a new endpoint to your API\nPython\nfrom vetiver import VetiverModel\nimport vetiver\nimport pins\nimport calendar\n\n\nb = pins.board_connect(server_url='https://colorado.posit.co/rsc', allow_pickle_read=True)\nv = VetiverModel.from_pin(b, 'isabel.zimmerman/inspection-result-python', version = '78841')\n\ndef get_month_names(x):\n  mnth_name = x[\"month\"].apply(lambda x: calendar.month_name[x])\n  return mnth_name\n\nvetiver_api = vetiver.VetiverAPI(v)\nvetiver_api.vetiver_post(get_month_names, \"get_month_names\")\napi = vetiver_api.app"
+  },
+  {
+    "objectID": "slides/03-deploy.html#your-turn-3",
+    "href": "slides/03-deploy.html#your-turn-3",
+    "title": "3 - Deeper into deployment",
+    "section": "Your turn 🏺",
+    "text": "Your turn 🏺\n\n\n\nActivity\n\n\nAdd a new endpoint to the API app file you already made.\nRun the app locally and check out your new endpoint.\nHow might you want to use an additional endpoint?\n\n\n\n\n\n\n−+\n07:00\n\n\n\n\n\nhttps://posit-conf-2023.github.io/vetiver"
   },
   {
     "objectID": "slides/04-monitor.html#plan-for-this-workshop",
@@ -714,8 +833,8 @@
     "text": "Your turn 🏺\n\n\n\nActivity\n\n\nCreate a Quarto report or R Markdown dashboard for model monitoring.\nKeep in mind that we are seeing some real ✨problems✨ with this model we trained.\nPublish your document to Connect.\n\n\n\n\n\n\n−+\n15:00"
   },
   {
-    "objectID": "slides/04-monitor.html#section",
-    "href": "slides/04-monitor.html#section",
+    "objectID": "slides/04-monitor.html#section-1",
+    "href": "slides/04-monitor.html#section-1",
     "title": "4 - Monitor your model",
     "section": "",
     "text": "We made it! 🎉"
