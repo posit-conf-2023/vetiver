@@ -480,7 +480,7 @@ countdown(minutes = 5)
 
 ## Add a new endpoint to your API
 
-- In Python, you add more endpoints to your `VetiverAPI` object
+- In Python, you add more endpoints to your FastAPI app file
 - In R, you add more endpoints in your Plumber app file
 - In both cases, it is ultimately up to you to decide what your API's endpoints should be!
 
