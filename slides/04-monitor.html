@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -359,6 +424,43 @@
 </ul>
 </div>
 </section>
+<section id="data-for-model-development" class="slide level2">
+<h2>Data for model development</h2>
+<p>Data that you use while building a model for training/testing</p>
+<h3 id="r">R</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>path <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"inspections.parquet"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>inspections <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="python">Python</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2"></a>inspections <span class="op">=</span> pd.read_parquet(<span class="st">'../data/inspections.parquet'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-for-model-monitoring" class="slide level2">
+<h2>Data for model monitoring</h2>
+<p>New data that you predict on after your model deployed</p>
+<h3 id="r-1">R</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>path <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"inspections_monitoring.parquet"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>inspections_new <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="python-1">Python</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2"></a>inspections_new <span class="op">=</span> pd.read_parquet(<span class="st">'../data/inspections_monitoring.parquet'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>inspections_new[<span class="st">'inspection_date'</span>] <span class="op">=</span> pd.to_datetime(inspections_new[<span class="st">'inspection_date'</span>])</span>
+<span id="cb4-4"><a href="#cb4-4"></a>inspections_new[<span class="st">'month'</span>] <span class="op">=</span> inspections_new[<span class="st">'inspection_date'</span>].dt.month</span>
+<span id="cb4-5"><a href="#cb4-5"></a>inspections_new[<span class="st">'year'</span>] <span class="op">=</span> inspections_new[<span class="st">'inspection_date'</span>].dt.year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-for-model-monitoring-1" class="slide level2">
+<h2>Data for model monitoring</h2>
+
+<img data-src="04-monitor_files/figure-revealjs/unnamed-chunk-6-1.svg" class="r-stretch quarto-figure-center"></section>
 <section id="my-model-is-performing-well" class="slide level2">
 <h2>My model is performing well!</h2>
 <div class="fragment">
@@ -421,6 +523,12 @@
 </div>
 </div>
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="r-fit-text">
+<p>MODEL RETRAINING</p>
+</div>
+</section>
 <section id="your-turn" class="slide level2" data-transition="slide-in">
 <h2>Your turn 🏺</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -435,7 +543,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a4a24994" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_390ca38d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -446,16 +554,186 @@
 <h2>Learn more about model monitoring on tktk</h2>
 <p>Come hear Julia’s talk on reliable maintenance of ML models on tktk in tktk!</p>
 </section>
+<section>
 <section id="monitor-your-models-inputs" class="title-slide slide level1 center">
-<h1>Monitor your models’ <strong>inputs</strong></h1>
-<p>tktk</p>
-</section>
+<h1>Monitor your model’s <strong>inputs</strong></h1>
 
+</section>
+<section id="monitor-your-models-inputs-1" class="slide level2">
+<h2>Monitor your model’s inputs</h2>
+<p>Typically it is most useful to compare to your <em>model development</em> data<sup>1</sup></p>
+<ul>
+<li class="fragment">Statistical distribution of features individually</li>
+<li class="fragment">Statistical characteristics of features as a whole
+<ul>
+<li class="fragment">Applicability scores: <a href="https://applicable.tidymodels.org/" class="uri">https://applicable.tidymodels.org/</a></li>
+</ul></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Remember you can store metrics of any kind from model development as metadata!</p></li></ol></aside></section>
+<section id="monitor-your-models-inputs-2" class="slide level2">
+<h2>Monitor your model’s inputs</h2>
+
+<img data-src="04-monitor_files/figure-revealjs/unnamed-chunk-8-1.svg" class="r-stretch quarto-figure-center"></section>
+<section id="monitor-your-models-inputs-3" class="slide level2">
+<h2>Monitor your model’s inputs</h2>
+
+<img data-src="04-monitor_files/figure-revealjs/unnamed-chunk-9-1.svg" class="r-stretch quarto-figure-center"></section>
+<section id="your-turn-1" class="slide level2" data-transition="slide-in">
+<h2>Your turn 🏺</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Activity</strong></p>
+</div>
+<div class="callout-content">
+<p>Create a plot or table comparing the development vs.&nbsp;monitoring distributions of a model input/feature.</p>
+<p>How might you make this comparison if you didn’t have all the model development data available when monitoring?</p>
+<p>What summary statistics might you record during model development, to prepare for monitoring?</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_f0de55e9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section></section>
+<section>
 <section id="monitor-your-models-outputs" class="title-slide slide level1 center">
-<h1>Monitor your models’ <strong>outputs</strong></h1>
-<p>tktk</p>
-</section>
+<h1>Monitor your model’s <strong>outputs</strong></h1>
 
+</section>
+<section id="monitor-your-models-outputs-1" class="slide level2">
+<h2>Monitor your model’s outputs</h2>
+<ul>
+<li class="fragment">In some ML systems, you eventually get a “real” result after making a prediction</li>
+<li class="fragment">If the Chicago of Public Health used a model like this one, they would get:
+<ul>
+<li class="fragment">A prediction from their model</li>
+<li class="fragment">A real inspection result after they did their inspection</li>
+</ul></li>
+<li class="fragment">In this case, we can monitor our model’s statistical performance<br>
+</li>
+<li class="fragment">If you don’t ever get a “real” result, you can still monitor the distribution of your outputs</li>
+</ul>
+</section>
+<section id="monitor-your-models-outputs-2" class="slide level2">
+<h2>Monitor your model’s outputs</h2>
+<h3 id="python-2">Python</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> vetiver <span class="im">import</span> vetiver_endpoint, predict, compute_metrics, plot_metrics</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> recall_score, accuracy_score</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="im">from</span> datetime <span class="im">import</span> timedelta</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>url <span class="op">=</span> <span class="st">"https://colorado.posit.co/rsc/chicago-inspections-python/predict"</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>endpoint <span class="op">=</span> vetiver_endpoint(url)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>inspections_new[<span class="st">"preds"</span>] <span class="op">=</span> predict(endpoint <span class="op">=</span> url, data <span class="op">=</span> inspections_new.drop(columns <span class="op">=</span> [<span class="st">"results"</span>, <span class="st">"aka_name"</span>, <span class="st">"inspection_date"</span>]))</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>inspections_new[<span class="st">"preds"</span>] <span class="op">=</span> inspections_new[<span class="st">"preds"</span>].<span class="bu">map</span>({<span class="st">"PASS"</span>: <span class="dv">1</span>, <span class="st">"FAIL"</span>: <span class="dv">0</span>})</span>
+<span id="cb5-10"><a href="#cb5-10"></a>inspections_new[<span class="st">"results"</span>] <span class="op">=</span> inspections_new[<span class="st">"results"</span>].<span class="bu">map</span>({<span class="st">"PASS"</span>: <span class="dv">1</span>, <span class="st">"FAIL"</span>: <span class="dv">0</span>})</span>
+<span id="cb5-11"><a href="#cb5-11"></a></span>
+<span id="cb5-12"><a href="#cb5-12"></a>td <span class="op">=</span> timedelta(weeks <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>metric_set <span class="op">=</span> [accuracy_score, recall_score]</span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a>m <span class="op">=</span> compute_metrics(</span>
+<span id="cb5-16"><a href="#cb5-16"></a>    data <span class="op">=</span> inspections_new,</span>
+<span id="cb5-17"><a href="#cb5-17"></a>    date_var <span class="op">=</span> <span class="st">"inspection_date"</span>, </span>
+<span id="cb5-18"><a href="#cb5-18"></a>    period <span class="op">=</span> td,</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    metric_set <span class="op">=</span> metric_set,</span>
+<span id="cb5-20"><a href="#cb5-20"></a>    truth <span class="op">=</span> <span class="st">"results"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21"></a>    estimate <span class="op">=</span> <span class="st">"preds"</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>  )</span>
+<span id="cb5-23"><a href="#cb5-23"></a>  </span>
+<span id="cb5-24"><a href="#cb5-24"></a>plot_metrics(m).show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section>
+<section id="monitor-your-models-outputs-2-output" class="slide level2 output-location-slide"><h2>Monitor your model’s outputs</h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+
+<div>                            <div id="eef9a5b8-c788-4875-a44b-6d20d14254e5" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("eef9a5b8-c788-4875-a44b-6d20d14254e5")) {                    Plotly.newPlot(                        "eef9a5b8-c788-4875-a44b-6d20d14254e5",                        [{"customdata":[[333],[305],[364],[453],[404],[346],[407],[361]],"hovertemplate":"metric=accuracy_score\u003cbr\u003eindex=%{x}\u003cbr\u003eestimate=%{y}\u003cbr\u003en=%{customdata[0]:}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"accuracy_score","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"markers+lines","name":"accuracy_score","orientation":"v","showlegend":true,"x":["2023-01-03T00:00:00","2023-01-31T00:00:00","2023-02-28T00:00:00","2023-03-28T00:00:00","2023-04-25T00:00:00","2023-05-23T00:00:00","2023-06-20T00:00:00","2023-07-18T00:00:00"],"xaxis":"x2","y":[0.3003003003003003,0.2754098360655738,0.21978021978021978,0.26048565121412803,0.28217821782178215,0.31213872832369943,0.27764127764127766,0.3379501385041551],"yaxis":"y2","type":"scatter"},{"customdata":[[333],[305],[364],[453],[404],[346],[407],[361]],"hovertemplate":"metric=recall_score\u003cbr\u003eindex=%{x}\u003cbr\u003eestimate=%{y}\u003cbr\u003en=%{customdata[0]:}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"recall_score","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"markers+lines","name":"recall_score","orientation":"v","showlegend":true,"x":["2023-01-03T00:00:00","2023-01-31T00:00:00","2023-02-28T00:00:00","2023-03-28T00:00:00","2023-04-25T00:00:00","2023-05-23T00:00:00","2023-06-20T00:00:00","2023-07-18T00:00:00"],"xaxis":"x","y":[0.1076923076923077,0.09166666666666666,0.03436426116838488,0.03498542274052478,0.08333333333333333,0.10116731517509728,0.07987220447284345,0.08235294117647059],"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.98],"title":{"text":"index"}},"yaxis":{"anchor":"x","domain":[0.0,0.485],"title":{"text":"estimate"}},"xaxis2":{"anchor":"y2","domain":[0.0,0.98],"matches":"x","showticklabels":false},"yaxis2":{"anchor":"x2","domain":[0.515,1.0],"matches":"y","title":{"text":"estimate"}},"annotations":[{"font":{},"showarrow":false,"text":"recall_score","textangle":90,"x":0.98,"xanchor":"left","xref":"paper","y":0.2425,"yanchor":"middle","yref":"paper"},{"font":{},"showarrow":false,"text":"accuracy_score","textangle":90,"x":0.98,"xanchor":"left","xref":"paper","y":0.7575000000000001,"yanchor":"middle","yref":"paper"}],"legend":{"title":{"text":"metric"},"tracegroupgap":0},"margin":{"t":60},"showlegend":false},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('eef9a5b8-c788-4875-a44b-6d20d14254e5');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div></section><section id="monitor-your-models-outputs-3" class="slide level2">
+<h2>Monitor your model’s outputs</h2>
+<h3 id="r-2">R</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(vetiver)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">library</span>(workflows)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>url <span class="ot">&lt;-</span> <span class="st">"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>endpoint <span class="ot">&lt;-</span> <span class="fu">vetiver_endpoint</span>(url)</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="fu">augment</span>(endpoint, <span class="at">new_data =</span> inspections_new) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  <span class="fu">mutate</span>(<span class="at">.pred_class =</span> <span class="fu">as.factor</span>(.pred_class)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-9"><a href="#cb6-9"></a>  <span class="fu">vetiver_compute_metrics</span>(</span>
+<span id="cb6-10"><a href="#cb6-10"></a>    inspection_date, </span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="st">"month"</span>, </span>
+<span id="cb6-12"><a href="#cb6-12"></a>    results, </span>
+<span id="cb6-13"><a href="#cb6-13"></a>    .pred_class,</span>
+<span id="cb6-14"><a href="#cb6-14"></a>    <span class="at">metric_set =</span> <span class="fu">metric_set</span>(accuracy, sensitivity)</span>
+<span id="cb6-15"><a href="#cb6-15"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb6-16"><a href="#cb6-16"></a>  <span class="fu">vetiver_plot_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section>
+<section id="monitor-your-models-outputs-3-output" class="slide level2 output-location-slide"><h2>Monitor your model’s outputs</h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-monitor_files/figure-revealjs/unnamed-chunk-12-1.svg"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="your-turn-2" class="slide level2" data-transition="slide-in">
+<h2>Your turn 🏺</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Activity</strong></p>
+</div>
+<div class="callout-content">
+<p>Use the functions for metrics monitoring from vetiver to create a monitoring visualization.</p>
+<p>Choose a different set of metrics or time aggregation.</p>
+<p>Note that there are functions for using pins as a way to version and update monitoring results too!</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_0342ced5" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section></section>
 <section id="feedback-loops" class="title-slide slide level1 center">
 <h1>Feedback loops 🔁</h1>
 <p>Deployment of an ML model may <em>alter</em> the training data</p>
@@ -488,7 +766,7 @@
 <p><a href="https://www.oreilly.com/library/view/building-machine-learning/9781492053187/"><em>Building Machine Learning Pipelines</em> by Hapke &amp; Nelson</a></p>
 </div>
 </section>
-<section id="your-turn-1" class="slide level2" data-transition="slide-in">
+<section id="your-turn-3" class="slide level2" data-transition="slide-in">
 <h2>Your turn 🏺</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -503,15 +781,15 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3653c7a7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_ac0a7f3c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
-<section id="connect-model-metrics-to-organizational-outcomes" class="slide level2">
-<h2>Connect model metrics to organizational outcomes</h2>
+<section id="ml-metrics-organizational-outcomes" class="slide level2">
+<h2>ML metrics ➡️ organizational outcomes</h2>
 <ul>
 <li class="fragment">Are machine learning metrics like F1 score or accuracy what matter to your organization?</li>
 <li class="fragment">Consider how ML metrics are related to important outcomes or KPIs for your business or org</li>
@@ -519,7 +797,7 @@
 <li class="fragment">You can <strong>partner</strong> with stakeholders to monitor what’s truly important about your model</li>
 </ul>
 </section>
-<section id="your-turn-2" class="slide level2" data-transition="slide-in">
+<section id="your-turn-4" class="slide level2" data-transition="slide-in">
 <h2>Your turn 🏺</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -527,8 +805,8 @@
 <p><strong>Activity</strong></p>
 </div>
 <div class="callout-content">
-<p>Let’s say that the most important organizational outcome for the Chicago Department of Public Health is how many establishments were predicted to pass their inspection but <em>failed</em>.</p>
-<p>Depending on whether “pass” or “fail” is the event level of interest, this is either the false positive rate or false negative rate.</p>
+<p>Let’s say that the most important organizational outcome for the Chicago Department of Public Health is what proportion of failed inspections were predicted to fail.</p>
+<p>If “fail” is the event we are predicting, this is the <strong>sensitivity</strong>.</p>
 <p>Compute this quantity with the monitoring data, and aggregate by week/month or facility type.</p>
 <p>For extra credit, make a visualization showing your results.</p>
 </div>
@@ -536,13 +814,53 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_40a21d3b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_54f839df" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
+<section id="ml-metrics-organizational-outcomes-1" class="slide level2">
+<h2>ML metrics ➡️ organizational outcomes</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">R</a></li><li><a href="#tabset-1-2">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">augment</span>(endpoint, inspections_new) <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span>(<span class="at">.pred_class =</span> <span class="fu">as.factor</span>(.pred_class)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">group_by</span>(facility_type) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">sensitivity</span>(results, .pred_class)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; # A tibble: 3 × 4</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;   facility_type .metric     .estimator .estimate</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt;   &lt;fct&gt;         &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; 1 BAKERY        sensitivity binary        0     </span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; 2 GROCERY STORE sensitivity binary        0.0110</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt; 3 RESTAURANT    sensitivity binary        0.0151</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>by_facility_type <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="cf">for</span> metric <span class="kw">in</span> metric_set:</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    by_facility_type[metric.<span class="va">__qualname__</span>] <span class="op">=</span> inspections_new.groupby(<span class="st">"facility_type"</span>)<span class="op">\</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>        .<span class="bu">apply</span>(<span class="kw">lambda</span> x: metric(y_pred<span class="op">=</span>x[<span class="st">"preds"</span>], y_true<span class="op">=</span>x[<span class="st">"results"</span>]))</span>
+<span id="cb8-5"><a href="#cb8-5"></a>by_facility_type</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt;                accuracy_score  recall_score</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; facility_type                              </span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; BAKERY               0.239437      0.070175</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt; GROCERY STORE        0.281843      0.075540</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt; RESTAURANT           0.283458      0.074897</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-is-going-on-with-these-inspections" class="slide level2">
+<h2>What is going on with these inspections?! 😳</h2>
+
+<img data-src="04-monitor_files/figure-revealjs/unnamed-chunk-18-1.svg" class="r-stretch quarto-figure-center"></section>
 <section id="possible-model-monitoring-artifacts" class="slide level2">
 <h2>Possible model monitoring artifacts</h2>
 <ul>
@@ -558,7 +876,7 @@
 <h2>Possible model monitoring artifacts</h2>
 
 <img data-src="images/vetiver-templates.png" class="r-stretch quarto-figure-center"></section>
-<section id="your-turn-3" class="slide level2" data-transition="slide-in">
+<section id="your-turn-5" class="slide level2" data-transition="slide-in">
 <h2>Your turn 🏺</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -567,26 +885,27 @@
 </div>
 <div class="callout-content">
 <p>Create a Quarto report or R Markdown dashboard for model monitoring.</p>
+<p>Keep in mind that we are seeing some real ✨problems✨ with this model we trained.</p>
 <p>Publish your document to Connect.</p>
 </div>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a830c7a4" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_6ba791a9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <div class="r-fit-text">
 <p>We made it! 🎉</p>
 </div>
 </section>
-<section id="your-turn-4" class="slide level2" data-transition="slide-in">
+<section id="your-turn-6" class="slide level2" data-transition="slide-in">
 <h2>Your turn 🏺</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -601,7 +920,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_2cafbd32" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_fbc5777a" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -630,6 +949,8 @@
 <p><a href="https://posit-conf-2023.github.io/vetiver" class="uri">https://posit-conf-2023.github.io/vetiver</a></p>
 </div>
 </section>
+
+
     </div>
   </div>
 
