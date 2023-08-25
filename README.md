@@ -25,29 +25,34 @@ Many data scientists understand what goes into training a machine learning or st
 
 We expect participants to have exposure to basic modeling and machine learning practice, but NOT expert familiarity with advanced ML or MLOps topics. This workshop is for you if you:
 
-- have intermediate R or Python knowledge (this will be a “choose your own adventure” workshop where you can work through the exercises in either R or Python)
+- have intermediate R or Python knowledge (this will be a "choose your own adventure" workshop where you can work through the exercises in either R or Python)
 - can read data from CSV and other flat files, transform and reshape data, and make a wide variety of graphs
 - can fit a model to data with your modeling framework of choice
-wide variety of graphs
 
 ## Prework
 
-ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO
-COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON
-RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN
-RSTUDIO.CLOUD ACCOUNT, ETC.
+We will provide an environment with [Posit Workbench](https://posit.co/products/enterprise/workbench/) and [Posit Connect](https://posit.co/products/enterprise/connect/) available, but you also have the option to do work locally on your laptop rather than on Posit Workbench. If this is your preference, please come to the workshop with your laptop already set up.
+
+- Clone the [repo](https://github.com/posit-conf-2023/vetiver) so you have the files and data locally
+- To use R: Install recent versions of [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/download), along with the packages outlined in our [`DESCRIPTION`](https://github.com/posit-conf-2023/vetiver/blob/main/DESCRIPTION) file
+- To use Python: Install recent versions of Python (3.7 or greater) in your preferred IDE, along with the packages outlined in our [`requirements.txt`](https://github.com/posit-conf-2023/vetiver/blob/main/requirements.txt). 
+- Optionally, install [Docker Desktop](https://docs.docker.com/desktop/)
+
+Join us on [GitHub Discussions](https://github.com/posit-conf-2023/vetiver/discussions) to ask questions and share ideas.
 
 ## Schedule
 
+Quarto files for working along [are available on GitHub](https://github.com/posit-conf-2023/vetiver/tree/main/class-work).
+
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
+| 09:00 - 10:30 | [Introduction](https://posit-conf-2023.github.io/vetiver/slides/01-introduction.html)       |
 | 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
+| 11:00 - 12:30 | [Deploy your model](https://posit-conf-2023.github.io/vetiver/slides/02-deploy.html)        |
 | 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
+| 13:30 - 15:00 | [Deeper into deployment](https://posit-conf-2023.github.io/vetiver/slides/03-deploy.html)   |
 | 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+| 15:30 - 17:00 | [Monitor your model](https://posit-conf-2023.github.io/vetiver/slides/04-monitor.html)      |
 
 ## Instructor
 
