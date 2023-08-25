@@ -276,7 +276,20 @@ m = compute_metrics(
     estimate = "preds"
   )
   
-plot_metrics(m).show()
+metrics_plot = plot_metrics(m)
+```
+
+
+```{python}
+#| echo: false
+import plotly.io as pio
+pio.write_html(metrics_plot, file="plot.html", auto_open=False)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+htmltools::includeHTML("plot.html")
 ```
 
 ## Monitor your model's outputs

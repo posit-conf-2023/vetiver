@@ -307,7 +307,6 @@ inspections |>
 ## 
 
 ```{python}
-#| eval: false
 #| fig-align: 'center'
 from plotnine import ggplot, aes, geom_boxplot, coord_flip
 (ggplot(inspections, aes('facility_type', 'total_violations', fill = 'facility_type')) 
