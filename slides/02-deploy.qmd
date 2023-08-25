@@ -118,7 +118,7 @@ load_dotenv()
 api_key = os.getenv("CO_API_KEY")
 rsc_url = os.getenv("CO_RSC_URL")
 
-v = VetiverModel(inspection_fit, "chicago-inspections-python", ptype_data = X_train)
+v = VetiverModel(inspection_fit, "chicago-inspections-python", prototype_data = X_train)
 board = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
