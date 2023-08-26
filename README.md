@@ -31,7 +31,7 @@ We expect participants to have exposure to basic modeling and machine learning p
 
 ## Prework
 
-We will provide an environment with [Posit Workbench](https://posit.co/products/enterprise/workbench/) and [Posit Connect](https://posit.co/products/enterprise/connect/) available, but you also have the option to do work locally on your laptop rather than on Posit Workbench. If this is your preference, please come to the workshop with your laptop already set up.
+We will provide an environment with [Posit Workbench](https://posit.co/products/enterprise/workbench/) and [Posit Connect](https://posit.co/products/enterprise/connect/) available, but you also have the option to work locally on your laptop rather than on Posit Workbench. If this is your preference, please come to the workshop with your laptop already set up.
 
 - Clone the [repo](https://github.com/posit-conf-2023/vetiver) so you have the files and data locally
 - To use R: Install recent versions of [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/download), along with the packages outlined in our [`DESCRIPTION`](https://github.com/posit-conf-2023/vetiver/blob/main/DESCRIPTION) file
