@@ -108,10 +108,11 @@ bind_rows(inspections |> mutate(monitoring = "Data available at training time"),
 
 ## Metrics
 
+::: nonincremental
 - latency
 - memory and CPU usage
 - uptime
-
+:::
 
 :::
 
@@ -127,11 +128,13 @@ bind_rows(inspections |> mutate(monitoring = "Data available at training time"),
 
 ## Metrics
 
+::: nonincremental
 - accuracy
 - ROC AUC
 - F1 score
 - RMSE
 - log loss
+:::
 
 :::
 
@@ -173,7 +176,7 @@ countdown(minutes = 5)
 
 Come hear Julia's talk on reliable maintenance of ML models on Tues, Sept 19 at 1:50pm!
 
-# Monitor your model's **inputs**
+# Monitor your model's inputs
 
 ## Monitor your model's inputs
 
@@ -236,7 +239,7 @@ countdown(minutes = 7)
 ```
 
 
-# Monitor your model's **outputs**
+# Monitor your model's outputs
 
 ## Monitor your model's outputs
 
@@ -254,7 +257,6 @@ countdown(minutes = 7)
 
 ```{python}
 #| fig-align: center
-#| output-location: slide 
 from vetiver import vetiver_endpoint, predict, compute_metrics, plot_metrics
 from sklearn.metrics import recall_score, accuracy_score
 from datetime import timedelta
@@ -285,12 +287,13 @@ m = compute_metrics(
 metrics_plot = plot_metrics(m)
 ```
 
-
 ```{python}
 #| echo: false
 import plotly.io as pio
 pio.write_html(metrics_plot, file="plot.html", auto_open=False)
 ```
+
+## Monitor your model's outputs
 
 ```{r}
 #| echo: false

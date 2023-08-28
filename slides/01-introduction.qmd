@@ -319,11 +319,13 @@ from plotnine import ggplot, aes, geom_boxplot, coord_flip
 
 ```{r}
 #| fig-align: 'center'
+#| fig-width: 8
+#| fig-height: 5
 inspections |>
   ggplot(aes(inspection_date, total_violations, z = as.integer(results) - 1)) +
   stat_summary_hex(alpha = 0.7) +
   scale_fill_viridis_c(labels = scales::percent) +
-  labs(fill = "% passed")
+  labs(fill = "% passed", x = NULL)
 ```
 
 
