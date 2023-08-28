@@ -229,7 +229,7 @@ Image by [Christopher Alvarenga](https://unsplash.com/photos/cfmSStcrDn4)
 
 ## Inspection results {.smaller}
 
--   `N = 20414`
+-   `N = 6967`
 -   A class outcome, `results`
 -   Other variables to use for prediction:
     -   `facility_type` is a **nominal** predictor
