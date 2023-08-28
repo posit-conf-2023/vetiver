@@ -11,7 +11,7 @@ format:
     width: 1280
     height: 720
 knitr:
-  opts_chunk: 
+  opts_chunk:
     echo: true
     collapse: true
     comment: "#>"
@@ -213,7 +213,7 @@ countdown(minutes = 3)
 ```
 
 
-##  Chicago food inspections data {background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg" background-opacity=0.5}
+##  Chicago food inspections data {background-color="black" background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg" background-opacity=0.3}
 
 
 ::: {.nonincremental}
