@@ -137,7 +137,7 @@
     "href": "slides/01-introduction.html#inspection-results-1",
     "title": "1 - Introduction",
     "section": "Inspection results",
-    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    FAIL\n2021-12-15\nHFCC\nRESTAURANT\nRISK 1 (HIGH)\n31\n    FAIL\n2021-08-18\nJESSE'S PLACE\nRESTAURANT\nRISK 1 (HIGH)\n43\n    FAIL\n2021-04-05\nPERKINS MANAGEMENT SERVICES COMPANY\nRESTAURANT\nRISK 1 (HIGH)\n73\n    PASS\n2022-11-08\nCOAST SUSHI\nRESTAURANT\nRISK 3 (LOW)\n0\n    FAIL\n2019-02-22\nMARCELLO'S MARKET & DELI\nRESTAURANT\nRISK 1 (HIGH)\n40\n    PASS\n2022-07-05\nWORLD NUTRITION\nRESTAURANT\nRISK 2 (MEDIUM)\n6\n    PASS\n2022-10-31\nIZALCO RESTAURANT\nRESTAURANT\nRISK 1 (HIGH)\n104\n    PASS\n2019-08-01\nCHARLIE BAGGS, INC\nRESTAURANT\nRISK 1 (HIGH)\n33\n    FAIL\n2022-04-07\nMEENARI ORIENTAL RESTAURANT\nRESTAURANT\nRISK 1 (HIGH)\n84\n    FAIL\n2019-12-02\nBIG BABY'S SOUTHERN SOUL KITCHEN & GRILL\nRESTAURANT\nRISK 1 (HIGH)\n3\n    FAIL\n2019-03-25\nDOLLAR ISLAND\nGROCERY STORE\nRISK 3 (LOW)\n8\n    FAIL\n2018-10-10\nTHE AMAZON COFFEE SHOP\nRESTAURANT\nRISK 2 (MEDIUM)\n4\n    PASS\n2021-12-16\nGREAT DRAGON 78\nRESTAURANT\nRISK 1 (HIGH)\n47\n    FAIL\n2020-04-22\nCLUB FAMILIAR\nRESTAURANT\nRISK 2 (MEDIUM)\n20\n    PASS\n2022-07-22\nMARKLAND-HUBBARD GOURMET PROVISIONS\nRESTAURANT\nRISK 2 (MEDIUM)\n49"
+    "text": "Inspection results\n\n\n\n\n\n\n  \n    \n    \n      results\n      inspection_date\n      aka_name\n      facility_type\n      risk\n      total_violations\n    \n  \n  \n    PASS\n2022-09-12\nTAQUERIA EL CHORRITO\nRESTAURANT\nRISK 1 (HIGH)\n151\n    FAIL\n2021-03-23\nGOOD NEIGHBOR FOOD MART\nGROCERY STORE\nRISK 3 (LOW)\n1\n    FAIL\n2020-04-22\n76 ENTERPRISES, INC.\nGROCERY STORE\nRISK 3 (LOW)\n39\n    PASS\n2022-04-12\nPOTASH BROS\nGROCERY STORE\nRISK 1 (HIGH)\n118\n    FAIL\n2019-05-17\nLA MICHOACANA CHASCAHELADOS INC.\nRESTAURANT\nRISK 2 (MEDIUM)\n3\n    FAIL\n2022-12-16\nD' CANDELA\nRESTAURANT\nRISK 1 (HIGH)\n27\n    FAIL\n2018-07-18\n54 IN & OUT\nGROCERY STORE\nRISK 2 (MEDIUM)\n2\n    FAIL\n2020-12-04\nNEAS LUNCH HOUSE\nRESTAURANT\nRISK 1 (HIGH)\n8\n    FAIL\n2022-01-18\nMI FOGATA\nRESTAURANT\nRISK 1 (HIGH)\n0\n    PASS\n2021-04-19\nOPERA HOUSE ESPRESSO & MILK\nRESTAURANT\nRISK 2 (MEDIUM)\n1\n    PASS\n2021-08-03\nHAROLD'S CHICKEN SHACK #52\nRESTAURANT\nRISK 2 (MEDIUM)\n99\n    PASS\n2022-09-13\nAFTERBAR\nRESTAURANT\nRISK 2 (MEDIUM)\n0\n    PASS\n2020-05-07\nFAMILY DOLLAR #3895\nGROCERY STORE\nRISK 3 (LOW)\n26\n    PASS\n2022-04-08\nDEE'S RESTAURANT\nRESTAURANT\nRISK 1 (HIGH)\n93\n    PASS\n2020-03-16\nCHAVAS RESTAURANT\nRESTAURANT\nRISK 1 (HIGH)\n4"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-1",
@@ -165,7 +165,7 @@
     "href": "slides/01-introduction.html#section-3",
     "title": "1 - Introduction",
     "section": "",
-    "text": "inspections |&gt;\n  ggplot(aes(inspection_date, total_violations, z = as.integer(results) - 1)) +\n  stat_summary_hex(alpha = 0.7) +\n  scale_fill_viridis_c(labels = scales::percent) +\n  labs(fill = \"% passed\")"
+    "text": "inspections |&gt;\n  ggplot(aes(inspection_date, total_violations, z = as.integer(results) - 1)) +\n  stat_summary_hex(alpha = 0.7) +\n  scale_fill_viridis_c(labels = scales::percent) +\n  labs(fill = \"% passed\", x = NULL)"
   },
   {
     "objectID": "slides/01-introduction.html#time-for-building-a-model",
@@ -235,7 +235,7 @@
     "href": "slides/01-introduction.html#version-your-model-1",
     "title": "1 - Introduction",
     "section": "Version your model",
-    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230828T155046Z-d32c9\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230828T155046Z-7abba'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
+    "text": "Version your model\nLearn about the pins package for Python and for R\n\nPythonR\n\n\n\nfrom pins import board_temp\nfrom vetiver import vetiver_pin_write\n\nboard = board_temp(allow_pickle_read = True)\nvetiver_pin_write(board, v)\n#&gt; Model Cards provide a framework for transparent, responsible reporting. \n#&gt;  Use the vetiver `.qmd` Quarto template as a place to start, \n#&gt;  with vetiver.model_card()\n#&gt; Writing pin:\n#&gt; Name: 'inspection-result-python'\n#&gt; Version: 20230829T153858Z-9bac5\n\n\n\n\nlibrary(pins)\n\nboard &lt;- board_temp()\nboard |&gt; vetiver_pin_write(v)\n#&gt; Creating new version '20230829T153858Z-650ad'\n#&gt; Writing to pin 'inspection-result-rstats'\n#&gt; \n#&gt; Create a Model Card for your published model\n#&gt; • Model Cards provide a framework for transparent, responsible reporting\n#&gt; • Use the vetiver `.Rmd` template as a place to start"
   },
   {
     "objectID": "slides/01-introduction.html#your-turn-4",
@@ -389,7 +389,7 @@
     "href": "slides/02-deploy.html#create-a-vetiver-endpoint",
     "title": "2 - Deploy your model",
     "section": "Create a vetiver endpoint",
-    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\n\nRPython\n\n\n\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 1\n#&gt;    .pred_class\n#&gt;    &lt;chr&gt;      \n#&gt;  1 FAIL       \n#&gt;  2 PASS       \n#&gt;  3 PASS       \n#&gt;  4 FAIL       \n#&gt;  5 FAIL       \n#&gt;  6 PASS       \n#&gt;  7 FAIL       \n#&gt;  8 FAIL       \n#&gt;  9 PASS       \n#&gt; 10 FAIL\n\n\n\n\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    FAIL\n#&gt; 1    PASS\n#&gt; 2    PASS\n#&gt; 3    PASS\n#&gt; 4    PASS\n#&gt; 5    PASS\n#&gt; 6    PASS\n#&gt; 7    FAIL\n#&gt; 8    PASS\n#&gt; 9    FAIL"
+    "text": "Create a vetiver endpoint\nYou can treat your model API much like it is a local model in memory!\n\nRPython\n\n\n\nlibrary(vetiver)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\npredict(endpoint, slice_sample(inspect_test, n = 10))\n#&gt; # A tibble: 10 × 1\n#&gt;    .pred_class\n#&gt;    &lt;chr&gt;      \n#&gt;  1 FAIL       \n#&gt;  2 PASS       \n#&gt;  3 PASS       \n#&gt;  4 FAIL       \n#&gt;  5 FAIL       \n#&gt;  6 PASS       \n#&gt;  7 FAIL       \n#&gt;  8 FAIL       \n#&gt;  9 PASS       \n#&gt; 10 FAIL\n\n\n\n\nfrom vetiver.server import predict, vetiver_endpoint\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\npredict(endpoint = endpoint, data = X_test.head(10))\n#&gt;   predict\n#&gt; 0    FAIL\n#&gt; 1    PASS\n#&gt; 2    FAIL\n#&gt; 3    PASS\n#&gt; 4    PASS\n#&gt; 5    FAIL\n#&gt; 6    FAIL\n#&gt; 7    PASS\n#&gt; 8    FAIL\n#&gt; 9    FAIL"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-3",
@@ -424,7 +424,7 @@
     "href": "slides/02-deploy.html#model-input-prototype-1",
     "title": "2 - Deploy your model",
     "section": "Model input prototype",
-    "text": "Model input prototype\nNotice that our Python model has different inputs than our R model:\n\nRPython\n\n\n\nglimpse(inspect_train)\n#&gt; Rows: 5,573\n#&gt; Columns: 6\n#&gt; $ results          &lt;fct&gt; FAIL, PASS, FAIL, FAIL, FAIL, PASS, PASS, PASS, PASS,…\n#&gt; $ inspection_date  &lt;date&gt; 2020-05-28, 2020-06-11, 2020-04-09, 2019-02-04, 2021…\n#&gt; $ aka_name         &lt;chr&gt; \"GRAND SHELL\", \"DSD DELI\", \"BP GAS\", \"LA MICHOACANA I…\n#&gt; $ facility_type    &lt;fct&gt; GROCERY STORE, GROCERY STORE, GROCERY STORE, RESTAURA…\n#&gt; $ risk             &lt;fct&gt; RISK 3 (LOW), RISK 1 (HIGH), RISK 3 (LOW), RISK 1 (HI…\n#&gt; $ total_violations &lt;dbl&gt; 31, 0, 25, 42, 17, 4, 17, 0, 2, 80, 94, 0, 37, 86, 66…\n\n\n\n\nX_train\n#&gt;       facility_type             risk  total_violations  month  year\n#&gt; 5110  GROCERY STORE  RISK 2 (MEDIUM)             105.0      6  2022\n#&gt; 6857     RESTAURANT  RISK 2 (MEDIUM)              19.0     12  2022\n#&gt; 5887     RESTAURANT    RISK 1 (HIGH)              29.0      9  2022\n#&gt; 1443     RESTAURANT    RISK 1 (HIGH)              35.0      9  2019\n#&gt; 2383  GROCERY STORE     RISK 3 (LOW)              26.0      5  2020\n#&gt; ...             ...              ...               ...    ...   ...\n#&gt; 3178         BAKERY  RISK 2 (MEDIUM)              75.0      2  2021\n#&gt; 2166  GROCERY STORE     RISK 3 (LOW)               8.0      3  2020\n#&gt; 1465     RESTAURANT  RISK 2 (MEDIUM)              11.0     10  2019\n#&gt; 1808     RESTAURANT    RISK 1 (HIGH)               0.0     12  2019\n#&gt; 405   GROCERY STORE  RISK 2 (MEDIUM)              35.0     12  2018\n#&gt; \n#&gt; [5573 rows x 5 columns]"
+    "text": "Model input prototype\nNotice that our Python model has different inputs than our R model:\n\nRPython\n\n\n\nglimpse(inspect_train)\n#&gt; Rows: 5,573\n#&gt; Columns: 6\n#&gt; $ results          &lt;fct&gt; FAIL, PASS, FAIL, FAIL, FAIL, PASS, PASS, PASS, PASS,…\n#&gt; $ inspection_date  &lt;date&gt; 2020-05-28, 2020-06-11, 2020-04-09, 2019-02-04, 2021…\n#&gt; $ aka_name         &lt;chr&gt; \"GRAND SHELL\", \"DSD DELI\", \"BP GAS\", \"LA MICHOACANA I…\n#&gt; $ facility_type    &lt;fct&gt; GROCERY STORE, GROCERY STORE, GROCERY STORE, RESTAURA…\n#&gt; $ risk             &lt;fct&gt; RISK 3 (LOW), RISK 1 (HIGH), RISK 3 (LOW), RISK 1 (HI…\n#&gt; $ total_violations &lt;dbl&gt; 31, 0, 25, 42, 17, 4, 17, 0, 2, 80, 94, 0, 37, 86, 66…\n\n\n\n\nX_train\n#&gt;       facility_type             risk  total_violations  month  year\n#&gt; 6411     RESTAURANT    RISK 1 (HIGH)              24.0     11  2022\n#&gt; 1244     RESTAURANT    RISK 1 (HIGH)              13.0      8  2019\n#&gt; 3056  GROCERY STORE  RISK 2 (MEDIUM)              51.0     12  2020\n#&gt; 6008     RESTAURANT  RISK 2 (MEDIUM)              80.0      9  2022\n#&gt; 2416  GROCERY STORE     RISK 3 (LOW)              25.0      5  2020\n#&gt; ...             ...              ...               ...    ...   ...\n#&gt; 1020     RESTAURANT    RISK 1 (HIGH)              50.0      6  2019\n#&gt; 5234     RESTAURANT    RISK 1 (HIGH)               0.0      6  2022\n#&gt; 6233     RESTAURANT    RISK 1 (HIGH)              42.0     10  2022\n#&gt; 5396     RESTAURANT    RISK 1 (HIGH)              71.0      7  2022\n#&gt; 4295     RESTAURANT    RISK 1 (HIGH)             121.0     12  2021\n#&gt; \n#&gt; [5573 rows x 5 columns]"
   },
   {
     "objectID": "slides/02-deploy.html#your-turn-5",
@@ -529,7 +529,7 @@
     "href": "slides/03-deploy.html#model-metrics-as-metadata-2",
     "title": "3 - Deeper into deployment",
     "section": "Model metrics as metadata",
-    "text": "Model metrics as metadata\n\nPythonR\n\n\n\nfrom sklearn import metrics\n\nmetric_set = [metrics.accuracy_score, metrics.f1_score, metrics.log_loss]\ny_predictions = pd.Series(inspection_fit.predict(X_test)).map({\"PASS\": 1, \"FAIL\": 0})\ny_truth = y_test.map({\"PASS\": 1, \"FAIL\": 0})\n\ninspect_metrics = pd.DataFrame()\nfor metric in metric_set:\n    metric_name = str(metric.__name__)\n    metric_output = metric(y_truth, y_predictions)\n    inspect_metrics = pd.concat(\n        (\n            inspect_metrics,\n            pd.DataFrame({\"name\": [metric_name],\n                          \"score\": [metric_output]}),\n        ),\n        axis=0,\n    )\n\ninspect_metrics.reset_index(inplace=True, drop=True)\ninspect_metrics\n#&gt;              name      score\n#&gt; 0  accuracy_score   0.637733\n#&gt; 1        f1_score   0.679772\n#&gt; 2        log_loss  13.057421\n\n\n\n\ninspect_metric_set &lt;- metric_set(accuracy, mn_log_loss, f_meas)\ninspect_metrics &lt;-\n    augment(inspection_fit, new_data = inspect_test) |&gt;\n    inspect_metric_set(truth = results, estimate = .pred_class, .pred_FAIL)\n\ninspect_metrics\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.694\n#&gt; 2 f_meas      binary         0.643\n#&gt; 3 mn_log_loss binary         0.601"
+    "text": "Model metrics as metadata\n\nPythonR\n\n\n\nfrom sklearn import metrics\n\nmetric_set = [metrics.accuracy_score, metrics.f1_score, metrics.log_loss]\ny_predictions = pd.Series(inspection_fit.predict(X_test)).map({\"PASS\": 1, \"FAIL\": 0})\ny_truth = y_test.map({\"PASS\": 1, \"FAIL\": 0})\n\ninspect_metrics = pd.DataFrame()\nfor metric in metric_set:\n    metric_name = str(metric.__name__)\n    metric_output = metric(y_truth, y_predictions)\n    inspect_metrics = pd.concat(\n        (\n            inspect_metrics,\n            pd.DataFrame({\"name\": [metric_name],\n                          \"score\": [metric_output]}),\n        ),\n        axis=0,\n    )\n\ninspect_metrics.reset_index(inplace=True, drop=True)\ninspect_metrics\n#&gt;              name      score\n#&gt; 0  accuracy_score   0.631994\n#&gt; 1        f1_score   0.669246\n#&gt; 2        log_loss  13.264271\n\n\n\n\ninspect_metric_set &lt;- metric_set(accuracy, mn_log_loss, f_meas)\ninspect_metrics &lt;-\n    augment(inspection_fit, new_data = inspect_test) |&gt;\n    inspect_metric_set(truth = results, estimate = .pred_class, .pred_FAIL)\n\ninspect_metrics\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.694\n#&gt; 2 f_meas      binary         0.643\n#&gt; 3 mn_log_loss binary         0.601"
   },
   {
     "objectID": "slides/03-deploy.html#model-metrics-as-metadata-3",
@@ -543,7 +543,7 @@
     "href": "slides/03-deploy.html#model-metrics-as-metadata-4",
     "title": "3 - Deeper into deployment",
     "section": "Model metrics as metadata",
-    "text": "Model metrics as metadata\n\nWe pin our vetiver model to a board to version it\nThe metadata, including our metrics, are versioned along with the model\n\n\nPythonR\n\n\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\n\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nboard = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)\n\n\n\n\nlibrary(pins)\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)"
+    "text": "Model metrics as metadata\n\nWe pin our vetiver model to a board to version it\nThe metadata, including our metrics, are versioned along with the model\n\n\n\nPythonR\n\n\n\nfrom pins import board_connect\nfrom vetiver import vetiver_pin_write\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\n\napi_key = os.getenv(\"CO_API_KEY\")\nrsc_url = os.getenv(\"CO_RSC_URL\")\n\nboard = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)\nvetiver_pin_write(board, v)\n\n\n\n\nlibrary(pins)\nboard &lt;- board_connect()\nboard |&gt; vetiver_pin_write(v)"
   },
   {
     "objectID": "slides/03-deploy.html#your-turn",
@@ -557,7 +557,7 @@
     "href": "slides/03-deploy.html#model-metrics-as-metadata-5",
     "title": "3 - Deeper into deployment",
     "section": "Model metrics as metadata",
-    "text": "Model metrics as metadata\nHow do we extract our metrics out to use them?\n\nPythonR\n\n\n\nmetadata = board.pin_meta(\"chicago-inspections-python\")\nextracted_metrics = pd.DataFrame(metadata.user.get(\"user\"))\nextracted_metrics\n#&gt;              name      score\n#&gt; 0  accuracy_score   0.637733\n#&gt; 1        f1_score   0.679772\n#&gt; 2        log_loss  13.057421\n\n\n\n\nextracted_metrics &lt;- \n    board |&gt; \n    pin_meta(\"chicago-inspections-rstats\") |&gt; \n    pluck(\"user\", \"metrics\") |&gt; \n    as_tibble()\n\nextracted_metrics\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.694\n#&gt; 2 f_meas      binary         0.643\n#&gt; 3 mn_log_loss binary         0.601"
+    "text": "Model metrics as metadata\nHow do we extract our metrics out to use them?\n\nPythonR\n\n\n\nmetadata = board.pin_meta(\"chicago-inspections-python\")\nextracted_metrics = pd.DataFrame(metadata.user.get(\"user\"))\nextracted_metrics\n#&gt;              name      score\n#&gt; 0  accuracy_score   0.631994\n#&gt; 1        f1_score   0.669246\n#&gt; 2        log_loss  13.264271\n\n\n\n\nextracted_metrics &lt;- \n    board |&gt; \n    pin_meta(\"chicago-inspections-rstats\") |&gt; \n    pluck(\"user\", \"metrics\") |&gt; \n    as_tibble()\n\nextracted_metrics\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.694\n#&gt; 2 f_meas      binary         0.643\n#&gt; 3 mn_log_loss binary         0.601"
   },
   {
     "objectID": "slides/03-deploy.html#your-turn-1",
@@ -669,14 +669,14 @@
     "href": "slides/04-monitor.html#my-model-is-performing-well",
     "title": "4 - Monitor your model",
     "section": "My model is performing well!",
-    "text": "My model is performing well!\n\n👩🏼‍🔧 My model returns predictions quickly, doesn’t use too much memory or processing power, and doesn’t have outages.\n\n\n\n\n\nMetrics\n\n\n\nlatency\nmemory and CPU usage\nuptime"
+    "text": "My model is performing well!\n\n👩🏼‍🔧 My model returns predictions quickly, doesn’t use too much memory or processing power, and doesn’t have outages.\n\n\n\n\n\nMetrics\n\n\n\n\nlatency\nmemory and CPU usage\nuptime"
   },
   {
     "objectID": "slides/04-monitor.html#my-model-is-performing-well-1",
     "href": "slides/04-monitor.html#my-model-is-performing-well-1",
     "title": "4 - Monitor your model",
     "section": "My model is performing well!",
-    "text": "My model is performing well!\n\n👩🏽‍🔬 My model returns predictions that are close to the true values for the predicted quantity.\n\n\n\n\n\nMetrics\n\n\n\naccuracy\nROC AUC\nF1 score\nRMSE\nlog loss"
+    "text": "My model is performing well!\n\n👩🏽‍🔬 My model returns predictions that are close to the true values for the predicted quantity.\n\n\n\n\n\nMetrics\n\n\n\n\naccuracy\nROC AUC\nF1 score\nRMSE\nlog loss"
   },
   {
     "objectID": "slides/04-monitor.html#model-drift",
@@ -742,22 +742,22 @@
     "text": "Monitor your model’s outputs\nPython\n\nfrom vetiver import vetiver_endpoint, predict, compute_metrics, plot_metrics\nfrom sklearn.metrics import recall_score, accuracy_score\nfrom datetime import timedelta\n\ninspections_new['inspection_date'] = pd.to_datetime(inspections_new['inspection_date'])\ninspections_new['month'] = inspections_new['inspection_date'].dt.month\ninspections_new['year'] = inspections_new['inspection_date'].dt.year\n\nurl = \"https://colorado.posit.co/rsc/chicago-inspections-python/predict\"\nendpoint = vetiver_endpoint(url)\ninspections_new[\"preds\"] = predict(endpoint = url, data = inspections_new.drop(columns = [\"results\", \"aka_name\", \"inspection_date\"]))\n\ninspections_new[\"preds\"] = inspections_new[\"preds\"].map({\"PASS\": 1, \"FAIL\": 0})\ninspections_new[\"results\"] = inspections_new[\"results\"].map({\"PASS\": 1, \"FAIL\": 0})\n\ntd = timedelta(weeks = 4)\nmetric_set = [accuracy_score, recall_score]\n\nm = compute_metrics(\n    data = inspections_new,\n    date_var = \"inspection_date\", \n    period = td,\n    metric_set = metric_set,\n    truth = \"results\",\n    estimate = \"preds\"\n  )\n  \nmetrics_plot = plot_metrics(m)"
   },
   {
-    "objectID": "slides/04-monitor.html#monitor-your-models-outputs-2-output",
-    "href": "slides/04-monitor.html#monitor-your-models-outputs-2-output",
+    "objectID": "slides/04-monitor.html#monitor-your-models-outputs-3",
+    "href": "slides/04-monitor.html#monitor-your-models-outputs-3",
     "title": "4 - Monitor your model",
     "section": "Monitor your model’s outputs",
     "text": "Monitor your model’s outputs"
   },
   {
-    "objectID": "slides/04-monitor.html#monitor-your-models-outputs-3",
-    "href": "slides/04-monitor.html#monitor-your-models-outputs-3",
+    "objectID": "slides/04-monitor.html#monitor-your-models-outputs-4",
+    "href": "slides/04-monitor.html#monitor-your-models-outputs-4",
     "title": "4 - Monitor your model",
     "section": "Monitor your model’s outputs",
     "text": "Monitor your model’s outputs\nR\n\nlibrary(vetiver)\nlibrary(tidymodels)\nlibrary(workflows)\nurl &lt;- \"https://colorado.posit.co/rsc/chicago-inspections-rstats/predict\"\nendpoint &lt;- vetiver_endpoint(url)\n\naugment(endpoint, new_data = inspections_new) |&gt;\n  mutate(.pred_class = as.factor(.pred_class)) |&gt; \n  vetiver_compute_metrics(\n    inspection_date, \n    \"month\", \n    results, \n    .pred_class,\n    metric_set = metric_set(accuracy, sensitivity)\n  ) |&gt; \n  vetiver_plot_metrics()"
   },
   {
-    "objectID": "slides/04-monitor.html#monitor-your-models-outputs-3-output",
-    "href": "slides/04-monitor.html#monitor-your-models-outputs-3-output",
+    "objectID": "slides/04-monitor.html#monitor-your-models-outputs-4-output",
+    "href": "slides/04-monitor.html#monitor-your-models-outputs-4-output",
     "title": "4 - Monitor your model",
     "section": "Monitor your model’s outputs",
     "text": "Monitor your model’s outputs"
