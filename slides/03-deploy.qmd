@@ -103,13 +103,7 @@ vetiver.prepare_docker(
 docker build -t inspection .
 ```
 
-## Run your container {auto-animate=true}
-
-```bash
-docker run -p 8080:8080 inspection
-```
-
-## Run your container {auto-animate=true}
+## Run your container
 
 ```bash
 docker run --env-file .env -p 8080:8080 inspection
@@ -164,7 +158,7 @@ inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
 inspections['month'] = inspections['inspection_date'].dt.month
 inspections['year'] = inspections['inspection_date'].dt.year
 
-categorical_features = ['facility_type', 'risk', 'month', 'year']
+categorical_features = ['facility_type', 'risk', 'month']
 X, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
@@ -220,8 +214,8 @@ inspection_fit <-
 from sklearn import metrics
 
 metric_set = [metrics.accuracy_score, metrics.f1_score, metrics.log_loss]
-y_predictions = pd.Series(inspection_fit.predict(X_test)).map({"PASS": 1, "FAIL": 0})
-y_truth = y_test.map({"PASS": 1, "FAIL": 0})
+y_predictions = pd.Series(inspection_fit.predict(X_test)).map({"PASS": 0, "FAIL": 1})
+y_truth = y_test.map({"PASS": 0, "FAIL": 1})
 
 inspect_metrics = pd.DataFrame()
 for metric in metric_set:
@@ -289,8 +283,6 @@ v
 
 - We pin our vetiver model to a board to version it
 - The metadata, including our metrics, are versioned along with the model
-
-. . .
 
 ::: panel-tabset
 ## Python
@@ -458,7 +450,7 @@ function(pr) {
 #| eval: false
 vetiver.write_app(board, "isabel.zimmerman/inspection-result-python")
 ```
-```python
+```
 from vetiver import VetiverModel
 import vetiver
 import pins
@@ -562,7 +554,7 @@ function(pr) {
 
 ### Python
 
-```python
+```
 from vetiver import VetiverModel
 import vetiver
 import pins
@@ -580,7 +572,7 @@ api = vetiver_api.app
 
 ### Python
 
-```python
+```
 from vetiver import VetiverModel
 import vetiver
 import pins

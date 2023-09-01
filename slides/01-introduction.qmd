@@ -409,7 +409,7 @@ inspection_fit <-
 ```{python}
 from sklearn import preprocessing, linear_model, pipeline, compose
 
-categorical_features = ['facility_type', 'risk', 'month', 'year']
+categorical_features = ['facility_type', 'risk', 'month']
 
 oe = compose.make_column_transformer(
     (preprocessing.OrdinalEncoder(
