@@ -22,7 +22,7 @@ inspections['year'] = inspections['inspection_date'].dt.year
 inspections = inspections.drop(columns=['inspection_date'])
 
 
-categorical_features = ['facility_type', 'risk', 'month', 'year']
+categorical_features = ['facility_type', 'risk', 'month']
 X, y = inspections.drop(columns=['aka_name', 'results']), inspections['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,

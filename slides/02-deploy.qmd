@@ -73,7 +73,7 @@ inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
 inspections['month'] = inspections['inspection_date'].dt.month
 inspections['year'] = inspections['inspection_date'].dt.year
 
-categorical_features = ['facility_type', 'risk', 'month', 'year']
+categorical_features = ['facility_type', 'risk', 'month']
 X, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']
 X_train, X_test, y_train, y_test = model_selection.train_test_split(
     X, y,
