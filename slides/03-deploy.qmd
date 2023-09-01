@@ -290,6 +290,8 @@ v
 - We pin our vetiver model to a board to version it
 - The metadata, including our metrics, are versioned along with the model
 
+. . .
+
 ::: panel-tabset
 ## Python
 
@@ -456,7 +458,7 @@ function(pr) {
 #| eval: false
 vetiver.write_app(board, "isabel.zimmerman/inspection-result-python")
 ```
-```
+```python
 from vetiver import VetiverModel
 import vetiver
 import pins
@@ -560,7 +562,7 @@ function(pr) {
 
 ### Python
 
-```
+```python
 from vetiver import VetiverModel
 import vetiver
 import pins
