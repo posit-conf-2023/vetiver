@@ -319,7 +319,7 @@ from plotnine import ggplot, aes, geom_boxplot, coord_flip
 
 ```{r}
 #| fig-align: 'center'
-#| fig-width: 8
+#| fig-width: 7.5
 #| fig-height: 5
 inspections |>
   ggplot(aes(inspection_date, total_violations, z = as.integer(results) - 1)) +
