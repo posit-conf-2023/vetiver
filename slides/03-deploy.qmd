@@ -580,7 +580,7 @@ api = vetiver_api.app
 
 ### Python
 
-```
+```python
 from vetiver import VetiverModel
 import vetiver
 import pins
