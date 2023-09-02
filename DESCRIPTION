@@ -13,10 +13,12 @@ Depends:
 Imports: 
     arrow,
     countdown,
+    flexdashboard,
     gt,
     hexbin,
     partykit,
     pins,
+    plotly,
     plumber,
     ranger,
     reticulate,
