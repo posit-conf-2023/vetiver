@@ -546,7 +546,7 @@ if (FALSE) {
 b <- board_connect(auth = "envvar")
 v <- vetiver_pin_read(b, "julia.silge/chicago-inspections-rstats", version = "78859")
 
-hander_weekday <- function(req) {
+handler_weekday <- function(req) {
     wday(req$body$inspection_date, label = TRUE)
 }
 
@@ -554,7 +554,7 @@ hander_weekday <- function(req) {
 function(pr) {
     pr |>  
         vetiver_api(v) |> 
-        pr_post(path = "/weekday", handler = hander_weekday)
+        pr_post(path = "/weekday", handler = handler_weekday)
 }
 ```
 
