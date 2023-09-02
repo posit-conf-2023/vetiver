@@ -1,12 +1,12 @@
 ---
+title: Deploy a model with Docker
+subtitle: Deploy and maintain models with vetiver (Python)
 format: html
-title: Deploying a model with Docker
 ---
 
 ## Choose a pinned model to deploy
 
 ```{python}
-#| eval: false
 import pins
 from vetiver import VetiverModel
 
@@ -16,8 +16,8 @@ VetiverModel.from_pin(board,"chicago-inspections-python")
 ```
 
 ## Create artifacts to run a Dockerfile
+
 ```{python}
-#| eval: false
 import vetiver
 
 vetiver.prepare_docker(
@@ -32,19 +32,18 @@ What outputs are created?
 ## Build your container
 
 ```bash
-docker build -t inpection .
+docker build -t inspections .
 ```
 
 ## Run your container
 
 ```bash
-docker run -p 8080:8080 inpection
+docker run -p 8080:8080 inspections
 ```
 
 ## Make predictions
 
 ```{python}
-#| eval: false
 endpoint = vetiver.vetiver_endpoint(url = ___)
 vetiver.predict(endpoint = ___, data = ___)
 ```

@@ -1,0 +1,45 @@
+---
+title: Deploy a model with Docker
+subtitle: Deploy and maintain models with vetiver (R)
+format: html
+---
+
+## Choose a pinned model to deploy
+
+```{r}
+library(vetiver)
+library(pins)
+board <- board_url(c(
+  chicago_model = "https://colorado.posit.co/rsc/chicago-rstats-model-pin/"
+))
+v <- vetiver_pin_read(board, "chicago_model")
+v
+```
+
+## Create artifacts to run a Dockerfile
+
+```{r}
+vetiver_prepare_docker(board, "chicago_model")
+```
+
+What outputs are created?
+
+## Build your container
+
+```bash
+docker build -t inspections .
+```
+
+## Run your container
+
+```bash
+docker run -p 8000:8000 inspections
+```
+
+## Make predictions
+
+```{r}
+## check your URL here:
+endpoint <- vetiver_endpoint("http://127.0.0.1:8000/predict/")
+predict(endpoint = ___, new_data = ___)
+```

@@ -100,13 +100,13 @@ vetiver.prepare_docker(
 ## Build your container
 
 ```bash
-docker build -t inspection .
+docker build -t inspections .
 ```
 
 ## Run your container {auto-animate=true}
 
 ```bash
-docker run -p 8080:8080 inspection
+docker run -p 8080:8080 inspections
 ```
 
 ## Run your container {auto-animate=true}
