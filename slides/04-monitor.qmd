@@ -256,7 +256,6 @@ countdown(minutes = 7)
 ### Python
 
 ```{python}
-#| fig-align: center
 from vetiver import vetiver_endpoint, predict, compute_metrics, plot_metrics
 from sklearn.metrics import recall_score, accuracy_score
 from datetime import timedelta
@@ -298,6 +297,7 @@ pio.write_html(metrics_plot, file="plot.html", auto_open=False)
 ```{r}
 #| echo: false
 #| eval: true
+#| fig-align: center
 htmltools::includeHTML("plot.html")
 ```
 
@@ -310,7 +310,6 @@ htmltools::includeHTML("plot.html")
 #| output-location: slide 
 library(vetiver)
 library(tidymodels)
-library(workflows)
 url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"
 endpoint <- vetiver_endpoint(url)
 
