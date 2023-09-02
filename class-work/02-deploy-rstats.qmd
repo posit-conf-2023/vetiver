@@ -1,0 +1,122 @@
+---
+title: Deploy your model
+subtitle: Deploy and maintain models with vetiver (R)
+format: html
+---
+
+## Create a new vetiver model 🌳🌴🌲🌲🌴🌳🌴🌳🌲
+
+Fit a random forest model
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
+
+set.seed(123)
+inspect_split <- initial_split(inspections, prop = 0.8)
+inspect_train <- training(inspect_split)
+inspect_test <- testing(inspect_split)
+
+inspection_rec <- 
+  recipe(results ~ facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE)
+
+inspection_fit <-
+  workflow(inspection_rec, rand_forest(mode = "classification", trees = 1e3)) |> 
+  fit(data = inspect_train)
+```
+
+Store your model on Posit Connect:
+
+```{r}
+library(vetiver)
+library(pins)
+
+v <- vetiver_model(___, ___)
+board <- ___
+board |> vetiver_pin_write(v)
+```
+
+## Model Card ❤️
+
+Open the Model Card template in RStudio by choosing "File" ➡️ "New File" ➡️ "R Markdown" ➡️ "From Template" ➡️ "Vetiver Model Card".  
+
+## Create a vetiver REST API 🏺
+
+```{r}
+library(plumber)
+
+pr() |>
+  ___(v) |>
+  pr_run()
+```
+
+## Deploy to Posit Connect 🚀
+
+```{r}
+vetiver_deploy_rsconnect(board, ___)
+```
+
+## Call your new API endpoints ☎️
+
+Return predictions from your model API:
+
+```{r}
+url <- ___
+endpoint <- ___(url)
+predict(___, slice_sample(inspect_test, n = 10))
+```
+
+Optional: try `/metadata` or `/ping` here:
+
+```{r}
+url <- ___
+r <- httr::GET(url)
+r <- httr::content(r, as = "text", encoding = "UTF-8")
+jsonlite::fromJSON(r)
+```
+
+Return predictions from **your neighbor's** model API:
+
+```{r}
+url <- ___
+endpoint <- ___(url)
+predict(___, slice_sample(inspect_test, n = 10))
+```
+
+
+## Model input prototype 🔀
+
+For our R model:
+
+```{r}
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/prototype/"
+r <- ___
+prototype <- httr::content(r, as = "text", encoding = "UTF-8")
+jsonlite::fromJSON(___)
+```
+
+For our Python model:
+
+```{r}
+url <- "https://colorado.posit.co/rsc/chicago-inspections-python/prototype/"
+r <- ___
+prototype <- httr::content(r, as = "text", encoding = "UTF-8")
+jsonlite::fromJSON(___)
+```
+
+Make a custom input data prototype after checking out this documentation:
+<https://rstudio.github.io/vetiver-r/reference/vetiver_model.html#details>
+
+```{r}
+v <- vetiver_model(___, ___, save_prototype = ___)
+
+pr() |>
+  vetiver_api(v) |>
+  pr_run()
+```
+

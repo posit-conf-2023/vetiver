@@ -1,0 +1,119 @@
+---
+title: Deeper into deployment
+subtitle: Deploy and maintain models with vetiver (R)
+format: html
+---
+
+## Create your vetiver model 🏺
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
+
+set.seed(123)
+inspect_split <- initial_split(inspections, prop = 0.8)
+inspect_train <- training(inspect_split)
+inspect_test <- testing(inspect_split)
+
+inspection_rec <- 
+  recipe(results ~ facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE)
+
+inspection_fit <-
+  workflow(inspection_rec, rand_forest(mode = "classification", trees = 1e3)) |> 
+  fit(data = inspect_train)
+
+v <- vetiver_model(___, ___)
+v
+```
+
+## Docker 🐳
+
+See `docker-rstats.qmd` in this same folder if you want to work along with the Docker demo.
+
+## Model metrics as metadata 🎯
+
+Compute metrics for your model:
+
+```{r}
+inspect_metric_set <- metric_set(accuracy, mn_log_loss, f_meas)
+inspect_metrics <-
+  augment(inspection_fit, new_data = ___) |>
+  inspect_metric_set(truth = results, estimate = .pred_class, .pred_FAIL)
+
+inspect_metrics
+```
+
+Store these metrics as vetiver metadata:
+
+```{r}
+library(vetiver)
+v <- vetiver_model(
+  ___, 
+  ___, 
+  metadata = list(metrics = ___)
+)
+```
+
+Write a new version of your pin:
+
+```{r}
+library(pins)
+board <- ___
+board |> ___
+```
+
+Get your own metrics metadata:
+
+```{r}
+extracted_metrics <- 
+  board |> 
+  pin_meta(___) |> 
+  pluck("user", "metrics") |> 
+  as_tibble()
+
+extracted_metrics
+```
+
+Get **your neighbor's** metrics metadata:
+
+```{r}
+board |> 
+  pin_meta(___) |> 
+  pluck("user", "metrics") |> 
+  as_tibble()
+```
+
+## Add a new endpoint to your API ✨
+
+Write a `plumber.R` file:
+
+```{r}
+vetiver_write_plumber(board, ___)
+```
+
+Open the file and run it locally; use the "Run API" button in RStudio.
+
+Add a new endpoint to this file! 
+
+One option is to add this function plus `library(lubridate)`:
+
+```r
+handler_weekday <- function(req) {
+  wday(req$body$inspection_date, label = TRUE)
+}
+```
+
+Change your `#* @plumber` decorated function so its body looks like:
+
+```r
+pr |>  
+  vetiver_api(v) |> 
+  pr_post(path = "/weekday", handler = handler_weekday)
+```
+
+After you add a new endpoint, run the API locally again.
