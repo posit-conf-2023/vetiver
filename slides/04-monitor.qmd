@@ -174,7 +174,7 @@ countdown(minutes = 5)
 
 # Learn more about model monitoring tomorrow 🚀
 
-Come hear Julia's talk on reliable maintenance of ML models on Tues, Sept 19 at 1:50pm!
+Come hear Julia's talk on reliable maintenance of ML models on Tues, Sept 19 at 3pm!
 
 # Monitor your model's inputs
 
