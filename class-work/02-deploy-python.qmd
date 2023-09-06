@@ -55,7 +55,10 @@ vetiver_pin_write(board, v)
 
 ## Model Card ❤️
 
-Open the Model Card template in RStudio by choosing "File" ➡️ "New File" ➡️ "R Markdown" ➡️ "From Template" ➡️ "Vetiver Model Card".  
+```{python}
+import vetiver
+vetiver.model_card()
+```
 
 ## Create a vetiver REST API 🏺
 
@@ -127,3 +130,10 @@ url = "https://colorado.posit.co/rsc/chicago-inspections-python/prototype/"
 print(requests.get(url).content)
 ```
 
+Make a custom input data prototype after checking out this documentation:
+<https://rstudio.github.io/vetiver-python/stable/reference/VetiverModel.html#VetiverModel>
+
+```{python}
+v = vetiver_model(___, ___, prototype_data = ___)
+VetiverAPI(_).run()
+```

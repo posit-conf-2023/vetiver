@@ -28,7 +28,6 @@ v_meta = board.pin_meta("chicago-model-python")
 ```
 
 ```{python}
-#| echo: false
 days_old = datetime.today() - datetime.strptime(v_meta.created, "%Y%m%dT%H%M%SZ")
 display(Markdown(f"""
 The `{v.model_name}` model is {days_old.days} days old.
@@ -71,7 +70,6 @@ metrics_df
 ```
 
 ```{python}
-#| echo: false
 plot_metrics(metrics_df).show()
 ```
 
@@ -80,12 +78,10 @@ Plot model metrics over time to *monitor* your model.
 ### Explore validation data
 
 ```{python}
-#| echo: false
 inspections_new.head()
 ```
 
 ```{python}
-#| echo: false
 px.histogram(inspections_new, x = "month", color="facility_type", title = "Inspections per month by facility type")
 ```
 
@@ -96,7 +92,6 @@ Write your own code to make visualizations or tables with the new validation dat
 Interact directly with your model via its visual documentation, and get `curl` examples.
 
 ```{python}
-#| echo: false
 IFrame('https://colorado.posit.co/rsc/chicago-inspections-python/', width=700, height=350)
 ```
 
