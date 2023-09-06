@@ -56,7 +56,7 @@ metrics_df
 plot_metrics(metrics_df)
 ```
 
-Read about how you can use pins for versioning metrics: <https://rstudio.github.io/vetiver-r/reference/vetiver_pin_metrics.html>
+Read about how you can use pins for versioning metrics: <https://rstudio.github.io/vetiver-python/stable/reference/pin_metrics.html>
 
 ## ML metrics ➡️ organizational outcomes
 
