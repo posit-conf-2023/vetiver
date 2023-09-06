@@ -39,7 +39,7 @@ v = VetiverModel(___, ___)
 
 ## Docker 🐳
 
-See `docker-rstats.qmd` in this same folder if you want to work along with the Docker demo.
+See `docker-python.qmd` in this same folder if you want to work along with the Docker demo.
 
 ## Model metrics as metadata 🎯
 
@@ -106,13 +106,13 @@ extracted_metrics
 
 ## Add a new endpoint to your API ✨
 
-Write a `plumber.R` file:
+Write an `app.py` file:
 
 ```{python}
 vetiver.write_app(board, ___)
 ```
 
-Open the file and run it locally; use the "Run API" button in RStudio.
+Open the file and view it locally. To start the API, add `vetiver_api.run()` as a last line and run file.
 
 Add a new endpoint to this file! 
 
