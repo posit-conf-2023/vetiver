@@ -15,7 +15,7 @@ inspections.head()
 Explore the `inspections` data on your own!
 
 ```{python}
-inspections.count(results)
+inspections.results.count()
 ```
 
 ```{python}

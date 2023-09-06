@@ -127,16 +127,3 @@ url = "https://colorado.posit.co/rsc/chicago-inspections-python/prototype/"
 print(requests.get(url).content)
 ```
 
-## TODO MAKE PYTHON THING HERE
-
-Make a custom input data prototype after checking out this documentation:
-<https://rstudio.github.io/vetiver-r/reference/vetiver_model.html#details>
-
-```{r}
-v <- vetiver_model(___, ___, save_prototype = ___)
-
-pr() |>
-  vetiver_api(v) |>
-  pr_run()
-```
-
