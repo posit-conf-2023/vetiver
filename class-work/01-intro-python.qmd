@@ -1,0 +1,120 @@
+---
+title: Introduction
+subtitle: Deploy and maintain models with vetiver (Python)
+format: html
+---
+
+## Explore the data 👀
+
+```{python}
+import pandas as pd
+inspections = pd.read_parquet('../data/inspections.parquet')
+inspections.head()
+```
+
+Explore the `inspections` data on your own!
+
+```{python}
+inspections.count(results)
+```
+
+```{python}
+## more EDA here
+```
+
+## Build a model 🔧
+
+Spend your data budget:
+
+```{python}
+from sklearn import model_selection
+import numpy as np
+np.random.seed(123)
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
+X, y = inspections.drop(columns=['aka_name', 'results', 'inspection_date']), inspections['results']
+X_train, X_test, y_train, y_test = model_selection.train_test_split(
+    X, y,
+    test_size = 0.2
+)
+```
+
+Train a logistic regression model:
+
+```{python}
+from sklearn import preprocessing, linear_model, pipeline, compose
+
+categorical_features = ['facility_type', 'risk', 'month']
+
+oe = compose.make_column_transformer(
+    (preprocessing.OrdinalEncoder(
+            handle_unknown="use_encoded_value", unknown_value=-1),
+        categorical_features,),
+    remainder="passthrough",
+).fit(X_train)
+lr = linear_model.LogisticRegression().fit(oe.transform(X_train), y_train)
+inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", lr)])
+```
+
+## Create a deployable model object 🏺
+
+```{python}
+from vetiver import VetiverModel
+v = VetiverModel(___, ___)
+v.description
+```
+
+```{python}
+## create a vetiver model with a custom description
+```
+
+## Version your model 📌
+
+```{python}
+## create a temp board and pin your model
+import pins
+from vetiver import vetiver_pin_write
+
+board = ___
+___(board, v)
+```
+
+```{python}
+## retrieve your model metadata
+board.pin_meta(___)
+```
+
+```{python}
+## now write your model pin to Posit Connect
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("API_KEY")
+rsc_url = os.getenv("CONNECT_URL")
+
+board = ___
+___(board, v)
+```
+
+## Store a new version 👯
+
+Train your model with a new algorithm:
+
+```{python}
+__ = __.fit(oe.transform(X_train), y_train)
+inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("___", __)])
+```
+
+Store this new model as a new version of the same pin:
+
+```{python}
+v = VetiverModel(___, ___)
+___(board, v)
+```
+
+What versions do you have?
+
+```{python}
+board.pin_versions()
+```
