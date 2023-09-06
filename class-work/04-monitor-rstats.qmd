@@ -1,0 +1,73 @@
+---
+title: Monitor your model
+subtitle: Deploy and maintain models with vetiver (R)
+format: html
+---
+
+## Data for modeling & data for monitoring 🤝
+
+```{r}
+library(arrow)
+
+path1 <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path1)
+
+path2 <- here::here("data", "inspections_monitoring.parquet")
+inspections_new <- read_parquet(path2)
+```
+
+Compare the modeling and monitoring datasets:
+
+```{r}
+## make a plot or table
+```
+
+## Monitor metrics over time ⏳
+
+```{r}
+library(vetiver)
+library(tidymodels)
+url <- "https://colorado.posit.co/rsc/chicago-inspections-rstats/predict"
+endpoint <- vetiver_endpoint(url)
+
+metrics_df <-
+  augment(endpoint, new_data = inspections_new) |>
+  mutate(.pred_class = as.factor(.pred_class)) |> 
+  vetiver_compute_metrics(
+    inspection_date, 
+    ___, 
+    results, 
+    .pred_class,
+    metric_set = metric_set(___)
+  )
+
+metrics_df
+```
+
+```{r}
+vetiver_plot_metrics(metrics_df)
+```
+
+Read about how you can use pins for versioning metrics: <https://rstudio.github.io/vetiver-r/reference/vetiver_pin_metrics.html>
+
+## ML metrics ➡️ organizational outcomes
+
+What proportion of failed inspections were predicted to fail?
+
+```{r}
+augment(endpoint, inspections_new) |> 
+  mutate(.pred_class = as.factor(.pred_class)) |> 
+  group_by(___) |> 
+  ___(results, .pred_class)
+```
+
+```{r}
+## make a visualization
+```
+
+## Create a monitoring dashboard or report 📊
+
+To wrap up, create a model monitoring dashboard or report and publish it to Connect. You have a few options:
+
+- Open the `04-monitor-dashboard.Rmd`, make any changes you like (for example, different metrics or visualizations), knit it, and publish to Connect.
+- Open a fresh copy of the dashboard template in RStudio by choosing "File" ➡️ "New File" ➡️ "R Markdown" ➡️ "From Template" ➡️ "Vetiver Dashboard". Update this template for _your_ model and publish to Connect.

@@ -1,0 +1,139 @@
+---
+title: Deploy your model
+subtitle: Deploy and maintain models with vetiver (Python)
+format: html
+---
+
+## Create a new vetiver model 🌳🌴🌲🌲🌴🌳🌴🌳🌲
+
+Fit a random forest model
+
+```{python}
+import pandas as pd
+import numpy as np
+from sklearn import preprocessing, ensemble, pipeline, compose, model_selection
+
+inspections = pd.read_parquet('../data/inspections.parquet')
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
+
+categorical_features = ['facility_type', 'risk', 'month']
+X, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']
+X_train, X_test, y_train, y_test = model_selection.train_test_split(
+    X, y,
+    stratify = y,
+    test_size = 0.2
+)
+
+oe = compose.make_column_transformer(
+    (preprocessing.OrdinalEncoder(
+            handle_unknown="use_encoded_value", unknown_value=-1),
+        categorical_features,),
+    remainder="passthrough",
+).fit(X_train)
+rf = ensemble.RandomForestClassifier().fit(oe.transform(X_train), y_train)
+inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", rf)])
+```
+
+Store your model on Posit Connect:
+
+```{python}
+#| eval: false
+from vetiver import VetiverModel, vetiver_pin_write
+from pins import board_connect
+import os
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("CO_API_KEY")
+rsc_url = os.getenv("CO_RSC_URL")
+
+v = VetiverModel(__)
+board = ___
+vetiver_pin_write(board, v)
+```
+
+## Model Card ❤️
+
+```{python}
+import vetiver
+vetiver.model_card()
+```
+
+## Create a vetiver REST API 🏺
+
+```{python}
+from vetiver import VetiverAPI
+
+api = __
+api.run()
+```
+
+## Deploy to Posit Connect 🚀
+
+```{python}
+#| eval: false
+from rsconnect.api import RSConnectServer
+connect_server = RSConnectServer(url = rsc_url, api_key = api_key)
+board = pins.board_connect(server_url = url, api_key = api_key, allow_pickle_read = True)
+
+vetiver.deploy_rsconnect(
+    connect_server = connect_server,
+    board = ____,
+    pin_name = ____,
+)
+```
+
+## Call your new API endpoints ☎️
+
+Return predictions from your model API:
+
+```{python}
+from vetiver import predict, vetiver_endpoint
+
+url = ___
+endpoint = ___(url)
+predict(___, X_test.head(10))
+```
+
+Optional: try `/metadata` or `/ping` here:
+
+```{python}
+import requests
+url = ___
+print(requests.get(ur).content)
+```
+
+Return predictions from **your neighbor's** model API:
+
+```{python}
+url = ___
+endpoint = ___(url)
+predict(___, X_test.head(10))
+```
+
+
+## Model input prototype 🔀
+
+For our R model:
+
+```{python}
+import requests
+url = "https://colorado.posit.co/rsc/chicago-inspections-rstats/prototype/"
+print(requests.get(url).content)
+```
+
+For our Python model:
+
+```{python}
+url = "https://colorado.posit.co/rsc/chicago-inspections-python/prototype/"
+print(requests.get(url).content)
+```
+
+Make a custom input data prototype after checking out this documentation:
+<https://rstudio.github.io/vetiver-python/stable/reference/VetiverModel.html#VetiverModel>
+
+```{python}
+v = vetiver_model(___, ___, prototype_data = ___)
+VetiverAPI(_).run()
+```

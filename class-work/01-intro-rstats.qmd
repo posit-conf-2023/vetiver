@@ -1,0 +1,106 @@
+---
+title: Introduction
+subtitle: Deploy and maintain models with vetiver (R)
+format: html
+---
+
+## Explore the data 👀
+
+```{r}
+library(tidyverse)
+library(arrow)
+path <- here::here("data", "inspections.parquet")
+inspections <- read_parquet(path)
+glimpse(inspections)
+```
+
+Explore the `inspections` data on your own!
+
+```{r}
+inspections |> 
+  count(results)
+```
+
+```{r}
+## more EDA here
+```
+
+## Build a model 🔧
+
+Spend your data budget:
+
+```{r}
+library(tidymodels)
+set.seed(123)
+inspect_split <- initial_split(inspections, prop = 0.8)
+inspect_train <- training(inspect_split)
+inspect_test <- testing(inspect_split)
+```
+
+Train a logistic regression model:
+
+```{r}
+inspection_rec <- 
+  recipe(results ~ facility_type + risk + total_violations + inspection_date, 
+         data = inspect_train) |> 
+  step_date(inspection_date, features = c("month", "year"), keep_original_cols = FALSE)
+
+inspection_fit <-
+  workflow(inspection_rec, logistic_reg()) |> 
+  fit(data = inspect_train)
+```
+
+## Create a deployable model object 🏺
+
+```{r}
+library(vetiver)
+v <- vetiver_model(___, ___)
+v
+```
+
+```{r}
+## create a vetiver model with a custom description
+```
+
+## Version your model 📌
+
+```{r}
+library(pins)
+
+board <- ___
+board |> ___(v)
+```
+
+```{r}
+## retrieve your model metadata
+board |> pin_meta(___)
+```
+
+```{r}
+## now write your model pin to Posit Connect
+board <- ___
+board |> ___(v)
+```
+
+## Store a new version 👯
+
+Train your model with a new algorithm:
+
+```{r}
+inspection_fit <-
+  workflow(inspection_rec, ___) |> 
+  fit(data = inspect_train)
+```
+
+Store this new model as a new version of the same pin:
+
+```{r}
+v <- vetiver_model(___, ___)
+board |> ___(v)
+```
+
+What versions do you have?
+
+```{r}
+board |> pin_versions()
+```

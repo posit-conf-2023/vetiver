@@ -1,0 +1,135 @@
+---
+title: Deeper into deployment
+subtitle: Deploy and maintain models with vetiver (Python)
+format: html
+---
+
+## Create your vetiver model 🏺
+
+```{python}
+import pandas as pd
+import numpy as np
+from sklearn import preprocessing, ensemble, pipeline, compose, model_selection
+from vetiver import VetiverModel
+
+inspections = pd.read_parquet('../data/inspections.parquet')
+inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
+inspections['month'] = inspections['inspection_date'].dt.month
+inspections['year'] = inspections['inspection_date'].dt.year
+
+categorical_features = ['facility_type', 'risk', 'month']
+X, y = inspections.drop(columns=['aka_name', 'results','inspection_date']), inspections['results']
+X_train, X_test, y_train, y_test = model_selection.train_test_split(
+    X, y,
+    stratify = y,
+    test_size = 0.2
+)
+
+oe = compose.make_column_transformer(
+    (preprocessing.OrdinalEncoder(
+            handle_unknown="use_encoded_value", unknown_value=-1),
+        categorical_features,),
+    remainder="passthrough",
+).fit(X_train)
+rf = ensemble.RandomForestClassifier().fit(oe.transform(X_train), y_train)
+inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", rf)])
+
+v = VetiverModel(___, ___)
+```
+
+## Docker 🐳
+
+See `docker-python.qmd` in this same folder if you want to work along with the Docker demo.
+
+## Model metrics as metadata 🎯
+
+Compute metrics for your model:
+
+```{python}
+from sklearn import metrics
+
+metric_set = [metrics.accuracy_score, metrics.f1_score, metrics.log_loss]
+y_predictions = pd.Series(inspection_fit.predict(___)).map({"PASS": 0, "FAIL": 1})
+y_truth = y_test.map({"PASS": 0, "FAIL": 1})
+
+inspect_metrics = pd.DataFrame()
+for metric in metric_set:
+    metric_name = str(metric.__name__)
+    metric_output = metric(y_truth, y_predictions)
+    inspect_metrics = pd.concat(
+        (
+            inspect_metrics,
+            pd.DataFrame({"name": [metric_name],
+                          "score": [metric_output]}),
+        ),
+        axis=0,
+    )
+
+inspect_metrics.reset_index(inplace=True, drop=True)
+inspect_metrics
+```
+
+Store these metrics as vetiver metadata:
+
+```{python}
+v = VetiverModel(
+  ___, 
+  ___,
+  prototype_data = ____,
+  metadata = ___.to_dict()
+)
+```
+
+Write a new version of your pin:
+
+```{python}
+import pins
+board =  ___
+vetiver_write_pin(___, ___)
+```
+
+Get your own metrics metadata:
+
+```{python}
+metadata = board.pin_meta(____)
+extracted_metrics = pd.DataFrame(metadata.user.get("user"))
+extracted_metrics
+```
+
+Get **your neighbor's** metrics metadata:
+
+```{python}
+metadata = board.pin_meta(___)
+extracted_metrics = pd.DataFrame(metadata.user.get("user"))
+extracted_metrics
+```
+
+## Add a new endpoint to your API ✨
+
+Write an `app.py` file:
+
+```{python}
+vetiver.write_app(board, ___)
+```
+
+Open the file and view it locally. To start the API, add `vetiver_api.run()` as a last line and run file.
+
+Add a new endpoint to this file! 
+
+One option is to add this function plus `import calendar`:
+
+```python
+def get_month_names(x):
+  mnth_name = x["month"].apply(lambda x: calendar.month_name[x])
+  return mnth_name
+```
+
+Change your `VetiverAPI` object so it looks like:
+
+```python
+vetiver_api = vetiver.VetiverAPI(v)
+vetiver_api.vetiver_post(get_month_names, "get_month_names")
+api = vetiver_api.app
+```
+
+After you add a new endpoint, run the API locally again.
