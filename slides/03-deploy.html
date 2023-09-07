@@ -500,11 +500,11 @@
 </section>
 <section id="build-your-container" class="slide level2">
 <h2>Build your container</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">docker</span> build <span class="at">-t</span> inspection .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">docker</span> build <span class="at">-t</span> inspections .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="run-your-container" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Run your container</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb4-1" class="hljs-ln-code"><a href="#cb4-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8080:8080 inspection</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb4-1" class="hljs-ln-code"><a href="#cb4-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8080:8080 inspections</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="run-your-container-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Run your container</h2>
@@ -644,9 +644,9 @@
 <span id="cb10-20"><a href="#cb10-20"></a>inspect_metrics.reset_index(inplace<span class="op">=</span><span class="va">True</span>, drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb10-21"><a href="#cb10-21"></a>inspect_metrics</span>
 <span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt;              name      score</span></span>
-<span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; 0  accuracy_score   0.644189</span></span>
-<span id="cb10-24"><a href="#cb10-24"></a><span class="co">#&gt; 1        f1_score   0.594771</span></span>
-<span id="cb10-25"><a href="#cb10-25"></a><span class="co">#&gt; 2        log_loss  12.824715</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; 0  accuracy_score   0.654950</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="co">#&gt; 1        f1_score   0.619763</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a><span class="co">#&gt; 2        log_loss  12.436870</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -755,7 +755,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_1a548f20" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_347337ca" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -774,9 +774,9 @@
 <span id="cb16-2"><a href="#cb16-2"></a>extracted_metrics <span class="op">=</span> pd.DataFrame(metadata.user.get(<span class="st">"user"</span>))</span>
 <span id="cb16-3"><a href="#cb16-3"></a>extracted_metrics</span>
 <span id="cb16-4"><a href="#cb16-4"></a><span class="co">#&gt;              name      score</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; 0  accuracy_score   0.644189</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt; 1        f1_score   0.594771</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt; 2        log_loss  12.824715</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; 0  accuracy_score   0.654950</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt; 1        f1_score   0.619763</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt; 2        log_loss  12.436870</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-5-2">
@@ -816,7 +816,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_11ce3685" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_4524a787" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -897,7 +897,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_1f650ea6" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_3c4bcd3a" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -958,7 +958,7 @@
 <span id="cb23-16" class="hljs-ln-code"><a href="#cb23-16"></a>b <span class="ot">&lt;-</span> <span class="fu">board_connect</span>(<span class="at">auth =</span> <span class="st">"envvar"</span>)</span>
 <span id="cb23-17" class="hljs-ln-code"><a href="#cb23-17"></a>v <span class="ot">&lt;-</span> <span class="fu">vetiver_pin_read</span>(b, <span class="st">"julia.silge/chicago-inspections-rstats"</span>, <span class="at">version =</span> <span class="st">"78859"</span>)</span>
 <span id="cb23-18" class="hljs-ln-code"><a href="#cb23-18"></a></span>
-<span id="cb23-19" class="hljs-ln-code"><a href="#cb23-19"></a>hander_weekday <span class="ot">&lt;-</span> <span class="cf">function</span>(req) {</span>
+<span id="cb23-19" class="hljs-ln-code"><a href="#cb23-19"></a>handler_weekday <span class="ot">&lt;-</span> <span class="cf">function</span>(req) {</span>
 <span id="cb23-20" class="hljs-ln-code"><a href="#cb23-20"></a>    <span class="fu">wday</span>(req<span class="sc">$</span>body<span class="sc">$</span>inspection_date, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb23-21" class="hljs-ln-code"><a href="#cb23-21"></a>}</span>
 <span id="cb23-22" class="hljs-ln-code"><a href="#cb23-22"></a></span>
@@ -966,7 +966,7 @@
 <span id="cb23-24" class="hljs-ln-code"><a href="#cb23-24"></a><span class="cf">function</span>(pr) {</span>
 <span id="cb23-25" class="hljs-ln-code"><a href="#cb23-25"></a>    pr <span class="sc">|&gt;</span>  </span>
 <span id="cb23-26" class="hljs-ln-code"><a href="#cb23-26"></a>        <span class="fu">vetiver_api</span>(v) <span class="sc">|&gt;</span> </span>
-<span id="cb23-27" class="hljs-ln-code"><a href="#cb23-27"></a>        <span class="fu">pr_post</span>(<span class="at">path =</span> <span class="st">"/weekday"</span>, <span class="at">handler =</span> hander_weekday)</span>
+<span id="cb23-27" class="hljs-ln-code"><a href="#cb23-27"></a>        <span class="fu">pr_post</span>(<span class="at">path =</span> <span class="st">"/weekday"</span>, <span class="at">handler =</span> handler_weekday)</span>
 <span id="cb23-28" class="hljs-ln-code"><a href="#cb23-28"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="add-a-new-endpoint-to-your-api-7" class="slide level2" data-auto-animate="true">
@@ -1019,7 +1019,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_b1d18bc7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_9e151c9f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
