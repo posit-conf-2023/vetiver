@@ -423,7 +423,7 @@ countdown(minutes = 7)
 
 ```{r}
 #| eval: false
-vetiver_write_plumber(board, "inspection-result-rstats")
+vetiver_write_plumber(board, "chicago-inspections-rstats")
 ```
 
 ```r
