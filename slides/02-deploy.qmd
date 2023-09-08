@@ -267,6 +267,8 @@ Set your API as accessible to "Anyone", for convenience.
 
 Compare the results to your local API. Is anything different?
 
+If you visit Connect, do you see your neighbor's API?
+
 :::
 
 ```{r}

@@ -102,6 +102,8 @@ board = ___
 ___(board, v)
 ```
 
+Visit your pin's homepage on Connect.
+
 ## Store a new version 👯
 
 Train your model with a new algorithm:

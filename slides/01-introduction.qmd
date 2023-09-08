@@ -212,6 +212,11 @@ library(countdown)
 countdown(minutes = 3)
 ```
 
+# Posit Workbench
+
+- Log in at [workbench-url-goes-here](tktk) with the identifier `tktk`
+- Use RStudio for R or VS Code for Python
+- Open the folder `vetiver` in your home directory
 
 ##  Chicago food inspections data {background-color="black" background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg" background-opacity=0.3}
 
@@ -626,6 +631,8 @@ vetiver_pin_write(board, v)
 Create an API key for our Posit Connect server, and save it on Workbench in your working directory (in `.Renviron` for R or `.env` for Python).
 
 Pin your model to our Connect instance.
+
+Visit your pin's homepage on Connect.
 
 Train your model again, using a different ML algorithm (decision tree or random forest are good options).
 
