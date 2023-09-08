@@ -564,7 +564,8 @@ countdown(minutes = 5)
 
 # Posit Connect
 
-tktk -- how do we tell folks to log in, get an API key?
+- Posit Connect is a publishing platform for data science
+- Generate an API key: <https://docs.posit.co/connect/user/api-keys/>
 
 ## Version your model {auto-animate=true}
 
@@ -622,6 +623,8 @@ vetiver_pin_write(board, v)
 
 ## Activity
 
+Create an API key for our Posit Connect server, and save it on Workbench in your working directory (in `.Renviron` for R or `.env` for Python).
+
 Pin your model to our Connect instance.
 
 Train your model again, using a different ML algorithm (decision tree or random forest are good options).
@@ -632,7 +635,7 @@ Write this new version of your model to the same pin, and see what versions you 
 
 ```{r}
 #| echo: false
-countdown(minutes = 5)
+countdown(minutes = 10)
 ```
 
 

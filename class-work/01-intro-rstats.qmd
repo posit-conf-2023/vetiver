@@ -76,6 +76,11 @@ board |> ___(v)
 board |> pin_meta(___)
 ```
 
+## Publish your model on Posit Connect 🚀
+
+- Create an API key on Connect: <https://docs.posit.co/connect/user/api-keys/>
+- Store it as `CONNECT_API_KEY` in `.Renviron`
+
 ```{r}
 ## now write your model pin to Posit Connect
 board <- ___
