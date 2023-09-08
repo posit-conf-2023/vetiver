@@ -101,7 +101,7 @@ inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", r
 library(vetiver)
 library(pins)
 
-v <- vetiver_model(inspect_fit, "chicago-inspections-rstats")
+v <- vetiver_model(inspection_fit, "chicago-inspections-rstats")
 board <- board_connect()
 board |> vetiver_pin_write(v)
 ```
