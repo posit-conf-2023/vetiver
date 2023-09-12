@@ -303,10 +303,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-api_key = os.getenv("CO_API_KEY")
-rsc_url = os.getenv("CO_RSC_URL")
-
-board = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
+board = board_connect(allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
 

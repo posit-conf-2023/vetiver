@@ -45,8 +45,6 @@ from pins import board_connect
 import os
 from dotenv import load_dotenv
 load_dotenv()
-api_key = os.getenv("CO_API_KEY")
-rsc_url = os.getenv("CO_RSC_URL")
 
 v = VetiverModel(__)
 board = ___
