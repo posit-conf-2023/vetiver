@@ -362,7 +362,6 @@ inspections |>
 #| fig.width: 20
 #| fig.height: 10
 #| fig-align: 'center'
-#| dev-args: list(bg = "transparent")
 library(recipes)
 inspection_rec <- 
   recipe(results ~ facility_type + risk + total_violations + inspection_date, 
