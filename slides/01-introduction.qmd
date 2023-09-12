@@ -631,6 +631,8 @@ board |> vetiver_pin_write(v)
 #| eval: false
 from pins import board_connect
 from vetiver import vetiver_pin_write
+from dotenv import load_dotenv
+load_dotenv()
 
 board = board_connect(allow_pickle_read = True)
 vetiver_pin_write(board, v)
