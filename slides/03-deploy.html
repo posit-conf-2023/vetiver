@@ -644,9 +644,9 @@
 <span id="cb10-20"><a href="#cb10-20"></a>inspect_metrics.reset_index(inplace<span class="op">=</span><span class="va">True</span>, drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb10-21"><a href="#cb10-21"></a>inspect_metrics</span>
 <span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt;              name      score</span></span>
-<span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; 0  accuracy_score   0.634864</span></span>
-<span id="cb10-24"><a href="#cb10-24"></a><span class="co">#&gt; 1        f1_score   0.579686</span></span>
-<span id="cb10-25"><a href="#cb10-25"></a><span class="co">#&gt; 2        log_loss  13.160846</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; 0  accuracy_score   0.652798</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="co">#&gt; 1        f1_score   0.603279</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a><span class="co">#&gt; 2        log_loss  12.514439</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -717,15 +717,11 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="im">from</span> pins <span class="im">import</span> board_connect</span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="im">from</span> vetiver <span class="im">import</span> vetiver_pin_write</span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="im">import</span> os</span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
-<span id="cb14-5"><a href="#cb14-5"></a>load_dotenv()</span>
-<span id="cb14-6"><a href="#cb14-6"></a></span>
-<span id="cb14-7"><a href="#cb14-7"></a>api_key <span class="op">=</span> os.getenv(<span class="st">"CO_API_KEY"</span>)</span>
-<span id="cb14-8"><a href="#cb14-8"></a>rsc_url <span class="op">=</span> os.getenv(<span class="st">"CO_RSC_URL"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9"></a></span>
-<span id="cb14-10"><a href="#cb14-10"></a>board <span class="op">=</span> board_connect(server_url <span class="op">=</span> rsc_url, api_key <span class="op">=</span> api_key, allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb14-11"><a href="#cb14-11"></a>vetiver_pin_write(board, v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb14-4"><a href="#cb14-4"></a>load_dotenv()</span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a>board <span class="op">=</span> board_connect(allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb14-7"><a href="#cb14-7"></a>vetiver_pin_write(board, v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-2">
@@ -755,7 +751,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_b351f101" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_5d4d7c79" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -774,9 +770,9 @@
 <span id="cb16-2"><a href="#cb16-2"></a>extracted_metrics <span class="op">=</span> pd.DataFrame(metadata.user.get(<span class="st">"user"</span>))</span>
 <span id="cb16-3"><a href="#cb16-3"></a>extracted_metrics</span>
 <span id="cb16-4"><a href="#cb16-4"></a><span class="co">#&gt;              name      score</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; 0  accuracy_score   0.634864</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt; 1        f1_score   0.579686</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt; 2        log_loss  13.160846</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; 0  accuracy_score   0.652798</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt; 1        f1_score   0.603279</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt; 2        log_loss  12.514439</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-5-2">
@@ -816,7 +812,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_dbd8f408" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_c03b91b3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -897,7 +893,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_6c8498d0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_9df140d7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1019,7 +1015,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_5321e837" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_d3d429b3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
