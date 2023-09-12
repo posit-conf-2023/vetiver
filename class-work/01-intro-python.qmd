@@ -95,9 +95,6 @@ board.pin_meta(___)
 from dotenv import load_dotenv
 load_dotenv()
 
-api_key = os.getenv("CONNECT_API_KEY")
-rsc_url = os.getenv("CONNECT_SERVER")
-
 board = ___
 ___(board, v)
 ```
