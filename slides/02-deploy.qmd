@@ -112,7 +112,6 @@ board |> vetiver_pin_write(v)
 #| eval: false
 from vetiver import VetiverModel, vetiver_pin_write
 from pins import board_connect
-import os
 from dotenv import load_dotenv
 load_dotenv()
 
