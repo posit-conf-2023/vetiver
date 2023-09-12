@@ -17,7 +17,7 @@ Imports:
     gt,
     hexbin,
     partykit,
-    pins,
+    pins (>= 1.2.2),
     plotly,
     plumber,
     ranger,
@@ -27,5 +27,5 @@ Imports:
     rsample,
     tidymodels,
     tidyverse,
-    vetiver
+    vetiver (>= 0.2.4)
 Encoding: UTF-8
