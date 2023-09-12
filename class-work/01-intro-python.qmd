@@ -89,7 +89,6 @@ board.pin_meta(___)
 
 - Create an API key on Connect: <https://docs.posit.co/connect/user/api-keys/>
 - Store it as `CONNECT_API_KEY` in `.env`
-- Store the url of your Connect server as `CONNECT_SERVER` in `.env`
 
 ```{python}
 ## now write your model pin to Posit Connect
