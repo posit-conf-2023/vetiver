@@ -216,7 +216,28 @@ countdown(minutes = 3)
 
 - Log in at [workbench-url-goes-here](tktk) with the identifier `tktk`
 - Use RStudio for R or VS Code for Python
-- Open the folder `vetiver` in your home directory
+- Open the folder `class-work` in the `vetiver` directory
+
+## Your turn 🏺 {transition="slide-in"}
+
+::: {.callout-note icon=false}
+
+## Activity
+
+Log in at [workbench-url-goes-here](tktk) with the identifier `tktk`.
+
+Start a new session, either RStudio or VS Code.
+
+In your new session, open the folder `class-work` in the `vetiver` directory, and choose the first Quarto file!
+
+:::
+
+```{r}
+#| echo: false
+library(countdown)
+countdown(minutes = 5)
+```
+
 
 ##  Chicago food inspections data {background-color="black" background-image="images/christopher-alvarenga-cfmSStcrDn4-unsplash.jpg" background-opacity=0.3}
 
@@ -611,14 +632,8 @@ board |> vetiver_pin_write(v)
 #| eval: false
 from pins import board_connect
 from vetiver import vetiver_pin_write
-import os
-from dotenv import load_dotenv
-load_dotenv()
 
-api_key = os.getenv("CO_API_KEY")
-rsc_url = os.getenv("CO_RSC_URL")
-
-board = board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
+board = board_connect(allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
 
