@@ -39,7 +39,6 @@ inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", r
 Store your model on Posit Connect:
 
 ```{python}
-#| eval: false
 from vetiver import VetiverModel, vetiver_pin_write
 from pins import board_connect
 import os
@@ -70,7 +69,6 @@ api.run()
 ## Deploy to Posit Connect 🚀
 
 ```{python}
-#| eval: false
 from rsconnect.api import RSConnectServer
 import os
 api_key = os.getenv("CONNECT_API_KEY")
