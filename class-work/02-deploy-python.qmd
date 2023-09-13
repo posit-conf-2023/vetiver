@@ -12,7 +12,7 @@ Fit a random forest model
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing, ensemble, pipeline, compose, model_selection
-
+np.random.seed(123)
 inspections = pd.read_parquet('../data/inspections.parquet')
 inspections['inspection_date'] = pd.to_datetime(inspections['inspection_date'])
 inspections['month'] = inspections['inspection_date'].dt.month
@@ -46,7 +46,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-v = VetiverModel(__)
+v = VetiverModel(___)
 board = ___
 vetiver_pin_write(board, v)
 ```
@@ -63,7 +63,7 @@ vetiver.model_card()
 ```{python}
 from vetiver import VetiverAPI
 
-api = __
+api = ___
 api.run()
 ```
 
@@ -72,13 +72,17 @@ api.run()
 ```{python}
 #| eval: false
 from rsconnect.api import RSConnectServer
+import os
+api_key = os.getenv("CONNECT_API_KEY")
+rsc_url = os.getenv("CONNECT_SERVER")
+
 connect_server = RSConnectServer(url = rsc_url, api_key = api_key)
-board = pins.board_connect(server_url = url, api_key = api_key, allow_pickle_read = True)
+board = pins.board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
 
 vetiver.deploy_rsconnect(
     connect_server = connect_server,
-    board = ____,
-    pin_name = ____,
+    board = ___,
+    pin_name = ___,
 )
 ```
 
@@ -99,7 +103,7 @@ Optional: try `/metadata` or `/ping` here:
 ```{python}
 import requests
 url = ___
-print(requests.get(ur).content)
+print(requests.get(url).content)
 ```
 
 Return predictions from **your neighbor's** model API:
@@ -133,5 +137,5 @@ Make a custom input data prototype after checking out this documentation:
 
 ```{python}
 v = vetiver_model(___, ___, prototype_data = ___)
-VetiverAPI(_).run()
+VetiverAPI(___).run()
 ```

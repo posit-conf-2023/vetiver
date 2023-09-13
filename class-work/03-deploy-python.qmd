@@ -75,7 +75,7 @@ Store these metrics as vetiver metadata:
 v = VetiverModel(
   ___, 
   ___,
-  prototype_data = ____,
+  prototype_data = ___,
   metadata = ___.to_dict()
 )
 ```
@@ -83,7 +83,7 @@ v = VetiverModel(
 Write a new version of your pin:
 
 ```{python}
-import pins
+from pins import board_connect
 board =  ___
 vetiver_write_pin(___, ___)
 ```
@@ -91,7 +91,7 @@ vetiver_write_pin(___, ___)
 Get your own metrics metadata:
 
 ```{python}
-metadata = board.pin_meta(____)
+metadata = board.pin_meta(___)
 extracted_metrics = pd.DataFrame(metadata.user.get("user"))
 extracted_metrics
 ```
