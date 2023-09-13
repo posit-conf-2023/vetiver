@@ -75,7 +75,7 @@ api_key = os.getenv("CONNECT_API_KEY")
 rsc_url = os.getenv("CONNECT_SERVER")
 
 connect_server = RSConnectServer(url = rsc_url, api_key = api_key)
-board = pins.board_connect(server_url = rsc_url, api_key = api_key, allow_pickle_read = True)
+board = pins.board_connect(allow_pickle_read = True)
 
 vetiver.deploy_rsconnect(
     connect_server = connect_server,
