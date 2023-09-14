@@ -502,7 +502,7 @@
 <span id="cb4-3"><a href="#cb4-3"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
 <span id="cb4-4"><a href="#cb4-4"></a>load_dotenv()</span>
 <span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a>v <span class="op">=</span> VetiverModel(inspection_fit, <span class="st">"chicago-inspections-python"</span>, prototype_data <span class="op">=</span> X_train)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>v <span class="op">=</span> VetiverModel(inspection_fit, <span class="st">"user.name/chicago-inspections-python"</span>, prototype_data <span class="op">=</span> X_train)</span>
 <span id="cb4-7"><a href="#cb4-7"></a>board <span class="op">=</span> board_connect(allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb4-8"><a href="#cb4-8"></a>vetiver_pin_write(board, v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -534,7 +534,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_c0a526db" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_5a96653b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -594,7 +594,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_041f89df" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_2dbb5126" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -627,14 +627,15 @@
 <h3 id="python-3">Python</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">from</span> rsconnect.api <span class="im">import</span> RSConnectServer</span>
-<span id="cb8-2"><a href="#cb8-2"></a>connect_server <span class="op">=</span> RSConnectServer(url <span class="op">=</span> rsc_url, api_key <span class="op">=</span> api_key)</span>
-<span id="cb8-3"><a href="#cb8-3"></a>board <span class="op">=</span> pins.board_connect(server_url <span class="op">=</span> url, api_key <span class="op">=</span> api_key, allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a>vetiver.deploy_rsconnect(</span>
-<span id="cb8-6"><a href="#cb8-6"></a>    connect_server <span class="op">=</span> connect_server,</span>
-<span id="cb8-7"><a href="#cb8-7"></a>    board <span class="op">=</span> board,</span>
-<span id="cb8-8"><a href="#cb8-8"></a>    pin_name <span class="op">=</span> <span class="st">"user.name/chicago-inspections-python"</span>,</span>
-<span id="cb8-9"><a href="#cb8-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a>connect_server <span class="op">=</span> RSConnectServer(url <span class="op">=</span> rsc_url, api_key <span class="op">=</span> api_key)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>board <span class="op">=</span> pins.board_connect(allow_pickle_read <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a>vetiver.deploy_rsconnect(</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    connect_server <span class="op">=</span> connect_server,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>    board <span class="op">=</span> board,</span>
+<span id="cb8-9"><a href="#cb8-9"></a>    pin_name <span class="op">=</span> <span class="st">"user.name/chicago-inspections-python"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-turn-2" class="slide level2" data-transition="slide-in">
@@ -655,7 +656,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_35593e39" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_2e00f714" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -746,15 +747,15 @@
 <span id="cb12-4"><a href="#cb12-4"></a>predict(endpoint <span class="op">=</span> endpoint, data <span class="op">=</span> X_test.head(<span class="dv">10</span>))</span>
 <span id="cb12-5"><a href="#cb12-5"></a><span class="co">#&gt;   predict</span></span>
 <span id="cb12-6"><a href="#cb12-6"></a><span class="co">#&gt; 0    FAIL</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="co">#&gt; 1    PASS</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="co">#&gt; 2    FAIL</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="co">#&gt; 3    FAIL</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co">#&gt; 1    FAIL</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co">#&gt; 2    PASS</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="co">#&gt; 3    PASS</span></span>
 <span id="cb12-10"><a href="#cb12-10"></a><span class="co">#&gt; 4    FAIL</span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; 5    FAIL</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; 5    PASS</span></span>
 <span id="cb12-12"><a href="#cb12-12"></a><span class="co">#&gt; 6    PASS</span></span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="co">#&gt; 7    FAIL</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="co">#&gt; 8    PASS</span></span>
-<span id="cb12-15"><a href="#cb12-15"></a><span class="co">#&gt; 9    FAIL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="co">#&gt; 7    PASS</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a><span class="co">#&gt; 8    FAIL</span></span>
+<span id="cb12-15"><a href="#cb12-15"></a><span class="co">#&gt; 9    PASS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -776,7 +777,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d30c87aa" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_d1be9fea" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -799,7 +800,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_ef3103cf" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_0303517f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -866,17 +867,17 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>X_train</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="co">#&gt;       facility_type             risk  total_violations  month  year</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="co">#&gt; 882      RESTAURANT  RISK 2 (MEDIUM)              34.0      5  2019</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#&gt; 2574  GROCERY STORE  RISK 2 (MEDIUM)              15.0      6  2020</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#&gt; 4069     RESTAURANT  RISK 2 (MEDIUM)               1.0     10  2021</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#&gt; 2548  GROCERY STORE  RISK 2 (MEDIUM)              30.0      6  2020</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#&gt; 3887     RESTAURANT  RISK 2 (MEDIUM)               7.0      9  2021</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co">#&gt; 1365     RESTAURANT    RISK 1 (HIGH)               0.0      9  2019</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#&gt; 4363     RESTAURANT    RISK 1 (HIGH)              42.0      1  2022</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#&gt; 4610  GROCERY STORE     RISK 3 (LOW)               8.0      3  2022</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#&gt; 6830     RESTAURANT    RISK 1 (HIGH)               7.0     12  2022</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#&gt; 6649     RESTAURANT    RISK 1 (HIGH)              39.0     11  2022</span></span>
 <span id="cb18-8"><a href="#cb18-8"></a><span class="co">#&gt; ...             ...              ...               ...    ...   ...</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#&gt; 853      RESTAURANT    RISK 1 (HIGH)               0.0      4  2019</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#&gt; 4084  GROCERY STORE     RISK 3 (LOW)               3.0     11  2021</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="co">#&gt; 770   GROCERY STORE     RISK 3 (LOW)               3.0      4  2019</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="co">#&gt; 1413     RESTAURANT    RISK 1 (HIGH)              64.0      9  2019</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a><span class="co">#&gt; 5324     RESTAURANT  RISK 2 (MEDIUM)               4.0      7  2022</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#&gt; 787      RESTAURANT    RISK 1 (HIGH)              70.0      4  2019</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#&gt; 6960     RESTAURANT    RISK 1 (HIGH)              40.0     12  2022</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="co">#&gt; 630      RESTAURANT  RISK 2 (MEDIUM)               8.0      3  2019</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="co">#&gt; 6469     RESTAURANT    RISK 1 (HIGH)              40.0     11  2022</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="co">#&gt; 6555     RESTAURANT  RISK 2 (MEDIUM)              36.0     11  2022</span></span>
 <span id="cb18-14"><a href="#cb18-14"></a><span class="co">#&gt; </span></span>
 <span id="cb18-15"><a href="#cb18-15"></a><span class="co">#&gt; [5573 rows x 5 columns]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -899,7 +900,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_e65433da" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_440d2b8c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1002,7 +1003,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_c42c2512" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_afcb4efd" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
