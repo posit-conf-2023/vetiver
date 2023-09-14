@@ -223,10 +223,11 @@ library(countdown)
 countdown(minutes = 3)
 ```
 
-# Posit Workbench
+# Workshop infrastructure
 
-- Log in at [workbench-url-goes-here](tktk) with the identifier `tktk`
-- Use RStudio for R or VS Code for Python
+- Log in at [pos.it/class](https://pos.it/class) with the identifier `vetiver2023`
+- Even if you plan to work locally, set this up with us so you can use Posit Connect as a deployment target
+- For Posit Workbench, use RStudio for R or VS Code for Python
 - Open the folder `class-work` in the `vetiver` directory
 
 ## Your turn 🏺 {transition="slide-in"}
@@ -235,7 +236,7 @@ countdown(minutes = 3)
 
 ## Activity
 
-Log in at [workbench-url-goes-here](tktk) with the identifier `tktk`.
+Log in at [pos.it/class](https://pos.it/class) with the identifier `vetiver2023`
 
 Start a new session, either RStudio or VS Code.
 
