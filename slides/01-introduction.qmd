@@ -59,13 +59,15 @@ Wi-Fi password
 ## Welcome! {.smaller}
 
 ::: {.nonincremental}
-- There are gender-neutral bathrooms located among the Grand Suite Bathrooms.
-- There are two meditation/prayer rooms: Grand Suite 2A and Grand Suite 2B.
-  - Open Sunday - Tuesday 7:30 AM - 7:00 PM, Wednesday 8:00 AM - 6:00 PM.
-- The lactation room is located in Grand Suite 1.
-  - Open Sunday - Tuesday 7:30 AM - 7:00 PM, Wednesday 8:00 AM - 6:00 PM.
-- Participants who do not wish to be photographed have red lanyards; please note everyone's lanyard colors before taking a photo and respect their choices.
-- The Code of Conduct and COVID policies can be found at https://posit.co/code-of-conduct/. Please review them carefully. You can report Code of Conduct violations in person, by email, or by phone. Please see the policy linked above for contact information.
+- There are gender-neutral bathrooms located among the Grand Suite Bathrooms
+- There are two meditation/prayer rooms: Grand Suite 2A and Grand Suite 2B
+  - Open Sunday - Tuesday 7:30 AM - 7:00 PM, Wednesday 8:00 AM - 6:00 PM
+- The lactation room is located in Grand Suite 1
+  - Open Sunday - Tuesday 7:30 AM - 7:00 PM, Wednesday 8:00 AM - 6:00 PM
+- Participants who do not wish to be photographed have red lanyards; please note everyone's lanyard colors before taking a photo and respect their choices
+- The Code of Conduct and COVID policies can be found at <https://posit.co/code-of-conduct/>
+  - Please review them carefully! ❤️ 
+  - You can report Code of Conduct violations in person, by email, or by phone; see the policy linked above for contact information
 :::
 
 ## Who are you?
@@ -611,7 +613,10 @@ countdown(minutes = 5)
 ```{r}
 #| eval: false
 library(pins)
+library(vetiver)
+
 board <- board_temp()
+v <- vetiver_model(inspection_fit, "inspection-result-rstats")
 board |> vetiver_pin_write(v)
 ```
 
@@ -620,9 +625,10 @@ board |> vetiver_pin_write(v)
 ```{python}
 #| eval: false
 from pins import board_temp
-from vetiver import vetiver_pin_write
+from vetiver import VetiverModel, vetiver_pin_write
 
 board = board_temp(allow_pickle_read = True)
+v = VetiverModel(inspection_fit, "inspection-result-python", prototype_data = X_train)
 vetiver_pin_write(board, v)
 ```
 
@@ -633,7 +639,10 @@ vetiver_pin_write(board, v)
 ```{r}
 #| eval: false
 library(pins)
+library(vetiver)
+
 board <- board_connect()
+v <- vetiver_model(inspection_fit, "julia.silge/inspection-result-rstats")
 board |> vetiver_pin_write(v)
 ```
 
@@ -642,11 +651,12 @@ board |> vetiver_pin_write(v)
 ```{python}
 #| eval: false
 from pins import board_connect
-from vetiver import vetiver_pin_write
+from vetiver import VetiverModel, vetiver_pin_write
 from dotenv import load_dotenv
 load_dotenv()
 
 board = board_connect(allow_pickle_read = True)
+v = VetiverModel(inspection_fit, "isabel.zimmerman/inspection-result-python", prototype_data = X_train)
 vetiver_pin_write(board, v)
 ```
 
@@ -658,7 +668,7 @@ vetiver_pin_write(board, v)
 
 Create an API key for our Posit Connect server, and save it on Workbench in your working directory (in `.Renviron` for R or `.env` for Python).
 
-Pin your model to our Connect instance.
+Create a new vetiver model object that includes your username, and pin this vetiver model to our Connect instance.
 
 Visit your pin's homepage on Connect.
 
