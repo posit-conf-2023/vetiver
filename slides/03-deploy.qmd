@@ -460,7 +460,7 @@ import vetiver
 import pins
 
 
-b = pins.board_connect(server_url='https://colorado.posit.co/rsc', allow_pickle_read=True)
+b = pins.board_connect(allow_pickle_read=True)
 v = VetiverModel.from_pin(b, 'isabel.zimmerman/inspection-result-python', version = '78841')
 
 vetiver_api = vetiver.VetiverAPI(v)
@@ -564,7 +564,7 @@ import vetiver
 import pins
 
 
-b = pins.board_connect(server_url='https://colorado.posit.co/rsc', allow_pickle_read=True)
+b = pins.board_connect(allow_pickle_read=True)
 v = VetiverModel.from_pin(b, 'isabel.zimmerman/inspection-result-python', version = '78841')
 
 vetiver_api = vetiver.VetiverAPI(v)
@@ -583,7 +583,7 @@ import pins
 import calendar
 
 
-b = pins.board_connect(server_url='https://colorado.posit.co/rsc', allow_pickle_read=True)
+b = pins.board_connect(allow_pickle_read=True)
 v = VetiverModel.from_pin(b, 'isabel.zimmerman/inspection-result-python', version = '78841')
 
 def get_month_names(x):

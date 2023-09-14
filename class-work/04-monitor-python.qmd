@@ -78,5 +78,5 @@ by_facility_type
 
 To wrap up, create a model monitoring dashboard or report and publish it to Connect. You have a few options:
 
-- Open the `04-monitor-report.qmd`, make any changes you like (for example, different metrics or visualizations), knit it, and publish to Connect.
+- Open the `04-monitor-report.qmd`, make any changes you like (for example, different metrics or visualizations), render it, and publish to Connect.
 - Open a fresh Jupyter Notebook or Quarto file. Update to make a report for _your_ model and publish to Connect.

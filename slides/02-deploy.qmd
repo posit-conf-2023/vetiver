@@ -115,7 +115,7 @@ from pins import board_connect
 from dotenv import load_dotenv
 load_dotenv()
 
-v = VetiverModel(inspection_fit, "chicago-inspections-python", prototype_data = X_train)
+v = VetiverModel(inspection_fit, "user.name/chicago-inspections-python", prototype_data = X_train)
 board = board_connect(allow_pickle_read = True)
 vetiver_pin_write(board, v)
 ```
@@ -240,8 +240,9 @@ vetiver_deploy_rsconnect(board, "user.name/chicago-inspections-rstats")
 ```{python}
 #| eval: false
 from rsconnect.api import RSConnectServer
+
 connect_server = RSConnectServer(url = rsc_url, api_key = api_key)
-board = pins.board_connect(server_url = url, api_key = api_key, allow_pickle_read = True)
+board = pins.board_connect(allow_pickle_read = True)
 
 vetiver.deploy_rsconnect(
     connect_server = connect_server,

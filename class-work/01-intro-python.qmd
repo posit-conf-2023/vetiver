@@ -73,7 +73,7 @@ v.description
 
 ```{python}
 ## create a temp board and pin your model
-import pins
+from pins import board_temp
 from vetiver import vetiver_pin_write
 
 board = ___
