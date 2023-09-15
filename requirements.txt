@@ -8,4 +8,4 @@ pins==0.8.3
 plotnine
 pydantic==1.10.11
 scikit-learn
-vetiver==0.2.2
+vetiver==0.2.3
