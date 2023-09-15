@@ -122,5 +122,5 @@ ___(board, v)
 What versions do you have?
 
 ```{python}
-board.pin_versions()
+board.pin_versions(___)
 ```
