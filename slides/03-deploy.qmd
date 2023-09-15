@@ -456,7 +456,7 @@ extracted_metrics
 
 Obtain the metrics metadata for your versioned model.
 
-Obtain the metrics metadata for _your neighbor's_ model.
+Optional: Obtain the metrics metadata for _your neighbor's_ model by calling the `/metadata` endpoint for their API.
 
 What else might you want to store as model metadata?
 

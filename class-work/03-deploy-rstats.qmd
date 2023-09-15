@@ -67,7 +67,7 @@ board <- ___
 board |> ___
 ```
 
-Get your own metrics metadata:
+Get your metrics metadata:
 
 ```{r}
 extracted_metrics <- 
@@ -79,11 +79,12 @@ extracted_metrics <-
 extracted_metrics
 ```
 
-Get **your neighbor's** metrics metadata:
+If you have time, get **your neighbor's** metrics metadata by calling the `/metadata` endpoint of their model:
 
 ```{r}
-board |> 
-  pin_meta(___) |> 
+url <- ___
+r <- httr::content(httr::GET(url), as = "text", encoding = "UTF-8")
+jsonlite::fromJSON(___) |> 
   pluck("user", "metrics") |> 
   as_tibble()
 ```
