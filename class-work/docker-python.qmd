@@ -9,10 +9,11 @@ format: html
 ```{python}
 import pins
 from vetiver import VetiverModel
+raw = "https://colorado.rstudio.com/rsc"
+paths = {"chicago-model-python": "chicago-model-python/"}
+board = pins.board_url(raw, paths, allow_pickle_read=True)
 
-board = pins.board_url("https://colorado.posit.co/rsc/", {'chicago-inspections-python':'/chicago-inspections-model-py/'}, allow_pickle_read = True)
-
-VetiverModel.from_pin(board,"chicago-inspections-python")
+VetiverModel.from_pin(board,"chicago-model-python")
 ```
 
 ## Create artifacts to run a Dockerfile
@@ -22,7 +23,7 @@ import vetiver
 
 vetiver.prepare_docker(
     board = board, 
-    pin_name = "chicago-inspections-python",
+    pin_name = "chicago-model-python",
     version = None
 )
 ```
