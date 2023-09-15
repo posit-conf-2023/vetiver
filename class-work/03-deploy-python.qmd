@@ -34,7 +34,7 @@ oe = compose.make_column_transformer(
 rf = ensemble.RandomForestClassifier().fit(oe.transform(X_train), y_train)
 inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", rf)])
 
-v = VetiverModel(___, ___)
+v = VetiverModel(___, ___, ___)
 ```
 
 ## Docker 🐳
@@ -84,6 +84,10 @@ Write a new version of your pin:
 
 ```{python}
 from pins import board_connect
+from vetiver import vetiver_pin_write
+from dotenv import load_dotenv()
+load_dotenv()
+
 board =  ___
 vetiver_write_pin(___, ___)
 ```
@@ -109,7 +113,8 @@ extracted_metrics
 Write an `app.py` file:
 
 ```{python}
-vetiver.write_app(board, ___)
+from vetiver import write_app
+write_app(board, ___)
 ```
 
 Open the file and view it locally. To start the API, add `vetiver_api.run()` as a last line and run file.

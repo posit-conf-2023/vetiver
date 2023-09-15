@@ -61,7 +61,7 @@ inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("random_forest", l
 
 ```{python}
 from vetiver import VetiverModel
-v = VetiverModel(___, ___)
+v = VetiverModel(___, ___, ___)
 v.description
 ```
 
@@ -93,6 +93,7 @@ board.pin_meta(___)
 ```{python}
 ## now write your model pin to Posit Connect
 from dotenv import load_dotenv
+from pins import board_connect
 load_dotenv()
 
 board = ___
@@ -106,6 +107,7 @@ Visit your pin's homepage on Connect.
 Train your model with a new algorithm:
 
 ```{python}
+from sklearn import ensemble
 __ = __.fit(oe.transform(X_train), y_train)
 inspection_fit = pipeline.Pipeline([("ordinal_encoder", oe), ("___", __)])
 ```
