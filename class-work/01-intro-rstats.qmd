@@ -78,8 +78,7 @@ board |> pin_meta(___)
 
 ## Publish your model on Posit Connect 🚀
 
-- Create an API key on Connect: <https://docs.posit.co/connect/user/api-keys/>
-- Store it as `CONNECT_API_KEY` in `.Renviron`
+Set up publishing to Connect from RStudio: <https://docs.posit.co/connect/user/publishing/#publishing-general>
 
 ```{r}
 ## now write your model pin to Posit Connect
