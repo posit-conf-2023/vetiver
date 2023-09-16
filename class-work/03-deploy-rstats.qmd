@@ -79,7 +79,7 @@ extracted_metrics <-
 extracted_metrics
 ```
 
-If you have time, get **your neighbor's** metrics metadata by calling the `/metadata` endpoint of their model:
+If you have time, redeploy your model and then get **your neighbor's** metrics metadata by calling the `/metadata` endpoint of their model:
 
 ```{r}
 url <- ___
