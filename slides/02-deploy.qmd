@@ -257,7 +257,7 @@ vetiver.deploy_rsconnect(
 
 ## Activity
 
-Deploy your model to our Posit Connect instance.
+Deploy your model to your Posit Connect server.
 
 Give your API a vanity URL.
 

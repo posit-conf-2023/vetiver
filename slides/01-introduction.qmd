@@ -671,10 +671,10 @@ Either:
 
 ::: {.nonincremental}
 - Set up Connect publishing from RStudio.
-- Create an API key for our Posit Connect server, and save it on Workbench in your working directory (in `.Renviron` for R or `.env` for Python).
+- Create an API key for your Posit Connect server, and save it on Workbench in your working directory (in `.Renviron` for R or `.env` for Python).
 :::
 
-Create a new vetiver model object that includes your username, and pin this vetiver model to our Connect instance.
+Create a new vetiver model object that includes your username, and pin this vetiver model to your Connect instance.
 
 Visit your pin's homepage on Connect.
 
