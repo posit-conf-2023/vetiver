@@ -78,7 +78,7 @@ board |> pin_meta(___)
 
 ## Publish your model on Posit Connect 🚀
 
-Set up publishing to Connect from RStudio: <https://docs.posit.co/connect/user/publishing/#publishing-general>
+Set up publishing to Connect from RStudio: <https://docs.posit.co/connect/user/publishing/>
 
 ```{r}
 ## now write your model pin to Posit Connect

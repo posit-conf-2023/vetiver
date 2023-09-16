@@ -605,7 +605,7 @@ countdown(minutes = 5)
 
 - Posit Connect is a publishing platform for data science
 - For Python, generate an API key: <https://docs.posit.co/connect/user/api-keys/>
-- For R, set up publishing from RStudio: <https://docs.posit.co/connect/user/publishing/#publishing-general>
+- For R, set up publishing from RStudio: <https://docs.posit.co/connect/user/publishing/>
 
 ## Version your model {auto-animate=true}
 
@@ -670,7 +670,7 @@ vetiver_pin_write(board, v)
 Either:
 
 ::: {.nonincremental}
-- Set up Connect publishing from RStudio: <https://docs.posit.co/connect/user/publishing/#publishing-general>
+- Set up Connect publishing from RStudio.
 - Create an API key for our Posit Connect server, and save it on Workbench in your working directory (in `.Renviron` for R or `.env` for Python).
 :::
 
