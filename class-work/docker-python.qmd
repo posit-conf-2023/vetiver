@@ -45,6 +45,18 @@ docker run -p 8080:8080 inspections
 ## Make predictions
 
 ```{python}
+import pandas as pd
+
+data = pd.DataFrame(
+    {
+        "facility_type": ["RESTAURANT", "RESTAURANT", "GROCERY STORE"],
+        "risk": ["RISK 2 (MEDIUM)", "RISK 1 (HIGH)", "RISK 2 (MEDIUM)"],
+        "total_violations": [50.0, 24.0, 0.0],
+        "month": [7, 2, 1],
+        "year": [2018, 2018, 2018]
+    }
+)
+
 endpoint = vetiver.vetiver_endpoint(url = ___)
 vetiver.predict(endpoint = ___, data = ___)
 ```
