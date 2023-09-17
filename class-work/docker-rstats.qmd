@@ -41,5 +41,17 @@ docker run -p 8000:8000 inspections
 ```{r}
 ## check your URL here:
 endpoint <- vetiver_endpoint("http://127.0.0.1:8000/predict/")
-predict(endpoint = ___, new_data = ___)
+```
+
+With some new data:
+
+```{r}
+new_data <- tibble::tibble(
+  facility_type = c("RESTAURANT", "RESTAURANT", "GROCERY STORE"),
+  risk = c("RISK 3 (LOW)", "RISK 1 (HIGH)", "RISK 1 (HIGH)"),
+  total_violations = 10 + c(0, 1e2, 1e3),
+  inspection_date = lubridate::today() - c(0, 1e3, 1e4)
+)
+
+predict(endpoint, new_data)
 ```
