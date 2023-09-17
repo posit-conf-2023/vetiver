@@ -118,7 +118,7 @@ FROM python:3.9
 # create directory in container for vetiver files
 WORKDIR /vetiver
 
-# copy  and install requirements
+# copy and install requirements
 COPY vetiver_requirements.txt /vetiver/requirements.txt
 
 #
